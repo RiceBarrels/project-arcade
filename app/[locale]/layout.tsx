@@ -4,7 +4,7 @@ import { DM_Sans, Space_Mono } from "next/font/google";
 import "../globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { LOCALES, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
+import { LOCALES, SITE_DESCRIPTION, SITE_NAME, SITE_STAGE, SITE_TAGLINE } from "@/lib/site";
 
 const dmSans = DM_Sans({ variable: "--font-dm-sans", subsets: ["latin"] });
 const spaceMono = Space_Mono({
@@ -14,7 +14,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { default: `${SITE_NAME} - ${SITE_TAGLINE}`, template: `%s | ${SITE_NAME}` },
+  title: { default: `${SITE_NAME} (${SITE_STAGE}) - ${SITE_TAGLINE}`, template: `%s | ${SITE_NAME}` },
   description: SITE_DESCRIPTION,
 };
 

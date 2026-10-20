@@ -28,7 +28,7 @@ export default function TermsPage() {
       </p>
       <header className="space-y-2">
         <h1 className="text-4xl font-black uppercase">Terms of use</h1>
-        <p className="text-sm font-medium">Last updated: [date]</p>
+        <p className="text-sm font-medium">Last updated: Oct 19, 2025</p>
       </header>
       <p className="rounded-lg border-2 border-border bg-accent p-4 font-medium text-accent-foreground shadow-xs">
         <strong>The short version:</strong> This site helps neighbours lend gear to each other. We introduce you; the

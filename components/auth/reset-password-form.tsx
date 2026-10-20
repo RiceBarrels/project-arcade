@@ -15,6 +15,7 @@ export function ResetPasswordForm() {
         type="password"
         autoComplete="new-password"
         hint="At least 8 characters."
+        minLength={8}
         error={state.fields?.password}
         required
       />

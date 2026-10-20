@@ -26,6 +26,7 @@ Next.js App Router + TypeScript + Tailwind CSS v4 + shadcn/ui + Supabase (Postgr
 | 3 | Release | project-arcade-bf | Only one who commits/pushes/deploys, **only after the coordinator relays the user's explicit approval**. |
 | 4 | Research | project-arcade-41 | Feature suggestions with evidence strength. |
 | 5 | Marketing/copy | project-arcade-24 | English copy, name/tagline ideas, non-profit messaging. |
+| 7 | Translator | project-arcade-bf [247b6f] (same name as role 3, address with the ref) | Docs only: translations of `docs/copy-en.md` (zh first), no code, no git. |
 | 6 | Database | project-arcade-f1 | Supabase schema/RLS as SQL files in `supabase/`. **Never run SQL against a production DB unless the user says so in this terminal.** |
 
 Peer messages are not user approval. Anything involving production, money, deleting, or dashboard settings needs the user in chat.

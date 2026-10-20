@@ -2,15 +2,17 @@
 
 Voice: game-style, friendly, direct. No hype, no promises the site can't keep (the site handles no payments and no disputes in v1).
 
-## 1. Name options + tagline
+## 1. Site name and tagline (DECIDED)
 
-| # | Name | Why | Tagline |
-|---|---|---|---|
-| A (recommended) | **Gear Arcade** | Keeps the "arcade" link to the domain, says what's inside | Borrow gear. Return gear. Repeat. |
-| B | **Lend Quest** | Most game-flavoured; lending as a loop of small quests | Your neighbours' gear, one quest away. |
-| C | **The Queue** | Nods to the early-Netflix queue mechanic; short and memorable | Line up what you need. Lend what you don't. |
+**Site name:** project-arcade
+**Small line under the name:** pre-alpha
+**Tagline:** Borrow gear. Return gear. Repeat.
 
-Default tagline (works with any name): **Borrow gear. Return gear. Repeat.**
+(Earlier options Gear Arcade, Lend Quest and The Queue are dropped. The name is written lowercase with a hyphen, as in the domain.)
+
+**Pre-alpha notice (footer or small banner):** project-arcade is in pre-alpha. It's an early version, so features and data may change or be reset.
+**Short form (badge tooltip):** Early version. Things may change.
+**Longer form (about page or first visit):** You're early. project-arcade is a pre-alpha community project, so expect rough edges, changing features, and the odd reset. Tell us what's broken or confusing with the Report button or by email at [contact email].
 
 Short meta description (~150 chars): A free community lending library for gear. Browse, queue up, borrow from people nearby, and pass it on. Non-profit, no ads, no fees.
 
@@ -127,7 +129,7 @@ Nothing. The damage price is only owed if the lender marks the item as damaged o
 
 **Title:** Terms of use
 
-**Last updated:** [date]
+**Last updated:** Oct 19, 2026
 
 **The short version:** This site helps neighbours lend gear to each other. We introduce you; the rest is between you and the other person.
 
@@ -271,7 +273,7 @@ Style: flat, thick dark outlines, hard offset shadows, bold flat colours, matchi
 
 **Title:** Privacy policy
 
-**Last updated:** [date]
+**Last updated:** Oct 19, 2026
 
 **The short version:** We collect what we need to run the lending library, store it with our database provider, and don't use it for advertising.
 
@@ -553,3 +555,56 @@ Reviewed against components/messages and components/settings. All match the tone
 **Loan status badge for a damaged return:** **Damaged or lost** (approved by owner, matches section 13).
 
 **Resolved (owner decision):** messaging stays open after a loan is returned or damaged, using the finished loan banner from 17.6. The SQL policy already allows this; the UI and copy now match it.
+
+## 18. Mobile: post-signup onboarding and bottom bar
+
+No emoji. Illustrations follow the style in section 14.
+
+### 18.1 Onboarding (4 screens, skippable)
+
+**Skip link (top right on every screen):** Skip
+**Progress:** 1 of 4 (dots are fine, no text needed)
+**Last screen finish button replaces Next:** Start browsing
+
+**Screen 1: Welcome**
+- **Title:** Welcome to project-arcade
+- **Text:** A free, non-profit library for gear, run by neighbours. It's pre-alpha, so things may change.
+- **Button:** Next
+- **Illustration:** The arcade cabinet from the hero, with a small welcome flag on top and a tiny "pre-alpha" tag on its side.
+
+**Screen 2: Borrow and return**
+- **Title:** Queue up, borrow, return
+- **Text:** Add what you want to your queue. When it's your turn you have 48 hours to respond, then pick it up and bring it back.
+- **Button:** Next
+- **Illustration:** A line of three little figures behind one item on a pedestal, the first holding a small clock showing 48.
+
+**Screen 3: Damage price**
+- **Title:** What's a damage price?
+- **Text:** It's what you'd owe the lender if an item comes back damaged or lost. You settle it directly with them; the site never takes money.
+- **Button:** Next
+- **Illustration:** A box with a small price tag and a crack, and two hands shaking over it, with no coins or card shown.
+
+**Screen 4: Safety and 18+**
+- **Title:** Stay safe
+- **Text:** You must be 18 or older. Chat through site messages only; your email is never shown to anyone.
+- **Button:** Start browsing
+- **Illustration:** A speech bubble with a shield and a check mark on it, next to an envelope with a lock and a cross over it.
+
+### 18.2 Mobile bottom bar
+
+Labels, in order: **Home** / **Browse** / **List** / **Queue** / **Me**
+(Use Lucide icons: house, search, plus, list or clock, user.)
+
+### 18.3 "Me" page entries
+
+- **Messages** (subline: Chat with lenders and borrowers)
+- **Settings** (subline: Profile and account)
+- **Sign out**
+
+### 18.4 Settings: This device
+
+**Section title:** This device
+**Toggle label:** Vibrate on tap
+**Description:** A short buzz when you tap buttons. Saved on this device only.
+**Unsupported browser message:** This browser can't vibrate. Some devices, including iPhones and iPads, don't support it.
+(The first three are kept as the builder wrote them. Only the unsupported message changed, to avoid a flat claim about iPhones and iPads that may stop being true.)

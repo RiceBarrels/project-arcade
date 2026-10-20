@@ -27,6 +27,7 @@ export function SignupForm() {
         type="password"
         autoComplete="new-password"
         hint="At least 8 characters."
+        minLength={8}
         error={f.password}
         required
       />

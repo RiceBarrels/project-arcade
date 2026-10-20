@@ -15,14 +15,12 @@ export function ThreadView({ thread, preview = false }: { thread: ThreadData; pr
   // Who may write, per docs/copy-en.md 17.6:
   // - requested: locked until the lender approves.
   // - approved / handed_off: open.
-  // - returned / damaged: read-only banner.
-  //   NOTE for the owner: supabase/05-messages-and-deletion.sql (messages_insert) still allows messages after
-  //   return/damage so a damage claim can be settled, but copy 17.6 says the thread becomes read-only. The UI
-  //   follows the copy for now; decide which one wins and update either the policy or this check.
+  // - returned / damaged: still open (owner decision, matches messages_insert in
+  //   supabase/05-messages-and-deletion.sql) so a damage claim can be settled; shows the finished-loan banner.
   // - declined / cancelled: never opened (getMyConversations doesn't list them either).
   // A deleted other party also closes the composer (the insert policy requires both people to exist).
-  const isOpen = status === "approved" || status === "handed_off";
   const isFinished = status === "returned" || status === "damaged";
+  const isOpen = status === "approved" || status === "handed_off" || isFinished;
   const canWrite = isOpen && thread.other !== null;
 
   return (
@@ -77,10 +75,9 @@ export function ThreadView({ thread, preview = false }: { thread: ThreadData; pr
         )}
       </section>
 
+      {isFinished && <Notice icon="info">This loan is finished. You can still message each other about a damage claim.</Notice>}
       {status === "requested" ? (
         <Notice icon="lock">Messaging opens once the lender approves the request.</Notice>
-      ) : isFinished ? (
-        <Notice icon="lock">This loan is finished, so the conversation is now read-only.</Notice>
       ) : !isOpen ? (
         <Notice icon="lock">This request is closed, so you can&apos;t send new messages.</Notice>
       ) : !canWrite ? (

@@ -13,6 +13,7 @@ export function TextField({
   autoComplete,
   error,
   hint,
+  minLength,
   maxLength,
   required,
 }: {
@@ -22,6 +23,7 @@ export function TextField({
   autoComplete?: string;
   error?: string;
   hint?: string;
+  minLength?: number;
   maxLength?: number;
   required?: boolean;
 }) {
@@ -35,6 +37,7 @@ export function TextField({
         name={name}
         type={type}
         autoComplete={autoComplete}
+        minLength={minLength}
         maxLength={maxLength}
         required={required}
         aria-invalid={!!error}

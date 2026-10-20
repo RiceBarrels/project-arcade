@@ -6,7 +6,7 @@ const LABEL: Record<LoanStatus, string> = {
   approved: "Approved",
   handed_off: "Handed off",
   returned: "Returned",
-  damaged: "Returned damaged",
+  damaged: "Damaged or lost",
   declined: "Declined",
   cancelled: "Cancelled",
 };
