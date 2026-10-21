@@ -1,12 +1,13 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { Send } from "lucide-react";
 import { FocusStatus } from "@/components/focus-status";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useRouter, useT } from "@/i18n/client";
+import { msg } from "@/i18n/msg";
 import { WRITES_ENABLED } from "@/lib/domain";
 import { createClient } from "@/lib/supabase/client";
 import { MESSAGE_MAX } from "./types";
@@ -27,12 +28,14 @@ export function MessageComposer({
   preview?: boolean;
 }) {
   const router = useRouter();
+  const t = useT();
   const id = useId();
   const fieldId = `${id}-body`;
   const countId = `${id}-count`;
   const errorId = `${id}-error`;
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [body, setBody] = useState("");
+  // An English source string (msg), translated when shown.
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
   // Bumped on each preview-only submit so the notice remounts and takes focus again.
@@ -44,13 +47,13 @@ export function MessageComposer({
     const text = body.trim();
     if (text.length === 0) {
       setPreviewShown(0);
-      setError("Write a message before sending.");
+      setError(msg("Write a message before sending."));
       textareaRef.current?.focus();
       return;
     }
     if (text.length > MESSAGE_MAX) {
       setPreviewShown(0);
-      setError("Messages can be up to 2,000 characters.");
+      setError(msg("Messages can be up to 2,000 characters."));
       textareaRef.current?.focus();
       return;
     }
@@ -64,7 +67,7 @@ export function MessageComposer({
         .insert({ loan_id: loanId, sender_id: senderId, body: text });
       setPending(false);
       if (insertError) {
-        setError("Couldn't send your message. Please try again.");
+        setError(msg("Couldn't send your message. Please try again."));
         textareaRef.current?.focus();
         return;
       }
@@ -82,7 +85,7 @@ export function MessageComposer({
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-2 rounded-lg border-2 border-border bg-card p-3 text-card-foreground shadow-xs sm:p-4">
       <Label htmlFor={fieldId} className="sr-only">
-        Message
+        {t("Message")}
       </Label>
       <Textarea
         ref={textareaRef}
@@ -96,22 +99,22 @@ export function MessageComposer({
         }}
         maxLength={MESSAGE_MAX}
         rows={3}
-        placeholder="Write a message"
+        placeholder={t("Write a message")}
         aria-invalid={!!error}
         aria-describedby={describedBy}
         className="min-h-24 bg-background"
       />
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p id={countId} className="text-sm font-medium">
-          {body.length} / {MESSAGE_MAX.toLocaleString("en-US")}
+          {t.number(body.length, { useGrouping: false })} / {t.number(MESSAGE_MAX)}
         </p>
         <Button type="submit" disabled={pending}>
-          <Send aria-hidden /> Send
+          <Send aria-hidden className="rtl:-scale-x-100" /> {t("Send")}
         </Button>
       </div>
       {error && (
         <p id={errorId} role="alert" className="text-sm font-bold text-destructive">
-          {error}
+          {t(error)}
         </p>
       )}
       {previewShown > 0 && (
@@ -119,7 +122,7 @@ export function MessageComposer({
           key={previewShown}
           className="rounded-lg border-2 border-border bg-secondary p-3 font-bold text-secondary-foreground"
         >
-          Preview only: nothing was sent or saved yet.
+          {t("Preview only: nothing was sent or saved yet.")}
         </FocusStatus>
       )}
     </form>

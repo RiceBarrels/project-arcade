@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useT } from "@/i18n/client";
 import { WRITES_ENABLED } from "@/lib/domain";
 import { updateProfile } from "@/components/settings/actions";
 import {
@@ -22,7 +23,9 @@ import {
 // Profile editor. Writes are off (WRITES_ENABLED): validates, then shows the
 // preview notice. When enabled it calls the updateProfile Server Action, which
 // re-reads the session and updates public.profiles for that user only.
+// Errors and notices hold English source strings (msg) and are translated when shown.
 export function ProfileForm({ initial }: { initial: ProfileValues }) {
+  const t = useT();
   const [errors, setErrors] = useState<ProfileErrors>({});
   const [formError, setFormError] = useState("");
   // Bumped on every successful submit so FocusStatus remounts and takes focus again.
@@ -55,7 +58,7 @@ export function ProfileForm({ initial }: { initial: ProfileValues }) {
       return;
     }
     startTransition(async () => {
-      const res = await updateProfile(values).catch(() => ({ ok: false as const, error: PROFILE_ERROR }));
+      const res = await updateProfile(values, t.locale).catch(() => ({ ok: false as const, error: PROFILE_ERROR }));
       if (res.ok) {
         setNotice((prev) => ({ n: (prev?.n ?? 0) + 1, text: PROFILE_SAVED }));
       } else {
@@ -81,9 +84,9 @@ export function ProfileForm({ initial }: { initial: ProfileValues }) {
     <form ref={formRef} onSubmit={onSubmit} onChange={clearNotice} noValidate className="space-y-5">
       <Field
         name="display_name"
-        label="Display name"
+        label={t("Display name")}
         error={errors.display_name}
-        hint={`Up to ${LIMITS.display_name} characters.`}
+        hint={t("Up to {max} characters.", { max: LIMITS.display_name })}
       >
         {(a11y) => (
           <Input
@@ -96,18 +99,28 @@ export function ProfileForm({ initial }: { initial: ProfileValues }) {
           />
         )}
       </Field>
-      <Field name="city" label="City" error={errors.city} hint={`Optional. Up to ${LIMITS.city} characters.`}>
+      <Field
+        name="city"
+        label={t("City")}
+        error={errors.city}
+        hint={t("Optional. Up to {max} characters.", { max: LIMITS.city })}
+      >
         {(a11y) => (
           <Input {...a11y} defaultValue={initial.city} maxLength={LIMITS.city} autoComplete="address-level2" />
         )}
       </Field>
-      <Field name="bio" label="Bio" error={errors.bio} hint={`Optional. Up to ${LIMITS.bio} characters.`}>
+      <Field
+        name="bio"
+        label={t("Bio")}
+        error={errors.bio}
+        hint={t("Optional. Up to {max} characters.", { max: LIMITS.bio })}
+      >
         {(a11y) => (
           <Textarea
             {...a11y}
             defaultValue={initial.bio}
             maxLength={LIMITS.bio}
-            placeholder={BIO_PLACEHOLDER}
+            placeholder={t(BIO_PLACEHOLDER)}
             className="min-h-28"
           />
         )}
@@ -115,20 +128,20 @@ export function ProfileForm({ initial }: { initial: ProfileValues }) {
 
       {formError && (
         <p role="alert" className="rounded-lg border-2 border-border bg-background p-3 text-sm font-bold text-destructive">
-          {formError}
+          {t(formError)}
         </p>
       )}
 
       <div className="flex flex-wrap items-center gap-4">
         <Button type="submit" size="lg" disabled={pending}>
-          {pending ? "Saving…" : "Save changes"}
+          {pending ? t("Saving…") : t("Save changes")}
         </Button>
         {notice && (
           <FocusStatus
             key={notice.n}
             className="rounded-lg border-2 border-border bg-secondary px-3 py-2 text-sm font-bold text-secondary-foreground shadow-xs"
           >
-            {notice.text}
+            {t(notice.text)}
           </FocusStatus>
         )}
       </div>
@@ -154,6 +167,7 @@ function Field({
     "aria-describedby"?: string;
   }) => React.ReactNode;
 }) {
+  const t = useT();
   const id = `settings-${name}`;
   const describedBy = [hint ? `${id}-hint` : null, error ? `${id}-error` : null].filter(Boolean).join(" ") || undefined;
   return (
@@ -169,7 +183,7 @@ function Field({
       )}
       {error && (
         <p id={`${id}-error`} role="alert" className="text-sm font-bold text-destructive">
-          {error}
+          {t(error, { max: LIMITS[name] })}
         </p>
       )}
     </div>

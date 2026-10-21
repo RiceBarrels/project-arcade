@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button";
 import { CategoryIcon } from "@/components/category-icon";
 import { CheckField } from "@/components/check-field";
 import { FocusStatus } from "@/components/focus-status";
+import { PhotoPicker } from "@/components/photo-picker";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { useT } from "@/i18n/client";
 import { BLOCKED_CATEGORIES, CONDITION_LABEL, categories, WRITES_ENABLED } from "@/lib/domain";
 
 type Field = "title" | "category" | "condition" | "fee" | "damage" | "city" | "safety";
@@ -33,6 +35,7 @@ const errorId = (field: Field) => `${field}-error`;
 // When enabled: upload photos to item-photos/<uid>/..., then insert into items.
 // Field names mirror public.items (damage_price, damage_waived, safety_ack, is_free, fee_amount, fee_period).
 export function ListForm() {
+  const t = useT();
   const [category, setCategory] = useState("");
   const [condition, setCondition] = useState("");
   const [pricing, setPricing] = useState<"free" | "fee">("free");
@@ -46,13 +49,13 @@ export function ListForm() {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
     const next: Errors = {};
-    if (!String(f.get("title") ?? "").trim()) next.title = "Please add a title.";
-    if (!categories.some((c) => c.slug === category)) next.category = "Please pick a category.";
-    if (!condition) next.condition = "Please pick a condition.";
+    if (!String(f.get("title") ?? "").trim()) next.title = t("Please add a title.");
+    if (!categories.some((c) => c.slug === category)) next.category = t("Please pick a category.");
+    if (!condition) next.condition = t("Please pick a condition.");
     if (pricing === "fee") {
       const fee = Number(String(f.get("fee_amount") ?? "").trim());
       if (!String(f.get("fee_amount") ?? "").trim() || !Number.isFinite(fee) || fee <= 0) {
-        next.fee = "Please enter the fee, or switch to Free.";
+        next.fee = t("Please enter the fee, or switch to Free.");
       }
     }
     // damage_price is a required answer: a positive amount, or the explicit
@@ -61,11 +64,11 @@ export function ListForm() {
       const raw = String(f.get("damage_price") ?? "").trim();
       const n = Number(raw);
       if (raw === "" || !Number.isFinite(n) || n <= 0) {
-        next.damage = "Please enter a damage price, even a small one. Or tick “No charge if damaged”.";
+        next.damage = t("Please enter a damage price, even a small one. Or tick “No charge if damaged”.");
       }
     }
-    if (!String(f.get("city") ?? "").trim()) next.city = "Please add a pickup city or area.";
-    if (!safetyAck) next.safety = "Please confirm to continue.";
+    if (!String(f.get("city") ?? "").trim()) next.city = t("Please add a pickup city or area.");
+    if (!safetyAck) next.safety = t("Please confirm to continue.");
     if (Object.keys(next).length === 0) {
       setErrors({});
       setPublished(true);
@@ -87,77 +90,83 @@ export function ListForm() {
   if (published) {
     return (
       <FocusStatus className="rounded-lg border-4 border-border bg-secondary p-6 text-lg font-black text-secondary-foreground shadow">
-        {WRITES_ENABLED ? "Listing published." : "Preview only: nothing was sent or saved yet."}
+        {WRITES_ENABLED ? t("Listing published.") : t("Preview only: nothing was sent or saved yet.")}
       </FocusStatus>
     );
   }
 
   return (
     <form onSubmit={submit} noValidate className="space-y-6 rounded-lg border-4 border-border bg-card p-4 shadow sm:p-6">
-      <FieldBox label="Title" htmlFor="title" field="title" error={errors.title}>
-        <Input id="title" name="title" maxLength={120} placeholder="e.g. Socket wrench set" {...invalid("title")} />
+      <FieldBox label={t("Title")} htmlFor="title" field="title" error={errors.title}>
+        <Input id="title" name="title" maxLength={120} placeholder={t("e.g. Socket wrench set")} {...invalid("title")} />
       </FieldBox>
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <FieldBox label="Category" htmlFor="category" field="category" error={errors.category}>
+        <FieldBox label={t("Category")} htmlFor="category" field="category" error={errors.category}>
           <Select value={category} onValueChange={setCategory}>
             <SelectTrigger id="category" className="min-h-11 md:min-h-10 w-full" {...invalid("category")}>
-              <SelectValue placeholder="Pick one" />
+              <SelectValue placeholder={t("Pick one")} />
             </SelectTrigger>
             <SelectContent>
               {categories.map((c) => (
                 <SelectItem key={c.slug} value={c.slug} className="min-h-11 md:min-h-10">
-                  <CategoryIcon slug={c.slug} /> {c.name}
+                  <CategoryIcon slug={c.slug} /> {t(c.name)}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
-          <p className="text-xs">Not allowed for now: {BLOCKED_CATEGORIES.join(", ").toLowerCase()}.</p>
+          <p className="text-xs">
+            {t("Not allowed for now: {categories}.", {
+              categories: t.list(BLOCKED_CATEGORIES.map((c) => t.lower(t(c)))),
+            })}
+          </p>
         </FieldBox>
-        <FieldBox label="Condition" htmlFor="condition" field="condition" error={errors.condition}>
+        <FieldBox label={t("Condition")} htmlFor="condition" field="condition" error={errors.condition}>
           <Select value={condition} onValueChange={setCondition}>
             <SelectTrigger id="condition" className="min-h-11 md:min-h-10 w-full" {...invalid("condition")}>
-              <SelectValue placeholder="Pick one" />
+              <SelectValue placeholder={t("Pick one")} />
             </SelectTrigger>
             <SelectContent>
               {Object.entries(CONDITION_LABEL).map(([k, v]) => (
-                <SelectItem key={k} value={k} className="min-h-11 md:min-h-10">{v}</SelectItem>
+                <SelectItem key={k} value={k} className="min-h-11 md:min-h-10">{t(v)}</SelectItem>
               ))}
             </SelectContent>
           </Select>
         </FieldBox>
       </div>
 
-      <FieldBox label="Photos" htmlFor="photos">
-        <Input id="photos" name="photos" type="file" accept="image/*" multiple className="min-h-11 md:min-h-10" />
-        <p className="text-xs">A few clear photos help borrowers say yes. Up to 8.</p>
+      <FieldBox label={t("Photos")} htmlFor="photos">
+        <PhotoPicker id="photos" name="photos" hintId="photos-hint" />
+        <p id="photos-hint" className="text-xs">{t("A few clear photos help borrowers say yes. Up to 8.")}</p>
       </FieldBox>
 
-      <FieldBox label="Description" htmlFor="description">
-        <Textarea id="description" name="description" rows={4} maxLength={2000} placeholder="What's included, anything to know before borrowing." />
+      <FieldBox label={t("Description")} htmlFor="description">
+        <Textarea id="description" name="description" rows={4} maxLength={2000} placeholder={t("What's included, anything to know before borrowing.")} />
       </FieldBox>
 
-      <FieldBox label="Free or fee" field="fee" error={errors.fee}>
-        <RadioGroup value={pricing} onValueChange={(v) => setPricing(v as "free" | "fee")} className="flex flex-wrap gap-x-6" aria-label="Free or fee">
-          <label className="flex min-h-11 md:min-h-10 cursor-pointer items-center gap-2 font-bold"><RadioGroupItem value="free" /> Free</label>
-          <label className="flex min-h-11 md:min-h-10 cursor-pointer items-center gap-2 font-bold"><RadioGroupItem value="fee" /> Small fee</label>
+      <FieldBox label={t("Free or fee")} field="fee" error={errors.fee}>
+        <RadioGroup value={pricing} onValueChange={(v) => setPricing(v as "free" | "fee")} className="flex flex-wrap gap-x-6" aria-label={t("Free or fee")}>
+          <label className="flex min-h-11 md:min-h-10 cursor-pointer items-center gap-2 font-bold"><RadioGroupItem value="free" /> {t("Free")}</label>
+          <label className="flex min-h-11 md:min-h-10 cursor-pointer items-center gap-2 font-bold"><RadioGroupItem value="fee" /> {t("Small fee")}</label>
         </RadioGroup>
         {pricing === "fee" && (
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-black" aria-hidden>$</span>
-            <Input id="fee_amount" name="fee_amount" type="number" min="0" step="0.01" inputMode="decimal" placeholder="Fee" aria-label="Fee in USD" className="min-h-11 md:min-h-10 max-w-32" {...invalid("fee")} />
+            <Input id="fee_amount" name="fee_amount" type="number" min="0" step="0.01" inputMode="decimal" placeholder={t("Fee")} aria-label={t("Fee in USD")} className="min-h-11 md:min-h-10 max-w-32" {...invalid("fee")} />
             <Select value={feePeriod} onValueChange={(v) => setFeePeriod(v as "day" | "week" | "loan")}>
-              <SelectTrigger className="min-h-11 md:min-h-10 w-36" aria-label="Fee period"><SelectValue /></SelectTrigger>
+              <SelectTrigger className="min-h-11 md:min-h-10 w-36" aria-label={t("Fee period")}><SelectValue /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="loan" className="min-h-11 md:min-h-10">per loan</SelectItem>
-                <SelectItem value="day" className="min-h-11 md:min-h-10">per day</SelectItem>
-                <SelectItem value="week" className="min-h-11 md:min-h-10">per week</SelectItem>
+                <SelectItem value="loan" className="min-h-11 md:min-h-10">{t("per loan")}</SelectItem>
+                <SelectItem value="day" className="min-h-11 md:min-h-10">{t("per day")}</SelectItem>
+                <SelectItem value="week" className="min-h-11 md:min-h-10">{t("per week")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
         )}
         <p className="text-xs">
-          Lending is free by default. If you&apos;d like a small fee, you can set one. Any fee is agreed and paid directly between you and the borrower, not through this site.
+          {t(
+            "Lending is free by default. If you'd like a small fee, you can set one. Any fee is agreed and paid directly between you and the borrower, not through this site.",
+          )}
         </p>
       </FieldBox>
 
@@ -169,9 +178,9 @@ export function ListForm() {
         className="space-y-3 rounded-lg border-4 border-border bg-accent p-4 text-accent-foreground"
       >
         <h2 id="damage-q" className="text-lg font-black leading-snug">
-          If this gets damaged or lost, what should the borrower pay?
+          {t("If this gets damaged or lost, what should the borrower pay?")}
         </h2>
-        <Label htmlFor="damage_price">Damage price (USD)</Label>
+        <Label htmlFor="damage_price">{t("Damage price (USD)")}</Label>
         <div className="flex items-center gap-2">
           <span className="text-2xl font-black" aria-hidden>$</span>
           <Input
@@ -183,13 +192,13 @@ export function ListForm() {
             inputMode="decimal"
             required={!damageWaived}
             disabled={damageWaived}
-            placeholder={damageWaived ? "No charge" : "e.g. 60"}
+            placeholder={damageWaived ? t("No charge") : t("e.g. 60")}
             className="min-h-11 md:min-h-10 max-w-40 bg-background text-foreground"
             {...invalid("damage")}
           />
         </div>
         <p className="text-sm font-medium">
-          Enter an amount. This is what the borrower agrees to owe you if the item comes back damaged or lost.
+          {t("Enter an amount. This is what the borrower agrees to owe you if the item comes back damaged or lost.")}
         </p>
         <label className="flex min-h-11 md:min-h-10 cursor-pointer items-center gap-3 text-sm font-bold">
           <Checkbox
@@ -197,11 +206,12 @@ export function ListForm() {
             onCheckedChange={(v) => setDamageWaived(v === true)}
             className="size-5 bg-background"
           />
-          No charge if damaged
+          {t("No charge if damaged")}
         </label>
         <p id="damage-help" className="text-xs">
-          Think repair cost or replacement value, whichever is fair. Borrowers see this before they request, so a
-          realistic number helps people say yes. The site doesn&apos;t collect this money. You and the borrower settle it directly.
+          {t(
+            "Think repair cost or replacement value, whichever is fair. Borrowers see this before they request, so a realistic number helps people say yes. The site doesn't collect this money. You and the borrower settle it directly.",
+          )}
         </p>
         {errors.damage && (
           <p id={errorId("damage")} role="alert" className="rounded-lg border-2 border-border bg-background p-2 text-sm font-bold text-destructive">
@@ -210,9 +220,9 @@ export function ListForm() {
         )}
       </section>
 
-      <FieldBox label="Pickup area" htmlFor="city" field="city" error={errors.city}>
-        <Input id="city" name="city" maxLength={80} placeholder="e.g. Portland, OR" className="min-h-11 md:min-h-10" {...invalid("city")} />
-        <p className="text-xs">Pick a city or general area. Don&apos;t put your exact address in the listing.</p>
+      <FieldBox label={t("Pickup area")} htmlFor="city" field="city" error={errors.city}>
+        <Input id="city" name="city" maxLength={80} placeholder={t("e.g. Portland, OR")} className="min-h-11 md:min-h-10" {...invalid("city")} />
+        <p className="text-xs">{t("Pick a city or general area. Don't put your exact address in the listing.")}</p>
       </FieldBox>
 
       <CheckField
@@ -220,13 +230,14 @@ export function ListForm() {
         checked={safetyAck}
         onChange={setSafetyAck}
         error={errors.safety}
-        helper="The site doesn't inspect or guarantee items. Check it over before it goes out, and again before you use it."
+        helper={t("The site doesn't inspect or guarantee items. Check it over before it goes out, and again before you use it.")}
       >
-        I&apos;m responsible for the safety of this item. I&apos;ve checked that it&apos;s safe to lend and that my
-        description is accurate to the best of my knowledge.
+        {t(
+          "I'm responsible for the safety of this item. I've checked that it's safe to lend and that my description is accurate to the best of my knowledge.",
+        )}
       </CheckField>
 
-      <Button type="submit" size="lg" className="w-full">Publish listing</Button>
+      <Button type="submit" size="lg" className="w-full">{t("Publish listing")}</Button>
     </form>
   );
 }

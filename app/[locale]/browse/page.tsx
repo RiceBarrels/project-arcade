@@ -1,15 +1,18 @@
 import { Suspense } from "react";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { CategoryIcon } from "@/components/category-icon";
 import { EmptySearchIllustration } from "@/components/illustrations";
 import { ItemCard } from "@/components/item-card";
 import { SearchForm } from "@/components/search-form";
+import { Link } from "@/i18n/link";
+import { alternates, getT } from "@/i18n/server";
 import { listItems } from "@/lib/data/catalogue";
 import { categories, getCategory } from "@/lib/domain";
-import { path } from "@/lib/paths";
 
-export const metadata: Metadata = { title: "Browse" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getT();
+  return { title: t("Browse"), alternates: await alternates("/browse") };
+}
 
 const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
@@ -18,44 +21,55 @@ function browseHref(category?: string, q?: string) {
   if (category) sp.set("category", category);
   if (q) sp.set("q", q);
   const s = sp.toString();
-  return path(`/browse${s ? `?${s}` : ""}`);
+  return `/browse${s ? `?${s}` : ""}`;
 }
 
 async function Results({ searchParams }: { searchParams: PageProps<"/[locale]/browse">["searchParams"] }) {
-  const sp = await searchParams;
+  const [sp, t] = await Promise.all([searchParams, getT()]);
   const rawCategory = first(sp.category);
   // Ignore unknown/blocked category slugs instead of showing an empty page.
   const category = rawCategory && getCategory(rawCategory) ? rawCategory : undefined;
   const q = (first(sp.q) ?? "").trim().slice(0, 80);
   // Title/description/city match in the database; a category name typed into
-  // search (e.g. "camping") also selects that category.
-  const byName = !category && q ? categories.find((c) => c.name.toLowerCase() === q.toLowerCase()) : undefined;
+  // search (e.g. "camping", in English or the page language) also selects that category.
+  const byName =
+    !category && q
+      ? categories.find((c) => [c.name, t(c.name)].some((n) => n.toLowerCase() === q.toLowerCase()))
+      : undefined;
   const list = byName
     ? await listItems({ category: byName.slug })
     : await listItems({ category, q });
+  const categoryName = category ? t(getCategory(category)?.name ?? "") : "";
+  const n = list.length;
+  const listLink = (c: React.ReactNode) => <Link href="/list" className="underline underline-offset-4">{c}</Link>;
 
   return (
     <>
       <SearchForm key={q} defaultValue={q} category={category} />
-      <nav aria-label="Categories" className="flex flex-wrap gap-2">
-        <Chip href={browseHref(undefined, q)} active={!category}>All</Chip>
+      <nav aria-label={t("Categories")} className="flex flex-wrap gap-2">
+        <Chip href={browseHref(undefined, q)} active={!category}>{t("All")}</Chip>
         {categories.map((c) => (
           <Chip key={c.slug} href={browseHref(c.slug, q)} active={category === c.slug}>
-            <CategoryIcon slug={c.slug} /> {c.name}
+            <CategoryIcon slug={c.slug} /> {t(c.name)}
           </Chip>
         ))}
       </nav>
       <p className="text-sm font-bold" aria-live="polite">
-        {list.length} {list.length === 1 ? "item" : "items"}
-        {q && <> matching &ldquo;{q}&rdquo;</>}
-        {category && <> in {getCategory(category)?.name}</>}
+        {q && category
+          ? t.plural(n, "{count} item matching “{q}” in {category}", "{count} items matching “{q}” in {category}", { q, category: categoryName })
+          : q
+            ? t.plural(n, "{count} item matching “{q}”", "{count} items matching “{q}”", { q })
+            : category
+              ? t.plural(n, "{count} item in {category}", "{count} items in {category}", { category: categoryName })
+              : t.plural(n, "{count} item", "{count} items")}
       </p>
       {list.length === 0 ? (
         <div className="flex flex-col items-center gap-4 rounded-lg border-2 border-dashed border-border bg-muted p-6 text-center">
           <EmptySearchIllustration className="h-auto w-full max-w-64" />
           <p className="font-bold">
-            {q ? "Nothing matches that yet. Try another word, or " : "Nothing here yet. Be the first to "}
-            <Link href={path("/list")} className="underline underline-offset-4">list something</Link>.
+            {q
+              ? t.rich("Nothing matches that yet. Try another word, or <link>list something</link>.", { link: listLink })
+              : t.rich("Nothing here yet. Be the first to <link>list something</link>.", { link: listLink })}
           </p>
         </div>
       ) : (
@@ -81,11 +95,12 @@ function Chip({ href, active, children }: { href: string; active: boolean; child
   );
 }
 
-export default function BrowsePage({ searchParams }: PageProps<"/[locale]/browse">) {
+export default async function BrowsePage({ searchParams }: PageProps<"/[locale]/browse">) {
+  const t = await getT();
   return (
     <div className="space-y-6">
-      <h1 className="text-4xl font-black uppercase">Browse the catalogue</h1>
-      <Suspense fallback={<p>Loading…</p>}>
+      <h1 className="text-4xl font-black uppercase">{t("Browse the catalogue")}</h1>
+      <Suspense fallback={<p>{t("Loading…")}</p>}>
         <Results searchParams={searchParams} />
       </Suspense>
     </div>

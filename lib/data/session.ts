@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { redirect } from "next/navigation";
+import { DEFAULT_LOCALE, localeOfPath, localePath } from "@/i18n/config";
 import type { Profile } from "@/lib/domain";
 import { createClient } from "@/lib/supabase/server";
 
@@ -44,9 +45,15 @@ export const getCurrentUser = cache(async (): Promise<CurrentUser | null> => {
   return profile;
 });
 
-/** For private pages and actions: the user, or a redirect to /login with a return path. */
+/**
+ * For private pages and actions: the user, or a redirect to /login with a
+ * return path. The login page uses the language nextPath starts with.
+ */
 export async function requireUser(nextPath: string): Promise<CurrentUser> {
   const user = await getCurrentUser();
-  if (!user) redirect(`/en/login?next=${encodeURIComponent(nextPath)}`);
+  if (!user) {
+    const locale = localeOfPath(nextPath) ?? DEFAULT_LOCALE;
+    redirect(localePath(`/login?next=${encodeURIComponent(nextPath)}`, locale));
+  }
   return user;
 }

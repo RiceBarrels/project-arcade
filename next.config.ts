@@ -15,15 +15,9 @@ const nextConfig: NextConfig = {
     globalNotFound: true,
   },
   cacheComponents: true,
+  // Legal pages read their Markdown at render time (lib/legal.ts).
+  outputFileTracingIncludes: { "/[locale]/terms": ["./content/legal/**"], "/[locale]/privacy": ["./content/legal/**"] },
   partialPrefetching: true,
-  async redirects() {
-    return [
-      { source: "/", destination: "/en", permanent: false },
-      { source: "/:path(browse|queue|list|profile|signup|login|terms|privacy|messages|settings)", destination: "/en/:path", permanent: false },
-      { source: "/item/:id", destination: "/en/item/:id", permanent: false },
-      { source: "/profile/:id", destination: "/en/profile/:id", permanent: false },
-    ];
-  },
   turbopack: {
     // Pin the root to this repo; a stray bun.lock in the home directory otherwise confuses root detection.
     root: path.resolve(import.meta.dirname),

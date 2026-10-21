@@ -12,9 +12,16 @@ import { supabaseEnv } from "./env";
  * - `finalize(res)`: copies those cookies/headers onto a different response
  *   (redirect or rewrite), so a refresh is never lost.
  */
-export async function updateSession(request: NextRequest) {
+export async function updateSession(request: NextRequest, extraRequestHeaders: Record<string, string> = {}) {
   const { url, key } = supabaseEnv();
-  let response = NextResponse.next({ request });
+  // Pass the request on with any extra headers for the app (e.g. x-pa-locale).
+  // Headers are copied each time so refreshed cookies set below are included.
+  const next = () => {
+    const headers = new Headers(request.headers);
+    for (const [h, v] of Object.entries(extraRequestHeaders)) headers.set(h, v);
+    return NextResponse.next({ request: { headers } });
+  };
+  let response = next();
   let cacheHeaders: Record<string, string> = {};
 
   const supabase = createServerClient(url, key, {
@@ -24,7 +31,7 @@ export async function updateSession(request: NextRequest) {
       },
       setAll(cookiesToSet, headers) {
         for (const { name, value } of cookiesToSet) request.cookies.set(name, value);
-        response = NextResponse.next({ request });
+        response = next();
         for (const { name, value, options } of cookiesToSet) response.cookies.set(name, value, options);
         cacheHeaders = { ...cacheHeaders, ...headers };
         for (const [h, v] of Object.entries(headers)) response.headers.set(h, v);

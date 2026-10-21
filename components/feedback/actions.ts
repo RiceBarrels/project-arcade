@@ -10,7 +10,8 @@ import { FEEDBACK_ERRORS, FEEDBACK_MAX, FEEDBACK_TYPES, REPLY_MAX, type Feedback
 // public endpoint, so it re-reads the session and re-validates everything.
 // The account email is never read or stored here; a reply contact is only
 // what the person typed. Refuses while WRITES_ENABLED is false (the dialog
-// shows the preview notice instead of calling it).
+// shows the preview notice instead of calling it). Errors are English source
+// strings (msg in shared.ts) that the dialog translates.
 
 export type FeedbackResult =
   | { ok: true }

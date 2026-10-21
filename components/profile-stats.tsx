@@ -1,15 +1,17 @@
+import { getT } from "@/i18n/server";
 import type { ProfileStats } from "@/lib/domain";
 
 // Simple trust signals from public.profile_stats(). borrowed_damaged is null
 // until supabase/06-queue-fixes.sql is applied; it then shows as a number.
-export function ProfileStatsGrid({ stats }: { stats: ProfileStats }) {
+export async function ProfileStatsGrid({ stats }: { stats: ProfileStats }) {
+  const t = await getT();
   const lent = stats.loans_completed + stats.loans_damaged;
   const borrowed = stats.borrowed_returned + (stats.borrowed_damaged ?? 0);
   const cells = [
-    { label: "Lent out", value: lent, hint: `${stats.items_listed} listed` },
-    { label: "Borrowed", value: borrowed, hint: `${stats.borrowed_returned} returned OK` },
-    { label: "Came back damaged", value: stats.loans_damaged, hint: "as lender" },
-    { label: "Returned damaged", value: stats.borrowed_damaged ?? "–", hint: "as borrower" },
+    { label: t("Lent out"), value: t.number(lent), hint: t("{count} listed", { count: stats.items_listed }) },
+    { label: t("Borrowed"), value: t.number(borrowed), hint: t("{count} returned OK", { count: stats.borrowed_returned }) },
+    { label: t("Came back damaged"), value: t.number(stats.loans_damaged), hint: t("as lender") },
+    { label: t("Returned damaged"), value: stats.borrowed_damaged == null ? "–" : t.number(stats.borrowed_damaged), hint: t("as borrower") },
   ];
   return (
     <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">

@@ -7,8 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-dm-sans), DM Sans, sans-serif;
-  --font-mono: var(--font-space-mono), Space Mono, monospace;
+  --font-sans: var(--font-stack-sans);
+  --font-mono: var(--font-stack-mono);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -196,6 +196,46 @@
     @apply font-sans;
   }
 }
+/* ---- Languages (app/fonts.ts, docs/i18n.md) -------------------------------
+   Latin text stays in DM Sans / Space Mono; other scripts use a font made for
+   them. Only the current language's extra font is ever named, so other pages
+   never download it. Chinese and Korean use system fonts: DM Sans's fallback
+   face (local Arial) has no CJK, so those characters reach them. */
+:root {
+  --font-stack-sans: var(--font-dm-sans), DM Sans, sans-serif;
+  --font-stack-mono: var(--font-space-mono), Space Mono, monospace;
+}
+html[lang="vi"] {
+  /* DM Sans has no Vietnamese; mixing fonts inside a word looks broken, so use one font throughout. */
+  --font-stack-sans: var(--font-be-vietnam), sans-serif;
+  --font-stack-mono: var(--font-be-vietnam), monospace;
+}
+/* Script font first: it only covers its own script (app/fonts.ts), so Latin
+   letters and digits still come from DM Sans / Space Mono. */
+html[lang="ar"] {
+  --font-stack-sans: var(--font-noto-arabic), var(--font-dm-sans), Tahoma, sans-serif;
+  --font-stack-mono: var(--font-noto-arabic), var(--font-space-mono), Tahoma, monospace;
+}
+html[lang="ru"] {
+  --font-stack-sans: var(--font-cyrillic), var(--font-dm-sans), Arial, sans-serif;
+  --font-stack-mono: var(--font-cyrillic), var(--font-space-mono), Arial, monospace;
+}
+html[lang="ko"] {
+  --font-stack-sans: var(--font-dm-sans), "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "Noto Sans CJK KR", sans-serif;
+  --font-stack-mono: var(--font-space-mono), "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", monospace;
+  /* Korean breaks between words, not syllables. */
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+html[lang="zh-Hans"] {
+  --font-stack-sans: var(--font-dm-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif;
+  --font-stack-mono: var(--font-space-mono), "PingFang SC", "Microsoft YaHei", "Noto Sans SC", monospace;
+}
+html[lang="zh-Hant"] {
+  --font-stack-sans: var(--font-dm-sans), "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", "Noto Sans CJK TC", sans-serif;
+  --font-stack-mono: var(--font-space-mono), "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", monospace;
+}
+
 /* ---- Phone layout (below md) ---------------------------------------------
    --bottom-nav-h: height of the fixed bottom bar (h-16 + 2px border + home
    indicator). The scrolling content area stops this far above the bottom of
@@ -217,6 +257,14 @@
   :root[data-keyboard="open"] {
     --bottom-nav-h: 0px;
   }
+}
+/* Tab labels in other languages run longer than the English ones: a little
+   less side padding and tracking lets nine characters fit a 320px phone. */
+html:not([lang="en"]) [data-bottom-nav] a {
+  padding-inline: 2px;
+}
+html:not([lang="en"]) [data-bottom-nav] a > span {
+  letter-spacing: -0.03em;
 }
 /* Pages with a back bar replace the phone top bar. Next keeps recently visited
    pages mounted but hidden (display: none), so ignore back bars inside those. */
@@ -291,9 +339,16 @@ body:has([data-back-bar]:not([style*="display: none"] *)) [data-mobile-top] {
     opacity: 1;
   }
 }
+/* Right-to-left pages slide the other way. */
+:root {
+  --pa-dir: 1;
+}
+:root[dir="rtl"] {
+  --pa-dir: -1;
+}
 @keyframes pa-slide {
   from {
-    translate: var(--pa-slide);
+    translate: calc(var(--pa-slide) * var(--pa-dir));
   }
   to {
     translate: 0;

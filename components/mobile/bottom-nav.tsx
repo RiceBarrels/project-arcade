@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { House, ListOrdered, Plus, Search, UserRound, type LucideIcon } from "lucide-react";
+import { useT } from "@/i18n/client";
+import { Link } from "@/i18n/link";
 import { activeTab, TABS, type TabKey } from "@/lib/nav";
-import { path } from "@/lib/paths";
 
 const ICONS: Record<TabKey, LucideIcon> = {
   home: House,
@@ -27,9 +27,10 @@ export function BottomNav() {
  * home indicator) and mirrored by --bottom-nav-h in globals.css.
  */
 export function BottomNavBar({ active }: { active: TabKey | null }) {
+  const t = useT();
   return (
     <nav
-      aria-label="Main"
+      aria-label={t("Main")}
       data-bottom-nav=""
       className="fixed inset-x-0 bottom-0 z-50 border-t-2 border-border bg-background pr-[env(safe-area-inset-right)] pl-[env(safe-area-inset-left)] [view-transition-name:bottom-nav] md:hidden in-data-[keyboard=open]:hidden"
     >
@@ -41,7 +42,7 @@ export function BottomNavBar({ active }: { active: TabKey | null }) {
           return (
             <li key={tab.key} className="min-w-0">
               <Link
-                href={path(tab.href)}
+                href={tab.href}
                 aria-current={current ? "page" : undefined}
                 className="group flex h-full items-center justify-center px-1 outline-none"
               >
@@ -55,7 +56,7 @@ export function BottomNavBar({ active }: { active: TabKey | null }) {
                   }`}
                 >
                   <Icon aria-hidden className="size-5" strokeWidth={current || list ? 3 : 2} />
-                  {tab.label}
+                  {t(tab.label)}
                 </span>
               </Link>
             </li>

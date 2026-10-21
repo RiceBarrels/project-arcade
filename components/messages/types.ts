@@ -1,3 +1,4 @@
+import { msg } from "@/i18n/msg";
 import type { LoanStatus } from "@/lib/domain";
 
 // Client-safe shapes for the messages UI (no server-only imports here).
@@ -25,5 +26,6 @@ export interface ThreadData {
 }
 
 export const MESSAGE_MAX = 2000;
-export const DELETED_ACCOUNT = "Deleted account";
-export const DELETED_ITEM = "(deleted item)";
+// English source strings: translate where shown, t(DELETED_ACCOUNT).
+export const DELETED_ACCOUNT = msg("Deleted account");
+export const DELETED_ITEM = msg("(deleted item)");

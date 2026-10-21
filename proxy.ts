@@ -1,21 +1,37 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { isUuid, safeNextPath } from "@/lib/domain";
-import { LOCALES } from "@/lib/site";
+import { DEFAULT_LOCALE, isLocale, LOCALE_COOKIE } from "@/lib/site";
 import { updateSession } from "@/lib/supabase/proxy";
 
 // Runs before every page request:
 // 1. Refreshes the Supabase session (cookies) so Server Components see a valid user.
 // 2. Sends signed-out visitors on private pages to /login?next=...
-// 3. Returns a real 404 for unknown locales and unknown item/profile ids.
+// 3. Sends "/" and locale-less page paths (/browse, /item/<id>) to the language
+//    picked in the switcher (pa_locale cookie), else English. No Accept-Language
+//    guessing: the language only changes when the visitor picks one.
+// 4. Returns a real 404 for unknown locales and unknown item/profile ids.
 //    With Cache Components a page's own notFound() streams after a 200 shell,
 //    so the status check has to happen here. The existence checks are
 //    single-row HEAD queries under the visitor's own RLS.
 
-// Matches no route, so global-not-found renders with a 404 status.
+// Matches no route, so global-not-found renders with a 404 status. The
+// x-pa-locale request header tells it which language to use (set on every
+// locale request, so unmatched paths like /zh/nope get it too).
 const NOT_FOUND_PATH = "/_not-found/_/_/_";
+
+function rewriteNotFound(request: NextRequest, locale: string) {
+  const headers = new Headers(request.headers);
+  headers.set("x-pa-locale", locale);
+  return NextResponse.rewrite(new URL(NOT_FOUND_PATH, request.url), { status: 404, request: { headers } });
+}
 
 // Paths outside the locale tree that still need the session (email links).
 const NON_LOCALE_PREFIXES = new Set(["auth"]);
+
+// Page sections that also work without a locale in front (old or hand-typed links).
+const BARE_SECTIONS = new Set([
+  "browse", "queue", "list", "profile", "signup", "login", "terms", "privacy", "messages", "settings", "item",
+]);
 
 // Private pages (first segment after the locale). "profile" is private only
 // without an id (/en/profile is "my profile"; /en/profile/<id> is public).
@@ -37,18 +53,25 @@ function safeDecode(s: string) {
 export async function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
   const [first, section, id, ...rest] = pathname.split("/").filter(Boolean);
-  if (!first) return;
 
-  const isLocale = (LOCALES as readonly string[]).includes(first);
-  if (!isLocale && !NON_LOCALE_PREFIXES.has(first)) {
-    return NextResponse.rewrite(new URL(NOT_FOUND_PATH, request.url), { status: 404 });
+  const saved = request.cookies.get(LOCALE_COOKIE)?.value;
+  const savedLocale = isLocale(saved) ? saved : DEFAULT_LOCALE;
+
+  if (!first || BARE_SECTIONS.has(first)) {
+    const locale = savedLocale;
+    const to = new URL(`/${locale}${pathname === "/" ? "" : pathname}${search}`, request.url);
+    return NextResponse.redirect(to);
   }
 
-  const session = await updateSession(request);
-  if (!isLocale) return session.response();
+  const localeSegment = isLocale(first);
+  if (!localeSegment && !NON_LOCALE_PREFIXES.has(first)) {
+    return rewriteNotFound(request, savedLocale);
+  }
 
-  const notFound = () =>
-    session.finalize(NextResponse.rewrite(new URL(NOT_FOUND_PATH, request.url), { status: 404 }));
+  const session = await updateSession(request, localeSegment ? { "x-pa-locale": first } : {});
+  if (!localeSegment) return session.response();
+
+  const notFound = () => session.finalize(rewriteNotFound(request, first));
   const redirectTo = (path: string) => session.finalize(NextResponse.redirect(new URL(path, request.url)));
 
   const isPrivate = (section !== undefined && PRIVATE_SECTIONS.has(section)) || (section === "profile" && id === undefined);

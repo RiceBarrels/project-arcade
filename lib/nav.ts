@@ -1,4 +1,5 @@
-import { DEFAULT_LOCALE } from "./site";
+import { msg } from "@/i18n/msg";
+import { isLocale } from "./site";
 
 // Mobile navigation model (docs/copy-en.md 18.2). Top-level "tab" pages sit at
 // level 1; anything opened from them (an item, a thread, settings) is level 2+.
@@ -7,17 +8,17 @@ import { DEFAULT_LOCALE } from "./site";
 export type TabKey = "home" | "browse" | "list" | "queue" | "me";
 
 export const TABS: { key: TabKey; href: string; label: string }[] = [
-  { key: "home", href: "/", label: "Home" },
-  { key: "browse", href: "/browse", label: "Browse" },
-  { key: "list", href: "/list", label: "List" },
-  { key: "queue", href: "/queue", label: "Queue" },
-  { key: "me", href: "/profile", label: "Me" },
+  { key: "home", href: "/", label: msg("Home") },
+  { key: "browse", href: "/browse", label: msg("Browse") },
+  { key: "list", href: "/list", label: msg("List") },
+  { key: "queue", href: "/queue", label: msg("Queue") },
+  { key: "me", href: "/profile", label: msg("Me") },
 ];
 
-/** Path segments after the locale, e.g. "/en/item/abc" -> ["item", "abc"]. */
+/** Path segments after the locale, e.g. "/zh/item/abc" -> ["item", "abc"]. */
 function segments(pathname: string) {
   const parts = pathname.split("/").filter(Boolean);
-  return parts[0] === DEFAULT_LOCALE ? parts.slice(1) : parts;
+  return isLocale(parts[0]) ? parts.slice(1) : parts;
 }
 
 /** Which bottom tab a path belongs to (null for pages outside the tabs, like /login). */

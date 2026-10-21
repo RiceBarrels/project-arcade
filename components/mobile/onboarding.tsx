@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Dialog as DialogPrimitive } from "radix-ui";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,7 +10,9 @@ import {
   OnboardingQueueIllustration,
   OnboardingSafetyIllustration,
 } from "@/components/illustrations";
-import { path } from "@/lib/paths";
+import { stripLocale } from "@/i18n/config";
+import { useRouter, useT } from "@/i18n/client";
+import { msg } from "@/i18n/msg";
 import { SITE_NAME } from "@/lib/site";
 
 // First-sign-in walkthrough, docs/copy-en.md 18.1. Shown once per account per
@@ -20,28 +22,29 @@ import { SITE_NAME } from "@/lib/site";
 const SCREENS = [
   {
     Art: HeroIllustration,
-    title: `Welcome to ${SITE_NAME}`,
-    text: "A non-profit library for gear, run by neighbours. The site itself charges nothing. It's pre-alpha, so things may change.",
+    // {site} is the brand (SITE_NAME), filled in where shown.
+    title: msg("Welcome to {site}"),
+    text: msg("A non-profit library for gear, run by neighbours. The site itself charges nothing. It's pre-alpha, so things may change."),
   },
   {
     Art: OnboardingQueueIllustration,
-    title: "Queue up, borrow, return",
-    text: "Add what you want to your queue. When it's your turn you have 48 hours to respond, then pick it up and bring it back.",
+    title: msg("Queue up, borrow, return"),
+    text: msg("Add what you want to your queue. When it's your turn you have 48 hours to respond, then pick it up and bring it back."),
   },
   {
     Art: OnboardingDamageIllustration,
-    title: "What's a damage price?",
-    text: "It's what you'd owe the lender if an item comes back damaged or lost. You settle it directly with them; the site never takes money.",
+    title: msg("What's a damage price?"),
+    text: msg("It's what you'd owe the lender if an item comes back damaged or lost. You settle it directly with them; the site never takes money."),
   },
   {
     Art: OnboardingSafetyIllustration,
-    title: "Stay safe",
-    text: "You must be 18 or older. Chat through site messages only; your email is never shown to anyone.",
+    title: msg("Stay safe"),
+    text: msg("You must be 18 or older. Chat through site messages only; your email is never shown to anyone."),
   },
 ];
 
-// Pages where a walkthrough would get in the way of finishing a task.
-const SKIP_ON = ["/en/reset-password"];
+// Pages (without the locale prefix) where a walkthrough would get in the way of finishing a task.
+const SKIP_ON = ["/reset-password"];
 
 const seenKey = (userId: string) => `pa:onboarded:${userId}`;
 
@@ -64,13 +67,14 @@ function markSeen(userId: string) {
 export function Onboarding({ userId }: { userId: string }) {
   const pathname = usePathname();
   const router = useRouter();
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
 
   useEffect(() => {
     // Storage is only readable after hydration; this effect is the earliest point.
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (!SKIP_ON.includes(pathname) && !hasSeen(userId)) setOpen(true);
+    if (!SKIP_ON.includes(stripLocale(pathname)) && !hasSeen(userId)) setOpen(true);
   }, [userId, pathname]);
 
   function close() {
@@ -90,7 +94,7 @@ export function Onboarding({ userId }: { userId: string }) {
           className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-background pt-[env(safe-area-inset-top,0px)] pr-[env(safe-area-inset-right)] pb-[max(env(safe-area-inset-bottom),1rem)] pl-[env(safe-area-inset-left)] outline-none md:inset-auto md:top-1/2 md:left-1/2 md:max-h-[calc(100dvh-2rem)] md:w-full md:max-w-md md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-xl md:border-4 md:border-border md:pb-5 md:shadow"
         >
           <div className="flex items-center justify-between px-4 pt-2">
-            <ol aria-label={`Screen ${step + 1} of ${SCREENS.length}`} className="flex gap-2">
+            <ol aria-label={t("Screen {step} of {total}", { step: step + 1, total: SCREENS.length })} className="flex gap-2">
               {SCREENS.map((s, i) => (
                 <li
                   key={s.title}
@@ -101,7 +105,7 @@ export function Onboarding({ userId }: { userId: string }) {
             </ol>
             <DialogPrimitive.Close asChild>
               <button type="button" className="inline-flex min-h-11 items-center px-2 font-bold underline underline-offset-4">
-                Skip
+                {t("Skip")}
               </button>
             </DialogPrimitive.Close>
           </div>
@@ -111,9 +115,11 @@ export function Onboarding({ userId }: { userId: string }) {
               <Art className="h-auto w-full" />
             </div>
             <div className="space-y-3 text-center">
-              <DialogPrimitive.Title className="text-3xl font-black">{title}</DialogPrimitive.Title>
+              <DialogPrimitive.Title className="text-3xl font-black">
+                {t.rich(title, { site: <bdi>{SITE_NAME}</bdi> })}
+              </DialogPrimitive.Title>
               <DialogPrimitive.Description id="onboarding-text" className="text-lg font-medium">
-                {text}
+                {t(text)}
               </DialogPrimitive.Description>
             </div>
           </div>
@@ -125,10 +131,10 @@ export function Onboarding({ userId }: { userId: string }) {
               onClick={() => {
                 if (!last) return setStep(step + 1);
                 close();
-                router.push(path("/browse"));
+                router.push("/browse");
               }}
             >
-              {last ? "Start browsing" : "Next"}
+              {last ? t("Start browsing") : t("Next")}
             </Button>
           </div>
         </DialogPrimitive.Content>

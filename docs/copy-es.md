@@ -5,7 +5,7 @@
 - **Status / Estado:** machine-assisted draft — needs native-speaker review (borrador asistido por máquina; necesita revisión de un hablante nativo). Todavía no lo ha revisado ningún hablante nativo.
 - **Variante:** español neutro de Latinoamérica (estilo es-419). Sin «vosotros» y sin vocabulario exclusivo de España (por ejemplo, no se usa «vale», «coger» ni «ordenador»). Se evitan los regionalismos marcados.
 
-> **Nota de traducción (no es texto de la página):** Este archivo es la traducción al español de `docs/copy-en.md`. La numeración de las secciones coincide con la versión en inglés. Los marcadores de posición (`{amount}`, `{item}`, `{time left}`, `{Lender}`, `{Name}`, `{n}`, `{email}`, `{listing / user}`) y los marcadores entre corchetes (`[contact email]`, `[Link to privacy policy]`) se dejan tal cual, igual que las rutas de enlaces (`/terms`, `/privacy`, `/list`). Los términos están pendientes de confirmación; ver la tabla «Términos por confirmar» al final. Las secciones 8 y 15 son borradores legales: se tradujeron con fidelidad y se conservan sin cambios las marcas DRAFT, TO CONFIRM y NEEDS LAWYER CONFIRMATION del original.
+> **Nota de traducción (no es texto de la página):** Este archivo es la traducción al español de `docs/copy-en.md`. La numeración de las secciones coincide con la versión en inglés. Los marcadores de posición (`{amount}`, `{item}`, `{left}`, `{Lender}`, `{Name}`, `{n}`, `{email}`, `{listing / user}`) y los marcadores entre corchetes (`[contact email]`, `[Link to privacy policy]`) se dejan tal cual, igual que las rutas de enlaces (`/terms`, `/privacy`, `/list`). Los términos están pendientes de confirmación; ver la tabla «Términos por confirmar» al final. Las secciones 8 y 15 son borradores legales: se tradujeron con fidelidad y se conservan sin cambios las marcas DRAFT, TO CONFIRM y NEEDS LAWYER CONFIRMATION del original.
 >
 > Versión en inglés de referencia: copy-en.md (versión del 2026-10-20). Si cambia la versión en inglés, hay que actualizar este archivo.
 
@@ -140,7 +140,9 @@ Nada. El precio por daños solo se debe si el prestador marca el artículo como 
 
 **Título:** Términos de uso
 
-**Última actualización:** 19 de octubre de 2026
+**Última actualización:** 20 de octubre de 2026
+
+> **TODO before launch:** (pendiente antes del lanzamiento) poner la fecha real de publicación en «Última actualización» tanto en los términos (sección 8) como en la política de privacidad (sección 15). La fecha actual, 20 de octubre de 2026, es provisional. Actualizar también todas las traducciones. A partir de entonces, cambiar la fecha cada vez que cambie el contenido.
 
 **La versión corta:** Este sitio ayuda a que los vecinos se presten equipo entre sí. Nosotros los presentamos; lo demás queda entre usted y la otra persona.
 
@@ -198,11 +200,11 @@ Nada. El precio por daños solo se debe si el prestador marca el artículo como 
 ¡Te toca! Responde en menos de 48 horas para quedarte con este artículo. Si no sabemos nada de ti, pasa a la siguiente persona en la fila.
 
 **Banner en la lista de la fila (para la persona a la que le toca):**
-Tu turno: {item}. Responde en {time left} para conservar tu lugar.
+Tu turno: {item}. Responde en {left} para conservar tu lugar.
 
 **Botones:** Lo tomo / Paso por ahora
 
-**Cuenta regresiva baja (menos de 6 h):** Última llamada: tienes {time left} para responder.
+**Cuenta regresiva baja (menos de 6 h):** Última llamada: tienes {left} para responder.
 
 **Mensaje de vencimiento:** Se acabó el tiempo. Este artículo pasó a la siguiente persona en la fila. Puedes volver a hacer fila cuando quieras.
 
@@ -289,7 +291,9 @@ Estilo: plano, contornos oscuros y gruesos, sombras desplazadas y duras, colores
 
 **Título:** Política de privacidad
 
-**Última actualización:** 19 de octubre de 2026
+**Última actualización:** 20 de octubre de 2026
+
+> **TODO before launch:** (pendiente antes del lanzamiento) poner la fecha real de publicación en «Última actualización» tanto en los términos (sección 8) como en la política de privacidad (sección 15). La fecha actual, 20 de octubre de 2026, es provisional. Actualizar también todas las traducciones. A partir de entonces, cambiar la fecha cada vez que cambie el contenido.
 
 **La versión corta:** Recopilamos lo que necesitamos para operar la biblioteca de préstamos, lo guardamos con nuestro proveedor de base de datos y no lo usamos para publicidad.
 
@@ -300,13 +304,34 @@ Estilo: plano, contornos oscuros y gruesos, sombras desplazadas y duras, colores
 - **Registros de préstamos:** solicitudes, lugares en la fila, aprobaciones, marcas de entrega y de devolución (en buen estado o dañado) y las notas relacionadas.
 - **Reportes:** los reportes que envía y los reportes hechos sobre usted o sus publicaciones.
 - **Comentarios:** si usa Enviar comentarios, guardamos su mensaje, el tipo que eligió (error, idea u otro), la página en la que estaba y una nota breve sobre su navegador. Si inició sesión, sus comentarios se vinculan a su cuenta. Si agrega un contacto para respuesta, también lo guardamos. [TO CONFIRM: campos exactos, según supabase/08-feedback.sql, que todavía no existía cuando se escribió esto.]
-- **Datos técnicos básicos:** [TO CONFIRM: por ejemplo, registros del servidor, dirección IP, cookies necesarias para iniciar sesión. Completar una vez que se revise la configuración real.]
+- **Datos técnicos básicos:** cuando usted visita el sitio, nuestros proveedores de alojamiento y de analítica procesan información técnica básica, como las páginas que ve, su ubicación aproximada (país o región) y el tipo de navegador y de dispositivo que usa. Consulte «Analítica y cookies» más abajo. [TO CONFIRM: registros del servidor y manejo de la dirección IP por parte de Vercel y Supabase. NEEDS REVIEW.]
 
 ### Dónde se guarda
 Su cuenta, su perfil, sus publicaciones, sus registros de préstamos y sus fotos se guardan con Supabase (base de datos, autenticación y almacenamiento de archivos). Los datos se guardan en Canadá (región de Supabase ca-central-1). El sitio web está alojado en Vercel.
 
 ### Qué pueden ver otros usuarios
-Su nombre visible, su ciudad o zona, sus publicaciones, sus fotos y el historial de préstamos de su perfil son visibles para otros usuarios. Su dirección exacta no debe ponerse en las publicaciones. Su dirección de correo electrónico nunca se muestra públicamente. Una vez aprobada una solicitud, el prestador y el prestatario se comunican solo a través de los mensajes internos del sitio.
+Su perfil público es visible para otros usuarios. Muestra su nombre visible, su ciudad o zona (si la agrega), su biografía, el mes y el año en que se unió, y sus publicaciones con sus fotos. También muestra conteos simples: cuántos artículos ha publicado, prestado y pedido prestados, cuántos volvieron en buen estado y cuántos resultaron dañados o perdidos (como prestador y como prestatario). No indica a quién le prestó ni a quién le pidió prestado. [NEEDS REVIEW: verificado con components/profile-stats.tsx y la página del perfil el 2026-10-20; hay que volver a verificarlo si el perfil cambia.] Su dirección exacta no debe ponerse en las publicaciones. Su dirección de correo electrónico nunca se muestra públicamente. Una vez aprobada una solicitud, el prestador y el prestatario se comunican solo a través de los mensajes internos del sitio.
+
+### Analítica y cookies (DRAFT, needs review) (BORRADOR, necesita revisión)
+Usamos Vercel Web Analytics para contar las visitas a las páginas, de modo que podamos ver qué partes del sitio se usan. Según la documentación de Vercel (página de la documentación «Privacy and Compliance», última actualización: 2026-06-26):
+- No usa cookies de terceros. Los visitantes se distinguen mediante un hash creado a partir de la solicitud entrante.
+- La información de la sesión del visitante no se guarda de forma permanente; se descarta después de 24 horas.
+- No recopila información que permita a alguien seguirlo a usted entre distintos sitios web o aplicaciones, y se usa solo para estadísticas combinadas.
+- Cada vista de página puede incluir: la hora, la ruta de la página, la página de referencia, la ubicación aproximada (país, región, ciudad), el sistema operativo y su versión, el navegador y su versión, y el tipo de dispositivo (móvil, tableta o computadora de escritorio).
+
+Antes de enviar una vista de página, quitamos de la ruta de la página los ID de artículos, de préstamos y de perfiles, y quitamos los parámetros de consulta y todo lo que va después de un signo #. Los enlaces de nuestros correos (las páginas /auth/... que se abren cuando usted hace clic en un enlace para registrarse o para restablecer su contraseña) no se envían en absoluto, y las demás páginas se envían solo con la ruta de cada página, por ejemplo /en/login. No enviamos su ID de usuario. No podemos cambiar la página de referencia, que la herramienta de analítica incluye por sí sola. [NEEDS REVIEW: basado en la revisión del código que hizo el desarrollador el 2026-10-20.]
+
+No usamos esto para mostrar anuncios y no lo vendemos.
+
+Cookies: el sitio establece dos tipos de cookies, y ambos son necesarios para que funcione.
+- Una cookie de inicio de sesión, establecida por nuestro proveedor de inicio de sesión (Supabase), mantiene su sesión iniciada. Puede dividirse en varias partes.
+- Una cookie de idioma recuerda el idioma que usted eligió. Dura 1 año.
+
+El sitio también guarda su configuración de «Vibrar al tocar» y su avance en las pantallas de introducción en el almacenamiento local de su navegador, en su propio dispositivo. Esto no es una cookie y no se nos envía.
+
+No establecemos cookies publicitarias ni cookies de seguimiento entre sitios. [NEEDS REVIEW: basado en la revisión del código que hizo el desarrollador el 2026-10-20; hay que volver a verificarlo cuando se agregue algo.]
+
+[TO CONFIRM from Vercel or the dashboard, not stated in the docs page above: (1) si las direcciones IP se guardan o solo se usan brevemente para calcular la ubicación aproximada; (2) cuánto tiempo se conservan los datos de analítica agregados; (3) dónde se guardan y procesan los datos de analítica. No publicar ninguna afirmación sobre estos puntos hasta verificarlos.]
 
 ### Cómo lo usamos
 Para operar el sitio: mostrar publicaciones, gestionar filas y solicitudes, permitir que prestadores y prestatarios se comuniquen, atender reportes y mantener el sitio seguro.
@@ -659,6 +684,60 @@ Separado de Reportar. Reportar es solo para abusos relacionados con artículos y
 
 **Nota de privacidad (agregar a la sección 15 cuando se confirme cómo se guardan los comentarios):** Los comentarios que envías se guardan con tu cuenta y con cualquier contacto para respuesta que escribas. [TO CONFIRM by the builder and owner: qué se guarda y por cuánto tiempo.]
 
+## 20. Discord (no se traduce: solo en inglés, por decisión del coordinador)
+
+La sección 20 de copy-en.md se mantiene solo en inglés.
+
+## 21. Páginas legales traducidas: aviso de traducción no oficial (necesita revisión de un abogado)
+
+> **Needs lawyer review.** (Necesita revisión de un abogado.) Fuente: docs/i18n-legal-notice.md (7号). La redacción de abajo usa "applies" (se aplica). Si un abogado prefiere "prevails" (prevalece), hay que cambiarla en los 10 idiomas. El texto de N1 ya se usa en el código de la página como una sola cadena con un enlace; no se debe cambiar su texto clave sin avisar a 1号 (project-arcade-46).
+
+Se muestra solo en las páginas /terms y /privacy traducidas, nunca en las páginas en inglés.
+
+**N1 (aviso superior, encima de la nota DRAFT):** Esta es una traducción no oficial. Si difiere de la versión en inglés, se aplica la versión en inglés.
+**N1 con enlace (clave exacta del diccionario que usa el código):** Esta es una traducción no oficial. Si difiere de la <link>versión en inglés</link>, se aplica la versión en inglés.
+**N2 (texto del enlace):** Lea la versión en inglés
+**N3 (etiqueta corta, por ejemplo, en los metadatos de la página o en el selector de idioma de las páginas legales):** Traducción no oficial
+
+## 22. i18n y textos del sistema (revisado el 2026-10-20)
+
+Revisión de los textos provisionales del desarrollador. Se mantienen, salvo que se indique lo contrario. Registro de la interfaz: «tú» (informal).
+
+**Language** (etiqueta del selector de idioma): Idioma
+**N1 con enlace** (igual que en la sección 21; clave exacta que usa el código): Esta es una traducción no oficial. Si difiere de la <link>versión en inglés</link>, se aplica la versión en inglés.
+**Página todavía no traducida:** Esta página todavía no está disponible en tu idioma, así que se muestra en inglés.
+**Last updated: {date}:** Última actualización: {date} (la fecha se formatea en el idioma del usuario, por ejemplo: 20 de octubre de 2026)
+**Unidades de la cuenta regresiva:** {h} h {m} min, y {m} min cuando falta menos de una hora. Se mantienen como claves de unidades. No se agrega «left» (queda): el tiempo solo aparece dentro de dos oraciones completas de la sección 10, y en español esa idea ya la cubre la oración: «Responde en {left} para conservar tu lugar.» y «Última llamada: tienes {left} para responder.» (en el código el marcador se llama {left}). Ejemplos: «Responde en 5 h 20 min para conservar tu lugar.» / «Última llamada: tienes 45 min para responder.»
+**Página 404 (texto visible, reemplaza la sugerencia anterior):** se mantiene el «404» grande.
+- **Título:** Nada en este estante
+- **Cuerpo:** Esa página o ese artículo no existe, o lo quitaron.
+- **Botón principal:** Explorar el catálogo (va a /browse)
+- **Enlace secundario (nuevo):** Volver al inicio
+**Título de la pestaña del navegador (404):** Página no encontrada
+**Meta descripción (404):** La página o el artículo que buscabas no existe, o lo quitaron.
+(Se retiró la sugerencia anterior de usar «Página no encontrada» como título visible y un cuerpo nuevo: el texto visible actual encaja con la marca, es correcto tanto para páginas como para artículos y ya está implementado.)
+(La página de error genérica ya usa «Algo salió mal» con «Intentar de nuevo» y «Volver al inicio», sección 17.9.)
+
+## 23. /list: selector de fotos personalizado
+
+Reemplaza el control propio del navegador («Choose files» / «Elegir archivos») por un botón en el idioma del sitio. Se mantienen la etiqueta existente «Fotos» y la indicación existente «Unas cuantas fotos claras ayudan a que los prestatarios se animen. Hasta 8.» (ya están en el código, así que el límite de fotos no se repite aquí; la indicación no menciona un límite de tamaño, así que no se agrega ninguno).
+
+**Botón (sin fotos elegidas):** Elegir fotos
+**Botón (con fotos ya elegidas):** Cambiar fotos
+(El selector de archivos del navegador reemplaza la selección anterior cada vez, así que «Cambiar» es correcto; «Agregar más fotos» no lo sería.)
+**Estado, sin fotos elegidas:** Todavía no hay fotos elegidas
+**Estado, con fotos elegidas (plural: one / many / other):**
+- one: {count} foto elegida
+- many: {count} fotos elegidas
+- other: {count} fotos elegidas
+(Con 0 fotos se muestra «Todavía no hay fotos elegidas», no la forma plural.)
+**Etiqueta para lectores de pantalla del botón:** Elegir fotos para tu publicación
+**Etiqueta para lectores de pantalla del botón (con fotos elegidas):** Cambiar fotos de tu publicación
+
+**Mensajes de error (el código ya los usa):**
+- Demasiadas fotos: Puedes agregar hasta 8 fotos. Elige menos.
+- No es una imagen: Elige solo archivos de imagen.
+
 ---
 
 ## Términos por confirmar (nota de traducción, no es texto de la página)
@@ -684,20 +763,23 @@ Estos términos son provisionales y necesitan la confirmación del usuario. Una 
 | Damaged or lost | Dañado o perdido | Con daños o perdido, Dañado o extraviado | Masculino porque concuerda con «artículo». |
 | the arcade (Join the arcade, Thanks for being part of the arcade) | el arcade | la comunidad, el salón de juegos, project-arcade, las maquinitas | «Arcade» es una palabra conocida en Latinoamérica y mantiene el tono de juego. «Las maquinitas» es muy coloquial y regional. |
 | Report | Reportar | Denunciar, Avisar, Informar un problema | «Reportar» es común en apps en Latinoamérica y menos fuerte que «denunciar». Sigue encajando ahora que Reportar es solo para publicaciones o usuarios abusivos, inseguros o falsos; los errores y las ideas van a «Enviar comentarios» (sección 19). |
-| Send feedback | Enviar comentarios | Enviar sugerencias, Danos tu opinión, Contáctanos | Claro, neutro en toda Latinoamérica y muy distinto de «Reportar». Se usa igual en las secciones 1, 8, 9 y 19 (etiqueta, título del diálogo y botón). |
+| Send feedback | Enviar comentarios | Enviar sugerencias, Danos tu opinión, Contáctanos | Claro, neutro en toda Latinoamérica y muy distinto de «Reportar». Se usa igual en las secciones 1, 8, 9, 15 y 19 (etiqueta, título del diálogo y botón). |
 | feedback (sustantivo) | comentarios | opinión, sugerencias, retroalimentación | Plural, como es habitual en apps («tus comentarios se enviaron»). «Retroalimentación» es largo y suena técnico; «sugerencias» no cubre los errores. |
 | Me (barra inferior) | Perfil | Yo, Tú, Mi cuenta | «Yo» y «Tú» suenan raros como pestaña; «Perfil» es lo habitual en apps en español y cabe bien. Ojo: en 18.3 la línea secundaria de «Configuración» también dice «Perfil y cuenta»; confirmar que no se presta a confusión. |
 | Repeat (en el lema) | Otra partida | Otra vez, Otra ronda, Y de nuevo | «Otra partida» tiene sabor de arcade (como «insert coin, otra partida»). |
 | forma de tratamiento (you) | Interfaz: tú (informal). Secciones 8 (/terms) y 15 (política de privacidad): usted (formal) | tú en todo el archivo, usted en todo el archivo | Decidido por el usuario. «Tú» encaja con el tono de juego y amigable de la interfaz, y es lo habitual en apps de consumo en Latinoamérica. En las páginas legales se usa «usted» (con su, sus, le e imperativos de usted), que es el registro esperado en términos de uso y políticas de privacidad en español y da un tono más serio. El plural «ustedes» (por ejemplo, «entre ustedes») vale para ambos registros en Latinoamérica. No se usa «vos» (voseo) para mantener un español neutro. |
+| analytics / Web Analytics | analítica (el nombre del producto, Vercel Web Analytics, no se traduce) | analíticas, analítica web, estadísticas del sitio, métricas | «Analítica» es el término habitual en textos técnicos y de privacidad en español. «Estadísticas del sitio» es más sencillo, pero se reservó «estadísticas» para traducir «statistics» en la misma sección. |
+| cookies | cookies (sin traducir, en cursiva opcional) | galletas, galletas informáticas, archivos de cookies | «Cookies» es lo que se usa en avisos de privacidad y en navegadores en español en toda Latinoamérica. «Galletas» se entiende como calco y suena raro. |
+| hash | hash (sin traducir: «un hash») | valor hash, resumen criptográfico, huella digital | En los textos técnicos en español se suele dejar «hash». «Resumen criptográfico» es correcto pero poco conocido; «huella digital» se confunde con la huella dactilar. |
 
 ## Preguntas que requieren coordinación o soporte en el código (nota de traducción)
 
 1. **«[message removed]»:** la base de datos (`supabase/05-messages-and-deletion.sql`) escribe el cuerpo de los mensajes de usuarios eliminados con el literal en inglés `[message removed]`. Para que la interfaz en español muestre «[mensaje eliminado]», el código tiene que reconocer ese valor y reemplazarlo al mostrarlo. Las secciones 15 y 17.7 mantienen el literal en inglés para que coincidan con lo que se muestra hoy; si el código lo soporta, se cambia en todo el archivo a «[mensaje eliminado]».
 2. **Palabra de confirmación DELETE:** se mantiene `DELETE` en inglés porque el código compara exactamente esa cadena. Si se quiere que los usuarios en español escriban «ELIMINAR», hace falta soporte en el código.
-3. **Formato de {time left} y {amount}:** en español se necesitan duraciones como «5 horas» o «2 días» (con singular y plural: «1 hora», «2 horas») y montos con el formato de moneda local. El separador de miles también cambia según el país (México usa coma; Argentina, Colombia y Chile usan punto), así que conviene formatear con la configuración regional. Las frases se redactaron para no depender del número gramatical del marcador («tienes {time left} para responder»).
+3. **Formato de {left} y {amount}:** en español se necesitan duraciones como «5 horas» o «2 días» (con singular y plural: «1 hora», «2 horas») y montos con el formato de moneda local. El separador de miles también cambia según el país (México usa coma; Argentina, Colombia y Chile usan punto), así que conviene formatear con la configuración regional. Las frases se redactaron para no depender del número gramatical del marcador («tienes {left} para responder»).
 4. **{listing / user}:** en español hacen falta dos frases completas, no una concatenación: «Reportar esta publicación» / «Reportar a este usuario». Cambian el género del demostrativo (esta / este) y aparece la «a» personal delante de una persona.
-5. **Fecha de términos y privacidad:** copy-en.md ahora dice «Oct 19, 2026», y la traducción usa esa fecha (19 de octubre de 2026). La traducción al chino (copy-zh.md) todavía dice 2025, que parecía un error tipográfico; si el inglés ya se corrigió, conviene actualizar copy-zh.md. Que lo confirme el responsable del sitio.
-6. **Validez legal según el idioma:** cuando convivan las versiones en inglés y en español de los términos, qué versión prevalece lo decide el abogado. La traducción no agrega ninguna cláusula al respecto.
+5. **Fecha de términos y privacidad:** copy-en.md ahora dice «Oct 19, 2026», y la traducción usa esa fecha (19 de octubre de 2026). La traducción al chino (copy-zh.md) ya usa la misma fecha de 2026. Que lo confirme el responsable del sitio. Actualización (2026-10-20): las dos fechas en inglés ahora dicen «Oct 20, 2026» y la traducción ya está sincronizada; sigue siendo una fecha provisional que debe cambiarse por la fecha real de publicación antes del lanzamiento (ver el TODO en las secciones 8 y 15).
+6. **Validez legal según el idioma:** cuando convivan las versiones en inglés y en español de los términos, qué versión prevalece lo decide el abogado. La traducción no agrega ninguna cláusula al respecto. Actualización (2026-10-20): el usuario decidió que las páginas traducidas de términos y privacidad muestren un aviso de que la traducción no es oficial y de que se aplica la versión en inglés (texto en docs/i18n-legal-notice.md). Si ese aviso tiene el efecto jurídico previsto en cada país sigue siendo una cuestión para el abogado.
 7. **Género gramatical:** «prestador», «prestatario», «usuario» y «nuevo» («¿Eres nuevo?») usan el masculino genérico. Si se prefiere un lenguaje más inclusivo, hay opciones neutras: «quien presta», «quien pide prestado», «¿Primera vez aquí?». En las notificaciones con {Lender} y {Name} se evitó la concordancia de género («Comunícate con esa persona»).
 8. **Largo de los textos:** el español suele ser entre un 20 % y un 30 % más largo que el inglés. Revisar botones y etiquetas cortas (por ejemplo, «Devuelto en buen estado», «Enviar enlace para restablecer», «Empezar a explorar») en pantallas de celular.
 9. **Signos de apertura:** el español usa ¿ y ¡ al inicio de preguntas y exclamaciones. Si algún texto se arma por partes en el código, hay que cuidar que el signo de apertura quede en el lugar correcto.

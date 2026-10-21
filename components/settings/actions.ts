@@ -2,10 +2,10 @@
 
 import { updateTag } from "next/cache";
 import { redirect } from "next/navigation";
+import { DEFAULT_LOCALE, isLocale, localePath, type Locale } from "@/i18n/config";
 import { WRITES_ENABLED } from "@/lib/domain";
 import { hasLoanInProgress } from "@/lib/data/account";
 import { getCurrentUser } from "@/lib/data/session";
-import { path } from "@/lib/paths";
 import { createClient } from "@/lib/supabase/server";
 import {
   DELETE_CONFIRM_WORD,
@@ -19,18 +19,21 @@ import {
 // Real write paths for /settings. Server Actions are public endpoints, so each
 // one re-reads the session itself and never trusts an id sent by the client.
 // Both refuse while WRITES_ENABLED is false (the client shows the preview
-// notice instead of calling them).
+// notice instead of calling them). Errors are English source strings (msg in
+// shared.ts) that the client translates. Server Actions can't read the page
+// locale, so the client passes it in for the redirects.
 
 export type ProfileResult = { ok: true } | { ok: false; error: string; fields?: ProfileErrors };
 export type DeleteResult = { ok: false; error: string; loanInProgress?: boolean };
 
-const LOGIN_REDIRECT = `${path("/login")}?next=${encodeURIComponent(path("/settings"))}`;
+const toLocale = (v: unknown): Locale => (isLocale(v) ? v : DEFAULT_LOCALE);
+const loginRedirect = (l: Locale) => `${localePath("/login", l)}?next=${encodeURIComponent(localePath("/settings", l))}`;
 
-export async function updateProfile(input: unknown): Promise<ProfileResult> {
+export async function updateProfile(input: unknown, locale?: unknown): Promise<ProfileResult> {
   if (!WRITES_ENABLED) return { ok: false, error: PROFILE_ERROR };
 
   const user = await getCurrentUser();
-  if (!user) redirect(LOGIN_REDIRECT);
+  if (!user) redirect(loginRedirect(toLocale(locale)));
 
   const { values, errors } = validateProfile(input);
   if (Object.keys(errors).length > 0) return { ok: false, error: PROFILE_ERROR, fields: errors };
@@ -98,12 +101,13 @@ async function removeAllPhotos(supabase: Supabase, uid: string): Promise<boolean
 }
 
 /** Deletes the signed-in user's account. On success it signs out and redirects, so it only ever returns an error. */
-export async function deleteMyAccount(confirm: unknown): Promise<DeleteResult> {
+export async function deleteMyAccount(confirm: unknown, locale?: unknown): Promise<DeleteResult> {
   if (!WRITES_ENABLED) return { ok: false, error: DELETE_ERROR };
   if (confirm !== DELETE_CONFIRM_WORD) return { ok: false, error: DELETE_ERROR };
 
+  const l = toLocale(locale);
   const user = await getCurrentUser();
-  if (!user) redirect(LOGIN_REDIRECT);
+  if (!user) redirect(loginRedirect(l));
 
   // Check before touching storage: photo removal can't be undone, and the RPC
   // would refuse afterwards anyway, leaving a live account with no photos.
@@ -130,5 +134,5 @@ export async function deleteMyAccount(confirm: unknown): Promise<DeleteResult> {
   updateTag("profiles");
   updateTag(`owner:${user.id}`);
   updateTag("items");
-  redirect(`${path("/")}?account=deleted`);
+  redirect(`${localePath("/", l)}?account=deleted`);
 }

@@ -1,6 +1,6 @@
 # project-arcade — translation glossary
 
-- **Date:** 2026-10-20 (updated after the round-2 sync: Send feedback, fee wording)
+- **Date:** 2026-10-20 (updated after the round-2 sync: Send feedback, fee wording; then the i18n audit and the privacy "Analytics and cookies" sync, sections 6 and 7)
 - **Status:** machine-assisted draft — needs native-speaker review. No term below has been reviewed by a native speaker or approved by the user.
 - **Source:** `docs/copy-en.md`. Translations: `docs/copy-<code>.md` for zh, zh-hant, es, fr, ar, tl, vi, ko, pt, ru.
 
@@ -8,7 +8,7 @@ Each language file ends with its own full term table (all candidates and reasons
 
 ## Ground rules for every language
 
-- Kept in English everywhere: `project-arcade`, the `pre-alpha` badge, `DELETE` (code matches it exactly), `[message removed]` (database literal), placeholders `{amount} {item} {time left} {Lender} {Name} {n} {email} {listing / user}`, `[contact email]`, `[Link to privacy policy]`.
+- Kept in English everywhere: `project-arcade`, the `pre-alpha` badge, `DELETE` (code matches it exactly), `[message removed]` (database literal), placeholders `{amount} {item} {left} {Lender} {Name} {n} {email} {listing / user}`, `[contact email]`, `[Link to privacy policy]`.
 - Damage price is never translated as a deposit, escrow or guarantee (the site holds no money).
 - Lender/borrower avoid banking or money-lending words where the language allows.
 
@@ -126,3 +126,47 @@ Feedback type options (Bug / Idea / Other) are listed in each file's term table.
 
 New legal marker: `[NEEDS LAWYER CONFIRMATION: wording on fees.]` in section 8 item 13 is kept verbatim in all languages (text after the colon translated), like `[TO CONFIRM`.
 
+
+## 6. Accepted variants and extra terms (audit, 2026-10-20)
+
+Each language file was checked against this glossary on 2026-10-20 (one checker per language, plus an independent second check). Clear slips were fixed in the copy files (zh 2, zh-hant 2, fr 2, ar 1, ru 2; all listed in the coordinator report). These are not slips: they are accepted forms each file's own term table already allows, recorded here so the next audit does not flag them.
+
+**pre-alpha in prose (all languages).** Where the English prose says "pre-alpha", the translations keep the word "pre-alpha" (for example 处于 pre-alpha 阶段, en pre-alpha). The prose terms in section 1 (早期版本, versión temprana, version préliminaire, and so on) are used only where the English says "early version". "(badge only)" in section 1 means the same thing; the prose gloss for those languages is: tl maagang bersyon, vi phiên bản thử nghiệm sớm, ko 초기 버전, ru ранняя версия.
+
+| Language | Accepted extra forms |
+|---|---|
+| zh | 借出 / 借 in casual UI sentences (legal sections use 出借); 物品 for a single item (gear = 装备); catalogue 装备目录 |
+| zh-hant | queue alternatives also 隊列, 候補名單 (HK 輪候名單); damage-price alternative 損壞價 |
+| es | feminine forms prestadora / prestataria; Perfil is both the bottom-bar tab and part of "Perfil y cuenta" in 18.3 (open point) |
+| fr | queue verb also "ajouter à ta file" (step text); section 4 button keeps "Publier l'annonce"; Quebec variants also téléverser, clavarder, bogue, OBNL |
+| ar | queue step title «احجز دورك»; bottom bar «الانتظار»; single item «غرض»; verbal nouns الإعارة / الاستعارة; report noun بلاغ |
+| tl | lend also ipahiram, borrow also hiramin, list also mag-list; report (noun); puna for "your notes" in prose |
+| vi | short forms đồ / món đồ; catalogue kho đồ; Browse Khám phá; damage claim yêu cầu đền bù hư hỏng |
+| ko | queue verb also 대기열에 넣다 (adding an item); short button 문제없음 for Returned OK; user = 사용자 (UI) / 이용자 (legal sections) |
+| pt | feminine forms emprestadora / tomadora; tagline uses singular "equipamento" |
+| ru | loan выдача; your turn твой ход; site owner автор проекта (владелец is reserved for lender, pending decision); feedback types Ошибка / Идея / Другое |
+
+**Known overlaps to watch.**
+- ar: ملاحظات means both "feedback" (Send feedback) and "notes" (related notes, damage notes). On the privacy page the two appear two bullets apart. Native reviewer to decide whether one of them needs another word.
+- "What other users can see" (privacy): resolved 2026-10-20. The English now lists the real public profile contents and "simple counts" (listed, lent out, borrowed, came back OK, damaged or lost) instead of "lending history"; all ten files were resynced, which also removes the narrower Korean 빌려준 기록.
+
+**Legal pages: precedence notice.** Strings for "unofficial translation, the English version applies" are in `docs/i18n-legal-notice.md`. Page-ready terms and privacy files are in `docs/legal-drafts/`.
+
+## 7. Analytics and cookies (privacy section 15, added 2026-10-20)
+
+New English text from the copy owner, marked "DRAFT, needs review" with several [TO CONFIRM] items; the wording may still change. Synced into all ten files and `docs/legal-drafts/<code>/privacy.md`, formal register, hedges kept ("based on Vercel's documentation", "can include"). `Vercel Web Analytics`, `beforeSend`, the doc title "Privacy and Compliance" and `NEEDS REVIEW.` stay in English everywhere.
+
+| Language | Heading (translated part) | analytics | cookies | hash |
+|---|---|---|---|---|
+| zh | 网站分析和 Cookie | 网站分析 | Cookie | 哈希值 |
+| zh-hant | 分析和 Cookie | 分析 | Cookie | 雜湊值 |
+| es | Analítica y cookies | analítica | cookies | hash (un hash) |
+| fr | Mesure d'audience et cookies | mesure d'audience | cookies | valeur de hachage (hash) |
+| ar | التحليلات وملفات تعريف الارتباط | التحليلات | ملفات تعريف الارتباط | قيمة تجزئة (hash) |
+| tl | Analytics at cookies | analytics | cookies | hash |
+| vi | Phân tích truy cập và cookie | phân tích truy cập | cookie | giá trị băm (hash) |
+| ko | 분석 도구와 쿠키 | 분석 | 쿠키 | 해시 |
+| pt (pt-BR) | Análise de acessos e cookies | análise de acessos | cookies | hash (um hash) |
+| ru | Аналитика и файлы cookie | аналитика | файлы cookie | хеш |
+
+Each heading is followed by the English marker "(DRAFT, needs review)" and its translation. Alternatives and reasons are in each file's term table.

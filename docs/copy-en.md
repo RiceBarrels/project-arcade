@@ -129,7 +129,9 @@ Nothing. The damage price is only owed if the lender marks the item as damaged o
 
 **Title:** Terms of use
 
-**Last updated:** Oct 19, 2026
+**Last updated:** Oct 20, 2026
+
+> **TODO before launch:** set the real publish date in "Last updated" on both the terms (section 8) and the privacy policy (section 15). Today's Oct 20, 2026 is a draft date. Update all translated copies too. From then on, change the date whenever the content changes.
 
 **The short version:** This site helps neighbours lend gear to each other. We introduce you; the rest is between you and the other person.
 
@@ -186,11 +188,11 @@ Nothing. The damage price is only owed if the lender marks the item as damaged o
 You're up next! Reply within 48 hours to claim this item. If we don't hear from you, it moves to the next person in the queue.
 
 **Banner in the queue list (for the person whose turn it is):**
-Your turn: {item}. Respond within {time left} to keep your spot.
+Your turn: {item}. Respond within {left} to keep your spot.
 
 **Buttons:** Claim it / Pass for now
 
-**Countdown low (under 6h):** Last call: {time left} left to respond.
+**Countdown low (under 6h):** Last call: {left} left to respond.
 
 **Expired message:** Time's up. This one moved on to the next person in the queue. You can rejoin the queue any time.
 
@@ -273,7 +275,9 @@ Style: flat, thick dark outlines, hard offset shadows, bold flat colours, matchi
 
 **Title:** Privacy policy
 
-**Last updated:** Oct 19, 2026
+**Last updated:** Oct 20, 2026
+
+> **TODO before launch:** set the real publish date in "Last updated" on both the terms (section 8) and the privacy policy (section 15). Today's Oct 20, 2026 is a draft date. Update all translated copies too. From then on, change the date whenever the content changes.
 
 **The short version:** We collect what we need to run the lending library, store it with our database provider, and don't use it for advertising.
 
@@ -284,13 +288,34 @@ Style: flat, thick dark outlines, hard offset shadows, bold flat colours, matchi
 - **Borrowing records:** requests, queue entries, approvals, handoff and return markings (OK or damaged), and related notes.
 - **Reports:** reports you send, and reports made about you or your listings.
 - **Feedback:** if you use Send feedback, we store your message, the type you chose (bug, idea or other), the page you were on, and a short note about your browser. If you're signed in, it's linked to your account. If you add a reply contact, we store that too. [TO CONFIRM: exact fields, based on supabase/08-feedback.sql, which did not exist yet when this was written.]
-- **Basic technical data:** [TO CONFIRM: e.g. server logs, IP address, cookies needed for sign-in. Fill in once the real setup is checked.]
+- **Basic technical data:** when you visit, our hosting and analytics providers process basic technical information, such as the pages you view, your approximate location (country or region), and your browser and device type. See "Analytics and cookies" below. [TO CONFIRM: server logs and IP address handling by Vercel and Supabase. NEEDS REVIEW.]
 
 ### Where it is stored
 Your account, profile, listings, borrowing records and photos are stored with Supabase (database, authentication and file storage). The data is stored in Canada (Supabase region ca-central-1). The website is hosted on Vercel.
 
 ### What other users can see
-Your display name, city or area, listings, photos and lending history on your profile are visible to other users. Your exact address should not be put in listings. Your email address is never shown publicly. Once a request is approved, lender and borrower contact each other only through the site's in-app messages.
+Your public profile is visible to other users. It shows your display name, city or area (if you add one), bio, the month and year you joined, and your listings with their photos. It also shows simple counts: how many items you have listed, lent out and borrowed, how many came back OK, and how many were damaged or lost (as lender and as borrower). It does not list who you lent to or borrowed from. [NEEDS REVIEW: checked against components/profile-stats.tsx and the profile page on 2026-10-20; recheck if the profile changes.] Your exact address should not be put in listings. Your email address is never shown publicly. Once a request is approved, lender and borrower contact each other only through the site's in-app messages.
+
+### Analytics and cookies (DRAFT, needs review)
+We use Vercel Web Analytics to count visits to pages, so we can see which parts of the site are used. Based on Vercel's documentation (docs "Privacy and Compliance", last updated 2026-06-26):
+- It does not use third-party cookies. Visitors are told apart by a hash created from the incoming request.
+- The visitor session information is not stored permanently; it is discarded after 24 hours.
+- It does not collect information that would let anyone follow you across different websites or apps, and it is used for combined statistics only.
+- Each page view can include: the time, the page path, the referring page, approximate location (country, region, city), operating system and version, browser and version, and device type (mobile, tablet or desktop).
+
+Before a page view is sent, we remove item, loan and profile IDs from the page path, and we remove query parameters and anything after a # sign. Links from our emails (the /auth/... pages that open when you click a sign-up or password-reset link) are not reported at all, and other pages are reported by their path only, such as /en/login. We don't send your user ID. We can't change the referring page, which the analytics tool includes by itself. [NEEDS REVIEW: based on the builder's check of the code on 2026-10-20.]
+
+We don't use this to show ads, and we don't sell it.
+
+Cookies: the site sets two kinds of cookies, both needed for it to work.
+- A sign-in cookie, set by our sign-in provider (Supabase), keeps you signed in. It can be split into several parts.
+- A language cookie remembers the language you chose. It lasts 1 year.
+
+The site also stores your vibration setting and your progress through the welcome screens in your browser's local storage on your own device. This is not a cookie and is not sent to us.
+
+We don't set advertising or cross-site tracking cookies. [NEEDS REVIEW: based on the builder's check of the code on 2026-10-20; recheck when anything is added.]
+
+[TO CONFIRM from Vercel or the dashboard, not stated in the docs page above: (1) whether IP addresses are stored or only used briefly to work out approximate location; (2) how long aggregated analytics data is kept; (3) where analytics data is stored and processed. Do not publish a claim on these until checked.]
 
 ### How we use it
 To run the site: show listings, manage queues and requests, let lenders and borrowers contact each other, handle reports, and keep the site safe.
@@ -642,3 +667,224 @@ Separate from Report. Report is only for abuse of items and users (section 9). S
 **Where it appears:** also add a line in the Report dialog fine print (section 9): Found a bug or have an idea instead? Use Send feedback.
 
 **Privacy note (add to section 15 once feedback storage is confirmed):** Feedback you send is stored with your account and any reply contact you enter. [TO CONFIRM by the builder and owner: what is stored and for how long.]
+
+## 20. Discord
+
+Voice: same as the site. Non-profit, friendly, direct. No emoji. Anything legal-sounding is marked **needs review**. Placeholders: [invite link], [site link], [date]. Contact email for Discord only: colinwilsonfan@gmail.com (the owner's personal address; the site's terms and privacy placeholders are NOT filled yet).
+
+Fee rule used throughout: the site charges nothing and takes no payments. Lenders may choose to charge a small fee; people settle it directly, outside the site. This is never a promise or a service of project-arcade.
+
+### 20.1 Server description and welcome
+
+**Server description (short):** The community for project-arcade, a free-to-use, non-profit library for lending and borrowing gear. Questions, ideas, and help welcome.
+**Server description (one line, for listings):** Chat, help and news for project-arcade, a non-profit community gear library. Pre-alpha.
+
+**Welcome message (posted in #welcome, or sent on join):**
+Welcome to the project-arcade Discord.
+
+project-arcade is a non-profit community library for gear. You browse, queue up, borrow from people nearby, return it, and pass it on. It's pre-alpha, so things will change.
+
+This server is for people 18 and older, like the site. By staying, you confirm you're 18 or older.
+
+Start here:
+1. Read the rules in #rules.
+2. Say hello in #introductions.
+3. Questions about how the site works? Ask in #help. Need a moderator? Open a private thread in #contact-mods.
+
+The lending itself happens on the site, not here: [site link]
+
+### 20.2 Rules announcement (published wording)
+
+> Rule content is owned by 8号 (project-arcade-0e) and is confirmed in docs/discord/02-rules.md. Wording only is mine. **Needs review** before posting; not legal text.
+
+**Title:** Server rules
+
+**Intro:** This is a small, friendly, volunteer-run community. These rules keep it that way. If you're not sure about something, ask a moderator.
+
+1. **Be kind.** No harassment, hate, threats, sexual content or personal attacks.
+2. **This server is 18+.** You must be 18 or older to be here, the same as on the site. If we learn someone is under 18, we'll remove them.
+3. **Loans happen on the site, not here.** Please don't arrange loans, handoffs, returns, damage prices or queue spots in Discord. That includes "Who has X I can borrow?" and "I'm lending X, DM me" posts. Don't link to individual listings (not allowed in v1). Linking the site's home page is fine.
+4. **No money in Discord.** Don't ask for or send payments, deposits, tips or payment links. Fee and damage-price disputes don't belong here: they are settled directly between the two people. No public naming and shaming over a dispute, and no chasing debts.
+5. **Don't pull people into private chats.** Don't message members to move a loan, a payment or a conversation away from the site or out of public view.
+6. **Protect privacy.** Don't share other people's personal details, and don't post your own address, phone number or ID.
+7. **No high-risk gear.** For now the site doesn't allow power tools, vehicles (including e-bikes and e-scooters), climbing gear or medical equipment, so please don't offer, ask for or arrange them here either. And please don't give safety advice on this gear.
+8. **No scams or impersonation.** Staff will never ask for your password or payment. Report anything suspicious.
+9. **No ads or self-promotion.** No referral links, no spam, no repeated messages.
+10. **No fundraising and no paid perks.** We don't take donations in this server, including for project-arcade itself. No donation drives, no paid roles, and no selling anything here.
+11. **Keep it relevant.** Talk about project-arcade, lending, borrowing and gear, and use the right channel. Keep off-topic chat to #off-topic. Please post in English for now, so our small team of volunteers can follow along. Thank you!
+12. **Follow moderators.** If a moderator asks you to stop, please stop. Disagree? Message a moderator or open a private thread in #contact-mods, not the whole channel.
+
+**Reporting.** See something that breaks these rules? Open a private thread in #contact-mods, or message a moderator. A moderator will look at it. We may not be able to share what we decide.
+- Problem with a listing or a person on the site: use Report on the site.
+- Bugs and ideas: use Send feedback on the site: [site link]
+- In danger: contact your local emergency services.
+
+**What happens if rules are broken.** Usually a reminder or warning first, then a timeout, then a ban. Serious cases (threats, hate, scams, doxxing, sexual content, spam accounts, or anything that puts a minor at risk) can go straight to a ban. If we learn someone is under 18, we remove them from the server. That's not a ban, and they're welcome back at 18. We usually tell banned members why. Moderators are volunteers and make their best call.
+
+**Appeals.** If you think a ban was a mistake, email colinwilsonfan@gmail.com within 30 days of the ban. A different moderator or the owner will review it. One appeal per ban. *(Needs review: appeal window and process.)*
+
+*(Staff convention, not a member rule: no emoji in names, tags or staff posts. The owner may override this; open question.)*
+
+### 20.3 New member guide
+
+**Title:** How project-arcade works
+
+**Borrowing**
+1. Browse the catalogue on the site: [site link]
+2. Add what you want to your queue. When it's your turn you have 48 hours to respond.
+3. The lender approves your request. Agree a time and place using the site's messages.
+4. Pick it up, use it, and return it in the condition you got it. The lender marks it returned OK, or damaged or lost.
+
+**Lending**
+1. Create an account on the site (18 or older, verify your email).
+2. List your item with photos, condition, pickup area and a damage price.
+3. Approve requests you're comfortable with.
+4. When it comes back, mark it returned OK or damaged or lost.
+
+**Good to know**
+- This Discord is 18+, the same as the site. You must be 18 or older to be here.
+- Borrowing and returning happen on the site, not in Discord.
+- Please don't ask for or send money in Discord, and don't transfer money to anyone here. The site charges nothing and takes no payments. Some lenders may ask for a small fee for their item. Any fee is agreed and paid directly between the two people, not through the site. It's their arrangement, not a service of project-arcade.
+- Damage price: what a borrower owes the lender if an item comes back damaged or lost. It's settled directly between the two of them. The site doesn't collect or enforce it.
+- The site never shows anyone's email address. Please don't share yours in public channels.
+- Don't want DMs from members? Turn off direct messages for this server in its privacy settings.
+- Found a bug or have an idea? Use Send feedback on the site.
+
+### 20.4 Announcement templates
+
+**Weekly update**
+**Title:** project-arcade weekly update ([date])
+**When to post:** weekly, at [day and time] Eastern Time (ET), with UTC added. Example: "Posted Fridays at 12:00 ET (16:00 or 17:00 UTC depending on daylight saving time)."
+- **What's new:** [one to three lines]
+- **Fixed:** [one to three lines]
+- **Coming next:** [one to three lines]
+- **Help wanted:** [optional: volunteers, testing, feedback]
+- **Reminder:** project-arcade is pre-alpha. Features and data may change. Send feedback on the site.
+
+**Maintenance notice**
+**Title:** Planned maintenance: [date and time with time zone]
+We'll be doing maintenance on project-arcade on [date] from [start] to [end] ([time zone]). The site may be unavailable or slow during this time. Nothing you need to do. We'll post here when it's finished. Thanks for your patience.
+
+**Maintenance finished**
+Maintenance is finished and project-arcade is back. If something still looks wrong, tell us with Send feedback on the site.
+
+**New feature**
+**Title:** New on project-arcade: [feature name]
+- **What it does:** [one or two lines]
+- **How to use it:** [one or two lines, with link]
+- **Good to know:** [limits, pre-alpha caveat]
+- **Tell us what you think:** Send feedback on the site.
+
+### 20.5 Volunteer recruitment post
+
+**Title:** Help run project-arcade
+
+project-arcade is a non-profit community gear library, and it's run by volunteers. We're looking for a few people to join us.
+
+**Roles**
+- **Moderators:** keep Discord friendly, welcome new members and handle reports.
+- **Content:** post announcements and weekly updates, keep the welcome and guides current, and point out confusing wording on the site.
+- **Technical support:** answer questions about using the site in #help and collect bug reports. You won't have access to anyone's account.
+
+**Good to know**
+- All roles are voluntary and unpaid. There is no payment, and the project makes no profit.
+- Time is flexible. A few hours a week is plenty.
+- You must be 18 or older.
+- We're not looking for translators right now. We'll post if that changes.
+
+**Interested?** Tell us a little about yourself and which role you'd like by opening a private thread in #volunteer-apply. A moderator will reply.
+
+*(Needs review: if volunteers get access to user data or reports, the project needs a volunteer agreement and confidentiality terms. Don't invent them here.)*
+
+### 20.6 Moderator reply templates
+
+Replace [ ] before sending. Keep replies short and calm.
+
+**Rule warning**
+Hi [name], a quick heads-up. Your message in [channel] breaks our rule about [rule]. Please [what to do]. This is a warning and no further action is taken for now. If it happens again, we may time you out, or ban you for repeated or serious breaches. Questions? Reply here. Thanks for understanding. [mod name]
+
+**Report received**
+Hi [name], thanks for reporting this. We've received it and a moderator will take a look. We might not be able to share what we decide, but we take every report seriously. If it's an emergency, please contact your local emergency services. [mod name]
+
+**Ban notice** (needs review before use, including the appeal window)
+Hi [name], your access to the project-arcade Discord has been ended because of [rule or reason]. This decision is about the Discord server only. Your site account is handled separately. If you think this was a mistake, you can email colinwilsonfan@gmail.com within 30 days of the ban, and a different moderator or the owner will review it. [mod name]
+
+**Scam warning (public post)**
+Heads-up, everyone: someone is [short description, e.g. sending private messages asking for payment]. project-arcade staff will never ask for your password, payment or personal details. The site takes no payments. If you receive a message like this, don't reply or click links. Report it to a moderator.
+
+**Scam warning (private message)**
+Hi [name], the message you received from [user] looks like a scam. Please don't send money or share personal details. The project-arcade site takes no payments, and staff never ask for passwords or payment. You can block them. A moderator is looking into it.
+
+**Under-18 removal note** (needs review)
+Hi [name], this server is for people 18 and older, like the site, so we've removed you from it. This isn't a ban, and you're welcome back once you turn 18. Thanks for understanding. [mod name]
+
+**Timeout notice**
+Hi [name], you've been timed out for [1 day / 1 week] because of [rule or reason]. You can still read the server, but you can't post until it ends. If you think this was a mistake, reply here or open a private thread in #contact-mods. [mod name]
+
+**Appeal decision reply** (needs review, including who decides)
+- **Unban:** Hi [name], we've reviewed your appeal and your access to the server is restored. Please take another look at the rules. Welcome back. [mod name]
+- **Shortened:** Hi [name], we've reviewed your appeal. We've shortened the restriction, and it will end on [date]. Please take another look at the rules. [mod name]
+- **Upheld:** Hi [name], we've reviewed your appeal and the decision stands. There is one appeal per ban, so this one is final. Thanks for taking the time to ask. [mod name]
+
+**Public reminder**
+A reminder: loans, money and disputes belong on the site, not here. Please take them there, and use #contact-mods if you need a moderator.
+
+**Care line for self-harm messages** (needs review; no hotline numbers on purpose)
+Hi [name], we're sorry you're going through this, and we're glad you said something. We're a volunteer group and can't give the help you may need. Please contact your local emergency services or a local crisis service right now. If you can, reach out to someone you trust too. [mod name]
+
+### 20.7 Reminder: how to talk about money
+
+- The site charges no fees and takes no payments.
+- Lenders may choose to charge a small fee. The two people settle it directly, outside the site.
+- Never write this as a project-arcade guarantee, service, or protection. We don't collect, hold, arrange, verify or enforce any payment, including damage price.
+- Don't ask for payments, deposits or tips in Discord, and don't send payment links.
+- In every template, "no fees" means the site itself charges no fees.
+
+## 21. Translated legal pages: unofficial translation notice (needs lawyer review)
+
+> **Needs lawyer review.** Source: docs/i18n-legal-notice.md (7号). The wording below uses "applies". If a lawyer prefers "prevails", change it in all 10 languages. The text of N1 is already used in the page code as one string with a link; do not change its key text without telling 1号 (project-arcade-46).
+
+Shown only on translated /terms and /privacy pages, never on the English pages.
+
+**N1 (banner, above the DRAFT note):** This is an unofficial translation. If it differs from the English version, the English version applies.
+**N1 with link (exact dictionary key used by the code):** This is an unofficial translation. If it differs from the <link>English version</link>, the English version applies.
+**N2 (link text):** Read the English version
+**N3 (short label, e.g. page metadata or language switcher on legal pages):** Unofficial translation
+
+## 22. i18n and system strings (reviewed 2026-10-20)
+
+Review of the builder's provisional strings. Kept unless noted.
+
+**Language** (language switcher label): keep as is.
+**This is an unofficial translation. If it differs from the <link>English version</link>, the English version applies.**: keep, as in section 21.
+**This page isn't available in your language yet, so it's shown in English.**: keep. Plain and friendly.
+**Last updated: {date}**: keep. Format the date in the user's language.
+**Countdown units:** {h}h {m}m, and {m}m when under an hour: keep as unit keys. Do not add "left". The time only appears inside two full sentences (section 10): "Respond within {left} to keep your spot." and "Last call: {left} left to respond." Translators should localise the unit letters and keep the time inside those sentences.
+**404 page (visible text, replaces the earlier suggestion):** keep the big "404".
+- **Title:** Nothing on this shelf
+- **Body:** That page or item doesn't exist, or it's been taken down.
+- **Primary button:** Browse the catalogue (goes to /browse)
+- **Secondary link (new):** Back to home
+**404 browser tab title:** Page not found
+**404 meta description:** The page or item you were looking for doesn't exist, or it's been taken down.
+(The earlier suggestion "Page not found" as the visible title and a new body was withdrawn: the existing visible text is on-brand, accurate for both pages and items, and already built.)
+(The generic error page already uses "Something went wrong" with Try again and Back to home, section 17.9.)
+
+## 23. /list: custom photo picker
+
+Replaces the browser's own "Choose files" control with a button in the site's language. Keep the existing label "Photos" and the existing hint "A few clear photos help borrowers say yes. Up to 8." (already in the code, so the upload limit is not repeated here; the hint has no size limit, so none is added).
+
+**Button (no photos chosen):** Choose photos
+**Button (photos already chosen):** Change photos
+(The browser's file picker replaces the earlier selection each time, so "Change" is accurate; "Add more photos" would not be.)
+**Status, none chosen:** No photos chosen yet
+**Status, chosen (plural: one / other):**
+- one: {count} photo chosen
+- other: {count} photos chosen
+**Screen reader label for the button, none chosen:** Choose photos for your listing
+**Screen reader label for the button, photos chosen:** Change photos for your listing
+(The label should start with the visible button text, so it matches what sighted users see.)
+
+**Error lines (confirmed in use by 1号):**
+- Too many: You can add up to 8 photos. Please choose fewer.
+- Not an image: Please choose image files only.

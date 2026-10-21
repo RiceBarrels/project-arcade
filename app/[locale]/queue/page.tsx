@@ -1,19 +1,25 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { QueueList, type QueueRow } from "@/components/queue-list";
+import { localePath } from "@/i18n/config";
+import { alternates, getLocale, getT } from "@/i18n/server";
 import { getMyQueue } from "@/lib/data/me";
 import { requireUser } from "@/lib/data/session";
 
-export const metadata: Metadata = { title: "My queue" };
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getT();
+  return { title: t("My queue"), alternates: await alternates("/queue") };
+}
 
-export default function QueuePage() {
+export default async function QueuePage() {
+  const t = await getT();
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <h1 className="text-4xl font-black uppercase">My queue</h1>
-        <p>Your place in line for each item. First come, first served.</p>
+        <h1 className="text-4xl font-black uppercase">{t("My queue")}</h1>
+        <p>{t("Your place in line for each item. First come, first served.")}</p>
       </div>
-      <Suspense fallback={<p className="font-bold">Loading your queue…</p>}>
+      <Suspense fallback={<p className="font-bold">{t("Loading your queue…")}</p>}>
         <MyQueue />
       </Suspense>
     </div>
@@ -21,7 +27,7 @@ export default function QueuePage() {
 }
 
 async function MyQueue() {
-  await requireUser("/en/queue");
+  await requireUser(localePath("/queue", await getLocale()));
   const entries = await getMyQueue();
   const rows: QueueRow[] = entries.flatMap((q) =>
     q.item

@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState, useTransition } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -17,8 +17,9 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { PREVIEW_ONLY } from "@/components/settings/shared";
+import { useRouter, useT } from "@/i18n/client";
 import { WRITES_ENABLED } from "@/lib/domain";
-import { path } from "@/lib/paths";
+import { SITE_NAME } from "@/lib/site";
 import { sendFeedback } from "./actions";
 import {
   FEEDBACK_ERRORS,
@@ -34,9 +35,11 @@ import {
 // Send feedback dialog (docs/copy-en.md 19); a bottom sheet on phones like every
 // Dialog. Signed-in members only: FeedbackEntry links signed-out visitors to
 // /login instead of rendering this. Writes are off (WRITES_ENABLED), so a valid
-// submit shows the preview notice and nothing is stored.
+// submit shows the preview notice and nothing is stored. `error` and `done` hold
+// English source strings (msg) and are translated when shown.
 export function FeedbackDialog({ children }: { children: React.ReactElement }) {
   const id = useId();
+  const t = useT();
   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -68,7 +71,7 @@ export function FeedbackDialog({ children }: { children: React.ReactElement }) {
     startTransition(async () => {
       const res = await sendFeedback({ type, message: text, reply, path: pathname });
       if (res.ok) return setDone(FEEDBACK_SENT);
-      if (res.signedOut) return router.push(`${path("/login")}?next=${encodeURIComponent(pathname)}`);
+      if (res.signedOut) return router.push(`/login?next=${encodeURIComponent(pathname)}`);
       setError({ text: res.error, field: res.field });
     });
   }
@@ -83,39 +86,41 @@ export function FeedbackDialog({ children }: { children: React.ReactElement }) {
         {done ? (
           <>
             <DialogHeader>
-              <DialogTitle>Send feedback</DialogTitle>
+              <DialogTitle>{t("Send feedback")}</DialogTitle>
               <DialogDescription role="status" className="font-bold text-foreground">
-                {done}
+                {t(done)}
               </DialogDescription>
             </DialogHeader>
             <DialogFooter>
-              <Button onClick={() => onOpenChange(false)}>Close</Button>
+              <Button onClick={() => onOpenChange(false)}>{t("Close")}</Button>
             </DialogFooter>
           </>
         ) : (
           <form className="space-y-4" onSubmit={submit} noValidate>
             <DialogHeader>
-              <DialogTitle>Send feedback</DialogTitle>
+              <DialogTitle>{t("Send feedback")}</DialogTitle>
               <DialogDescription>
-                project-arcade is pre-alpha, so your notes really help. Tell us what&apos;s broken, confusing, or missing.
+                {t.rich("{site} is pre-alpha, so your notes really help. Tell us what's broken, confusing, or missing.", {
+                  site: <bdi>{SITE_NAME}</bdi>,
+                })}
               </DialogDescription>
             </DialogHeader>
 
             <RadioGroup
               value={type}
               onValueChange={(v) => setType(v as FeedbackType)}
-              aria-label="Type"
+              aria-label={t("Type")}
               className="flex flex-wrap gap-x-5 gap-y-1"
             >
-              {FEEDBACK_TYPES.map((t) => (
-                <label key={t} className="flex min-h-11 cursor-pointer items-center gap-2 font-bold md:min-h-10">
-                  <RadioGroupItem value={t} /> {TYPE_LABEL[t]}
+              {FEEDBACK_TYPES.map((k) => (
+                <label key={k} className="flex min-h-11 cursor-pointer items-center gap-2 font-bold md:min-h-10">
+                  <RadioGroupItem value={k} /> {t(TYPE_LABEL[k])}
                 </label>
               ))}
             </RadioGroup>
 
             <div className="space-y-2">
-              <Label htmlFor={messageId}>What&apos;s on your mind?</Label>
+              <Label htmlFor={messageId}>{t("What's on your mind?")}</Label>
               <Textarea
                 id={messageId}
                 value={message}
@@ -125,17 +130,17 @@ export function FeedbackDialog({ children }: { children: React.ReactElement }) {
                 }}
                 maxLength={FEEDBACK_MAX}
                 rows={5}
-                placeholder={PLACEHOLDER[type]}
+                placeholder={t(PLACEHOLDER[type])}
                 aria-invalid={error?.field === "message"}
                 aria-describedby={`${messageId}-count${error?.field ? ` ${messageId}-error` : ""}`}
               />
-              <p id={`${messageId}-count`} className="text-right text-xs">
-                {message.length.toLocaleString("en-US")} / {FEEDBACK_MAX.toLocaleString("en-US")}
+              <p id={`${messageId}-count`} className="text-end text-xs">
+                {t.number(message.length)} / {t.number(FEEDBACK_MAX)}
               </p>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor={replyId}>How can we reply? (optional)</Label>
+              <Label htmlFor={replyId}>{t("How can we reply? (optional)")}</Label>
               <Input
                 id={replyId}
                 value={reply}
@@ -145,24 +150,24 @@ export function FeedbackDialog({ children }: { children: React.ReactElement }) {
                 aria-describedby={`${replyId}-help`}
               />
               <p id={`${replyId}-help`} className="text-xs">
-                Only fill this in if you&apos;d like an answer. We won&apos;t use it for anything else. Don&apos;t include
-                passwords or payment details. Your account email is never shown here. If you want a reply by email, type
-                the address you&apos;d like us to use.
+                {t(
+                  "Only fill this in if you'd like an answer. We won't use it for anything else. Don't include passwords or payment details. Your account email is never shown here. If you want a reply by email, type the address you'd like us to use.",
+                )}
               </p>
             </div>
 
             {error && (
               <p id={`${messageId}-error`} role="alert" className="text-sm font-bold text-destructive">
-                {error.text}
+                {t(error.text)}
               </p>
             )}
 
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>
-                Cancel
+                {t("Cancel")}
               </Button>
               <Button type="submit" disabled={pending}>
-                Send feedback
+                {t("Send feedback")}
               </Button>
             </DialogFooter>
           </form>

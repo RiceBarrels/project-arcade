@@ -36,12 +36,12 @@ export function CheckField({
         </Label>
       </div>
       {helper && (
-        <p id={`${id}-help`} className="pl-8 text-xs">
+        <p id={`${id}-help`} className="ps-8 text-xs">
           {helper}
         </p>
       )}
       {error && (
-        <p id={`${id}-error`} role="alert" className="pl-8 text-sm font-bold text-destructive">
+        <p id={`${id}-error`} role="alert" className="ps-8 text-sm font-bold text-destructive">
           {error}
         </p>
       )}

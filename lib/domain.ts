@@ -1,5 +1,10 @@
+import type { Translator } from "@/i18n/core";
+import { msg } from "@/i18n/msg";
+import { isLocale } from "@/lib/site";
+
 // Domain types and pure helpers shared by server and client code.
-// Row types mirror supabase/01-schema.sql.
+// Row types mirror supabase/01-schema.sql. Labels are English source strings
+// (msg): translate them where they're shown, t(CONDITION_LABEL[c]).
 
 export type Condition = "new" | "like_new" | "good" | "fair" | "worn";
 export type ItemStatus = "available" | "on_loan" | "hidden";
@@ -85,28 +90,28 @@ export interface ProfileStats {
 }
 
 export const CONDITION_LABEL: Record<Condition, string> = {
-  new: "New",
-  like_new: "Like new",
-  good: "Good",
-  fair: "Fair",
-  worn: "Well used",
+  new: msg("New"),
+  like_new: msg("Like new"),
+  good: msg("Good"),
+  fair: msg("Fair"),
+  worn: msg("Well used"),
 };
 
 // Allowlist of category slugs. High-risk categories (power tools, vehicles,
 // climbing, medical equipment) are deliberately absent in v1; the DB has a
 // matching check constraint as a backstop.
 export const categories: Category[] = [
-  { slug: "hand-tools", name: "Hand tools" },
-  { slug: "cameras", name: "Cameras" },
-  { slug: "camping", name: "Camping" },
-  { slug: "games", name: "Games" },
-  { slug: "music", name: "Instruments" },
-  { slug: "sports", name: "Sports" },
-  { slug: "kitchen", name: "Kitchen" },
-  { slug: "party", name: "Party & events" },
+  { slug: "hand-tools", name: msg("Hand tools") },
+  { slug: "cameras", name: msg("Cameras") },
+  { slug: "camping", name: msg("Camping") },
+  { slug: "games", name: msg("Games") },
+  { slug: "music", name: msg("Instruments") },
+  { slug: "sports", name: msg("Sports") },
+  { slug: "kitchen", name: msg("Kitchen") },
+  { slug: "party", name: msg("Party & events") },
 ];
 
-export const BLOCKED_CATEGORIES = ["Power tools", "Vehicles", "Climbing gear", "Medical equipment"];
+export const BLOCKED_CATEGORIES = [msg("Power tools"), msg("Vehicles"), msg("Climbing gear"), msg("Medical equipment")];
 
 export const RESPONSE_WINDOW_HOURS = 48;
 export const LAST_CALL_HOURS = 6;
@@ -123,24 +128,24 @@ export function offerMsLeft(offeredAt: string, now: number) {
   return Date.parse(offeredAt) + RESPONSE_WINDOW_HOURS * 3_600_000 - now;
 }
 
-export function formatTimeLeft(ms: number) {
-  if (ms <= 0) return "0m";
+export function formatTimeLeft(ms: number, t: Translator) {
+  if (ms <= 0) return t("{m}m", { m: 0 });
   const totalMin = Math.floor(ms / 60_000);
   const h = Math.floor(totalMin / 60);
   const m = totalMin % 60;
-  return h > 0 ? `${h}h ${m}m` : `${m}m`;
+  return h > 0 ? t("{h}h {m}m", { h, m }) : t("{m}m", { m });
 }
 
-export const formatUSD = (n: number) => `$${n.toFixed(n % 1 ? 2 : 0)}`;
-
-export function feeLabel(item: Pick<Item, "is_free" | "fee_amount" | "fee_period">) {
-  if (item.is_free || item.fee_amount == null) return "Free";
-  const per = item.fee_period === "loan" ? "per loan" : `per ${item.fee_period}`;
-  return `${formatUSD(item.fee_amount)} ${per}`;
+export function feeLabel(item: Pick<Item, "is_free" | "fee_amount" | "fee_period"> & { currency?: string }, t: Translator) {
+  if (item.is_free || item.fee_amount == null) return t("Free");
+  const amount = t.money(item.fee_amount, item.currency);
+  if (item.fee_period === "day") return t("{amount} per day", { amount });
+  if (item.fee_period === "week") return t("{amount} per week", { amount });
+  return t("{amount} per loan", { amount });
 }
 
-export function damageLabel(item: Pick<Item, "damage_price" | "damage_waived">) {
-  return item.damage_waived ? "No charge if damaged" : formatUSD(item.damage_price);
+export function damageLabel(item: Pick<Item, "damage_price" | "damage_waived"> & { currency?: string }, t: Translator) {
+  return item.damage_waived ? t("No charge if damaged") : t.money(item.damage_price, item.currency);
 }
 
 /** Public URL of a file in the item-photos bucket (bucket is public-read). */
@@ -149,15 +154,17 @@ export function photoPublicUrl(path: string) {
   return `${base}/storage/v1/object/public/item-photos/${path.split("/").map(encodeURIComponent).join("/")}`;
 }
 
-/** Month the member joined, e.g. "2026-03". */
-export const memberSince = (createdAt: string) => createdAt.slice(0, 7);
+/** Month the member joined, in the page language: "March 2026", "2026年3月". */
+export const memberSince = (createdAt: string, t: Translator) => t.date(createdAt, { year: "numeric", month: "long" });
 
 /**
  * Only allow same-site, locale-prefixed relative paths as post-login targets
  * (prevents open redirects via ?next=).
  */
 export function safeNextPath(next: string | null | undefined, fallback = "/en") {
-  if (!next || !next.startsWith("/en") || next.startsWith("//") || next.includes("\\")) return fallback;
+  if (!next || next.startsWith("//") || next.includes("\\")) return fallback;
+  const first = next.split(/[/?#]/)[1] ?? "";
+  if (!next.startsWith("/") || !isLocale(first)) return fallback;
   return next;
 }
 

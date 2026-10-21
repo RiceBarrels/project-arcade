@@ -6,7 +6,7 @@
 - **Biến thể:** tiếng Việt chuẩn, viết đầy đủ dấu, chọn từ mà người đọc ở cả miền Bắc và miền Nam đều hiểu. Những chỗ có khác biệt vùng miền được ghi trong bảng thuật ngữ ở cuối file. Dấu thanh đặt theo kiểu mới (ví dụ “xóa”, “hòa”, “thỏa”), văn bản lưu ở dạng Unicode NFC (ký tự dựng sẵn).
 - **Phông chữ:** tiếng Việt có dấu chồng nhiều tầng (ví dụ ấ, ể, ỗ, ặ, Ở). Phông tiêu đề đậm và phông thân bài phải có bộ ký tự tiếng Việt, và chiều cao dòng phải đủ để dấu không bị cắt. Xem mục 7 trong phần câu hỏi cần phối hợp ở cuối file.
 
-> **Ghi chú của người dịch (không phải nội dung trang):** File này là bản dịch tiếng Việt của `docs/copy-en.md`. Số thứ tự các mục khớp hoàn toàn với bản tiếng Anh. Các biến giữ chỗ (`{amount}`, `{item}`, `{time left}`, `{Lender}`, `{Name}`, `{n}`, `{email}`, `{listing / user}`) và các chỗ giữ trong ngoặc vuông (`[contact email]`, `[Link to privacy policy]`) được giữ nguyên, đường dẫn (`/terms`, `/privacy`, `/list`) cũng không đổi. Thuật ngữ còn chờ xác nhận, xem bảng “Thuật ngữ chờ xác nhận” ở cuối file. Mục 8 và 15 là bản nháp pháp lý: chỉ dịch trung thành, giữ nguyên các dấu DRAFT, TO CONFIRM và NEEDS LAWYER CONFIRMATION của bản gốc.
+> **Ghi chú của người dịch (không phải nội dung trang):** File này là bản dịch tiếng Việt của `docs/copy-en.md`. Số thứ tự các mục khớp hoàn toàn với bản tiếng Anh. Các biến giữ chỗ (`{amount}`, `{item}`, `{left}`, `{Lender}`, `{Name}`, `{n}`, `{email}`, `{listing / user}`) và các chỗ giữ trong ngoặc vuông (`[contact email]`, `[Link to privacy policy]`) được giữ nguyên, đường dẫn (`/terms`, `/privacy`, `/list`) cũng không đổi. Thuật ngữ còn chờ xác nhận, xem bảng “Thuật ngữ chờ xác nhận” ở cuối file. Mục 8 và 15 là bản nháp pháp lý: chỉ dịch trung thành, giữ nguyên các dấu DRAFT, TO CONFIRM và NEEDS LAWYER CONFIRMATION của bản gốc.
 >
 > Bản tiếng Anh đối chiếu: copy-en.md (phiên bản 2026-10-20). Khi bản tiếng Anh thay đổi, cần cập nhật file này.
 
@@ -141,7 +141,9 @@ Thì không có gì cả. Giá đền bù chỉ phải trả khi người cho m�
 
 **Tiêu đề:** Điều khoản sử dụng
 
-**Cập nhật lần cuối:** Ngày 19 tháng 10 năm 2026
+**Cập nhật lần cuối:** Ngày 20 tháng 10 năm 2026
+
+> **TODO before launch:** (việc cần làm trước khi ra mắt) điền ngày công bố thật vào mục "Cập nhật lần cuối" ở cả điều khoản (mục 8) và chính sách quyền riêng tư (mục 15). Ngày 20 tháng 10 năm 2026 hiện tại chỉ là ngày tạm của bản nháp. Cập nhật cả tất cả các bản dịch. Từ đó trở đi, đổi ngày mỗi khi nội dung thay đổi.
 
 **Tóm tắt:** Trang này giúp hàng xóm cho nhau mượn đồ. Chúng tôi giới thiệu Quý vị với nhau; phần còn lại là chuyện giữa Quý vị và người kia.
 
@@ -154,7 +156,7 @@ Thì không có gì cả. Giá đền bù chỉ phải trả khi người cho m�
 7. **Vui lòng cư xử tử tế.** Không tin đăng giả, không quấy rối, không làm bất cứ điều gì phạm pháp. Chúng tôi có thể gỡ tin đăng hoặc tài khoản vi phạm các quy tắc này.
 8. **Báo cáo.** Nếu Quý vị thấy một tin đăng hoặc một người dùng có dấu hiệu lạm dụng, không an toàn hoặc giả mạo, vui lòng dùng nút Báo cáo. Chúng tôi sẽ xem xét các báo cáo, nhưng không thể hứa sẽ xử lý mọi báo cáo hay giải quyết tranh chấp giữa người dùng. Để báo lỗi hoặc gửi ý tưởng, vui lòng dùng Gửi góp ý thay cho nút Báo cáo.
 9. **Thay đổi.** Chúng tôi có thể cập nhật các điều khoản này. Tiếp tục sử dụng trang nghĩa là Quý vị chấp nhận phiên bản hiện hành.
-10. **Không được phép trong v1.** Để giữ an toàn, hiện tại không thể đăng các loại sau: dụng cụ điện, phương tiện giao thông, đồ leo núi và thiết bị y tế. Chúng tôi có thể gỡ tin đăng thuộc các loại này hoặc các loại rủi ro cao khác.
+10. **Không được phép trong v1.** Để giữ an toàn, hiện tại không thể đăng các loại sau: dụng cụ chạy điện hoặc động cơ, phương tiện giao thông, đồ leo núi và thiết bị y tế. Chúng tôi có thể gỡ tin đăng thuộc các loại này hoặc các loại rủi ro cao khác.
 11. **Người cho mượn chịu trách nhiệm về độ an toàn của món đồ.** Khi đăng một món đồ, Quý vị xác nhận món đó an toàn để cho mượn và được mô tả chính xác. Người mượn chịu trách nhiệm sử dụng đồ an toàn trong thời gian giữ đồ.
 12. **Quyền riêng tư (một dòng, chủ trang cần xác nhận trước khi ra mắt).** Chúng tôi chỉ thu thập những gì cần để vận hành trang, và chúng tôi không bán dữ liệu của Quý vị. [Link to privacy policy]
 13. **Phi lợi nhuận.** Trang này là phi lợi nhuận. Bản thân trang không thu bất kỳ khoản phí nào, không hiển thị quảng cáo và không nhận thanh toán. Người cho mượn có thể chọn thu một khoản phí nhỏ cho một món đồ; mọi khoản phí đều do người cho mượn và người mượn thỏa thuận và trả trực tiếp cho nhau, không qua trang. [NEEDS LAWYER CONFIRMATION: câu chữ về phí.]
@@ -199,11 +201,11 @@ Thì không có gì cả. Giá đền bù chỉ phải trả khi người cho m�
 Tới lượt bạn rồi! Hãy phản hồi trong vòng 48 giờ để nhận món đồ này. Nếu chúng tôi không nhận được phản hồi của bạn, món đồ sẽ chuyển cho người tiếp theo trong hàng chờ.
 
 **Banner trong danh sách hàng chờ (cho người đang tới lượt):**
-Tới lượt bạn: {item}. Hãy phản hồi trong {time left} để giữ chỗ.
+Tới lượt bạn: {item}. Hãy phản hồi trong {left} để giữ chỗ.
 
 **Nút:** Nhận ngay / Tạm bỏ qua
 
-**Sắp hết giờ (dưới 6 giờ):** Cơ hội cuối: chỉ còn {time left} để phản hồi.
+**Sắp hết giờ (dưới 6 giờ):** Cơ hội cuối: chỉ còn {left} để phản hồi.
 
 **Thông báo hết hạn:** Hết giờ. Món này đã chuyển sang người tiếp theo trong hàng chờ. Bạn có thể xếp hàng lại bất cứ lúc nào.
 
@@ -290,7 +292,9 @@ Phong cách: phẳng, viền tối dày, bóng đổ lệch sắc cạnh, màu p
 
 **Tiêu đề:** Chính sách quyền riêng tư
 
-**Cập nhật lần cuối:** Ngày 19 tháng 10 năm 2026
+**Cập nhật lần cuối:** Ngày 20 tháng 10 năm 2026
+
+> **TODO before launch:** (việc cần làm trước khi ra mắt) điền ngày công bố thật vào mục "Cập nhật lần cuối" ở cả điều khoản (mục 8) và chính sách quyền riêng tư (mục 15). Ngày 20 tháng 10 năm 2026 hiện tại chỉ là ngày tạm của bản nháp. Cập nhật cả tất cả các bản dịch. Từ đó trở đi, đổi ngày mỗi khi nội dung thay đổi.
 
 **Tóm tắt:** Chúng tôi thu thập những gì cần để vận hành thư viện cho mượn đồ, lưu trữ tại nhà cung cấp cơ sở dữ liệu của chúng tôi, và không dùng chúng cho quảng cáo.
 
@@ -301,13 +305,34 @@ Phong cách: phẳng, viền tối dày, bóng đổ lệch sắc cạnh, màu p
 - **Lịch sử mượn đồ:** yêu cầu, lượt xếp hàng, lượt duyệt, đánh dấu giao nhận và trả đồ (nguyên vẹn hoặc hư hỏng), và các ghi chú liên quan.
 - **Báo cáo:** báo cáo Quý vị gửi, và báo cáo về Quý vị hoặc tin đăng của Quý vị.
 - **Góp ý:** nếu Quý vị dùng Gửi góp ý, chúng tôi lưu nội dung Quý vị viết, loại góp ý Quý vị chọn (lỗi, ý tưởng hoặc khác), trang Quý vị đang xem, và một ghi chú ngắn về trình duyệt của Quý vị. Nếu Quý vị đã đăng nhập, góp ý được liên kết với tài khoản của Quý vị. Nếu Quý vị thêm thông tin liên hệ để chúng tôi trả lời, chúng tôi cũng lưu thông tin đó. [TO CONFIRM: các trường dữ liệu chính xác, dựa trên supabase/08-feedback.sql, tệp này chưa tồn tại khi nội dung này được viết.]
-- **Dữ liệu kỹ thuật cơ bản:** [TO CONFIRM: ví dụ nhật ký máy chủ, địa chỉ IP, cookie cần cho việc đăng nhập. Điền vào sau khi đã kiểm tra cấu hình thực tế.]
+- **Dữ liệu kỹ thuật cơ bản:** khi Quý vị truy cập trang, các nhà cung cấp dịch vụ lưu trữ web và dịch vụ phân tích truy cập của chúng tôi xử lý thông tin kỹ thuật cơ bản, chẳng hạn như các trang Quý vị xem, vị trí gần đúng của Quý vị (quốc gia hoặc vùng), và loại trình duyệt và loại thiết bị của Quý vị. Xem mục “Phân tích truy cập và cookie” bên dưới. [TO CONFIRM: cách Vercel và Supabase xử lý nhật ký máy chủ và địa chỉ IP. NEEDS REVIEW.]
 
 ### Dữ liệu được lưu ở đâu
 Tài khoản, hồ sơ, tin đăng, lịch sử mượn đồ và ảnh của Quý vị được lưu trữ tại Supabase (cơ sở dữ liệu, xác thực và lưu trữ tệp). Dữ liệu được lưu tại Canada (khu vực Supabase ca-central-1). Trang web được lưu trữ (hosting) trên Vercel.
 
 ### Người dùng khác thấy được gì
-Tên hiển thị, thành phố hoặc khu vực, tin đăng, ảnh và lịch sử cho mượn trên hồ sơ của Quý vị đều hiển thị với người dùng khác. Quý vị không nên ghi địa chỉ chính xác của mình trong tin đăng. Địa chỉ email của Quý vị không bao giờ được hiển thị công khai. Sau khi một yêu cầu được duyệt, người cho mượn và người mượn chỉ liên hệ với nhau qua tính năng tin nhắn trên trang.
+Hồ sơ công khai của Quý vị hiển thị với người dùng khác. Hồ sơ này cho thấy tên hiển thị, thành phố hoặc khu vực (nếu Quý vị có thêm vào), phần giới thiệu, tháng và năm Quý vị tham gia, và các tin đăng của Quý vị cùng ảnh của chúng. Hồ sơ cũng cho thấy các con số đơn giản: số món đồ Quý vị đã đăng, đã cho mượn và đã mượn, số lượt trả lại nguyên vẹn, và số lượt hư hỏng hoặc mất (khi Quý vị là người cho mượn và khi Quý vị là người mượn). Hồ sơ không liệt kê Quý vị đã cho ai mượn hay đã mượn của ai. [NEEDS REVIEW: đã đối chiếu với components/profile-stats.tsx và trang hồ sơ vào ngày 2026-10-20; cần kiểm tra lại nếu trang hồ sơ thay đổi.] Quý vị không nên ghi địa chỉ chính xác của mình trong tin đăng. Địa chỉ email của Quý vị không bao giờ được hiển thị công khai. Sau khi một yêu cầu được duyệt, người cho mượn và người mượn chỉ liên hệ với nhau qua tính năng tin nhắn trên trang.
+
+### Phân tích truy cập và cookie (DRAFT, needs review) (BẢN NHÁP, cần xem xét)
+Chúng tôi dùng Vercel Web Analytics để đếm số lượt truy cập các trang, nhờ đó chúng tôi biết những phần nào của trang đang được sử dụng. Dựa trên tài liệu của Vercel (trang tài liệu “Privacy and Compliance”, tức “Quyền riêng tư và Tuân thủ”, cập nhật lần cuối ngày 2026-06-26):
+- Công cụ này không dùng cookie của bên thứ ba. Khách truy cập được phân biệt với nhau bằng một giá trị băm (hash) được tạo ra từ yêu cầu (request) gửi đến.
+- Thông tin về phiên truy cập của khách truy cập không được lưu vĩnh viễn; thông tin này bị loại bỏ sau 24 giờ.
+- Công cụ này không thu thập thông tin cho phép bất kỳ ai theo dõi Quý vị qua các trang web hoặc ứng dụng khác nhau, và chỉ được dùng cho số liệu thống kê tổng hợp.
+- Mỗi lượt xem trang có thể bao gồm: thời điểm, đường dẫn của trang, trang dẫn đến, vị trí gần đúng (quốc gia, vùng, thành phố), hệ điều hành và phiên bản, trình duyệt và phiên bản, và loại thiết bị (di động, máy tính bảng hoặc máy tính để bàn).
+
+Trước khi một lượt xem trang được gửi đi, chúng tôi loại bỏ mã (ID) của món đồ, lượt mượn và hồ sơ khỏi đường dẫn của trang, đồng thời loại bỏ các tham số truy vấn và mọi phần đứng sau dấu #. Các liên kết trong email của chúng tôi (các trang /auth/... mở ra khi Quý vị nhấn vào một liên kết đăng ký hoặc đặt lại mật khẩu) hoàn toàn không được ghi nhận, còn các trang khác chỉ được ghi nhận bằng đường dẫn của trang, ví dụ /en/login. Chúng tôi không gửi mã người dùng (user ID) của Quý vị. Chúng tôi không thể thay đổi trang dẫn đến, vì công cụ phân tích tự đưa thông tin này vào. [NEEDS REVIEW: dựa trên việc người lập trình kiểm tra mã nguồn vào ngày 2026-10-20.]
+
+Chúng tôi không dùng dữ liệu này để hiển thị quảng cáo, và chúng tôi không bán dữ liệu này.
+
+Cookie: trang thiết lập hai loại cookie, cả hai đều cần thiết để trang hoạt động.
+- Cookie đăng nhập, do nhà cung cấp dịch vụ đăng nhập của chúng tôi (Supabase) thiết lập, giữ cho Quý vị ở trạng thái đăng nhập. Cookie này có thể được chia thành nhiều phần.
+- Cookie ngôn ngữ ghi nhớ ngôn ngữ mà Quý vị đã chọn. Cookie này được lưu trong 1 năm.
+
+Trang cũng lưu cài đặt rung khi chạm của Quý vị và tiến độ của Quý vị trong các màn hình hướng dẫn ban đầu vào bộ nhớ cục bộ (local storage) của trình duyệt, ngay trên thiết bị của chính Quý vị. Đây không phải là cookie và không được gửi cho chúng tôi.
+
+Chúng tôi không thiết lập cookie quảng cáo hay cookie theo dõi trên nhiều trang web. [NEEDS REVIEW: dựa trên việc người lập trình kiểm tra mã nguồn vào ngày 2026-10-20; cần kiểm tra lại khi có bất kỳ thứ gì được thêm vào.]
+
+[TO CONFIRM from Vercel or the dashboard, not stated in the docs page above: (1) địa chỉ IP có được lưu lại hay chỉ được dùng trong thời gian ngắn để xác định vị trí gần đúng; (2) dữ liệu phân tích tổng hợp được lưu giữ trong bao lâu; (3) dữ liệu phân tích được lưu trữ và xử lý ở đâu. Không đăng bất kỳ khẳng định nào về những điểm này cho tới khi đã kiểm tra.]
 
 ### Chúng tôi dùng dữ liệu như thế nào
 Để vận hành trang: hiển thị tin đăng, quản lý hàng chờ và yêu cầu, giúp người cho mượn và người mượn liên hệ với nhau, xử lý báo cáo, và giữ cho trang an toàn.
@@ -660,6 +685,58 @@ Tách riêng với Báo cáo. Báo cáo chỉ dùng cho hành vi lạm dụng li
 
 **Ghi chú quyền riêng tư (thêm vào mục 15 khi cách lưu góp ý đã được xác nhận):** Góp ý bạn gửi được lưu cùng tài khoản của bạn và thông tin liên hệ để trả lời mà bạn nhập (nếu có). [TO CONFIRM by the builder and owner: những gì được lưu và lưu trong bao lâu.]
 
+## 20. Discord (không dịch, chỉ có tiếng Anh theo quyết định của người điều phối)
+
+Mục 20 của copy-en.md chỉ được giữ bằng tiếng Anh.
+
+## 21. Trang pháp lý bản dịch: thông báo bản dịch không chính thức (cần luật sư xem xét)
+
+> **Needs lawyer review.** (Cần luật sư xem xét.) Nguồn: docs/i18n-legal-notice.md (7号). Câu chữ dưới đây dùng “applies” (được áp dụng). Nếu luật sư muốn dùng “prevails” (có giá trị ưu tiên), cần đổi ở cả 10 ngôn ngữ. Câu N1 đã được dùng trong code của trang dưới dạng một chuỗi có liên kết; không thay đổi câu chữ của khóa này mà không báo cho 1号 (project-arcade-46).
+
+Chỉ hiển thị trên các trang /terms và /privacy bản dịch, không bao giờ hiển thị trên các trang tiếng Anh.
+
+**N1 (banner, phía trên ghi chú DRAFT):** Đây là bản dịch không chính thức. Nếu bản dịch này có điểm khác với bản tiếng Anh, bản tiếng Anh sẽ được áp dụng.
+**N1 có liên kết (đúng khóa từ điển mà code dùng):** Đây là bản dịch không chính thức. Nếu bản dịch này có điểm khác với <link>bản tiếng Anh</link>, bản tiếng Anh sẽ được áp dụng.
+**N2 (chữ của liên kết):** Đọc bản tiếng Anh
+**N3 (nhãn ngắn, ví dụ siêu dữ liệu của trang hoặc bộ chuyển ngôn ngữ trên các trang pháp lý):** Bản dịch không chính thức
+
+## 22. Đa ngôn ngữ (i18n) và các chuỗi hệ thống (đã rà soát 2026-10-20)
+
+Rà soát các chuỗi tạm do người lập trình viết. Giữ nguyên, trừ khi có ghi chú. (Trong ngoặc kép là nguyên văn tiếng Anh, chữ in đậm là chuỗi giao diện tiếng Việt.)
+
+**Nhãn bộ chuyển ngôn ngữ** ("Language"): **Ngôn ngữ**. Giữ nguyên.
+**Thông báo N1 có liên kết** ("This is an unofficial translation. If it differs from the <link>English version</link>, the English version applies."): **Đây là bản dịch không chính thức. Nếu bản dịch này có điểm khác với <link>bản tiếng Anh</link>, bản tiếng Anh sẽ được áp dụng.** Giữ nguyên, như ở mục 21.
+**Trang chưa có bản dịch** ("This page isn't available in your language yet, so it's shown in English."): **Trang này chưa có bản tiếng Việt, nên đang được hiển thị bằng tiếng Anh.** Giữ nguyên. Dễ hiểu và thân thiện.
+**Ngày cập nhật** ("Last updated: {date}"): **Cập nhật lần cuối: {date}**. Giữ nguyên. Ngày được định dạng theo ngôn ngữ của người dùng (tiếng Việt: ngày 20 tháng 10 năm 2026).
+**Đơn vị đếm ngược:** "{h}h {m}m" là **{h} giờ {m} phút**, và "{m}m" (khi còn dưới một giờ) là **{m} phút**. Giữ dạng khóa đơn vị. Không thêm chữ “left” (còn) vào khóa đơn vị. Thời gian chỉ xuất hiện bên trong hai câu đầy đủ (mục 10): "Respond within {left} to keep your spot." (**Hãy phản hồi trong {left} để giữ chỗ.**) và "Last call: {left} left to respond." (**Cơ hội cuối: chỉ còn {left} để phản hồi.**) Người dịch chỉ cần bản địa hóa chữ viết tắt của đơn vị và giữ thời gian bên trong hai câu này. Trong tiếng Việt, “left” được diễn đạt bằng chữ “còn” đặt trước thời gian (ví dụ “chỉ còn 5 giờ 30 phút”), và chữ này đã nằm sẵn trong câu, không nằm trong khóa đơn vị.
+**Trang 404 (chữ hiển thị, thay cho đề xuất trước đó):** giữ số “404” lớn.
+- **Tiêu đề** ("Nothing on this shelf"): **Kệ này trống trơn**
+- **Nội dung** ("That page or item doesn't exist, or it's been taken down."): **Trang hoặc món đồ đó không tồn tại, hoặc đã bị gỡ.**
+- **Nút chính** ("Browse the catalogue", dẫn tới /browse): **Khám phá kho đồ**
+- **Liên kết phụ (mới)** ("Back to home"): **Về trang chủ**
+**Tiêu đề tab trình duyệt của trang 404** ("Page not found"): **Không tìm thấy trang**
+**Mô tả meta của trang 404** ("The page or item you were looking for doesn't exist, or it's been taken down."): **Trang hoặc món đồ bạn đang tìm không tồn tại, hoặc đã bị gỡ.**
+(Đề xuất trước đó dùng “Page not found” làm tiêu đề hiển thị và một nội dung mới đã được rút lại: chữ hiển thị hiện có hợp với phong cách của trang, đúng cho cả trang lẫn món đồ, và đã được làm xong.)
+(Trang lỗi chung đã dùng “Đã có lỗi xảy ra” cùng “Thử lại” và “Về trang chủ”, mục 17.9.)
+
+## 23. /list: bộ chọn ảnh tùy chỉnh
+
+Thay nút “Choose files” mặc định của trình duyệt bằng một nút theo ngôn ngữ của trang. Giữ nguyên nhãn hiện có “Ảnh” và chữ hướng dẫn hiện có “Vài tấm ảnh rõ nét giúp người mượn dễ đồng ý hơn. Tối đa 8 ảnh.” (đã có trong code, nên giới hạn số ảnh không nhắc lại ở đây; chữ hướng dẫn không có giới hạn dung lượng, nên không thêm).
+
+**Nút (chưa chọn ảnh):** Chọn ảnh
+**Nút (đã chọn ảnh):** Đổi ảnh
+(Mỗi lần chọn, bộ chọn tệp của trình duyệt sẽ thay thế các ảnh đã chọn trước đó, nên “Đổi” là đúng; “Thêm ảnh” sẽ không đúng.)
+**Trạng thái, chưa chọn ảnh nào:** Chưa chọn ảnh nào
+**Trạng thái, đã chọn (số nhiều: tiếng Việt chỉ có dạng other):**
+- other: Đã chọn {count} ảnh
+(Khi {count} là 0, trang hiển thị dòng “Chưa chọn ảnh nào” ở trên.)
+**Nhãn cho trình đọc màn hình của nút:** Chọn ảnh cho tin đăng của bạn
+**Nhãn cho trình đọc màn hình của nút (khi đã chọn ảnh):** Đổi ảnh cho tin đăng của bạn
+
+**Thông báo lỗi (code hiện dùng cả hai; mỗi lần chỉ hiển thị một):**
+- Quá nhiều ảnh: Bạn có thể thêm tối đa 8 ảnh. Vui lòng chọn ít ảnh hơn.
+- Không phải tệp ảnh: Vui lòng chỉ chọn tệp ảnh.
+
 ---
 
 ## Thuật ngữ chờ xác nhận (ghi chú của người dịch, không phải nội dung trang)
@@ -685,22 +762,25 @@ Các từ dưới đây là cách dùng tạm thời trong bản dịch này và
 | Damaged or lost | Hư hỏng hoặc mất | Hư hoặc mất, Hỏng hoặc thất lạc, Bị hư hỏng hoặc bị mất | “Hư” là từ miền Nam, “hỏng” là từ miền Bắc; ghép “hư hỏng” thì cả hai miền đều dùng được. “Mất” phổ thông; “thất lạc” trang trọng hơn. |
 | the arcade (Join the arcade, Thanks for being part of the arcade) | hội arcade | khu arcade, cộng đồng project-arcade, tiệm game, project-arcade | “Gia nhập hội” gợi “gia nhập bang hội” trong game, vẫn giữ chữ arcade. “Arcade” là từ mượn mà người chơi game biết (máy game thùng); người không chơi game có thể chưa quen, nên phương án dự phòng là “cộng đồng project-arcade”. “Tiệm game” mang sắc thái miền Nam và dễ hiểu nhầm là quán thật. |
 | Report | Báo cáo | Báo vi phạm, Tố cáo | “Báo cáo” là từ các ứng dụng phổ biến ở Việt Nam hay dùng cho việc báo nội dung hoặc tài khoản vi phạm, nên vẫn hợp khi nút Báo cáo nay chỉ dùng cho lạm dụng, nội dung không an toàn hoặc giả mạo. “Báo vi phạm” rõ hơn nhưng dài hơn. “Tố cáo” quá nặng. Không còn dùng “Phản hồi” làm phương án vì dễ lẫn với Gửi góp ý. |
-| Send feedback / feedback | Gửi góp ý / góp ý | Gửi phản hồi, Phản hồi, Ý kiến đóng góp, Báo lỗi | “Góp ý” bao cả báo lỗi lẫn ý tưởng, nhẹ nhàng và khác hẳn “Báo cáo”, nên người dùng không lẫn hai nút. “Phản hồi” cũng phổ biến nhưng còn có nghĩa là trả lời (dễ lẫn với “phản hồi trong 48 giờ” ở mục 10). “Báo lỗi” chỉ bao được loại Lỗi. Dùng thống nhất ở mục 1, 8, 9 và 19. Ba loại góp ý: Lỗi / Ý tưởng / Khác. |
+| Send feedback / feedback | Gửi góp ý / góp ý | Gửi phản hồi, Phản hồi, Ý kiến đóng góp, Báo lỗi | “Góp ý” bao cả báo lỗi lẫn ý tưởng, nhẹ nhàng và khác hẳn “Báo cáo”, nên người dùng không lẫn hai nút. “Phản hồi” cũng phổ biến nhưng còn có nghĩa là trả lời (dễ lẫn với “phản hồi trong 48 giờ” ở mục 10). “Báo lỗi” chỉ bao được loại Lỗi. Dùng thống nhất ở mục 1, 8, 9, 15 và 19. Ba loại góp ý: Lỗi / Ý tưởng / Khác. |
 | Me (thanh dưới cùng) | Tôi | Cá nhân, Tài khoản, Của tôi | “Tôi” là nhãn quen thuộc ở các ứng dụng mua sắm tại Việt Nam và ngắn nhất. Lưu ý: ô đánh dấu ở 6b, 11, 12 cũng dùng “Tôi” ở ngôi thứ nhất, không gây nhầm lẫn. |
 | Repeat (trong khẩu hiệu) | Chơi lại. | Chơi tiếp., Thêm ván nữa., Lặp lại. | “Chơi lại” có chất game (như nút chơi lại ở máy arcade) và ngắn. “Lặp lại” đúng nghĩa đen nhưng khô. |
 | cách xưng hô (you) | giao diện: bạn (thân mật); mục 8 và 15 (trang pháp lý): Quý vị (trang trọng); trang luôn tự xưng: chúng tôi | quý khách, người dùng (ngôi thứ ba), cậu, mình; tự xưng: tụi mình (miền Nam) / bọn mình (miền Bắc) | Giao diện dùng “bạn”: thân thiện, trung tính, phổ biến trong ứng dụng ở cả hai miền. Theo quyết định của chủ trang, hai trang pháp lý (mục 8 /terms và mục 15 chính sách quyền riêng tư) dùng “Quý vị”, viết hoa chữ Q, dùng thống nhất cả khi làm chủ ngữ lẫn sở hữu (“của Quý vị”); câu mệnh lệnh dùng “vui lòng” thay cho “hãy” / “đừng”. “Quý vị” là cách xưng hô trang trọng, lịch sự quen thuộc trong điều khoản và thông báo chính thức ở Việt Nam, áp dụng được cho một hay nhiều người và không gắn với vùng miền. “Quý khách” mang màu dịch vụ trả tiền, không hợp với trang phi lợi nhuận. “Người dùng” ở ngôi thứ ba được giữ khi bản gốc nói về người dùng nói chung, nhưng không dùng để thay “you” vì làm câu mệnh lệnh và câu sở hữu thiếu tự nhiên. “Tụi mình” / “bọn mình” thân hơn nhưng mang màu vùng miền. Ô đánh dấu dùng “Tôi”; “you two” trong giao diện dịch là “hai bạn”. |
 | Browse | Khám phá | Xem, Duyệt, Tìm | Dùng thống nhất cho bước 1, nút “Khám phá kho đồ”, “Bắt đầu khám phá” và thanh dưới cùng. |
 | click / tap | nhấn / chạm | bấm (miền Nam hay dùng), ấn (miền Bắc hay dùng) | “Nhấn” và “chạm” trung tính, hai miền đều dùng trong ứng dụng. |
 | thank you | cảm ơn | cám ơn | “Cảm ơn” là chính tả chuẩn; “cám ơn” phổ biến ở miền Nam, cả hai đều đúng. |
+| analytics / Web Analytics | phân tích truy cập (dịch vụ phân tích truy cập, dữ liệu phân tích); tên sản phẩm Vercel Web Analytics giữ nguyên | phân tích web, thống kê truy cập, phân tích lưu lượng | “Phân tích truy cập” cho người đọc thấy rõ thứ được phân tích là các lượt truy cập trang, không phải dữ liệu tài khoản. “Phân tích web” cũng phổ biến nhưng mơ hồ hơn với người không rành công nghệ. Khi đã rõ ngữ cảnh thì rút gọn thành “dữ liệu phân tích”. Dùng ở mục 15. |
+| cookie / cookies | cookie (không dịch, không thêm “s”) | tệp cookie, tệp lưu trữ tạm, bánh quy | Trang web và văn bản quyền riêng tư ở Việt Nam thường giữ nguyên từ “cookie”; tiếng Việt không chia số nhiều nên dùng “các cookie”. File đã dùng “cookie” ở mục 15 trước đây. “Bánh quy” là dịch nghĩa đen, không dùng. |
+| hash | giá trị băm (hash) | mã băm, hàm băm, hash (không dịch) | “Băm” là thuật ngữ tin học tiếng Việt chuẩn; “giá trị băm” chỉ đúng kết quả được tạo ra (không phải hàm). Giữ “(hash)” trong ngoặc ở lần đầu cho người quen thuật ngữ tiếng Anh. |
 
 ## Câu hỏi cần phối hợp hoặc cần code hỗ trợ (ghi chú của người dịch)
 
 1. **“[message removed]”:** cơ sở dữ liệu (`supabase/05-messages-and-deletion.sql`) ghi nội dung tin nhắn của người dùng đã xóa tài khoản bằng chuỗi tiếng Anh `[message removed]`. Muốn giao diện tiếng Việt hiển thị “[tin nhắn đã bị xóa]”, code cần nhận ra giá trị này và thay khi hiển thị. Mục 15 và 17.7 tạm giữ nguyên chuỗi tiếng Anh để khớp với những gì đang hiển thị; nếu code hỗ trợ thì đổi thống nhất thành “[tin nhắn đã bị xóa]”.
 2. **Từ xác nhận DELETE:** giữ tiếng Anh `DELETE` vì code so khớp chính xác chuỗi này. Muốn người dùng gõ “XÓA” thì cần code hỗ trợ, và nên chấp nhận cả “XOA” không dấu. Lưu ý thêm: nhiều người dùng Việt Nam luôn bật bộ gõ tiếng Việt (Telex/VNI, ví dụ Unikey hay bộ gõ của điện thoại). Ở một số chế độ gõ, chuỗi “DELETE” có thể bị biến thành chữ có dấu (ví dụ chữ E thứ hai bị hiểu là dấu mũ cho chữ E trước đó). Cần thử thực tế; nếu xảy ra, có thể thêm một dòng nhắc tắt bộ gõ tiếng Việt, hoặc để code chấp nhận cả biến thể.
-3. **Định dạng {time left} và {amount}:** tiếng Việt cần thời lượng dạng “5 giờ”, “2 ngày”, “30 phút” (không có số nhiều). Số tiền cần định dạng theo ngôn ngữ: tiếng Việt dùng dấu chấm phân cách hàng nghìn và dấu phẩy cho phần thập phân (ví dụ “150.000 ₫”). Vì thế ở 17.9 con số 2,000 được viết thành 2.000; code đếm ký tự nên định dạng theo locale. Đơn vị tiền tệ (CAD hay VND) do code quyết định.
+3. **Định dạng {left} và {amount}:** tiếng Việt cần thời lượng dạng “5 giờ”, “2 ngày”, “30 phút” (không có số nhiều). Số tiền cần định dạng theo ngôn ngữ: tiếng Việt dùng dấu chấm phân cách hàng nghìn và dấu phẩy cho phần thập phân (ví dụ “150.000 ₫”). Vì thế ở 17.9 con số 2,000 được viết thành 2.000; code đếm ký tự nên định dạng theo locale. Đơn vị tiền tệ (CAD hay VND) do code quyết định.
 4. **{listing / user}:** tiếng Việt cần hai câu đầy đủ, không ghép chuỗi: “Báo cáo tin đăng này” / “Báo cáo người dùng này”. Từ chỉ định “này” đứng sau danh từ.
-5. **Ngày của điều khoản và chính sách quyền riêng tư:** copy-en.md hiện ghi “Oct 19, 2026” ở mục 8 và 15; bản dịch viết là “Ngày 19 tháng 10 năm 2026”. Một phiên bản cũ có năm 2025, có vẻ là lỗi đánh máy; nếu ngày tiếng Anh thay đổi lần nữa thì bản dịch cần cập nhật theo. Đề nghị chủ trang xác nhận.
-6. **Hiệu lực pháp lý theo ngôn ngữ:** khi các bản điều khoản tiếng Anh và tiếng Việt cùng tồn tại, bản nào được ưu tiên là quyết định của luật sư. Bản dịch không tự thêm điều khoản nào về việc này. Nếu trang có người dùng ở Việt Nam, luật sư có thể cần xem thêm quy định về bảo vệ dữ liệu cá nhân của Việt Nam; đây chỉ là ghi chú cho luật sư, không phải nội dung trang.
+5. **Ngày của điều khoản và chính sách quyền riêng tư:** copy-en.md hiện ghi “Oct 19, 2026” ở mục 8 và 15; bản dịch viết là “Ngày 19 tháng 10 năm 2026”. Một phiên bản cũ có năm 2025, có vẻ là lỗi đánh máy; nếu ngày tiếng Anh thay đổi lần nữa thì bản dịch cần cập nhật theo. Đề nghị chủ trang xác nhận. Cập nhật (2026-10-20): hai ngày trong bản tiếng Anh nay là "Oct 20, 2026" và bản dịch đã được đồng bộ; đây vẫn là ngày tạm, cần đổi thành ngày công bố thật trước khi ra mắt (xem TODO ở mục 8 và 15).
+6. **Hiệu lực pháp lý theo ngôn ngữ:** khi các bản điều khoản tiếng Anh và tiếng Việt cùng tồn tại, bản nào được ưu tiên là quyết định của luật sư. Bản dịch không tự thêm điều khoản nào về việc này. Nếu trang có người dùng ở Việt Nam, luật sư có thể cần xem thêm quy định về bảo vệ dữ liệu cá nhân của Việt Nam; đây chỉ là ghi chú cho luật sư, không phải nội dung trang. Cập nhật (2026-10-20): người dùng đã quyết định các trang điều khoản và quyền riêng tư bản dịch sẽ hiển thị thông báo rằng đây là bản dịch không chính thức và bản tiếng Anh sẽ được áp dụng (câu chữ trong docs/i18n-legal-notice.md). Thông báo này có hiệu lực pháp lý như mong muốn ở từng nước hay không vẫn do luật sư quyết định.
 7. **Phông chữ và dấu tiếng Việt:** `app/[locale]/layout.tsx` đang tải DM Sans và Space Mono chỉ với `subsets: ["latin"]`. Tiếng Việt cần các ký tự ngoài bộ latin cơ bản (ơ, ư, đ, ạ, ấ, ể, ỗ, ặ, ...). Tôi chưa kiểm chứng được DM Sans trên Google Fonts có bộ “vietnamese” hay không; nếu không có, trình duyệt sẽ lấy ký tự từ phông dự phòng, khiến một chữ bị trộn hai phông (rất dễ thấy ở tiêu đề đậm). Cần kiểm tra và nếu cần thì thêm subset “vietnamese” hoặc chọn phông có hỗ trợ tiếng Việt cho tiếng Việt. Dấu chồng hai tầng (ví dụ “Ấ”, “Ể”, “Ỗ” ở chữ hoa) cần chiều cao dòng đủ lớn: kiểm tra tiêu đề có line-height chặt, chữ in hoa (text-transform: uppercase) và nút/huy hiệu có overflow hidden để dấu không bị cắt.
 8. **Độ dài chuỗi:** tiếng Việt thường dài hơn tiếng Anh khoảng 20 đến 40 phần trăm về số ký tự, vì mỗi từ gồm nhiều âm tiết viết rời. Cần kiểm tra trên màn hình điện thoại hẹp: “Trả lại nguyên vẹn”, “Hư hỏng hoặc mất”, “Xóa tài khoản của tôi”, “Gửi liên kết đặt lại”, “Bắt đầu khám phá”, và năm nhãn thanh dưới cùng (mỗi nhãn hai âm tiết, ví dụ “Trang chủ”, “Hàng chờ”). Trình duyệt có thể ngắt dòng giữa hai âm tiết của một từ ghép (ví dụ “Hàng / chờ”); với nhãn ngắn nên dùng `white-space: nowrap`.
 9. **Không có giống và số ngữ pháp:** tiếng Việt không chia giống hay số nhiều, nên {n}, {amount}, {Lender}, {Name} không cần quy tắc số nhiều hay giống. Ngôi thứ ba trung tính dùng “họ” hoặc nhắc lại vai trò (“người cho mượn”). Thứ tự từ quanh biến giữ chỗ có thể khác tiếng Anh (ví dụ “{item} với {Name}”), nên code phải dùng chuỗi mẫu đầy đủ, không ghép từng mảnh.

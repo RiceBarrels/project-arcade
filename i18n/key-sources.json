@@ -1,0 +1,1394 @@
+{
+  "(deleted item)": [
+    "app/[locale]/profile/page.tsx:87",
+    "components/messages/types.ts:31"
+  ],
+  "{amount} per day": [
+    "lib/domain.ts:142"
+  ],
+  "{amount} per loan": [
+    "lib/domain.ts:144"
+  ],
+  "{amount} per week": [
+    "lib/domain.ts:143"
+  ],
+  "{city} · member since {date}": [
+    "app/[locale]/profile/[id]/page.tsx:52",
+    "app/[locale]/profile/page.tsx:58"
+  ],
+  "{count} items": [
+    "app/[locale]/browse/page.tsx:64"
+  ],
+  "{count} items in {category}": [
+    "app/[locale]/browse/page.tsx:63"
+  ],
+  "{count} items in your queue": [
+    "components/queue-list.tsx:53"
+  ],
+  "{count} items matching “{q}”": [
+    "app/[locale]/browse/page.tsx:61"
+  ],
+  "{count} items matching “{q}” in {category}": [
+    "app/[locale]/browse/page.tsx:59"
+  ],
+  "{count} listed": [
+    "components/profile-stats.tsx:11"
+  ],
+  "{count} people in line.": [
+    "app/[locale]/item/[id]/page.tsx:108"
+  ],
+  "{count} photos chosen": [
+    "components/photo-picker.tsx:85"
+  ],
+  "{count} returned OK": [
+    "components/profile-stats.tsx:12"
+  ],
+  "{h}h {m}m": [
+    "lib/domain.ts:136"
+  ],
+  "{item} with {name}": [
+    "components/messages/thread-view.tsx:46"
+  ],
+  "{item}, borrowed by {name}. Check the item and tell us. This closes the loan.": [
+    "components/return-check.tsx:77"
+  ],
+  "{m}m": [
+    "lib/domain.ts:132",
+    "lib/domain.ts:136"
+  ],
+  "{name} about {item}": [
+    "app/[locale]/messages/page.tsx:67"
+  ],
+  "{returned} returned OK · {damaged} came back damaged": [
+    "app/[locale]/item/[id]/page.tsx:127"
+  ],
+  "{site} is pre-alpha, so your notes really help. Tell us what's broken, confusing, or missing.": [
+    "components/feedback/feedback-dialog.tsx:103"
+  ],
+  "<b>{site}</b> is a non-profit community project. No ads, no platform fees, no payments through the site.": [
+    "components/site-footer.tsx:14"
+  ],
+  "<strong>Why 48 hours?</strong> So items don't sit idle while people are away from their phones. When it's your turn you have 48 hours to respond. Miss it and the item passes to the next person; you can always rejoin.": [
+    "components/queue-list.tsx:139"
+  ],
+  "A community lending library for gear. Browse what people near you are willing to lend, add it to your queue, and pick it up when it's your turn.": [
+    "app/[locale]/page.tsx:49"
+  ],
+  "A few clear photos help borrowers say yes. Up to 8.": [
+    "components/list-form.tsx:140"
+  ],
+  "A line or two about you and the gear you like. Don't include contact details.": [
+    "components/settings/shared.ts:13"
+  ],
+  "A non-profit community lending library for gear. Browse, queue up, borrow from people nearby, and pass it on. No ads, no site fees.": [
+    "lib/site.ts:9"
+  ],
+  "A non-profit library for gear, run by neighbours. The site itself charges nothing. It's pre-alpha, so things may change.": [
+    "components/mobile/onboarding.tsx:27"
+  ],
+  "A short buzz when you tap buttons. Saved on this device only.": [
+    "components/settings/device-prefs.tsx:45"
+  ],
+  "Add what you want to your queue. If it's out on loan, you keep your place in line. When it's free, you're next.": [
+    "app/[locale]/page.tsx:27"
+  ],
+  "Add what you want to your queue. When it's your turn you have 48 hours to respond, then pick it up and bring it back.": [
+    "components/mobile/onboarding.tsx:32"
+  ],
+  "Added to your queue. You keep your place in line.": [
+    "components/request-form.tsx:53"
+  ],
+  "All": [
+    "app/[locale]/browse/page.tsx:50"
+  ],
+  "All messages": [
+    "app/[locale]/messages/[loanId]/page.tsx:68"
+  ],
+  "All your items and their photos": [
+    "components/settings/shared.ts:23"
+  ],
+  "Almost there. If this address can be used to sign up, you'll get an email from us shortly. Follow the link inside to finish.": [
+    "app/[locale]/check-email/page.tsx:20"
+  ],
+  "Already have an account? Sign in": [
+    "components/signup-form.tsx:59"
+  ],
+  "Anything else we should know? (optional)": [
+    "components/report-button.tsx:121"
+  ],
+  "Approved": [
+    "components/messages/loan-status-badge.tsx:8"
+  ],
+  "as borrower": [
+    "components/profile-stats.tsx:14"
+  ],
+  "as lender": [
+    "components/profile-stats.tsx:13"
+  ],
+  "At least 8 characters.": [
+    "components/auth/reset-password-form.tsx:20",
+    "components/signup-form.tsx:31"
+  ],
+  "Back": [
+    "components/mobile/back-bar.tsx:60",
+    "components/queue-list.tsx:261"
+  ],
+  "Back to home": [
+    "app/[locale]/error.tsx:18",
+    "app/global-not-found.tsx:58"
+  ],
+  "Back to sign in": [
+    "app/[locale]/verify-failed/page.tsx:23"
+  ],
+  "Bio": [
+    "components/settings/profile-form.tsx:114"
+  ],
+  "Bio can be at most {max} characters.": [
+    "components/settings/shared.ts:67"
+  ],
+  "Borrow": [
+    "app/[locale]/page.tsx:28"
+  ],
+  "Borrow gear. Return gear. Repeat.": [
+    "lib/site.ts:8"
+  ],
+  "Borrow it. Use it. Pass it on.": [
+    "app/[locale]/page.tsx:47"
+  ],
+  "Borrowed": [
+    "components/profile-stats.tsx:12"
+  ],
+  "Borrowing records: item name, dates, damage price, damage notes and status": [
+    "components/settings/shared.ts:30"
+  ],
+  "Bring it back in the condition you got it. The lender marks it returned and the next person in line is up.": [
+    "app/[locale]/page.tsx:29"
+  ],
+  "Browse": [
+    "app/[locale]/browse/page.tsx:14",
+    "components/site-header.tsx:10",
+    "lib/nav.ts:12"
+  ],
+  "Browse the catalogue": [
+    "app/[locale]/browse/page.tsx:102",
+    "app/[locale]/page.tsx:53",
+    "app/[locale]/welcome/page.tsx:17",
+    "app/global-not-found.tsx:55"
+  ],
+  "Bug": [
+    "components/feedback/shared.ts:10"
+  ],
+  "Came back damaged": [
+    "components/profile-stats.tsx:13"
+  ],
+  "Cameras": [
+    "lib/domain.ts:105"
+  ],
+  "Camping": [
+    "lib/domain.ts:106"
+  ],
+  "Can't find it? Check your spam or junk folder.": [
+    "app/[locale]/check-email/page.tsx:21"
+  ],
+  "Cancel": [
+    "components/feedback/feedback-dialog.tsx:167",
+    "components/report-button.tsx:83",
+    "components/report-button.tsx:136",
+    "components/settings/delete-account.tsx:246"
+  ],
+  "Cancelled": [
+    "components/messages/loan-status-badge.tsx:13"
+  ],
+  "Categories": [
+    "app/[locale]/browse/page.tsx:49"
+  ],
+  "Category": [
+    "components/list-form.tsx:105"
+  ],
+  "Change photos": [
+    "components/photo-picker.tsx:82"
+  ],
+  "Change photos for your listing": [
+    "components/photo-picker.tsx:67"
+  ],
+  "Chat with lenders and borrowers": [
+    "app/[locale]/profile/page.tsx:132"
+  ],
+  "Check your email": [
+    "app/[locale]/check-email/page.tsx:8",
+    "app/[locale]/check-email/page.tsx:17"
+  ],
+  "Choose photos": [
+    "components/photo-picker.tsx:82"
+  ],
+  "Choose photos for your listing": [
+    "components/photo-picker.tsx:67"
+  ],
+  "City": [
+    "components/settings/profile-form.tsx:104"
+  ],
+  "City (optional)": [
+    "components/signup-form.tsx:24"
+  ],
+  "City can be at most {max} characters.": [
+    "components/settings/shared.ts:66"
+  ],
+  "Claim it": [
+    "components/queue-list.tsx:260",
+    "components/queue-list.tsx:266"
+  ],
+  "Claimed: {title}. The lender will be in touch about the handoff.": [
+    "components/queue-list.tsx:80"
+  ],
+  "Climbing gear": [
+    "lib/domain.ts:114"
+  ],
+  "Close": [
+    "components/feedback/feedback-dialog.tsx:95",
+    "components/report-button.tsx:71",
+    "components/ui/dialog.tsx:82",
+    "components/ui/dialog.tsx:122"
+  ],
+  "Community so far": [
+    "app/[locale]/page.tsx:64"
+  ],
+  "Condition": [
+    "components/list-form.tsx:124"
+  ],
+  "Couldn't delete your account. Please try again.": [
+    "components/settings/shared.ts:40"
+  ],
+  "Couldn't save your changes. Please try again.": [
+    "components/settings/shared.ts:12"
+  ],
+  "Couldn't send your feedback. Please try again.": [
+    "components/feedback/shared.ts:24"
+  ],
+  "Couldn't send your message. Please try again.": [
+    "components/messages/message-composer.tsx:70"
+  ],
+  "Create account": [
+    "components/signup-form.tsx:55"
+  ],
+  "Creating account…": [
+    "components/signup-form.tsx:55"
+  ],
+  "Damage price": [
+    "app/[locale]/item/[id]/page.tsx:57",
+    "app/[locale]/item/[id]/page.tsx:220"
+  ],
+  "Damage price (USD)": [
+    "components/list-form.tsx:183"
+  ],
+  "Damage price: {price}": [
+    "components/queue-list.tsx:215"
+  ],
+  "Damage: {damage}": [
+    "components/item-card.tsx:39"
+  ],
+  "Damaged or lost": [
+    "components/messages/loan-status-badge.tsx:11",
+    "components/return-check.tsx:110"
+  ],
+  "Declined": [
+    "components/messages/loan-status-badge.tsx:12"
+  ],
+  "Delete account": [
+    "app/[locale]/settings/page.tsx:55"
+  ],
+  "Delete my account": [
+    "components/settings/delete-account.tsx:170",
+    "components/settings/delete-account.tsx:248"
+  ],
+  "Delete your account?": [
+    "components/settings/delete-account.tsx:197"
+  ],
+  "Deleted account": [
+    "app/[locale]/profile/page.tsx:88",
+    "components/messages/types.ts:30"
+  ],
+  "Deleting…": [
+    "components/settings/delete-account.tsx:248"
+  ],
+  "Description": [
+    "components/list-form.tsx:143"
+  ],
+  "Didn't get it?": [
+    "app/[locale]/check-email/page.tsx:26"
+  ],
+  "Dismiss {title}": [
+    "components/queue-list.tsx:102"
+  ],
+  "Dismissed {title}.": [
+    "components/queue-list.tsx:103"
+  ],
+  "Display name": [
+    "components/settings/profile-form.tsx:87",
+    "components/signup-form.tsx:23"
+  ],
+  "Display name can be at most {max} characters.": [
+    "components/settings/shared.ts:65"
+  ],
+  "Don't share passwords, payment details, or ID numbers in messages.": [
+    "components/messages/thread-view.tsx:61"
+  ],
+  "e.g. 60": [
+    "components/list-form.tsx:195"
+  ],
+  "e.g. cracked screen, missing parts": [
+    "components/return-check.tsx:125"
+  ],
+  "e.g. Portland, OR": [
+    "components/list-form.tsx:224"
+  ],
+  "e.g. Socket wrench set": [
+    "components/list-form.tsx:101"
+  ],
+  "Email": [
+    "components/auth/email-only-form.tsx:20",
+    "components/auth/login-form.tsx:17",
+    "components/signup-form.tsx:25"
+  ],
+  "Email verified": [
+    "app/[locale]/welcome/page.tsx:9",
+    "app/[locale]/welcome/page.tsx:15"
+  ],
+  "Enter an amount. This is what the borrower agrees to owe you if the item comes back damaged or lost.": [
+    "components/list-form.tsx:201"
+  ],
+  "Enter the email you signed up with and we'll send the link again.": [
+    "app/[locale]/check-email/page.tsx:30"
+  ],
+  "Enter your email and we'll send a fresh link.": [
+    "app/[locale]/verify-failed/page.tsx:20"
+  ],
+  "Enter your email and we'll send you a link to set a new one.": [
+    "app/[locale]/forgot-password/page.tsx:25"
+  ],
+  "Everything's fine. Nobody owes anything.": [
+    "components/return-check.tsx:104"
+  ],
+  "Fair": [
+    "lib/domain.ts:96"
+  ],
+  "Fake or misleading listing": [
+    "components/report-button.tsx:24"
+  ],
+  "Fee": [
+    "components/list-form.tsx:155"
+  ],
+  "Fee in USD": [
+    "components/list-form.tsx:155"
+  ],
+  "Fee period": [
+    "components/list-form.tsx:157"
+  ],
+  "Fee: {fee} (paid directly to the lender)": [
+    "app/[locale]/item/[id]/page.tsx:66"
+  ],
+  "Find gear in the catalogue: tools, cameras, camping kit, games, instruments and more. Filter by category and area.": [
+    "app/[locale]/page.tsx:26"
+  ],
+  "Forgot your password?": [
+    "components/auth/login-form.tsx:32"
+  ],
+  "Found a bug or have an idea?": [
+    "components/feedback/feedback-trigger.tsx:26"
+  ],
+  "Free": [
+    "components/list-form.tsx:149",
+    "lib/domain.ts:140"
+  ],
+  "Free or fee": [
+    "components/list-form.tsx:147",
+    "components/list-form.tsx:148"
+  ],
+  "Free to borrow": [
+    "app/[locale]/item/[id]/page.tsx:66"
+  ],
+  "Games": [
+    "lib/domain.ts:107"
+  ],
+  "Go back": [
+    "components/return-check.tsx:149"
+  ],
+  "Go to my queue": [
+    "app/[locale]/item/[id]/page.tsx:190"
+  ],
+  "Good": [
+    "lib/domain.ts:95"
+  ],
+  "Got gear you're happy to lend? Add it here. It takes a couple of minutes: a title, a few photos, the condition it's in, and your area.": [
+    "app/[locale]/list/page.tsx:20"
+  ],
+  "Got something gathering dust? <link>List it</link> and let someone else get some use out of it.": [
+    "app/[locale]/page.tsx:114"
+  ],
+  "Hand tools": [
+    "lib/domain.ts:104"
+  ],
+  "Handed off": [
+    "components/messages/loan-status-badge.tsx:9"
+  ],
+  "Harassment or abuse": [
+    "components/report-button.tsx:26"
+  ],
+  "Home": [
+    "lib/nav.ts:11"
+  ],
+  "How can we reply? (optional)": [
+    "components/feedback/feedback-dialog.tsx:143"
+  ],
+  "How did it come back?": [
+    "components/return-check.tsx:75"
+  ],
+  "How it works": [
+    "app/[locale]/page.tsx:100"
+  ],
+  "how it works step::Browse": [
+    "app/[locale]/page.tsx:26"
+  ],
+  "I agree to the <terms>Terms of use</terms> and <privacy>Privacy policy</privacy>.": [
+    "components/signup-form.tsx:48"
+  ],
+  "I understand that if this item comes back damaged or lost, I'll owe the lender the damage price of {price}, and we'll settle it directly.": [
+    "components/queue-list.tsx:238",
+    "components/request-form.tsx:82"
+  ],
+  "I understand the lender has set no charge if this item comes back damaged or lost, and I'll still take good care of it.": [
+    "components/queue-list.tsx:237",
+    "components/request-form.tsx:81"
+  ],
+  "I'm 18 or older.": [
+    "components/queue-list.tsx:257",
+    "components/request-form.tsx:103",
+    "components/signup-form.tsx:45"
+  ],
+  "I'm responsible for the safety of this item while I have it. I'll check it before use and use it appropriately.": [
+    "components/queue-list.tsx:249",
+    "components/request-form.tsx:94"
+  ],
+  "I'm responsible for the safety of this item. I've checked that it's safe to lend and that my description is accurate to the best of my knowledge.": [
+    "components/list-form.tsx:235"
+  ],
+  "Idea": [
+    "components/feedback/shared.ts:10"
+  ],
+  "If an account exists for that email, a reset link is on its way.": [
+    "lib/auth/actions.ts:139"
+  ],
+  "If that address has an account waiting to be verified, a new link is on its way. It can take a minute.": [
+    "lib/auth/actions.ts:126"
+  ],
+  "If this gets damaged or lost, what should the borrower pay?": [
+    "components/list-form.tsx:181"
+  ],
+  "Illegal or prohibited item": [
+    "components/report-button.tsx:23"
+  ],
+  "In line": [
+    "components/queue-list.tsx:117"
+  ],
+  "Instruments": [
+    "lib/domain.ts:108"
+  ],
+  "It's what you'd owe the lender if an item comes back damaged or lost. You settle it directly with them; the site never takes money.": [
+    "components/mobile/onboarding.tsx:37"
+  ],
+  "Item": [
+    "app/[locale]/item/[id]/page.tsx:24"
+  ],
+  "Item not as described": [
+    "components/report-button.tsx:25"
+  ],
+  "item page heading::Queue": [
+    "app/[locale]/item/[id]/page.tsx:105"
+  ],
+  "items listed": [
+    "app/[locale]/page.tsx:39"
+  ],
+  "Join the arcade": [
+    "app/[locale]/signup/page.tsx:14"
+  ],
+  "Join the queue": [
+    "app/[locale]/item/[id]/page.tsx:224",
+    "components/request-form.tsx:106"
+  ],
+  "Kitchen": [
+    "lib/domain.ts:110"
+  ],
+  "Language": [
+    "components/locale-switcher.tsx:35",
+    "components/locale-switcher.tsx:51"
+  ],
+  "Last call: {left} left to respond.": [
+    "components/queue-list.tsx:212"
+  ],
+  "Last updated: {date}": [
+    "components/legal/legal-page.tsx:183"
+  ],
+  "Leave the queue for {title}": [
+    "components/queue-list.tsx:127"
+  ],
+  "Lender": [
+    "app/[locale]/item/[id]/page.tsx:122"
+  ],
+  "Lending is free by default. If you'd like a small fee, you can set one. Any fee is agreed and paid directly between you and the borrower, not through this site.": [
+    "components/list-form.tsx:167"
+  ],
+  "Lent out": [
+    "components/profile-stats.tsx:11"
+  ],
+  "Like new": [
+    "lib/domain.ts:94"
+  ],
+  "List": [
+    "lib/nav.ts:13"
+  ],
+  "List gear": [
+    "components/site-header.tsx:12"
+  ],
+  "List your gear": [
+    "app/[locale]/list/page.tsx:10",
+    "app/[locale]/list/page.tsx:18",
+    "app/[locale]/page.tsx:54",
+    "app/[locale]/welcome/page.tsx:18"
+  ],
+  "Listing published.": [
+    "components/list-form.tsx:93"
+  ],
+  "Listings": [
+    "app/[locale]/profile/[id]/page.tsx:63"
+  ],
+  "Loading your queue…": [
+    "app/[locale]/queue/page.tsx:22"
+  ],
+  "Loading…": [
+    "app/[locale]/browse/page.tsx:103",
+    "app/[locale]/item/[id]/page.tsx:37",
+    "app/[locale]/profile/[id]/page.tsx:28",
+    "app/[locale]/profile/page.tsx:29"
+  ],
+  "Main": [
+    "components/mobile/bottom-nav.tsx:33",
+    "components/site-header.tsx:29"
+  ],
+  "Mark as damaged": [
+    "components/return-check.tsx:150"
+  ],
+  "Mark as damaged?": [
+    "components/return-check.tsx:139"
+  ],
+  "Marked as damaged. The damage price of {amount} applies; sort it out with the borrower.": [
+    "components/return-check.tsx:57"
+  ],
+  "Marked as damaged. You set no charge for this item, so nothing is owed.": [
+    "components/return-check.tsx:56"
+  ],
+  "Marked as returned OK. Thanks for lending!": [
+    "components/return-check.tsx:54"
+  ],
+  "Me": [
+    "lib/nav.ts:15"
+  ],
+  "Medical equipment": [
+    "lib/domain.ts:114"
+  ],
+  "Meet somewhere public if you can.": [
+    "components/messages/thread-view.tsx:62"
+  ],
+  "member since {date}": [
+    "app/[locale]/profile/[id]/page.tsx:53",
+    "app/[locale]/profile/page.tsx:59"
+  ],
+  "members": [
+    "app/[locale]/page.tsx:40"
+  ],
+  "Message": [
+    "components/messages/message-composer.tsx:88"
+  ],
+  "Messages": [
+    "app/[locale]/messages/[loanId]/page.tsx:20",
+    "app/[locale]/messages/[loanId]/page.tsx:63",
+    "app/[locale]/messages/page.tsx:18",
+    "app/[locale]/messages/page.tsx:97",
+    "app/[locale]/messages/page.tsx:99",
+    "app/[locale]/profile/page.tsx:131",
+    "components/messages/thread-view.tsx:68",
+    "components/site-header.tsx:13"
+  ],
+  "Messages can be up to 2,000 characters.": [
+    "components/messages/message-composer.tsx:56"
+  ],
+  "Messages the other person sent in your conversations": [
+    "components/settings/shared.ts:31"
+  ],
+  "Messaging opens once the lender approves the request.": [
+    "components/messages/thread-view.tsx:83"
+  ],
+  "My queue": [
+    "app/[locale]/queue/page.tsx:11",
+    "app/[locale]/queue/page.tsx:19",
+    "components/site-header.tsx:11"
+  ],
+  "New": [
+    "lib/domain.ts:93"
+  ],
+  "New here? Create an account": [
+    "components/auth/login-form.tsx:35"
+  ],
+  "New password": [
+    "components/auth/reset-password-form.tsx:17"
+  ],
+  "Next": [
+    "components/mobile/onboarding.tsx:137"
+  ],
+  "No charge": [
+    "components/list-form.tsx:195"
+  ],
+  "No charge if damaged": [
+    "components/list-form.tsx:209",
+    "lib/domain.ts:148"
+  ],
+  "No conversations yet. Once a lender approves a request, you can chat here.": [
+    "app/[locale]/messages/page.tsx:41"
+  ],
+  "No listings yet.": [
+    "app/[locale]/profile/[id]/page.tsx:65"
+  ],
+  "No messages yet. Say hello and agree a time and place.": [
+    "components/messages/thread-view.tsx:71"
+  ],
+  "No photos chosen yet": [
+    "components/photo-picker.tsx:85"
+  ],
+  "Nobody in line. Request it and you're first.": [
+    "app/[locale]/item/[id]/page.tsx:110"
+  ],
+  "Non-profit, no ads, no site fees.": [
+    "app/[locale]/signup/page.tsx:14"
+  ],
+  "Non-profit. No ads. No platform fees.": [
+    "app/[locale]/page.tsx:56"
+  ],
+  "Normal wear and tear isn't damage.": [
+    "components/return-check.tsx:133"
+  ],
+  "Not allowed for now: {categories}.": [
+    "components/list-form.tsx:119"
+  ],
+  "Not for profit. Just for lending.": [
+    "app/[locale]/page.tsx:121"
+  ],
+  "Nothing here yet. Be the first to <link>list something</link>.": [
+    "app/[locale]/browse/page.tsx:72",
+    "app/[locale]/page.tsx:79"
+  ],
+  "Nothing matches that yet. Try another word, or <link>list something</link>.": [
+    "app/[locale]/browse/page.tsx:71"
+  ],
+  "Nothing of yours is out right now.": [
+    "app/[locale]/profile/page.tsx:80"
+  ],
+  "Nothing on this shelf": [
+    "app/global-not-found.tsx:48"
+  ],
+  "Number {position} of {total} in line": [
+    "components/queue-list.tsx:112"
+  ],
+  "of {total}": [
+    "components/queue-list.tsx:114"
+  ],
+  "Offered to next · {count} in line": [
+    "components/status-badge.tsx:11"
+  ],
+  "Offered to the person ahead of you. {count} people ahead.": [
+    "components/queue-list.tsx:158"
+  ],
+  "On loan": [
+    "components/status-badge.tsx:15"
+  ],
+  "On loan · {count} in line": [
+    "components/status-badge.tsx:15"
+  ],
+  "On loan. {count} people ahead of you.": [
+    "components/queue-list.tsx:166"
+  ],
+  "On loan. Join the queue and you're first when it's back.": [
+    "app/[locale]/item/[id]/page.tsx:111"
+  ],
+  "On loan. You're in line for when it comes back.": [
+    "components/queue-list.tsx:152"
+  ],
+  "On loan. You're next when it comes back.": [
+    "components/queue-list.tsx:165"
+  ],
+  "One conversation per loan. Use it to agree a time and place for the handoff.": [
+    "app/[locale]/messages/page.tsx:100"
+  ],
+  "Only fill this in if you'd like an answer. We won't use it for anything else. Don't include passwords or payment details. Your account email is never shown here. If you want a reply by email, type the address you'd like us to use.": [
+    "components/feedback/feedback-dialog.tsx:153"
+  ],
+  "Open the sample conversation": [
+    "app/[locale]/messages/page.tsx:121"
+  ],
+  "Optional. Up to {max} characters.": [
+    "components/settings/profile-form.tsx:106",
+    "components/settings/profile-form.tsx:116"
+  ],
+  "Other": [
+    "components/feedback/shared.ts:10"
+  ],
+  "Out on loan": [
+    "app/[locale]/profile/page.tsx:78"
+  ],
+  "Page not found": [
+    "app/global-not-found.tsx:28"
+  ],
+  "Party & events": [
+    "lib/domain.ts:111"
+  ],
+  "Pass for now": [
+    "components/queue-list.tsx:267"
+  ],
+  "Password": [
+    "components/auth/login-form.tsx:18",
+    "components/signup-form.tsx:28"
+  ],
+  "per day": [
+    "components/list-form.tsx:160"
+  ],
+  "per loan": [
+    "components/list-form.tsx:159"
+  ],
+  "per week": [
+    "components/list-form.tsx:161"
+  ],
+  "Permanently delete your account. This can't be undone. You'll see exactly what is deleted and what is kept before you confirm.": [
+    "components/settings/shared.ts:15"
+  ],
+  "Photos": [
+    "components/list-form.tsx:138"
+  ],
+  "Pick a city or general area. Don't put your exact address in the listing.": [
+    "components/list-form.tsx:225"
+  ],
+  "Pick one": [
+    "components/list-form.tsx:108",
+    "components/list-form.tsx:127"
+  ],
+  "Pickup area": [
+    "components/list-form.tsx:223"
+  ],
+  "Pickup: {city}": [
+    "app/[locale]/item/[id]/page.tsx:102"
+  ],
+  "platform fees": [
+    "app/[locale]/page.tsx:41"
+  ],
+  "Please add a display name (up to 60 characters).": [
+    "lib/auth/actions.ts:81"
+  ],
+  "Please add a pickup city or area.": [
+    "components/list-form.tsx:70"
+  ],
+  "Please add a title.": [
+    "components/list-form.tsx:52"
+  ],
+  "Please agree to the Terms of use and Privacy policy to continue.": [
+    "lib/auth/actions.ts:86"
+  ],
+  "Please choose a password you haven't used here before.": [
+    "lib/auth/actions.ts:151"
+  ],
+  "Please choose a stronger password (at least 8 characters).": [
+    "lib/auth/actions.ts:38"
+  ],
+  "Please choose image files only.": [
+    "components/photo-picker.tsx:27"
+  ],
+  "Please confirm the damage price to send your request.": [
+    "components/queue-list.tsx:233",
+    "components/request-form.tsx:77"
+  ],
+  "Please confirm to continue.": [
+    "components/list-form.tsx:71",
+    "components/queue-list.tsx:247",
+    "components/request-form.tsx:91"
+  ],
+  "Please enter a damage price, even a small one. Or tick “No charge if damaged”.": [
+    "components/list-form.tsx:67"
+  ],
+  "Please enter a display name.": [
+    "components/settings/shared.ts:63"
+  ],
+  "Please enter a valid email address.": [
+    "lib/auth/actions.ts:36"
+  ],
+  "Please enter the fee, or switch to Free.": [
+    "components/list-form.tsx:58"
+  ],
+  "Please keep this under 80 characters.": [
+    "lib/auth/actions.ts:82"
+  ],
+  "Please pick a category.": [
+    "components/list-form.tsx:53"
+  ],
+  "Please pick a condition.": [
+    "components/list-form.tsx:54"
+  ],
+  "Please pick a reason.": [
+    "components/report-button.tsx:119"
+  ],
+  "Please pick one.": [
+    "components/return-check.tsx:121"
+  ],
+  "Please verify your email before signing in.": [
+    "lib/auth/actions.ts:62"
+  ],
+  "Please wait a moment before asking for another email.": [
+    "lib/auth/actions.ts:33"
+  ],
+  "Please write a message first.": [
+    "components/feedback/shared.ts:22"
+  ],
+  "Power tools": [
+    "lib/domain.ts:114"
+  ],
+  "Preview only: nothing was sent or saved yet.": [
+    "components/list-form.tsx:93",
+    "components/messages/message-composer.tsx:125",
+    "components/queue-list.tsx:45",
+    "components/request-form.tsx:50",
+    "components/return-check.tsx:52",
+    "components/settings/shared.ts:9"
+  ],
+  "Preview: sample conversation": [
+    "app/[locale]/messages/page.tsx:112"
+  ],
+  "Profile": [
+    "app/[locale]/profile/[id]/page.tsx:18",
+    "app/[locale]/profile/page.tsx:21",
+    "app/[locale]/settings/page.tsx:41"
+  ],
+  "Profile and account": [
+    "app/[locale]/profile/page.tsx:140"
+  ],
+  "Profile saved.": [
+    "components/settings/shared.ts:11"
+  ],
+  "Publish listing": [
+    "components/list-form.tsx:240"
+  ],
+  "Queue": [
+    "lib/nav.ts:14"
+  ],
+  "Queue it": [
+    "app/[locale]/page.tsx:27"
+  ],
+  "Queue up, borrow, return": [
+    "components/mobile/onboarding.tsx:31"
+  ],
+  "Ready to borrow": [
+    "components/status-badge.tsx:8"
+  ],
+  "Ready to borrow now": [
+    "app/[locale]/page.tsx:86"
+  ],
+  "Reason": [
+    "components/report-button.tsx:109"
+  ],
+  "Rejoin": [
+    "components/queue-list.tsx:97"
+  ],
+  "Report": [
+    "components/report-button.tsx:60"
+  ],
+  "Report sent": [
+    "components/report-button.tsx:67"
+  ],
+  "Report sent. Thanks for helping keep the arcade friendly.": [
+    "components/report-button.tsx:68"
+  ],
+  "Report this conversation": [
+    "components/messages/thread-view.tsx:99"
+  ],
+  "Report this listing": [
+    "components/report-button.tsx:100"
+  ],
+  "Report this user": [
+    "components/report-button.tsx:100"
+  ],
+  "Reports": [
+    "components/settings/shared.ts:32"
+  ],
+  "Request sent. The lender will get back to you.": [
+    "components/request-form.tsx:52"
+  ],
+  "Request to borrow": [
+    "app/[locale]/item/[id]/page.tsx:224",
+    "components/request-form.tsx:106"
+  ],
+  "Requested": [
+    "components/messages/loan-status-badge.tsx:7"
+  ],
+  "Resend email": [
+    "app/[locale]/check-email/page.tsx:29"
+  ],
+  "Resend verification email": [
+    "components/auth/login-form.tsx:23"
+  ],
+  "Reset your password": [
+    "app/[locale]/forgot-password/page.tsx:9",
+    "app/[locale]/forgot-password/page.tsx:25"
+  ],
+  "Respond within {left} to keep your spot.": [
+    "components/queue-list.tsx:213"
+  ],
+  "Return": [
+    "app/[locale]/page.tsx:29"
+  ],
+  "Return condition for {item}": [
+    "components/return-check.tsx:97"
+  ],
+  "Returned": [
+    "components/messages/loan-status-badge.tsx:10"
+  ],
+  "Returned damaged": [
+    "components/profile-stats.tsx:14"
+  ],
+  "Returned OK": [
+    "components/return-check.tsx:103"
+  ],
+  "Safety": [
+    "components/messages/thread-view.tsx:53"
+  ],
+  "Sample conversation. Nothing here is real or saved.": [
+    "components/messages/thread-view.tsx:33"
+  ],
+  "Save": [
+    "components/return-check.tsx:134"
+  ],
+  "Save changes": [
+    "components/settings/profile-form.tsx:137"
+  ],
+  "Save new password": [
+    "components/auth/reset-password-form.tsx:27"
+  ],
+  "Saving…": [
+    "components/auth/reset-password-form.tsx:27",
+    "components/settings/profile-form.tsx:137"
+  ],
+  "Screen {step} of {total}": [
+    "components/mobile/onboarding.tsx:97"
+  ],
+  "Search": [
+    "components/search-form.tsx:22",
+    "components/search-form.tsx:23"
+  ],
+  "Search gear": [
+    "components/search-form.tsx:12"
+  ],
+  "Search tents, cameras, games…": [
+    "components/search-form.tsx:18"
+  ],
+  "See all": [
+    "components/shelf.tsx:34"
+  ],
+  "See your public profile": [
+    "app/[locale]/profile/page.tsx:65"
+  ],
+  "Send": [
+    "components/messages/message-composer.tsx:112"
+  ],
+  "Send a new link": [
+    "app/[locale]/verify-failed/page.tsx:20"
+  ],
+  "Send feedback": [
+    "components/feedback/feedback-dialog.tsx:89",
+    "components/feedback/feedback-dialog.tsx:101",
+    "components/feedback/feedback-dialog.tsx:170",
+    "components/feedback/feedback-trigger.tsx:20",
+    "components/feedback/feedback-trigger.tsx:25"
+  ],
+  "Send report": [
+    "components/report-button.tsx:84",
+    "components/report-button.tsx:137"
+  ],
+  "Send reset link": [
+    "app/[locale]/forgot-password/page.tsx:30"
+  ],
+  "Send this report?": [
+    "components/report-button.tsx:77"
+  ],
+  "Send this report? We'll review it, but we may not be able to reply to you personally.": [
+    "components/report-button.tsx:79"
+  ],
+  "Sending…": [
+    "components/auth/email-only-form.tsx:23"
+  ],
+  "Set a new password": [
+    "app/[locale]/reset-password/page.tsx:8",
+    "app/[locale]/reset-password/page.tsx:16"
+  ],
+  "Settings": [
+    "app/[locale]/profile/page.tsx:68",
+    "app/[locale]/profile/page.tsx:139",
+    "app/[locale]/settings/page.tsx:15",
+    "app/[locale]/settings/page.tsx:23",
+    "app/[locale]/settings/page.tsx:24",
+    "components/user-slot.tsx:29"
+  ],
+  "Sign in": [
+    "app/[locale]/item/[id]/page.tsx:179",
+    "app/[locale]/item/[id]/page.tsx:224",
+    "app/[locale]/login/page.tsx:11",
+    "components/auth/login-form.tsx:28",
+    "components/user-slot.tsx:18"
+  ],
+  "Sign in to join the queue.": [
+    "app/[locale]/item/[id]/page.tsx:177"
+  ],
+  "Sign in to request this item.": [
+    "app/[locale]/item/[id]/page.tsx:177"
+  ],
+  "Sign in to see your queue and requests.": [
+    "app/[locale]/login/page.tsx:33"
+  ],
+  "Sign out": [
+    "app/[locale]/profile/page.tsx:150",
+    "components/user-slot.tsx:34",
+    "components/user-slot.tsx:35"
+  ],
+  "Sign up": [
+    "app/[locale]/signup/page.tsx:8",
+    "components/site-footer.tsx:24"
+  ],
+  "Signing in…": [
+    "components/auth/login-form.tsx:28"
+  ],
+  "Skip": [
+    "components/mobile/onboarding.tsx:108"
+  ],
+  "Small fee": [
+    "components/list-form.tsx:150"
+  ],
+  "Something else": [
+    "components/report-button.tsx:28"
+  ],
+  "Something went wrong": [
+    "app/[locale]/error.tsx:13"
+  ],
+  "Something went wrong. Please try again.": [
+    "lib/auth/actions.ts:34"
+  ],
+  "Something wrong with this listing or user? Let us know.": [
+    "components/report-button.tsx:57"
+  ],
+  "Something wrong with this listing?": [
+    "app/[locale]/item/[id]/page.tsx:137"
+  ],
+  "Spam": [
+    "components/report-button.tsx:27"
+  ],
+  "Sports": [
+    "lib/domain.ts:109"
+  ],
+  "Start browsing": [
+    "components/mobile/onboarding.tsx:137"
+  ],
+  "Stay safe": [
+    "components/mobile/onboarding.tsx:41"
+  ],
+  "Tell us anything.": [
+    "components/feedback/shared.ts:14"
+  ],
+  "Terms of use": [
+    "components/site-footer.tsx:21"
+  ],
+  "Thanks for flagging it. Tell us what's wrong and we'll take a look.": [
+    "components/report-button.tsx:101"
+  ],
+  "Thanks! Your feedback was sent.": [
+    "components/feedback/shared.ts:28"
+  ],
+  "That email or password isn't right. Try again.": [
+    "lib/auth/actions.ts:35"
+  ],
+  "That link didn't work": [
+    "app/[locale]/verify-failed/page.tsx:9",
+    "app/[locale]/verify-failed/page.tsx:16"
+  ],
+  "That link has expired. Request a new one below.": [
+    "app/[locale]/forgot-password/page.tsx:17"
+  ],
+  "That page or item doesn't exist, or it's been taken down.": [
+    "app/global-not-found.tsx:49"
+  ],
+  "The item came back damaged, or didn't come back. The damage price of {amount} applies.": [
+    "components/return-check.tsx:114"
+  ],
+  "The item came back damaged, or didn't come back. You set no charge if damaged, so nothing is owed.": [
+    "components/return-check.tsx:113"
+  ],
+  "The lender approves your request and you agree a handoff time and place. Take it, use it, enjoy it.": [
+    "app/[locale]/page.tsx:28"
+  ],
+  "The lender has set no charge if this comes back damaged or lost.": [
+    "app/[locale]/item/[id]/page.tsx:61"
+  ],
+  "The other person can't see your email address. Keep chat on the site.": [
+    "components/messages/thread-view.tsx:58"
+  ],
+  "The other person deleted their account, so new messages can't be sent.": [
+    "components/messages/thread-view.tsx:87"
+  ],
+  "The page or item you were looking for doesn't exist, or it's been taken down.": [
+    "app/global-not-found.tsx:29"
+  ],
+  "The point is simple: lots of useful stuff sits unused, and lots of people need it for a weekend. We'd like to connect the two.": [
+    "app/[locale]/page.tsx:126"
+  ],
+  "The site doesn't collect or hold any money.": [
+    "app/[locale]/item/[id]/page.tsx:63"
+  ],
+  "The site doesn't inspect or guarantee items. Check it over before it goes out, and again before you use it.": [
+    "components/list-form.tsx:233",
+    "components/request-form.tsx:92"
+  ],
+  "The site doesn't take or hold any payment.": [
+    "components/queue-list.tsx:234",
+    "components/request-form.tsx:78"
+  ],
+  "The text of messages you sent (replaced with \"[message removed]\")": [
+    "components/settings/shared.ts:26"
+  ],
+  "The verification link is expired or no longer valid. Request a new one and try again.": [
+    "app/[locale]/verify-failed/page.tsx:17"
+  ],
+  "Think repair cost or replacement value, whichever is fair. Borrowers see this before they request, so a realistic number helps people say yes. The site doesn't collect this money. You and the borrower settle it directly.": [
+    "components/list-form.tsx:212"
+  ],
+  "This browser can't vibrate. Some devices, including iPhones and iPads, don't support it.": [
+    "components/settings/device-prefs.tsx:44"
+  ],
+  "This can't be undone.": [
+    "components/settings/shared.ts:18"
+  ],
+  "This device": [
+    "components/settings/device-prefs.tsx:24"
+  ],
+  "This is an unofficial translation. If it differs from the <link>English version</link>, the English version applies.": [
+    "components/legal/legal-page.tsx:170"
+  ],
+  "This is your listing. Borrowers will see the request button here.": [
+    "components/request-form.tsx:39"
+  ],
+  "This loan is finished. You can still message each other about a damage claim.": [
+    "components/messages/thread-view.tsx:81"
+  ],
+  "This page isn't available in your language yet, so it's shown in English.": [
+    "components/legal/legal-page.tsx:169"
+  ],
+  "This request is closed, so you can't send new messages.": [
+    "components/messages/thread-view.tsx:85"
+  ],
+  "This site is run as a non-profit community project. There are no ads, no platform fees, and no payments through the site. We don't take a cut of anything.": [
+    "app/[locale]/page.tsx:123"
+  ],
+  "This tells the borrower it came back damaged. You set no charge for this item, so nothing is owed.": [
+    "components/return-check.tsx:142"
+  ],
+  "This tells the borrower the damage price of {amount} applies. You can add a note on what happened.": [
+    "components/return-check.tsx:143"
+  ],
+  "Time's up. This one moved on to the next person in the queue. You can rejoin the queue any time.": [
+    "components/queue-list.tsx:92"
+  ],
+  "Title": [
+    "components/list-form.tsx:100"
+  ],
+  "Too many tries. Please wait a few minutes and try again.": [
+    "components/feedback/shared.ts:25",
+    "lib/auth/actions.ts:64"
+  ],
+  "Try again": [
+    "app/[locale]/error.tsx:16"
+  ],
+  "Type": [
+    "components/feedback/feedback-dialog.tsx:112"
+  ],
+  "Type DELETE exactly as shown to continue.": [
+    "components/settings/shared.ts:39"
+  ],
+  "Type DELETE to confirm.": [
+    "components/settings/shared.ts:19"
+  ],
+  "Unsafe or dangerous item": [
+    "components/report-button.tsx:22"
+  ],
+  "Up to {max} characters.": [
+    "components/settings/profile-form.tsx:89"
+  ],
+  "Uses sample data, so you can see how messaging will look. Nothing in it is real.": [
+    "app/[locale]/messages/page.tsx:115"
+  ],
+  "Vehicles": [
+    "lib/domain.ts:114"
+  ],
+  "Vibrate on tap": [
+    "components/settings/device-prefs.tsx:28"
+  ],
+  "View item": [
+    "components/queue-list.tsx:269"
+  ],
+  "Waiting for your turn.": [
+    "components/queue-list.tsx:151"
+  ],
+  "We couldn't create your account. Please check your details and try again.": [
+    "lib/auth/actions.ts:108"
+  ],
+  "We couldn't load this page right now. Please try again in a moment.": [
+    "app/[locale]/error.tsx:14"
+  ],
+  "We review reports as a small non-profit project, so replies may take a while. For emergencies, contact your local emergency services, not us. Found a bug or have an idea instead? Use Send feedback.": [
+    "components/report-button.tsx:131"
+  ],
+  "Welcome back": [
+    "app/[locale]/login/page.tsx:33"
+  ],
+  "Welcome to {site}": [
+    "components/mobile/onboarding.tsx:26"
+  ],
+  "Well used": [
+    "lib/domain.ts:97"
+  ],
+  "What happened, and what did you expect? Which page were you on?": [
+    "components/feedback/shared.ts:12"
+  ],
+  "What happened? (optional)": [
+    "components/return-check.tsx:124"
+  ],
+  "What happened? Keep it factual.": [
+    "components/report-button.tsx:127"
+  ],
+  "What will be deleted": [
+    "components/settings/shared.ts:20"
+  ],
+  "What will be kept (no longer linked to you)": [
+    "components/settings/shared.ts:28"
+  ],
+  "What would make this better?": [
+    "components/feedback/shared.ts:13"
+  ],
+  "What you'd owe the lender if this comes back damaged or lost. Settled directly between you two.": [
+    "app/[locale]/item/[id]/page.tsx:62"
+  ],
+  "What's a damage price?": [
+    "components/mobile/onboarding.tsx:36"
+  ],
+  "What's included, anything to know before borrowing.": [
+    "components/list-form.tsx:144"
+  ],
+  "What's on your mind?": [
+    "components/feedback/feedback-dialog.tsx:123"
+  ],
+  "When it's your turn you have 48 hours to respond before it passes to the next person.": [
+    "app/[locale]/item/[id]/page.tsx:116"
+  ],
+  "Write a message": [
+    "components/messages/message-composer.tsx:102"
+  ],
+  "Write a message before sending.": [
+    "components/messages/message-composer.tsx:50"
+  ],
+  "You": [
+    "components/messages/thread-view.tsx:122"
+  ],
+  "You and the borrower settle this directly. The site doesn't collect or hold payment. Photos from handoff and return can help.": [
+    "components/return-check.tsx:127"
+  ],
+  "You approve every request. You can say no, and you can take a listing down at any time.": [
+    "app/[locale]/list/page.tsx:25"
+  ],
+  "You can add up to 8 photos. Please choose fewer.": [
+    "components/photo-picker.tsx:28"
+  ],
+  "You have items that are currently handed off. Finish those loans before deleting your account.": [
+    "components/settings/shared.ts:34"
+  ],
+  "You haven't listed anything yet. <link>List your gear</link>": [
+    "app/[locale]/profile/page.tsx:103"
+  ],
+  "You left the queue for {title}.": [
+    "components/queue-list.tsx:128"
+  ],
+  "You must be 18 or older. Chat through site messages only; your email is never shown to anyone.": [
+    "components/mobile/onboarding.tsx:42"
+  ],
+  "You must be at least 18 to use this site.": [
+    "components/request-form.tsx:101",
+    "components/signup-form.tsx:43"
+  ],
+  "You need to be 18 or older to borrow.": [
+    "components/queue-list.tsx:255",
+    "components/request-form.tsx:100"
+  ],
+  "You need to be 18 or older to join.": [
+    "lib/auth/actions.ts:85"
+  ],
+  "You passed on {title}. It moves to the next person in line.": [
+    "components/queue-list.tsx:83"
+  ],
+  "You're #{pos} of {total} in line.": [
+    "app/[locale]/item/[id]/page.tsx:189"
+  ],
+  "You're #{pos} of {total}.": [
+    "app/[locale]/item/[id]/page.tsx:168"
+  ],
+  "You're first in line. It's offered to you as soon as the lender confirms.": [
+    "components/queue-list.tsx:157"
+  ],
+  "You're in. Start browsing, or list your first item.": [
+    "app/[locale]/welcome/page.tsx:15"
+  ],
+  "You're signed out. See you next time.": [
+    "app/[locale]/login/page.tsx:22"
+  ],
+  "You're up next! #1 of {total}": [
+    "components/queue-list.tsx:204"
+  ],
+  "Your account": [
+    "app/[locale]/profile/page.tsx:127"
+  ],
+  "Your listings": [
+    "app/[locale]/profile/page.tsx:100"
+  ],
+  "Your message is too long. Please shorten it.": [
+    "components/feedback/shared.ts:23"
+  ],
+  "Your password has been updated.": [
+    "app/[locale]/profile/page.tsx:49"
+  ],
+  "Your password needs at least 8 characters.": [
+    "lib/auth/actions.ts:37"
+  ],
+  "Your pending and approved requests (they'll be closed automatically)": [
+    "components/settings/shared.ts:25"
+  ],
+  "Your place in any queues": [
+    "components/settings/shared.ts:24"
+  ],
+  "Your place in line for each item. First come, first served.": [
+    "app/[locale]/queue/page.tsx:20"
+  ],
+  "Your profile": [
+    "components/settings/shared.ts:22"
+  ],
+  "Your queue is empty. <link>Go find something good.</link>": [
+    "components/queue-list.tsx:63"
+  ],
+  "Your turn: {title}.": [
+    "components/queue-list.tsx:210"
+  ]
+}

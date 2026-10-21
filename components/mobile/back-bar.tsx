@@ -1,9 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { canGoBackInApp, setNavDirection } from "@/components/mobile/nav-effects";
-import { path } from "@/lib/paths";
+import { useRouter, useT } from "@/i18n/client";
 
 /**
  * Phone-only back bar for pages opened from a tab (item, thread, settings...).
@@ -13,11 +12,12 @@ import { path } from "@/lib/paths";
  */
 export function BackBar({ title, fallback = "/" }: { title: string; fallback?: string }) {
   const router = useRouter();
+  const t = useT();
 
   function goBack() {
     if (!canGoBackInApp()) {
       setNavDirection("back");
-      router.push(path(fallback));
+      router.push(fallback);
       return;
     }
     // Next restores the previous page from its cache on history.back(), outside
@@ -53,16 +53,19 @@ export function BackBar({ title, fallback = "/" }: { title: string; fallback?: s
   return (
     <div data-back-bar="" className="-mt-6 mb-4 h-[calc(2.75rem+env(safe-area-inset-top,0px))] md:hidden">
       <div className="fixed inset-x-0 top-0 z-40 border-b-2 border-border bg-background pt-[env(safe-area-inset-top,0px)] pr-[env(safe-area-inset-right)] pl-[env(safe-area-inset-left)] [view-transition-name:back-bar]">
-        <div className="flex h-11 items-center gap-1 pr-4">
+        <div className="flex h-11 items-center gap-1 pe-4">
           <button
             type="button"
             onClick={goBack}
-            aria-label="Back"
+            aria-label={t("Back")}
             className="flex size-11 shrink-0 items-center justify-center outline-none focus-visible:bg-muted"
           >
-            <ArrowLeft aria-hidden className="size-5" strokeWidth={2.5} />
+            <ArrowLeft aria-hidden className="size-5 rtl:-scale-x-100" strokeWidth={2.5} />
           </button>
-          <p className="min-w-0 truncate font-black">{title}</p>
+          {/* dir="auto": a title in another script (an item name) keeps its own direction and is cut at its end. */}
+          <p dir="auto" className="min-w-0 flex-1 truncate font-black ltr:text-left rtl:text-right">
+            {title}
+          </p>
         </div>
       </div>
     </div>

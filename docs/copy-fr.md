@@ -5,7 +5,7 @@
 - **Status / Statut :** machine-assisted draft — needs native-speaker review (brouillon assisté par machine, à faire relire par une personne de langue maternelle française). Aucune relecture par une personne de langue maternelle française n'a eu lieu.
 - **Variété :** français international, compatible avec le français canadien. Les termes propres au Québec sont indiqués dans le tableau des termes à la fin du fichier lorsqu'ils diffèrent (p. ex. courriel, fin de semaine, pourriel).
 
-> **Note du traducteur (ne fait pas partie du texte des pages) :** ce fichier est la traduction française de `docs/copy-en.md`. La numérotation des sections correspond exactement à la version anglaise. Les variables (`{amount}`, `{item}`, `{time left}`, `{Lender}`, `{Name}`, `{n}`, `{email}`, `{listing / user}`) et les éléments entre crochets (`[contact email]`, `[Link to privacy policy]`) sont conservés tels quels, tout comme les chemins de liens (`/terms`, `/privacy`, `/list`). Les termes restent à confirmer : voir le tableau « Termes à confirmer » à la fin du fichier. Les sections 8 et 15 sont des traductions fidèles de brouillons juridiques ; les mentions `DRAFT`, `TO CONFIRM` et `NEEDS LAWYER CONFIRMATION` (ces deux dernières entre crochets) y sont conservées.
+> **Note du traducteur (ne fait pas partie du texte des pages) :** ce fichier est la traduction française de `docs/copy-en.md`. La numérotation des sections correspond exactement à la version anglaise. Les variables (`{amount}`, `{item}`, `{left}`, `{Lender}`, `{Name}`, `{n}`, `{email}`, `{listing / user}`) et les éléments entre crochets (`[contact email]`, `[Link to privacy policy]`) sont conservés tels quels, tout comme les chemins de liens (`/terms`, `/privacy`, `/list`). Les termes restent à confirmer : voir le tableau « Termes à confirmer » à la fin du fichier. Les sections 8 et 15 sont des traductions fidèles de brouillons juridiques ; les mentions `DRAFT`, `TO CONFIRM` et `NEEDS LAWYER CONFIRMATION` (ces deux dernières entre crochets) y sont conservées.
 >
 > Version anglaise de référence : copy-en.md (version du 2026-10-20). Toute mise à jour de la version anglaise doit être reportée ici.
 
@@ -78,7 +78,7 @@ L'idée est simple : beaucoup d'objets utiles dorment dans un coin, et beaucoup 
 
 Chaque annonce a un montant de dédommagement. C'est ce que l'emprunteur accepte de devoir au prêteur si l'objet revient endommagé ou est perdu.
 
-- **Les prêteurs** le fixent en publiant l'annonce. Fixe un montant juste : le coût d'une réparation ou la valeur de remplacement.
+- **Les prêteurs** le fixent en proposant l'objet. Fixe un montant juste : le coût d'une réparation ou la valeur de remplacement.
 - **Les emprunteurs** le voient avant de faire une demande, donc pas de surprise.
 - **Si quelque chose tourne mal,** le prêteur marque l'objet comme endommagé au retour, et le montant de dédommagement s'applique.
 - **Le paiement se règle entre vous deux.** Le site ne perçoit ni ne conserve d'argent et ne peut forcer aucun paiement. Parlez-en, soyez raisonnables et réglez ça directement.
@@ -111,7 +111,7 @@ Affichée à l'étape de la demande, à côté du montant de dédommagement de l
 ## 6c. FAQ : montant de dédommagement
 
 **Qui fixe le montant de dédommagement ?**
-Le prêteur, quand il publie l'annonce. Tu le vois sur l'annonce avant de faire ta demande, donc tu le connais toujours à l'avance.
+Le prêteur, quand il propose l'objet. Tu le vois sur l'annonce avant de faire ta demande, donc tu le connais toujours à l'avance.
 
 **Qui perçoit l'argent ? Le site encaisse-t-il des paiements ?**
 Non. Le site ne perçoit, ne conserve ni ne transmet jamais d'argent. Si un objet est marqué comme endommagé ou perdu, l'emprunteur et le prêteur règlent le montant de dédommagement directement entre eux. Le site ne peut forcer aucun paiement, alors restez cordiaux et raisonnables.
@@ -140,7 +140,9 @@ Rien de spécial. Le montant de dédommagement n'est dû que si le prêteur marq
 
 **Titre :** Conditions d'utilisation
 
-**Dernière mise à jour :** 19 octobre 2026
+**Dernière mise à jour :** 20 octobre 2026
+
+> **TODO before launch:** (à faire avant le lancement) indiquer la vraie date de publication dans « Dernière mise à jour » pour les conditions (section 8) et pour la politique de confidentialité (section 15). La date actuelle, 20 octobre 2026, est provisoire. Mettre aussi à jour toutes les traductions. Ensuite, changer la date à chaque modification du contenu.
 
 **La version courte :** Ce site aide des voisins à se prêter du matériel entre eux. Nous vous mettons en contact ; le reste se passe entre vous et l'autre personne.
 
@@ -198,11 +200,11 @@ Rien de spécial. Le montant de dédommagement n'est dû que si le prêteur marq
 C'est ton tour ! Réponds dans les 48 heures pour réserver cet objet. Sans nouvelles de toi, il passe à la personne suivante dans la file.
 
 **Bannière dans la liste de la file (pour la personne dont c'est le tour) :**
-C'est ton tour : {item}. Il te reste {time left} pour répondre et garder ta place.
+C'est ton tour : {item}. Il te reste {left} pour répondre et garder ta place.
 
 **Boutons :** Je le prends / Passer pour l'instant
 
-**Compte à rebours presque écoulé (moins de 6 h) :** Dernier appel : plus que {time left} pour répondre.
+**Compte à rebours presque écoulé (moins de 6 h) :** Dernier appel : plus que {left} pour répondre.
 
 **Message d'expiration :** Temps écoulé. Cet objet est passé à la personne suivante dans la file. Tu peux rejoindre la file de nouveau à tout moment.
 
@@ -289,7 +291,9 @@ Style : à plat, contours sombres épais, ombres décalées nettes, couleurs fra
 
 **Titre :** Politique de confidentialité
 
-**Dernière mise à jour :** 19 octobre 2026
+**Dernière mise à jour :** 20 octobre 2026
+
+> **TODO before launch:** (à faire avant le lancement) indiquer la vraie date de publication dans « Dernière mise à jour » pour les conditions (section 8) et pour la politique de confidentialité (section 15). La date actuelle, 20 octobre 2026, est provisoire. Mettre aussi à jour toutes les traductions. Ensuite, changer la date à chaque modification du contenu.
 
 **La version courte :** Nous recueillons ce dont nous avons besoin pour faire fonctionner la bibliothèque de prêt, nous le stockons chez notre fournisseur de base de données, et nous ne l'utilisons pas à des fins publicitaires.
 
@@ -300,13 +304,34 @@ Style : à plat, contours sombres épais, ombres décalées nettes, couleurs fra
 - **Historique des emprunts :** demandes, inscriptions dans les files, approbations, marquages de remise et de retour (en bon état ou endommagé) et notes associées.
 - **Signalements :** les signalements que vous envoyez, et ceux faits à votre sujet ou au sujet de vos annonces.
 - **Commentaires :** si vous utilisez « Envoyer des commentaires », nous stockons votre message, le type choisi (bug, idée ou autre), la page sur laquelle vous vous trouviez et une courte note sur votre navigateur. Si vous avez ouvert une session, vos commentaires sont liés à votre compte. Si vous ajoutez des coordonnées pour vous répondre, nous les stockons aussi. [TO CONFIRM: champs exacts, d'après supabase/08-feedback.sql, qui n'existait pas encore au moment de la rédaction de ce texte.]
-- **Données techniques de base :** [TO CONFIRM: p. ex. journaux du serveur, adresse IP, cookies nécessaires à la connexion. À compléter une fois la configuration réelle vérifiée.]
+- **Données techniques de base :** lorsque vous visitez le site, nos fournisseurs d'hébergement et de mesure d'audience traitent des informations techniques de base, comme les pages que vous consultez, votre localisation approximative (pays ou région), ainsi que votre type de navigateur et d'appareil. Voir « Mesure d'audience et cookies » ci-dessous. [TO CONFIRM: journaux du serveur et traitement des adresses IP par Vercel et Supabase. NEEDS REVIEW.]
 
 ### Où elles sont stockées
 Votre compte, votre profil, vos annonces, votre historique des emprunts et vos photos sont stockés chez Supabase (base de données, authentification et stockage de fichiers). Les données sont stockées au Canada (région Supabase ca-central-1). Le site web est hébergé par Vercel.
 
 ### Ce que les autres utilisateurs peuvent voir
-Votre nom affiché, votre ville ou votre secteur, vos annonces, vos photos et l'historique de prêt de votre profil sont visibles par les autres utilisateurs. Votre adresse exacte ne doit pas figurer dans les annonces. Votre adresse e-mail n'est jamais affichée publiquement. Une fois une demande approuvée, le prêteur et l'emprunteur communiquent uniquement par la messagerie interne du site.
+Votre profil public est visible par les autres utilisateurs. Il montre votre nom affiché, votre ville ou votre secteur (si vous l'avez ajouté), votre bio, le mois et l'année de votre inscription, ainsi que vos annonces avec leurs photos. Il montre aussi des décomptes simples : le nombre d'objets que vous avez proposés, prêtés et empruntés, le nombre d'objets rendus en bon état et le nombre d'objets endommagés ou perdus (en tant que prêteur et en tant qu'emprunteur). Il n'indique pas à qui vous avez prêté ni auprès de qui vous avez emprunté. [NEEDS REVIEW: vérifié par rapport à components/profile-stats.tsx et à la page de profil le 2026-10-20 ; à revérifier si le profil change.] Votre adresse exacte ne doit pas figurer dans les annonces. Votre adresse e-mail n'est jamais affichée publiquement. Une fois une demande approuvée, le prêteur et l'emprunteur communiquent uniquement par la messagerie interne du site.
+
+### Mesure d'audience et cookies (DRAFT, needs review) (BROUILLON, à revoir)
+Nous utilisons Vercel Web Analytics pour compter les visites des pages, afin de voir quelles parties du site sont utilisées. D'après la documentation de Vercel (page « Privacy and Compliance », dernière mise à jour : 2026-06-26) :
+- Ce service n'utilise pas de cookies tiers. Les visiteurs sont distingués les uns des autres au moyen d'une valeur de hachage (hash) créée à partir de la requête entrante.
+- Les informations de session du visiteur ne sont pas stockées de façon permanente ; elles sont supprimées au bout de 24 heures.
+- Ce service ne recueille pas d'informations qui permettraient à quiconque de vous suivre d'un site web ou d'une application à l'autre, et il ne sert qu'à établir des statistiques d'ensemble.
+- Chaque page vue peut inclure : l'heure, le chemin de la page, la page de provenance, la localisation approximative (pays, région, ville), le système d'exploitation et sa version, le navigateur et sa version, ainsi que le type d'appareil (mobile, tablette ou ordinateur de bureau).
+
+Avant l'envoi d'une page vue, nous retirons du chemin de la page les identifiants d'objets, de prêts et de profils, et nous supprimons les paramètres de requête ainsi que tout ce qui suit le signe #. Les liens de nos e-mails (les pages /auth/... qui s'ouvrent lorsque vous cliquez sur un lien d'inscription ou de réinitialisation du mot de passe) ne sont pas du tout transmis, et les autres pages ne sont transmises que sous la forme de leur chemin, par exemple /en/login. Nous n'envoyons pas votre identifiant d'utilisateur. Nous ne pouvons pas modifier la page de provenance, que l'outil de mesure d'audience inclut de lui-même. [NEEDS REVIEW: d'après la vérification du code faite par le développeur le 2026-10-20.]
+
+Nous n'utilisons pas ces données pour afficher de la publicité, et nous ne les vendons pas.
+
+Cookies : le site définit deux types de cookies, tous deux nécessaires à son fonctionnement.
+- Un cookie de connexion, défini par notre fournisseur de connexion (Supabase), maintient votre session ouverte. Il peut être divisé en plusieurs parties.
+- Un cookie de langue mémorise la langue que vous avez choisie. Il dure 1 an.
+
+Le site enregistre aussi votre réglage « Vibrer au toucher » et votre progression dans les écrans de prise en main dans le stockage local de votre navigateur, sur votre propre appareil. Il ne s'agit pas d'un cookie, et ces données ne nous sont pas envoyées.
+
+Nous ne définissons pas de cookies publicitaires ni de cookies de suivi intersites. [NEEDS REVIEW: d'après la vérification du code faite par le développeur le 2026-10-20 ; à revérifier à chaque ajout.]
+
+[TO CONFIRM from Vercel or the dashboard, not stated in the docs page above: (1) si les adresses IP sont stockées ou seulement utilisées brièvement pour déterminer la localisation approximative ; (2) combien de temps les données agrégées de mesure d'audience sont conservées ; (3) où les données de mesure d'audience sont stockées et traitées. Ne publier aucune affirmation sur ces points avant vérification.]
 
 ### Comment nous les utilisons
 Pour faire fonctionner le site : afficher les annonces, gérer les files et les demandes, permettre aux prêteurs et aux emprunteurs de communiquer, traiter les signalements et assurer la sécurité du site.
@@ -659,6 +684,59 @@ Distinct de Signaler. Signaler sert uniquement aux abus concernant les objets et
 
 **Note sur la confidentialité (à ajouter à la section 15 une fois le stockage des commentaires confirmé) :** Les commentaires que tu envoies sont stockés avec ton compte et, le cas échéant, avec les coordonnées de réponse que tu saisis. [TO CONFIRM by the builder and owner: ce qui est stocké et pendant combien de temps.]
 
+## 20. Discord (non traduit : anglais uniquement, sur décision du coordinateur)
+
+La section 20 de copy-en.md est conservée en anglais uniquement.
+
+## 21. Pages juridiques traduites : avis de traduction non officielle (à faire revoir par un avocat)
+
+> **Needs lawyer review.** (Doit être revu par un avocat.) Source : docs/i18n-legal-notice.md (7号). La formulation ci-dessous utilise "applies" (« s'applique »). Si un avocat préfère "prevails" (« prévaut »), la modifier dans les 10 langues. Le texte de N1 est déjà utilisé dans le code de la page sous la forme d'une seule chaîne avec un lien ; ne pas modifier le texte de sa clé sans prévenir 1号 (project-arcade-46).
+
+Affiché uniquement sur les pages /terms et /privacy traduites, jamais sur les pages en anglais.
+
+**N1 (bandeau, au-dessus de la mention DRAFT) :** Ceci est une traduction non officielle. Si elle diffère de la version anglaise, la version anglaise s'applique.
+**N1 avec lien (clé de dictionnaire exacte utilisée par le code) :** Ceci est une traduction non officielle. Si elle diffère de la <link>version anglaise</link>, la version anglaise s'applique.
+**N2 (texte du lien) :** Lire la version anglaise
+**N3 (libellé court, p. ex. métadonnées de la page ou sélecteur de langue des pages juridiques) :** Traduction non officielle
+
+## 22. Internationalisation et textes système (révisé le 2026-10-20)
+
+Révision des textes provisoires du développeur. Conservés sauf indication contraire. Le texte français à afficher dans l'interface est donné en gras après « Français : ». Registre de l'interface : tutoiement (voir le tableau « Termes à confirmer », ligne « address form »).
+
+**Language** (libellé du sélecteur de langue) : à garder tel quel. Français : **Langue**
+**N1 avec lien** : à garder, comme à la section 21. Français : **Ceci est une traduction non officielle. Si elle diffère de la <link>version anglaise</link>, la version anglaise s'applique.**
+**Page pas encore traduite** : à garder. Simple et amical. Français : **Cette page n'est pas encore disponible dans ta langue, elle s'affiche donc en anglais.**
+**Last updated: {date}** : à garder. Formater la date dans la langue de l'utilisateur (p. ex. « 20 octobre 2026 »). Français : **Dernière mise à jour : {date}**
+**Unités du compte à rebours :** à garder sous forme de clés d'unités. Français : **{h} h {m} min**, et **{m} min** quand il reste moins d'une heure (p. ex. « 5 h 30 min », « 45 min »). Ne pas ajouter « restant » ni « left » aux unités. La durée n'apparaît que dans deux phrases complètes (section 10), où « left » est rendu par la phrase elle-même : **Il te reste {left} pour répondre et garder ta place.** et **Dernier appel : plus que {left} pour répondre.** (Note du traducteur, absente de l'anglais : de préférence, une espace insécable entre le nombre et l'unité.)
+**Page 404 (texte visible, remplace la suggestion précédente) :** garder le grand « 404 ».
+- **Titre :** Rien sur cette étagère
+- **Corps :** Cette page ou cet objet n'existe pas, ou a été retiré.
+- **Bouton principal :** Parcours le catalogue (mène à /browse)
+- **Lien secondaire (nouveau) :** Retour à l'accueil
+**Titre de l'onglet du navigateur pour la page 404 :** Page introuvable
+**Méta-description de la page 404 :** La page ou l'objet que tu cherchais n'existe pas, ou a été retiré.
+(La suggestion précédente, « Page not found » comme titre visible avec un nouveau corps, a été retirée : le texte visible actuel correspond au ton du site, convient aussi bien aux pages qu'aux objets et est déjà en place.)
+(La page d'erreur générale utilise déjà « Un problème est survenu », avec Réessayer et Retour à l'accueil, section 17.9.)
+
+## 23. /list : sélecteur de photos personnalisé
+
+Remplace le contrôle « Choisir des fichiers » du navigateur par un bouton dans la langue du site. Garder le libellé existant « Photos » et l'indication existante « Quelques photos nettes aident les emprunteurs à dire oui. 8 au maximum. » (déjà dans le code : la limite d'envoi n'est donc pas répétée ici ; l'indication ne mentionne aucune taille maximale, on n'en ajoute donc pas).
+
+**Bouton (aucune photo choisie) :** Choisir des photos
+**Bouton (photos déjà choisies) :** Changer les photos
+(Le sélecteur de fichiers du navigateur remplace la sélection précédente à chaque fois : « Changer » est donc exact ; « Ajouter d'autres photos » ne le serait pas.)
+**État, aucune photo choisie :** Aucune photo choisie pour l'instant
+**État, photos choisies (pluriel : one / many / other) :**
+- one : {count} photo choisie
+- many : {count} de photos choisies
+- other : {count} photos choisies
+**Libellé pour lecteur d'écran du bouton :** Choisir des photos pour ton annonce
+**Libellé pour lecteur d'écran du bouton (photos déjà choisies):** Changer les photos de ton annonce
+
+**Messages d'erreur (utilisés par le code ; un seul s'affiche à la fois) :**
+- Trop de photos : Tu peux ajouter jusqu'à 8 photos. Choisis-en moins.
+- Pas une image : Choisis uniquement des fichiers image.
+
 ---
 
 ## Termes à confirmer (note du traducteur, ne fait pas partie du texte des pages)
@@ -693,6 +771,9 @@ Les termes ci-dessous sont des choix provisoires de cette traduction et doivent 
 | weekend | week-end | fin de semaine (Québec) | Au Québec, utiliser « fin de semaine ». |
 | spam | spam ; dossier spam ou courrier indésirable | pourriel (Québec) | Au Québec, « pourriel » est courant. |
 | cookies | cookies | témoins (Québec) | Au Québec, « témoins » est le terme recommandé. |
+| analytics / Web Analytics | mesure d'audience (« Mesure d'audience et cookies », « fournisseurs de mesure d'audience ») ; le nom du produit Vercel Web Analytics reste en anglais | analytique, statistiques de fréquentation, analyse d'audience, outils d'analyse | « Mesure d'audience » est le terme employé en France (notamment par la CNIL) et compris au Québec ; « analytique » est un anglicisme courant mais moins clair pour le grand public. |
+| hash | valeur de hachage (hash) | hachage, empreinte, hash seul | « Hachage » est le terme technique français standard ; « (hash) » est ajouté entre parenthèses parce que la forme anglaise est aussi très répandue dans les textes techniques francophones. |
+| third-party cookies / advertising or cross-site tracking cookies (section 15) | cookies tiers ; cookies publicitaires ni cookies de suivi intersites | témoins tiers (Québec), cookies de pistage, traceurs | Suit le choix « cookies » de la ligne ci-dessus ; « cookies tiers » et « suivi intersites » sont les formulations usuelles en France. Au Québec, remplacer « cookies » par « témoins » partout, section 15 comprise. |
 | upload | mettre en ligne | téléverser (Québec), télécharger | « Mettre en ligne » est compris partout ; « téléverser » est préféré au Québec. |
 | chat | discuter | clavarder (Québec) | « Discuter » est neutre ; « clavarder » est possible au Québec. |
 | non-profit | sans but lucratif | à but non lucratif (plus fréquent en France), OBNL (Québec) | Compris dans les deux pays et usuel au Canada. |
@@ -703,10 +784,10 @@ Les termes ci-dessous sont des choix provisoires de cette traduction et doivent 
 
 1. **« [message removed] »** : la base de données (`supabase/05-messages-and-deletion.sql`) écrit directement le texte anglais `[message removed]` à la place des messages des comptes supprimés. Pour afficher « [message supprimé] » en français, le code doit reconnaître cette valeur et la remplacer à l'affichage. Les sections 15 et 17.7 gardent pour l'instant l'anglais, conformément à ce qui s'affiche réellement ; si le code le permet, remplacer partout par « [message supprimé] ».
 2. **Mot de confirmation DELETE** : conservé en anglais car le code compare exactement cette chaîne. Pour que les francophones tapent « SUPPRIMER », le code doit le prendre en charge.
-3. **Format de {time left} et {amount}** : en français, il faut des durées comme « 5 h », « 5 heures », « 2 jours » (avec accord singulier/pluriel : en français, 0 et 1 sont au singulier), et des montants au format local (« 25,00 $ » au Canada, « 25,00 € » en France, virgule décimale, espace insécable avant le symbole). Les nombres aussi : « 2 000 » et non « 2,000 ». À faire formater par le code selon la langue.
+3. **Format de {left} et {amount}** : en français, il faut des durées comme « 5 h », « 5 heures », « 2 jours » (avec accord singulier/pluriel : en français, 0 et 1 sont au singulier), et des montants au format local (« 25,00 $ » au Canada, « 25,00 € » en France, virgule décimale, espace insécable avant le symbole). Les nombres aussi : « 2 000 » et non « 2,000 ». À faire formater par le code selon la langue.
 4. **{listing / user}** : il faut deux phrases complètes (« Signaler cette annonce » / « Signaler cet utilisateur »), car l'article change selon le genre (« cette » / « cet ») ; une simple concaténation ne fonctionne pas.
-5. **Date des conditions et de la politique de confidentialité** : la consigne du traducteur mentionnait « Oct 19, 2025 », mais copy-en.md indique désormais « Oct 19, 2026 » dans les sections 8 et 15. La traduction suit la source anglaise : « 19 octobre 2026 ». copy-zh.md indique encore 2025 et devrait être mis à jour.
-6. **Valeur juridique selon la langue** : quand les versions anglaise et française des conditions coexistent, c'est à l'avocat de décider laquelle fait foi. Aucune clause à ce sujet n'a été ajoutée. Pour des utilisateurs au Québec, les exigences de la Charte de la langue française (version française des contrats d'adhésion) relèvent aussi de l'avocat.
+5. **Date des conditions et de la politique de confidentialité** : la consigne du traducteur mentionnait « Oct 19, 2025 », mais copy-en.md indique désormais « Oct 19, 2026 » dans les sections 8 et 15. La traduction suit la source anglaise : « 19 octobre 2026 ». copy-zh.md indique encore 2025 et devrait être mis à jour. Mise à jour (2026-10-20) : les deux dates anglaises indiquent maintenant « Oct 20, 2026 » et la traduction est synchronisée ; c'est encore une date provisoire, à remplacer par la vraie date de publication avant le lancement (voir le TODO des sections 8 et 15).
+6. **Valeur juridique selon la langue** : quand les versions anglaise et française des conditions coexistent, c'est à l'avocat de décider laquelle fait foi. Aucune clause à ce sujet n'a été ajoutée. Pour des utilisateurs au Québec, les exigences de la Charte de la langue française (version française des contrats d'adhésion) relèvent aussi de l'avocat. Mise à jour (2026-10-20) : l'utilisateur a décidé que les pages traduites des conditions et de la confidentialité affichent un avis indiquant que la traduction n'est pas officielle et que la version anglaise s'applique (texte dans docs/i18n-legal-notice.md). Savoir si cet avis a l'effet juridique voulu dans chaque pays reste une question pour l'avocat.
 7. **Lois sur la vie privée** : la note pour l'avocat (section 15) cite RGPD, RGPD du Royaume-Uni et CCPA, mais les données sont hébergées au Canada ; la pertinence des lois canadiennes (p. ex. LPRPDE, Loi 25 au Québec) est à évaluer par l'avocat. Rien n'a été ajouté au texte.
 8. **Accord en genre** : « prêteur », « emprunteur » et « utilisateur » sont au masculin générique. Plusieurs textes ont été reformulés pour éviter les adjectifs genrés (« Te revoilà », « Première visite ? », « Déconnexion réussie », « Ta session est ouverte », « Lance-toi : propose le premier objet »). Si l'écriture inclusive est souhaitée (doublets, termes épicènes, comme le recommande souvent l'administration québécoise), il faudra décider d'une règle commune.
 9. **Registre des textes juridiques** (décidé) : les sections 8 et 15 vouvoient l'utilisateur, alors que le reste du site le tutoie. Le code doit donc garder des chaînes distinctes pour /terms et /privacy et ne pas réutiliser dans ces pages des chaînes d'interface au tutoiement.

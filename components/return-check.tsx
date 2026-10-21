@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,8 +16,9 @@ import { FocusStatus } from "@/components/focus-status";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
+import { useT } from "@/i18n/client";
+import { Link } from "@/i18n/link";
 import { WRITES_ENABLED } from "@/lib/domain";
-import { path } from "@/lib/paths";
 
 // Lender closes a handed-off loan: loans.status -> 'returned' | 'damaged' (+ damage_note).
 // Writes are off (WRITES_ENABLED): shows a preview notice. When enabled:
@@ -38,6 +38,7 @@ export function ReturnCheck({
   amountLabel: string;
   damageWaived: boolean;
 }) {
+  const t = useT();
   const [choice, setChoice] = useState<"" | "returned" | "damaged">("");
   const [note, setNote] = useState("");
   const [confirming, setConfirming] = useState(false);
@@ -48,12 +49,12 @@ export function ReturnCheck({
     return (
       <FocusStatus className="rounded-lg border-2 border-border bg-secondary p-4 font-bold text-secondary-foreground shadow">
         {!WRITES_ENABLED
-          ? "Preview only: nothing was sent or saved yet."
+          ? t("Preview only: nothing was sent or saved yet.")
           : saved === "returned"
-          ? "Marked as returned OK. Thanks for lending!"
+          ? t("Marked as returned OK. Thanks for lending!")
           : damageWaived
-            ? "Marked as damaged. You set no charge for this item, so nothing is owed."
-            : `Marked as damaged. The damage price of ${amountLabel} applies; sort it out with the borrower.`}
+            ? t("Marked as damaged. You set no charge for this item, so nothing is owed.")
+            : t("Marked as damaged. The damage price of {amount} applies; sort it out with the borrower.", { amount: amountLabel })}
       </FocusStatus>
     );
   }
@@ -71,17 +72,20 @@ export function ReturnCheck({
       }}
     >
       <div>
-        <h3 className="text-lg font-black">How did it come back?</h3>
+        <h3 className="text-lg font-black">{t("How did it come back?")}</h3>
         <p className="text-sm">
-          {itemTitle}, borrowed by{" "}
-          {borrowerId ? (
-            <Link href={path(`/profile/${borrowerId}`)} className="font-bold underline underline-offset-4">
-              {borrowerName}
-            </Link>
-          ) : (
-            <strong>{borrowerName}</strong>
-          )}
-          . Check the item and tell us. This closes the loan.
+          {t.rich("{item}, borrowed by {name}. Check the item and tell us. This closes the loan.", {
+            item: itemTitle,
+            name: borrowerId ? (
+              <Link href={`/profile/${borrowerId}`} className="font-bold underline underline-offset-4">
+                <bdi>{borrowerName}</bdi>
+              </Link>
+            ) : (
+              <strong>
+                <bdi>{borrowerName}</bdi>
+              </strong>
+            ),
+          })}
         </p>
       </div>
       <RadioGroup
@@ -90,55 +94,60 @@ export function ReturnCheck({
           setChoice(v as "returned" | "damaged");
           setError(false);
         }}
-        aria-label={`Return condition for ${itemTitle}`}
+        aria-label={t("Return condition for {item}", { item: itemTitle })}
         className="gap-3"
       >
         <label className="flex cursor-pointer items-start gap-3 rounded-lg border-2 border-border p-3">
           <RadioGroupItem value="returned" className="mt-1" />
           <span>
-            <span className="block font-black">Returned OK</span>
-            <span className="text-sm">Everything&apos;s fine. Nobody owes anything.</span>
+            <span className="block font-black">{t("Returned OK")}</span>
+            <span className="text-sm">{t("Everything's fine. Nobody owes anything.")}</span>
           </span>
         </label>
         <label className="flex cursor-pointer items-start gap-3 rounded-lg border-2 border-border p-3">
           <RadioGroupItem value="damaged" className="mt-1" />
           <span>
-            <span className="block font-black">Damaged or lost</span>
+            <span className="block font-black">{t("Damaged or lost")}</span>
             <span className="text-sm">
               {damageWaived
-                ? "The item came back damaged, or didn't come back. You set no charge if damaged, so nothing is owed."
-                : `The item came back damaged, or didn't come back. The damage price of ${amountLabel} applies.`}
+                ? t("The item came back damaged, or didn't come back. You set no charge if damaged, so nothing is owed.")
+                : t("The item came back damaged, or didn't come back. The damage price of {amount} applies.", {
+                    amount: amountLabel,
+                  })}
             </span>
           </span>
         </label>
       </RadioGroup>
-      {error && <p role="alert" className="text-sm font-bold text-destructive">Please pick one.</p>}
+      {error && <p role="alert" className="text-sm font-bold text-destructive">{t("Please pick one.")}</p>}
       {choice === "damaged" && (
         <div className="space-y-2">
-          <Label htmlFor={noteId}>What happened? (optional)</Label>
-          <Textarea id={noteId} value={note} onChange={(e) => setNote(e.target.value)} maxLength={1000} placeholder="e.g. cracked screen, missing parts" />
+          <Label htmlFor={noteId}>{t("What happened? (optional)")}</Label>
+          <Textarea id={noteId} value={note} onChange={(e) => setNote(e.target.value)} maxLength={1000} placeholder={t("e.g. cracked screen, missing parts")} />
           <p className="text-xs">
-            You and the borrower settle this directly. The site doesn&apos;t collect or hold payment. Photos from
-            handoff and return can help.
+            {t(
+              "You and the borrower settle this directly. The site doesn't collect or hold payment. Photos from handoff and return can help.",
+            )}
           </p>
         </div>
       )}
-      <p className="text-xs">Normal wear and tear isn&apos;t damage.</p>
-      <Button type="submit">Save</Button>
+      <p className="text-xs">{t("Normal wear and tear isn't damage.")}</p>
+      <Button type="submit">{t("Save")}</Button>
 
       <AlertDialog open={confirming} onOpenChange={setConfirming}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Mark as damaged?</AlertDialogTitle>
+            <AlertDialogTitle>{t("Mark as damaged?")}</AlertDialogTitle>
             <AlertDialogDescription>
               {damageWaived
-                ? "This tells the borrower it came back damaged. You set no charge for this item, so nothing is owed."
-                : `This tells the borrower the damage price of ${amountLabel} applies. You can add a note on what happened.`}
+                ? t("This tells the borrower it came back damaged. You set no charge for this item, so nothing is owed.")
+                : t("This tells the borrower the damage price of {amount} applies. You can add a note on what happened.", {
+                    amount: amountLabel,
+                  })}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Go back</AlertDialogCancel>
-            <AlertDialogAction onClick={() => setSaved("damaged")}>Mark as damaged</AlertDialogAction>
+            <AlertDialogCancel>{t("Go back")}</AlertDialogCancel>
+            <AlertDialogAction onClick={() => setSaved("damaged")}>{t("Mark as damaged")}</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

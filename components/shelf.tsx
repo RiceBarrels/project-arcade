@@ -1,13 +1,14 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { ItemCard } from "@/components/item-card";
+import { Link } from "@/i18n/link";
+import { getT } from "@/i18n/server";
 import type { ItemWithQueue } from "@/lib/domain";
 
 // Early-Netflix style horizontal shelf (native scroll-snap, no JS).
 // The list bleeds to the screen edge (-mx-4) but keeps a 16px inset via
 // padding + matching scroll-padding, so snapped cards and their hard shadows
 // are never flush with or clipped at the edge.
-export function Shelf({
+export async function Shelf({
   title,
   icon,
   items,
@@ -20,6 +21,7 @@ export function Shelf({
   href?: string;
 }) {
   if (items.length === 0) return null;
+  const t = await getT();
   return (
     <section className="space-y-3">
       <div className="flex items-end justify-between gap-3">
@@ -29,7 +31,7 @@ export function Shelf({
         </h2>
         {href && (
           <Link href={href} className="inline-flex min-h-11 md:min-h-10 items-center px-1 text-sm font-bold underline underline-offset-4">
-            See all
+            {t("See all")}
           </Link>
         )}
       </div>
@@ -39,7 +41,7 @@ export function Shelf({
             <ItemCard item={item} />
           </li>
         ))}
-        {/* Trailing spacer: keeps the last card's shadow and right inset visible. */}
+        {/* Trailing spacer: keeps the last card's shadow and end inset visible. */}
         <li aria-hidden className="w-px shrink-0" />
       </ul>
     </section>

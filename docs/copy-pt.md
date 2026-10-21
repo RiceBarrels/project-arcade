@@ -5,7 +5,7 @@
 - **Status / Situação:** machine-assisted draft — needs native-speaker review (rascunho assistido por máquina; precisa de revisão de um falante nativo). Ainda não foi revisado por nenhum falante nativo.
 - **Variant / Variante:** Variant: Brazilian Portuguese (pt-BR). A European Portuguese (pt-PT) version is not done yet. (Variante: português do Brasil, pt-BR. Uma versão em português europeu, pt-PT, ainda não foi feita.) O tratamento é "você" na interface; as seções jurídicas 8 (/terms) e 15 (política de privacidade) usam o tratamento formal em terceira pessoa ("o usuário"). Termos que mudam em pt-PT estão marcados na tabela do final.
 
-> **Nota de tradução (não é texto da página):** Este arquivo é a tradução para o português do Brasil de `docs/copy-en.md`. A numeração das seções é a mesma da versão em inglês. Os marcadores de posição (`{amount}`, `{item}`, `{time left}`, `{Lender}`, `{Name}`, `{n}`, `{email}`, `{listing / user}`) e os marcadores entre colchetes (`[contact email]`, `[Link to privacy policy]`) foram mantidos exatamente como estão, assim como os caminhos dos links (`/terms`, `/privacy`, `/list`). Os termos ainda dependem de confirmação; veja a tabela "Termos a confirmar" no final. As seções 8 e 15 são rascunhos jurídicos: foram traduzidas com fidelidade, e as marcações DRAFT, TO CONFIRM e NEEDS LAWYER CONFIRMATION do original foram mantidas sem alteração.
+> **Nota de tradução (não é texto da página):** Este arquivo é a tradução para o português do Brasil de `docs/copy-en.md`. A numeração das seções é a mesma da versão em inglês. Os marcadores de posição (`{amount}`, `{item}`, `{left}`, `{Lender}`, `{Name}`, `{n}`, `{email}`, `{listing / user}`) e os marcadores entre colchetes (`[contact email]`, `[Link to privacy policy]`) foram mantidos exatamente como estão, assim como os caminhos dos links (`/terms`, `/privacy`, `/list`). Os termos ainda dependem de confirmação; veja a tabela "Termos a confirmar" no final. As seções 8 e 15 são rascunhos jurídicos: foram traduzidas com fidelidade, e as marcações DRAFT, TO CONFIRM e NEEDS LAWYER CONFIRMATION do original foram mantidas sem alteração.
 >
 > Versão em inglês de referência: copy-en.md (versão de 2026-10-20). Se a versão em inglês mudar, este arquivo precisa ser atualizado.
 
@@ -140,7 +140,9 @@ Nada acontece. O valor por danos só é devido se o emprestador marcar o item co
 
 **Título:** Termos de uso
 
-**Última atualização:** 19 de outubro de 2026
+**Última atualização:** 20 de outubro de 2026
+
+> **TODO before launch:** (pendência antes do lançamento) colocar a data real de publicação em "Última atualização" nos termos (seção 8) e na política de privacidade (seção 15). A data atual, 20 de outubro de 2026, é provisória. Atualizar também todas as traduções. A partir daí, mudar a data sempre que o conteúdo mudar.
 
 **A versão resumida:** Este site ajuda vizinhos a emprestar equipamentos uns aos outros. Nós apresentamos os usuários uns aos outros; o resto fica entre o usuário e a outra pessoa.
 
@@ -149,14 +151,14 @@ Nada acontece. O valor por danos só é devido se o emprestador marcar o item co
 3. **Não garantimos nada sobre os itens.** Não inspecionamos, verificamos nem garantimos o estado, a segurança, a qualidade ou a legalidade de nenhum item, nem a identidade ou a confiabilidade de nenhum usuário. As descrições das publicações são escritas pelos usuários.
 4. **O usuário precisa ter 18 anos ou mais** para criar uma conta, publicar itens ou pegar emprestado.
 5. **O uso é por conta e risco do usuário.** O usuário é responsável por decidir se empresta ou pega emprestado, por usar os itens com segurança e por seguir quaisquer regras que se apliquem a ele. O usuário deve verificar os itens antes de usá-los e não deve emprestar nem pegar emprestado nada que seja inseguro ou ilegal.
-6. **O valor por danos é resolvido entre os usuários.** Se um item voltar danificado ou for perdido, o tomador e o emprestador resolvem o valor por danos diretamente. O site não o recebe, não exige o seu cumprimento e não resolve disputas sobre ele.
+6. **O valor por danos é resolvido entre os usuários.** Se um item voltar danificado ou for perdido, o tomador e o emprestador resolvem o valor por danos diretamente. O site não o recebe, não exige o pagamento dele e não resolve disputas sobre ele.
 7. **O usuário deve agir com decência.** Nada de publicações falsas, assédio ou qualquer coisa ilegal. Podemos remover publicações ou contas que violarem estas regras.
 8. **Denúncias.** Se uma publicação ou um usuário parecer abusivo, inseguro ou falso, o usuário deve usar o botão Denunciar. Vamos analisar as denúncias, mas não podemos prometer agir em todas nem resolver disputas entre usuários. Para bugs e ideias, o usuário deve usar Enviar feedback em vez disso.
 9. **Alterações.** Podemos atualizar estes termos. Continuar usando o site significa que o usuário aceita a versão atual.
 10. **Não permitido na v1.** Para manter tudo seguro, por enquanto estas categorias não podem ser publicadas: ferramentas elétricas, veículos, equipamentos de escalada e equipamentos médicos. Podemos remover publicações dessas ou de outras categorias de alto risco.
 11. **Os emprestadores são responsáveis pela segurança do item.** Se o usuário publica algo, confirma que é seguro emprestá-lo e que ele está descrito com precisão. Os tomadores são responsáveis por usá-lo com segurança enquanto estiver com eles.
 12. **Privacidade (uma linha; o responsável pelo site deve confirmar antes do lançamento).** Coletamos apenas o necessário para operar o site e não vendemos os dados dos usuários. [Link to privacy policy]
-13. **Sem fins lucrativos.** O site não tem fins lucrativos. O próprio site não cobra taxas, não mostra anúncios e não recebe pagamentos. Os emprestadores podem optar por cobrar uma taxa pequena por um item; qualquer taxa é combinada e paga diretamente entre o emprestador e o tomador, não pelo site. [NEEDS LAWYER CONFIRMATION: redação sobre taxas.]
+13. **Sem fins lucrativos.** O site não tem fins lucrativos. O próprio site não cobra taxas, não mostra anúncios e não recebe pagamentos. Os emprestadores podem optar por cobrar uma taxa pequena por um item; qualquer taxa é combinada e paga diretamente entre o emprestador e o tomador, não por meio do site. [NEEDS LAWYER CONFIRMATION: redação sobre taxas.]
 
 **Contato:** [contact email]
 
@@ -198,11 +200,11 @@ Nada acontece. O valor por danos só é devido se o emprestador marcar o item co
 Chegou a sua vez! Responda em até 48 horas para garantir este item. Se não tivermos notícias suas, ele passa para a próxima pessoa da fila.
 
 **Banner na lista da fila (para a pessoa da vez):**
-Sua vez: {item}. Responda em até {time left} para manter seu lugar.
+Sua vez: {item}. Responda em até {left} para manter seu lugar.
 
 **Botões:** Garantir / Passar desta vez
 
-**Contagem regressiva no fim (menos de 6 h):** Última chamada: você tem {time left} para responder.
+**Contagem regressiva no fim (menos de 6 h):** Última chamada: você tem {left} para responder.
 
 **Mensagem de prazo esgotado:** Acabou o tempo. Este item passou para a próxima pessoa da fila. Você pode entrar na fila de novo quando quiser.
 
@@ -289,7 +291,9 @@ Estilo: plano, contornos escuros e grossos, sombras deslocadas e duras, cores ch
 
 **Título:** Política de privacidade
 
-**Última atualização:** 19 de outubro de 2026
+**Última atualização:** 20 de outubro de 2026
+
+> **TODO before launch:** (pendência antes do lançamento) colocar a data real de publicação em "Última atualização" nos termos (seção 8) e na política de privacidade (seção 15). A data atual, 20 de outubro de 2026, é provisória. Atualizar também todas as traduções. A partir daí, mudar a data sempre que o conteúdo mudar.
 
 **A versão resumida:** Coletamos o que precisamos para operar a biblioteca de empréstimos, armazenamos esses dados com o nosso provedor de banco de dados e não os usamos para publicidade.
 
@@ -300,13 +304,34 @@ Estilo: plano, contornos escuros e grossos, sombras deslocadas e duras, cores ch
 - **Registros de empréstimos:** pedidos, entradas na fila, aprovações, marcações de entrega e de devolução (em bom estado ou danificado) e as notas relacionadas.
 - **Denúncias:** as denúncias que o usuário envia e as denúncias feitas sobre ele ou sobre as publicações dele.
 - **Feedback:** se o usuário usar Enviar feedback, armazenamos a mensagem dele, o tipo que ele escolheu (bug, ideia ou outro), a página em que ele estava e uma nota curta sobre o navegador dele. Se o usuário tiver feito login, o feedback fica vinculado à conta dele. Se ele adicionar um contato para resposta, também armazenamos esse contato. [TO CONFIRM: campos exatos, com base em supabase/08-feedback.sql, que ainda não existia quando este texto foi escrito.]
-- **Dados técnicos básicos:** [TO CONFIRM: por exemplo, logs do servidor, endereço IP, cookies necessários para o login. Preencher depois que a configuração real for verificada.]
+- **Dados técnicos básicos:** quando o usuário visita o site, os nossos provedores de hospedagem e de análise de acessos processam informações técnicas básicas, como as páginas que ele vê, a localização aproximada dele (país ou região) e o navegador e o tipo de dispositivo que ele usa. Ver "Análise de acessos e cookies", abaixo. [TO CONFIRM: tratamento dos logs do servidor e dos endereços IP pela Vercel e pela Supabase. NEEDS REVIEW.]
 
 ### Onde os dados ficam armazenados
 A conta, o perfil, as publicações, os registros de empréstimos e as fotos do usuário ficam armazenados com a Supabase (banco de dados, autenticação e armazenamento de arquivos). Os dados ficam armazenados no Canadá (região da Supabase ca-central-1). O site é hospedado na Vercel.
 
 ### O que outros usuários podem ver
-O nome de exibição, a cidade ou região, as publicações, as fotos e o histórico de empréstimos do perfil do usuário ficam visíveis para outros usuários. O endereço exato do usuário não deve ser colocado nas publicações. O endereço de e-mail do usuário nunca é mostrado publicamente. Depois que um pedido é aprovado, o emprestador e o tomador se comunicam somente pelas mensagens internas do site.
+O perfil público do usuário fica visível para outros usuários. Ele mostra o nome de exibição, a cidade ou região (se o usuário adicionar uma), a bio, o mês e o ano em que o usuário entrou no site e as publicações dele, com as respectivas fotos. Também mostra contagens simples: quantos itens o usuário publicou, emprestou e pegou emprestado, quantos foram devolvidos em bom estado e quantos foram danificados ou perdidos (como emprestador e como tomador). O perfil não mostra para quem o usuário emprestou nem de quem ele pegou emprestado. [NEEDS REVIEW: verificado com base em components/profile-stats.tsx e na página de perfil em 2026-10-20; verificar de novo se o perfil mudar.] O endereço exato do usuário não deve ser colocado nas publicações. O endereço de e-mail do usuário nunca é mostrado publicamente. Depois que um pedido é aprovado, o emprestador e o tomador se comunicam somente pelas mensagens internas do site.
+
+### Análise de acessos e cookies (DRAFT, needs review) (RASCUNHO, precisa de revisão)
+Usamos o Vercel Web Analytics para contar as visitas às páginas, para podermos ver quais partes do site são usadas. Com base na documentação da Vercel (página "Privacy and Compliance" da documentação, com última atualização em 2026-06-26):
+- Não usa cookies de terceiros. Os visitantes são diferenciados por um hash gerado a partir da requisição recebida.
+- As informações da sessão do visitante não são armazenadas permanentemente; elas são descartadas após 24 horas.
+- Não coleta informações que permitiriam a alguém acompanhar o usuário em diferentes sites ou apps, e é usado apenas para estatísticas agregadas.
+- Cada visualização de página pode incluir: o horário, o caminho da página, a página de origem, a localização aproximada (país, região, cidade), o sistema operacional e a versão dele, o navegador e a versão dele, e o tipo de dispositivo (celular, tablet ou computador).
+
+Antes de uma visualização de página ser enviada, removemos do caminho da página os IDs de itens, de empréstimos e de perfis, e removemos os parâmetros de consulta e tudo o que vem depois do sinal #. Os links dos nossos e-mails (as páginas /auth/... que se abrem quando o usuário clica em um link de cadastro ou de redefinição de senha) não são enviados de forma alguma, e as demais páginas são enviadas somente pelo caminho, como /en/login. Não enviamos o ID do usuário. Não podemos alterar a página de origem, que a ferramenta de análise de acessos inclui por conta própria. [NEEDS REVIEW: com base na verificação do código feita pelo desenvolvedor em 2026-10-20.]
+
+Não usamos esses dados para mostrar anúncios e não os vendemos.
+
+Cookies: o site define dois tipos de cookies, ambos necessários para que ele funcione.
+- Um cookie de login, definido pelo nosso provedor de login (Supabase), mantém o usuário conectado. Ele pode ser dividido em várias partes.
+- Um cookie de idioma guarda o idioma escolhido pelo usuário. Ele dura 1 ano.
+
+O site também armazena a configuração de vibração (Vibrar ao tocar) e o progresso do usuário nas telas de introdução no armazenamento local (local storage) do navegador, no próprio dispositivo do usuário. Isso não é um cookie e não é enviado para nós.
+
+Não definimos cookies de publicidade nem de rastreamento entre sites. [NEEDS REVIEW: com base na verificação do código feita pelo desenvolvedor em 2026-10-20; verificar de novo quando algo for adicionado.]
+
+[TO CONFIRM from Vercel or the dashboard, not stated in the docs page above: (1) se os endereços IP são armazenados ou usados apenas brevemente para determinar a localização aproximada; (2) por quanto tempo os dados agregados de análise de acessos são mantidos; (3) onde os dados de análise de acessos são armazenados e processados. Não publicar nenhuma afirmação sobre esses pontos até que sejam verificados.]
 
 ### Como usamos os dados
 Para operar o site: mostrar publicações, gerenciar filas e pedidos, permitir que emprestadores e tomadores se comuniquem, tratar denúncias e manter o site seguro.
@@ -659,6 +684,59 @@ Separado de Denunciar. Denunciar é só para abusos envolvendo itens e usuários
 
 **Nota de privacidade (adicionar à seção 15 quando o armazenamento do feedback for confirmado):** O feedback que você envia é armazenado com a sua conta e com qualquer contato para resposta que você informar. [TO CONFIRM by the builder and owner: o que é armazenado e por quanto tempo.]
 
+## 20. Discord (não traduzido: somente em inglês, por decisão da coordenação)
+
+A seção 20 de copy-en.md é mantida somente em inglês.
+
+## 21. Páginas jurídicas traduzidas: aviso de tradução não oficial (precisa de revisão de um advogado)
+
+> **Needs lawyer review.** (Precisa de revisão de um advogado.) Fonte: docs/i18n-legal-notice.md (7号). A redação abaixo usa "applies". Se um advogado preferir "prevails", a mudança deve ser feita nos 10 idiomas. O texto de N1 já é usado no código da página como uma única string com um link; não alterar o texto da chave sem avisar 1号 (project-arcade-46).
+
+Exibido somente nas páginas traduzidas de /terms e /privacy, nunca nas páginas em inglês.
+
+**N1 (faixa, acima do aviso DRAFT):** Esta é uma tradução não oficial. Em caso de divergência entre esta tradução e a versão em inglês, prevalece a versão em inglês.
+**N1 com link (chave exata do dicionário usada pelo código):** Esta é uma tradução não oficial. Em caso de divergência entre esta tradução e a <link>versão em inglês</link>, prevalece a versão em inglês.
+**N2 (texto do link):** Ler a versão em inglês
+**N3 (rótulo curto, por exemplo, nos metadados da página ou no seletor de idioma das páginas jurídicas):** Tradução não oficial
+
+## 22. i18n e textos do sistema (revisados em 2026-10-20)
+
+Revisão dos textos provisórios do desenvolvedor. Mantidos como estão, salvo indicação em contrário. (Entre aspas, o original em inglês; em negrito, o texto da interface em português.) Registro informal ("você"), como no resto da interface.
+
+**"Language"** (rótulo do seletor de idioma): **Idioma**. Manter.
+**"This is an unofficial translation. If it differs from the <link>English version</link>, the English version applies."**: **Esta é uma tradução não oficial. Em caso de divergência entre esta tradução e a <link>versão em inglês</link>, prevalece a versão em inglês.** Manter, igual à seção 21.
+**"This page isn't available in your language yet, so it's shown in English."**: **Esta página ainda não está disponível no seu idioma, por isso aparece em inglês.** Manter. Simples e amigável.
+**"Last updated: {date}"**: **Última atualização: {date}**. Manter. A data deve sair no formato do idioma do usuário (pt-BR, por exemplo, 20 de outubro de 2026).
+**Unidades da contagem regressiva:** "{h}h {m}m" vira **{h} h {m} min**, e "{m}m" (menos de uma hora) vira **{m} min**. Manter como chaves de unidade. Não acrescentar uma palavra para "left" (restante). O tempo só aparece dentro de duas frases completas (seção 10): "Respond within {left} to keep your spot." e "Last call: {left} left to respond." Em português, o "left" não vira uma palavra separada: a ideia fica na própria frase, **Responda em até {left} para manter seu lugar.** e **Última chamada: você tem {left} para responder.** (por exemplo, "você tem 5 h 20 min para responder"). Assim a frase não depende de singular ou plural ("falta" / "faltam"). Na seção 10 (em inglês e nesta tradução) o marcador aparece como {left}; no código ele se chama {left} e deve ser mantido exatamente assim.
+**Página 404 (texto visível, substitui a sugestão anterior):** manter o "404" grande.
+- **Título:** Nada nesta prateleira
+- **Corpo:** Essa página ou item não existe, ou foi removido.
+- **Botão principal:** Explorar o catálogo (leva para /browse)
+- **Link secundário (novo):** Voltar para o início
+**Título da aba do navegador na página 404:** Página não encontrada
+**Meta descrição da página 404:** A página ou o item que você procurava não existe, ou foi removido.
+(A sugestão anterior, "Page not found" como título visível e um novo corpo, foi retirada: o texto visível atual combina com o tom do site, vale tanto para páginas quanto para itens e já está implementado.)
+(A página de erro genérica já usa "Algo deu errado", com Tentar de novo e Voltar para o início, seção 17.9.)
+
+## 23. /list: seletor de fotos personalizado
+
+Substitui o controle "Escolher arquivos" do próprio navegador por um botão no idioma do site. Manter o rótulo existente "Fotos" e a dica existente "Algumas fotos nítidas ajudam os tomadores a topar. Até 8." (já estão no código, por isso o limite de envio não se repete aqui; a dica não fala de limite de tamanho, então nenhum é acrescentado).
+
+**Botão (nenhuma foto escolhida):** Escolher fotos
+**Botão (fotos já escolhidas):** Trocar fotos
+(O seletor de arquivos do navegador substitui a seleção anterior a cada vez, então "Trocar" está correto; "Adicionar mais fotos" não estaria.)
+**Status, nenhuma escolhida:** Nenhuma foto escolhida ainda
+**Status, escolhidas (plural: one / many / other):**
+- one: {count} foto escolhida
+- many: {count} fotos escolhidas
+- other: {count} fotos escolhidas
+**Rótulo do botão para leitores de tela:** Escolher fotos para a sua publicação
+**Rótulo do botão para leitores de tela (com fotos já escolhidas):** Trocar fotos da sua publicação
+
+**Opcional, somente se o código limitar o número ou o tamanho das fotos (o texto de erro do código decide; não mostrar os dois):**
+- Fotos demais: Você pode adicionar até 8 fotos. Escolha menos.
+- Não é imagem: Escolha apenas arquivos de imagem.
+
 ---
 
 ## Termos a confirmar (nota de tradução, não é texto da página)
@@ -684,7 +762,7 @@ Estes termos são provisórios e precisam da confirmação do usuário. Depois d
 | Damaged or lost | Danificado ou perdido | Com danos ou perdido, Danificado ou extraviado | Masculino porque concorda com "item". |
 | the arcade (Join the arcade, Thanks for being part of the arcade) | o fliperama | o arcade, a comunidade, o project-arcade | "Fliperama" é a palavra brasileira para arcade e mantém o clima de jogo; também nomeia a "máquina de fliperama" da seção 14. Se parecer que o site é um salão de jogos de verdade, "o arcade" é a alternativa. Em pt-PT "fliperama" não se usa ("salão de jogos" ou "arcada"). |
 | Report | Denunciar (substantivo: denúncia) | Reportar, Relatar um problema, Avisar | "Denunciar" é o padrão nas redes e apps no Brasil. Agora que Denunciar serve só para abusos (publicações ou usuários abusivos, inseguros ou falsos) e bugs e ideias foram para Enviar feedback (seção 19), o tom mais forte de "Denunciar" se encaixa bem; mantido. "Reportar" é comum em jogos, mas é anglicismo. Igual em pt-PT. |
-| Send feedback | Enviar feedback | Mandar feedback, Enviar sugestão, Dar sua opinião, Fale com a gente | "Enviar feedback" é o rótulo habitual em apps e sites no Brasil, cobre bugs, ideias e o resto, e fica claramente diferente de "Denunciar" (sem tom de acusação). Usado igual nas seções 1, 8, 9 e 19. "Enviar sugestão" não cobre bugs. Em pt-PT também se usa "Enviar feedback" (ou "Enviar comentários"). |
+| Send feedback | Enviar feedback | Mandar feedback, Enviar sugestão, Dar sua opinião, Fale com a gente | "Enviar feedback" é o rótulo habitual em apps e sites no Brasil, cobre bugs, ideias e o resto, e fica claramente diferente de "Denunciar" (sem tom de acusação). Usado igual nas seções 1, 8, 9, 15 e 19. "Enviar sugestão" não cobre bugs. Em pt-PT também se usa "Enviar feedback" (ou "Enviar comentários"). |
 | feedback (substantivo) | feedback (o feedback) | opinião, comentários, sugestões, retorno | Anglicismo já corrente no português do Brasil, masculino ("seu feedback foi enviado"). "Retorno" é ambíguo (também significa resposta); "comentários" é vago. |
 | bug | bug | erro, falha, problema | "Bug" é entendido amplamente no Brasil, combina com o tom de jogo e é curto para a opção do seletor (seção 19). Também usado nas seções 8 e 15 por consistência. Alternativa mais neutra: "erro". |
 | Me (barra inferior) | Perfil | Você, Eu, Minha conta | "Eu" e "Você" soam estranhos como aba; "Perfil" é o habitual em apps brasileiros e cabe bem. Atenção: em 18.3 a linha secundária de "Configurações" também diz "Perfil e conta"; confirmar que não confunde. |
@@ -700,15 +778,18 @@ Estes termos são provisórios e precisam da confirmação do usuário. Depois d
 | contact | contato | contacto (pt-PT) | Diferença ortográfica pt-BR / pt-PT. |
 | camera | câmera | câmara (pt-PT) | Diferença ortográfica pt-BR / pt-PT. |
 | spam / junk folder | spam / lixo eletrônico | lixo eletrónico (pt-PT) | Diferença ortográfica pt-BR / pt-PT. |
+| analytics / Web Analytics | análise de acessos (o nome do produto, Vercel Web Analytics, fica em inglês) | análises, estatísticas de acesso, métricas, analytics | "Análise de acessos" deixa claro que se trata de contar visitas, e não de análise de dados pessoais em geral; "analytics" sozinho é anglicismo comum entre desenvolvedores, mas menos claro para o público. O nome do produto não é traduzido. Igual em pt-PT ("análise de acessos" ou "estatísticas de utilização"). |
+| cookies | cookies | arquivos de cookies, testemunhos de conexão (pt-PT, raro) | "Cookies" é o termo usado no Brasil, inclusive em políticas de privacidade; não se traduz. Em pt-PT também se usa "cookies". |
+| hash | hash (o hash) | código hash, resumo criptográfico, valor de hash | Na escrita técnica brasileira "hash" fica em inglês, masculino. "Resumo criptográfico" é correto, mas raro e pesado para texto simples. Igual em pt-PT. |
 
 ## Perguntas que precisam de coordenação ou suporte no código (nota de tradução)
 
 1. **"[message removed]":** o banco de dados (`supabase/05-messages-and-deletion.sql`) grava o corpo das mensagens de usuários excluídos com o literal em inglês `[message removed]`. Para a interface em português mostrar "[mensagem removida]", o código precisa reconhecer esse valor e substituí-lo na exibição. As seções 15 e 17.7 mantêm o literal em inglês para coincidir com o que aparece hoje; se o código der suporte, troca-se no arquivo todo por "[mensagem removida]".
 2. **Palavra de confirmação DELETE:** `DELETE` fica em inglês porque o código compara exatamente essa string. Se a ideia for que usuários em português digitem "EXCLUIR", é preciso suporte no código.
-3. **Formato de {time left} e {amount}:** em português são necessárias durações como "5 horas" ou "2 dias", com singular e plural ("1 hora", "2 horas"). Os valores em dinheiro devem sair no formato brasileiro, com o símbolo R$, ponto como separador de milhar e vírgula decimal (por exemplo, R$ 1.250,00); isso deve ser feito pelo código com a localidade pt-BR (por exemplo, `Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })`), não à mão. Se a moeda real do site não for o real, a moeda vem do dado e só o formato segue pt-BR. O mesmo vale para o limite de mensagens: "2.000" com ponto em pt-BR. As frases foram escritas para não depender do número gramatical do marcador ("você tem {time left} para responder", em vez de "falta" / "faltam").
+3. **Formato de {left} e {amount}:** em português são necessárias durações como "5 horas" ou "2 dias", com singular e plural ("1 hora", "2 horas"). Os valores em dinheiro devem sair no formato brasileiro, com o símbolo R$, ponto como separador de milhar e vírgula decimal (por exemplo, R$ 1.250,00); isso deve ser feito pelo código com a localidade pt-BR (por exemplo, `Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })`), não à mão. Se a moeda real do site não for o real, a moeda vem do dado e só o formato segue pt-BR. O mesmo vale para o limite de mensagens: "2.000" com ponto em pt-BR. As frases foram escritas para não depender do número gramatical do marcador ("você tem {left} para responder", em vez de "falta" / "faltam").
 4. **{listing / user}:** em português são necessárias duas frases completas, não uma concatenação: "Denunciar esta publicação" / "Denunciar este usuário". O demonstrativo muda de gênero (esta / este).
-5. **Data dos termos e da privacidade:** copy-en.md agora diz "Oct 19, 2026", e a tradução usa essa data (19 de outubro de 2026). Uma versão anterior do inglês trazia o ano 2025, que parecia erro de digitação; se o inglês mudar de novo, esta tradução precisa acompanhar. O responsável pelo site deve confirmar.
-6. **Validade jurídica conforme o idioma:** quando as versões em inglês e em português dos termos coexistirem, qual delas prevalece é uma decisão do advogado. A tradução não acrescenta nenhuma cláusula sobre isso.
+5. **Data dos termos e da privacidade:** copy-en.md agora diz "Oct 19, 2026", e a tradução usa essa data (19 de outubro de 2026). Uma versão anterior do inglês trazia o ano 2025, que parecia erro de digitação; se o inglês mudar de novo, esta tradução precisa acompanhar. O responsável pelo site deve confirmar. Atualização (2026-10-20): as duas datas em inglês agora são "Oct 20, 2026" e a tradução foi sincronizada; ainda é uma data provisória, que deve ser trocada pela data real de publicação antes do lançamento (ver o TODO nas seções 8 e 15).
+6. **Validade jurídica conforme o idioma:** quando as versões em inglês e em português dos termos coexistirem, qual delas prevalece é uma decisão do advogado. A tradução não acrescenta nenhuma cláusula sobre isso. Atualização (2026-10-20): o usuário decidiu que as páginas traduzidas de termos e privacidade mostrem um aviso de que a tradução não é oficial e de que prevalece a versão em inglês (texto em docs/i18n-legal-notice.md). Se esse aviso tem o efeito jurídico pretendido em cada país continua sendo uma questão para o advogado.
 7. **Gênero gramatical:** "emprestador", "tomador", "usuário" e "conectado" usam o masculino genérico. A interface evita adjetivos com gênero sempre que possível ("Primeira vez aqui?" em vez de "Novo por aqui?", "Boas-vindas" em vez de "Bem-vindo", "Segurança em primeiro lugar" em vez de "Fique seguro"). "Obrigado" foi mantido porque quem fala é o site; "Valeu" é uma alternativa neutra e mais descontraída. Nas notificações com {Lender} e {Name} evitou-se a concordância de gênero ("Entre em contato com essa pessoa"). Se o produto quiser linguagem mais inclusiva, há opções como "quem empresta" e "quem pega emprestado".
 8. **Artigo antes de project-arcade:** em português é natural dizer "O project-arcade está em pre-alpha". Se o código montar frases com o nome do site, o artigo precisa ser previsto.
 9. **Tamanho dos textos:** o português costuma ser 20% a 30% mais longo que o inglês. Revisar botões e rótulos curtos (por exemplo, "Devolvido em bom estado", "Enviar link de redefinição", "Começar a explorar", "Passar desta vez") em telas de celular.

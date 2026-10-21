@@ -5,7 +5,7 @@
 - **Status / Katayuan:** machine-assisted draft — needs native-speaker review (borador na ginawa sa tulong ng makina; kailangang suriin ng katutubong tagapagsalita). Hindi pa ito nasusuri ng katutubong tagapagsalita.
 - **Variant / Uri:** modernong Filipino (batay sa Tagalog) gaya ng ginagamit sa mga consumer app sa Pilipinas. Ginagamit ang ilang English na loanword na talagang sinasabi ng mga tao sa app (email, password, account, link, spam, request, listing, item, user, settings, profile), pero hindi isinusulat sa Taglish ang buong pangungusap. Tingnan ang talahanayan ng mga termino sa dulo.
 
-> **Tala ng tagasalin (hindi bahagi ng page copy):** Ito ang salin sa Filipino ng `docs/copy-en.md`. Tugma ang numero ng mga seksyon sa bersyong English. Hindi binago ang mga placeholder (`{amount}`, `{item}`, `{time left}`, `{Lender}`, `{Name}`, `{n}`, `{email}`, `{listing / user}`) at ang mga placeholder sa bracket (`[contact email]`, `[Link to privacy policy]`), pati ang mga link path (`/terms`, `/privacy`, `/list`). Hindi pa kumpirmado ang mga termino; tingnan ang "Mga terminong kukumpirmahin pa" sa dulo. Mga borador na legal ang seksyon 8 at 15: tapat na isinalin ang mga ito, at pinanatili nang buo ang mga markang DRAFT, TO CONFIRM at NEEDS LAWYER CONFIRMATION ng orihinal.
+> **Tala ng tagasalin (hindi bahagi ng page copy):** Ito ang salin sa Filipino ng `docs/copy-en.md`. Tugma ang numero ng mga seksyon sa bersyong English. Hindi binago ang mga placeholder (`{amount}`, `{item}`, `{left}`, `{Lender}`, `{Name}`, `{n}`, `{email}`, `{listing / user}`) at ang mga placeholder sa bracket (`[contact email]`, `[Link to privacy policy]`), pati ang mga link path (`/terms`, `/privacy`, `/list`). Hindi pa kumpirmado ang mga termino; tingnan ang "Mga terminong kukumpirmahin pa" sa dulo. Mga borador na legal ang seksyon 8 at 15: tapat na isinalin ang mga ito, at pinanatili nang buo ang mga markang DRAFT, TO CONFIRM at NEEDS LAWYER CONFIRMATION ng orihinal.
 >
 > Batayang bersyong English: copy-en.md (bersyon ng 2026-10-20). Kapag nagbago ang English, kailangang i-update din ang file na ito.
 
@@ -140,9 +140,11 @@ Wala. May babayarang bayad-pinsala lang kung mamarkahan ng nagpapahiram na sira 
 
 **Pamagat:** Mga Tuntunin ng Paggamit
 
-**Huling update:** Oktubre 19, 2026
+**Huling update:** Oktubre 20, 2026
 
-**Ang maikling bersyon:** Tinutulungan ng site na ito ang magkakapitbahay na magpahiraman ng gamit. Kami ang nagpapakilala sa inyo; ang lahat ng iba pa ay nasa pagitan ninyo at ng kabilang tao.
+> **TODO before launch:** (gagawin bago ilunsad) Ilagay ang totoong petsa ng paglalathala sa "Huling update" ng mga tuntunin (seksyon 8) at ng patakaran sa privacy (seksyon 15). Pansamantalang petsa lang ng draft ang Oktubre 20, 2026. I-update din ang lahat ng salin. Mula noon, palitan ang petsa tuwing magbabago ang nilalaman.
+
+**Ang maikling bersyon:** Tinutulungan ng site na ito ang magkakapitbahay na magpahiraman ng gamit. Ipinapakilala namin kayo sa isa't isa; ang lahat ng iba pa ay nasa pagitan ninyo at ng kabilang tao.
 
 1. **Bulletin board kami, hindi nagpapahiram.** Ang site ay hindi ang nagpapahiram, hindi ang nanghihiram, at hindi partido sa anumang hiraman. Pinag-uugnay lang namin ang mga tao.
 2. **Hindi kami humahawak ng mga item o pera.** Hindi kailanman napapasaamin ang anumang gamit, at hindi kami nangongolekta, humahawak, o naglilipat ng anumang uri ng bayad.
@@ -198,11 +200,11 @@ Wala. May babayarang bayad-pinsala lang kung mamarkahan ng nagpapahiram na sira 
 Ikaw na ang susunod! Sumagot sa loob ng 48 oras para makuha ang item na ito. Kung wala kaming matanggap na sagot mo, mapupunta ito sa susunod na tao sa pila.
 
 **Banner sa listahan ng pila (para sa taong turn na):**
-Ikaw na: {item}. Sumagot sa loob ng {time left} para mapanatili ang puwesto mo.
+Ikaw na: {item}. Sumagot sa loob ng {left} para mapanatili ang puwesto mo.
 
 **Mga button:** Kunin ito / Laktawan muna
 
-**Paubos na ang oras (wala pang 6h):** Huling tawag: {time left} na lang para sumagot.
+**Paubos na ang oras (wala pang 6h):** Huling tawag: {left} na lang para sumagot.
 
 **Mensahe kapag nag-expire:** Ubos na ang oras. Napunta na ito sa susunod na tao sa pila. Puwede kang pumila ulit anumang oras.
 
@@ -289,7 +291,9 @@ Estilo: flat, makakapal at madidilim na outline, matitigas na offset shadow, mat
 
 **Pamagat:** Patakaran sa Privacy
 
-**Huling update:** Oktubre 19, 2026
+**Huling update:** Oktubre 20, 2026
+
+> **TODO before launch:** (gagawin bago ilunsad) Ilagay ang totoong petsa ng paglalathala sa "Huling update" ng mga tuntunin (seksyon 8) at ng patakaran sa privacy (seksyon 15). Pansamantalang petsa lang ng draft ang Oktubre 20, 2026. I-update din ang lahat ng salin. Mula noon, palitan ang petsa tuwing magbabago ang nilalaman.
 
 **Ang maikling bersyon:** Kinokolekta namin ang kailangan namin para patakbuhin ang pahiraman, iniimbak ito sa aming database provider, at hindi namin ito ginagamit para sa advertising.
 
@@ -300,13 +304,34 @@ Estilo: flat, makakapal at madidilim na outline, matitigas na offset shadow, mat
 - **Mga rekord ng panghihiram:** mga request, puwesto sa pila, mga pag-apruba, mga marka sa abutan at pagbabalik (maayos o sira), at mga kaugnay na tala.
 - **Mga report:** mga report na ipinapadala ninyo, at mga report tungkol sa inyo o sa mga listing ninyo.
 - **Feedback:** kung gagamitin ninyo ang "Magpadala ng feedback", iniimbak namin ang mensahe ninyo, ang uring pinili ninyo (bug, ideya, o iba pa), ang page na kinaroroonan ninyo noon, at maikling tala tungkol sa browser ninyo. Kung naka-sign in kayo, naka-link ito sa account ninyo. Kung maglalagay kayo ng contact para sa pagsagot, iniimbak din namin iyon. [TO CONFIRM: eksaktong mga field, batay sa supabase/08-feedback.sql, na hindi pa umiiral noong isinulat ito.]
-- **Batayang teknikal na data:** [TO CONFIRM: hal. server logs, IP address, cookies na kailangan para sa pag-sign in. Punan kapag nasuri na ang aktwal na setup.]
+- **Batayang teknikal na data:** kapag bumibisita kayo, pinoproseso ng aming mga provider ng hosting at analytics ang batayang teknikal na impormasyon, gaya ng mga page na tinitingnan ninyo, ang inyong tinatayang lokasyon (bansa o rehiyon), at ang uri ng browser at device ninyo. Tingnan ang "Analytics at cookies" sa ibaba. [TO CONFIRM: kung paano hinahawakan ng Vercel at Supabase ang server logs at IP address. NEEDS REVIEW.]
 
 ### Saan ito iniimbak
 Iniimbak ang inyong account, profile, mga listing, mga rekord ng panghihiram, at mga litrato sa Supabase (database, authentication, at file storage). Nakaimbak ang data sa Canada (Supabase region ca-central-1). Naka-host ang website sa Vercel.
 
 ### Ano ang nakikita ng ibang user
-Nakikita ng ibang user ang display name ninyo, ang lungsod o lugar ninyo, ang mga listing, mga litrato, at ang kasaysayan ng pagpapahiram sa profile ninyo. Hindi dapat ilagay sa mga listing ang eksaktong address ninyo. Hindi kailanman ipinapakita sa publiko ang email address ninyo. Kapag naaprubahan na ang isang request, nag-uugnayan lang ang nagpapahiram at ang nanghihiram sa pamamagitan ng mga mensahe sa loob ng site.
+Nakikita ng ibang user ang pampublikong profile ninyo. Ipinapakita rito ang display name ninyo, ang lungsod o lugar ninyo (kung maglalagay kayo nito), ang bio ninyo, ang buwan at taon ng pagsali ninyo, at ang mga listing ninyo kasama ang mga litrato nito. Ipinapakita rin dito ang mga simpleng bilang: kung ilang item ang na-list, naipahiram at nahiram ninyo, ilan ang naibalik nang maayos, at ilan ang nasira o nawala (bilang nagpapahiram at bilang nanghihiram). Hindi nito inililista kung kanino kayo nagpahiram o kung kanino kayo nanghiram. [NEEDS REVIEW: sinuri batay sa components/profile-stats.tsx at sa page ng profile noong 2026-10-20; suriin ulit kapag nagbago ang profile.] Hindi dapat ilagay sa mga listing ang eksaktong address ninyo. Hindi kailanman ipinapakita sa publiko ang email address ninyo. Kapag naaprubahan na ang isang request, nag-uugnayan lang ang nagpapahiram at ang nanghihiram sa pamamagitan ng mga mensahe sa loob ng site.
+
+### Analytics at cookies (DRAFT, needs review) (BORADOR, kailangang suriin)
+Gumagamit kami ng Vercel Web Analytics para bilangin ang mga pagbisita sa mga page, para makita namin kung aling mga bahagi ng site ang ginagamit. Batay sa dokumentasyon ng Vercel (docs na "Privacy and Compliance", huling na-update noong 2026-06-26):
+- Hindi ito gumagamit ng third-party cookies. Pinagkakaiba ang mga bisita sa pamamagitan ng hash na ginagawa mula sa papasok na request.
+- Hindi permanenteng iniimbak ang impormasyon tungkol sa session ng bisita; itinatapon ito pagkalipas ng 24 na oras.
+- Hindi ito nangongolekta ng impormasyong magbibigay-daan sa sinuman na sundan kayo sa iba't ibang website o app, at ginagamit lang ito para sa pinagsama-samang estadistika.
+- Puwedeng kasama sa bawat page view ang mga sumusunod: ang oras, ang path ng page, ang page na pinanggalingan, ang tinatayang lokasyon (bansa, rehiyon, lungsod), ang operating system at bersyon nito, ang browser at bersyon nito, at ang uri ng device (mobile, tablet o desktop).
+
+Bago ipadala ang isang page view, inaalis namin sa path ng page ang mga ID ng item, ng hiraman at ng profile, at inaalis namin ang mga query parameter at anumang kasunod ng simbolong #. Hindi kailanman nire-report ang mga link mula sa aming mga email (ang mga page na /auth/... na nagbubukas kapag nag-click kayo sa link para sa pag-sign up o sa pag-reset ng password), at para sa ibang mga page, ang path lamang ang nire-report, gaya ng /en/login. Hindi namin ipinapadala ang inyong user ID. Hindi namin mababago ang page na pinanggalingan, na kusang isinasama ng analytics tool. [NEEDS REVIEW: batay sa pagsusuri ng builder sa code noong 2026-10-20.]
+
+Hindi namin ito ginagamit para magpakita ng ads, at hindi namin ito ibinebenta.
+
+Cookies: dalawang uri ng cookies ang itinatakda ng site, at parehong kailangan ang mga ito para gumana ang site.
+- Pinapanatili kayong naka-sign in ng isang cookie para sa pag-sign in, na itinatakda ng aming provider ng pag-sign in (Supabase). Puwede itong hatiin sa ilang bahagi.
+- Tinatandaan ng isang cookie para sa wika ang wikang pinili ninyo. Tumatagal ito nang 1 taon.
+
+Iniimbak din ng site ang inyong setting na "Mag-vibrate kapag nag-tap" at ang progreso ninyo sa mga screen ng onboarding sa local storage ng inyong browser, sa sarili ninyong device. Hindi ito cookie at hindi ito ipinapadala sa amin.
+
+Hindi kami nagtatakda ng cookies para sa advertising o para sa cross-site tracking (pagsubaybay sa iba't ibang site). [NEEDS REVIEW: batay sa pagsusuri ng builder sa code noong 2026-10-20; suriin ulit kapag may idinagdag.]
+
+[TO CONFIRM from Vercel or the dashboard, not stated in the docs page above: (1) kung iniimbak ang mga IP address o ginagamit lang nang sandali para matukoy ang tinatayang lokasyon; (2) gaano katagal iniingatan ang pinagsama-samang data ng analytics; (3) kung saan iniimbak at pinoproseso ang data ng analytics. Huwag mag-publish ng anumang pahayag tungkol sa mga ito hangga't hindi pa nasusuri.]
 
 ### Paano namin ito ginagamit
 Para patakbuhin ang site: ipakita ang mga listing, pamahalaan ang mga pila at request, hayaang makapag-ugnayan ang mga nagpapahiram at nanghihiram, asikasuhin ang mga report, at panatilihing ligtas ang site.
@@ -659,6 +684,63 @@ Hiwalay sa I-report. Para lang sa pang-aabuso sa mga item at user ang I-report (
 
 **Tala sa privacy (idagdag sa seksyon 15 kapag nakumpirma na kung paano iniimbak ang feedback):** Iniimbak ang feedback na ipinapadala mo kasama ng account mo at ng anumang contact para sa pagsagot na inilagay mo. [TO CONFIRM by the builder and owner: kung ano ang iniimbak at gaano katagal.]
 
+## 20. Discord (hindi isinalin; English lang, ayon sa pasya ng koordinador)
+
+Pinanatili sa English lang ang seksyon 20 ng copy-en.md.
+
+## 21. Mga isinaling legal na page: paalala na hindi opisyal ang salin (kailangang suriin ng abogado)
+
+> **Needs lawyer review.** (Kailangang suriin ng abogado.) Pinagmulan: docs/i18n-legal-notice.md (7号). Ginagamit ng wording sa ibaba ang "applies". Kung mas gusto ng abogado ang "prevails", palitan ito sa lahat ng 10 wika. Ginagamit na sa code ng page ang teksto ng N1 bilang iisang string na may link; huwag baguhin ang teksto ng key nito nang hindi sinasabihan si 1号 (project-arcade-46).
+
+Ipinapakita lang sa mga isinaling page na /terms at /privacy, hindi kailanman sa mga page na English.
+
+**N1 (banner, sa itaas ng tala na DRAFT):** Ito ay hindi opisyal na salin. Kung may pagkakaiba ito sa bersyong English, ang bersyong English ang masusunod.
+**N1 na may link (eksaktong dictionary key na ginagamit ng code):** Ito ay hindi opisyal na salin. Kung may pagkakaiba ito sa <link>bersyong English</link>, ang bersyong English ang masusunod.
+**N2 (teksto ng link):** Basahin ang bersyong English
+**N3 (maikling label, hal. metadata ng page o pampalit ng wika sa mga legal na page):** Hindi opisyal na salin
+
+## 22. i18n at mga string ng sistema (sinuri noong 2026-10-20)
+
+Pagsusuri sa mga pansamantalang string na isinulat ng builder. Pinapanatili maliban kung may tala. (Naka-bold ang orihinal na English; kasunod ng tutuldok ang string sa Filipino.)
+
+**Language** (label ng pampalit ng wika): Wika
+(Panatilihin.)
+**This is an unofficial translation. If it differs from the <link>English version</link>, the English version applies.**: Ito ay hindi opisyal na salin. Kung may pagkakaiba ito sa <link>bersyong English</link>, ang bersyong English ang masusunod.
+(Panatilihin, gaya ng seksyon 21.)
+**This page isn't available in your language yet, so it's shown in English.**: Hindi pa available ang page na ito sa wika mo, kaya English ang ipinapakita.
+(Panatilihin. Simple at magiliw.)
+**Last updated: {date}**: Huling update: {date}
+(Panatilihin. I-format ang petsa ayon sa wika ng user.)
+**Mga unit ng countdown:** {h} oras {m} min, at {m} min kapag wala pang isang oras. Panatilihin bilang mga unit key. Huwag magdagdag ng "left" sa mga unit key. Lumalabas lang ang oras sa loob ng dalawang buong pangungusap (seksyon 10): "Sumagot sa loob ng {left} para mapanatili ang puwesto mo." at "Huling tawag: {left} na lang para sumagot." Sa Filipino, ang "left" ay ang "na lang" na kasunod ng oras sa loob ng pangungusap, hindi bahagi ng unit key (hal. "Huling tawag: 5 oras 20 min na lang para sumagot."). Isinalin ang mga titik ng unit, at nananatili ang oras sa loob ng mga pangungusap na iyon.
+**Page na 404 (nakikitang teksto, pumapalit sa naunang mungkahi):** panatilihin ang malaking "404".
+- **Pamagat:** Walang laman ang istanteng ito
+- **Body:** Hindi umiiral ang page o item na iyan, o inalis na ito.
+- **Pangunahing button:** Tingnan ang katalogo (papunta sa /browse)
+- **Pangalawang link (bago):** Bumalik sa home
+**Pamagat sa tab ng browser para sa 404:** Hindi nahanap ang page
+**Meta description ng 404:** Hindi umiiral ang page o item na hinahanap mo, o inalis na ito.
+(Binawi na ang naunang mungkahi na "Page not found" bilang nakikitang pamagat at bagong body: tugma na sa brand ang kasalukuyang nakikitang teksto, tumpak ito para sa mga page at item, at nagawa na ito.)
+(Gumagamit na ang pangkalahatang error page ng "May nangyaring mali" kasama ang Subukan ulit at Bumalik sa home, seksyon 17.9.)
+
+## 23. /list: sariling pampili ng litrato
+
+Pinapalitan nito ang sariling "Choose files" na kontrol ng browser ng isang button sa wika ng site. Panatilihin ang kasalukuyang label na "Mga litrato" at ang kasalukuyang hint na "Mas madaling pumayag ang mga nanghihiram kapag may ilang malinaw na litrato. Hanggang 8." (nasa code na ang mga ito, kaya hindi na inuulit dito ang limitasyon sa pag-upload; walang limitasyon sa laki ang hint, kaya walang idinagdag).
+
+**Button (wala pang napiling litrato):** Pumili ng mga litrato
+**Button (may napili nang litrato):** Palitan ang mga litrato
+(Pinapalitan ng file picker ng browser ang naunang napili sa bawat pagpili, kaya tumpak ang "Palitan"; hindi tumpak ang "Magdagdag pa ng litrato".)
+**Status, wala pang napili:** Wala pang napiling litrato
+**Status, may napili (plural: one / other):**
+- one: {count} litrato ang napili
+- other: {count} litrato ang napili
+(Sa Filipino, hindi nagbabago ang anyo ng pangngalan, kaya magkapareho ang dalawang anyo. Sa 0, "Wala pang napiling litrato" ang ipinapakita.)
+**Label para sa screen reader ng button:** Pumili ng mga litrato para sa listing mo
+**Label para sa screen reader ng button (kapag may napili nang litrato):** Palitan ang mga litrato para sa listing mo
+
+**Opsyonal, kung naglilimita lang ang code sa bilang o laki ng mga litrato (ang error text ng code ang magpapasya; huwag ipakita ang dalawa nang sabay):**
+- Sobra sa bilang: Hanggang 8 litrato lang ang puwede mong idagdag. Pumili ng mas kaunti.
+- Hindi image file: Pumili lang ng mga image file.
+
 ---
 
 ## Mga terminong kukumpirmahin pa (tala ng tagasalin, hindi page copy)
@@ -690,15 +772,18 @@ Pansamantala ang mga terminong ito at kailangang kumpirmahin ng user. Kapag naku
 | Repeat (sa tagline) | Isa pang round. | Ulitin., Isa pang laro., Ulit-ulitin. | Parang sinasabi ng gamer: "isa pang round". Isang loanword lang; hindi buong Taglish na pangungusap. "Ulitin." kung gusto ng purong Filipino. |
 | address form (you) | UI: impormal na ka / mo / ikaw, walang "po / opo". Seksyon 8 (/terms) at 15 (privacy): pormal na kayo / ninyo / inyo | UI: magalang na "po / opo" o pormal na "kayo / ninyo / inyo". Legal: "po" sa bawat pangungusap, o impormal na ka / mo | Bagay ang impormal sa tono ng laro at karaniwan sa mga consumer app. Para sa magalang na tono sa UI nang walang "po", ginagamit ang unlaping "paki-" (Pakilagay, Pakisubukan). Napagpasyahan ng user na pormal ang mga legal na page (seksyon 8 at 15) sa lahat ng wika: ang mga ito ay tuntunin at abiso tungkol sa personal na data, kaya magalang at pormal na pananalita ang inaasahan. Sa nakasulat na pormal na Filipino (hal. mga privacy notice at tuntunin), ang magalang na "kayo / ninyo / inyo" ang karaniwang anyo; ginagamit lang ang "po" kung saan natural ito sa tuwirang paanyaya ("makipag-ugnayan po kayo sa amin"), dahil nagiging pasalita at mabigat basahin kung nasa bawat pangungusap. Ang mga utos na walang panghalip (Suriin, Gamitin, Maging) ay neutral at hindi binago. |
 | Mga English loanword sa UI | email, password, account, link, spam, request, item, user, settings, profile, display name, bio, ads, non-profit, feedback, bug | koreo / liham, hudyat, kahilingan, gumagamit, mga setting, pangalang ipapakita, patalastas | Ito ang talagang nakikita at sinasabi ng mga Pilipino sa mga app. Purong Filipino ang mga pangungusap at pandiwa sa paligid ng mga ito. |
+| analytics / Web Analytics (seksyon 15) | analytics (hal. "mga provider ng hosting at analytics", "data ng analytics"); "Vercel Web Analytics" ay pangalan ng produkto at hindi isinasalin | pagsusuri ng trapiko, estadistika ng pagbisita, analitika | Karaniwang loanword sa tech na pagsusulat sa Pilipinas, at tugma sa pangalan ng produkto. Ang "estadistika" ay ginamit lang para sa "statistics" ("pinagsama-samang estadistika"). Ang "analitika" ay bihirang makita. |
+| cookies (seksyon 15) | cookies (hindi isinasalin; "third-party cookies", "cross-site tracking" na may paliwanag sa panaklong) | mga cookie, cookie file | Ginamit na ang "cookies" sa naunang bersyon ng seksyon 15 at sa tala ng abogado ("cookie notice"). Walang karaniwang salin sa Filipino. |
+| hash (seksyon 15) | hash (hindi isinasalin) | kodigong hash, pinaghalong code, hash value | Pinananatili ng tech na pagsusulat sa Filipino ang "hash"; ang anumang salin ay hindi kilala at puwedeng makalito sa legal na teksto. |
 
 ## Mga tanong na kailangan ng koordinasyon o suporta sa code (tala ng tagasalin)
 
 1. **"[message removed]":** Isinusulat ng database (`supabase/05-messages-and-deletion.sql`) ang English na literal na `[message removed]` bilang laman ng mga mensahe ng binurang user. Para lumabas ang "[inalis ang mensahe]" sa UI na Filipino, kailangang kilalanin at palitan ito ng code kapag ipinapakita. Pinanatili ng seksyon 15 at 17.7 ang English na literal para tumugma sa kasalukuyang lumalabas; kung susuportahan ng code, palitan sa buong file ng "[inalis ang mensahe]".
 2. **Salitang pangkumpirma na DELETE:** Pinanatili ang English na `DELETE` dahil eksaktong string na ito ang hinahanap ng code. Kung gusto mong mag-type ang mga user ng "BURAHIN", kailangan ng suporta sa code.
-3. **Format ng {time left} at {amount}:** Sa Filipino, hindi nagbabago ang anyo ng pangngalan sa singular at plural ("1 oras", "5 oras", "2 araw"), kaya walang plural rule para sa mga ito. Pero kailangang i-format ng code ang tagal sa Filipino (hindi "5 hours") at ang halaga ayon sa lokal na pera (hal. "₱500" o ang currency ng site). Para sa {n} at {amount}, gumamit ng digit, hindi ng salita.
+3. **Format ng {left} at {amount}:** Sa Filipino, hindi nagbabago ang anyo ng pangngalan sa singular at plural ("1 oras", "5 oras", "2 araw"), kaya walang plural rule para sa mga ito. Pero kailangang i-format ng code ang tagal sa Filipino (hindi "5 hours") at ang halaga ayon sa lokal na pera (hal. "₱500" o ang currency ng site). Para sa {n} at {amount}, gumamit ng digit, hindi ng salita.
 4. **{listing / user}:** Dalawang buong pangungusap ang kailangan sa Filipino, hindi pagdudugtong: "I-report ang listing na ito" / "I-report ang user na ito". Nasa dulo ang "na ito", kaya hindi puwedeng basta idugtong ang salita sa harap.
-5. **Petsa ng tuntunin at privacy:** "Oct 19, 2026" ang nasa copy-en.md ngayon, at iyon ang ginamit sa salin ("Oktubre 19, 2026"). May naunang bersyon na may taong 2025 na mukhang typo; kung magbago ulit ang petsa sa English, kailangang i-update ito rito. Pakikumpirma sa may-ari.
-6. **Bisa ng legal na teksto ayon sa wika:** Kung sabay na umiiral ang English at Filipino na bersyon ng mga tuntunin, ang abogado ang magpapasya kung alin ang masusunod. Walang idinagdag na sugnay tungkol dito ang salin. Kung may mga user sa Pilipinas, ang abogado rin ang magpapasya kung anong lokal na batas ang sumasaklaw.
+5. **Petsa ng tuntunin at privacy:** "Oct 19, 2026" ang nasa copy-en.md ngayon, at iyon ang ginamit sa salin ("Oktubre 19, 2026"). May naunang bersyon na may taong 2025 na mukhang typo; kung magbago ulit ang petsa sa English, kailangang i-update ito rito. Pakikumpirma sa may-ari. Update (2026-10-20): "Oct 20, 2026" na ang dalawang petsa sa English at naka-sync na ang salin; pansamantalang petsa pa rin ito na papalitan ng totoong petsa ng paglalathala bago ilunsad (tingnan ang TODO sa seksyon 8 at 15).
+6. **Bisa ng legal na teksto ayon sa wika:** Kung sabay na umiiral ang English at Filipino na bersyon ng mga tuntunin, ang abogado ang magpapasya kung alin ang masusunod. Walang idinagdag na sugnay tungkol dito ang salin. Kung may mga user sa Pilipinas, ang abogado rin ang magpapasya kung anong lokal na batas ang sumasaklaw. Update (2026-10-20): Nagpasya ang user na magpakita ang isinaling mga pahina ng tuntunin at privacy ng paalala na hindi opisyal ang salin at ang bersyong English ang masusunod (nasa docs/i18n-legal-notice.md ang wording). Ang abogado pa rin ang magpapasya kung may inaasahang legal na epekto ito sa bawat bansa.
 7. **Mga marker sa paligid ng placeholder:** Gumagamit ang Filipino ng "si / ni / kay" bago ang pangalan ng tao ("Minarkahan ni {Lender}", "kasama si {Name}", "Pinadalhan ka ni {Name}"). Tama ito kung pangalan ng tao ang {Lender} at {Name}; kung minsan ay "Binurang account" o iba pang pangkalahatang label ang lalabas, magiging alanganin ang "ni". Iniwasan din ang pagdikit ng linker na "-ng" sa placeholder; ginamit ang hiwalay na "na" ("bayad-pinsala na {amount}").
 8. **Haba ng teksto:** Karaniwang 20% hanggang 40% na mas mahaba ang Filipino kaysa sa English. Suriin sa screen ng phone ang mga button at maiikling label, lalo na ang "Naibalik nang maayos", "Ipadala ulit ang email", "Simulang mag-browse", "Burahin ang account ko", at ang tab na "Mag-browse" sa bottom bar (alternatibo kung masikip: "Browse" o "Hanap").
 9. **Walang kasarian ang panghalip:** Neutral sa kasarian ang "siya / niya / kanya", kaya walang problema sa gender agreement sa {Lender} at {Name}.
