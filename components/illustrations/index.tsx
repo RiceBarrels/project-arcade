@@ -13,6 +13,7 @@ import { SportsIllustration } from "./sports";
 export { EmptyQueueIllustration } from "./empty-queue";
 export { EmptySearchIllustration } from "./empty-search";
 export { HeroIllustration } from "./hero";
+export { OnboardingDamageIllustration, OnboardingQueueIllustration, OnboardingSafetyIllustration } from "./onboarding";
 export { StepBorrowIllustration } from "./step-borrow";
 export { StepBrowseIllustration } from "./step-browse";
 export { StepQueueIllustration } from "./step-queue";

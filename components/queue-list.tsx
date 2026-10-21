@@ -59,7 +59,7 @@ export function QueueList({ initial }: { initial: QueueRow[] }) {
           <EmptyQueueIllustration className="h-auto w-full max-w-64" />
           <p className="font-bold">
             Your queue is empty.{" "}
-            <Link href={path("/browse")} className="inline-flex min-h-10 items-center underline underline-offset-4">
+            <Link href={path("/browse")} className="inline-flex min-h-11 md:min-h-10 items-center underline underline-offset-4">
               Go find something good.
             </Link>
           </p>
@@ -156,7 +156,7 @@ function Thumb({ item }: { item: Item }) {
 
 function ItemLink({ item }: { item: Item }) {
   return (
-    <Link href={path(`/item/${item.id}`)} className="inline-flex min-h-10 items-center font-black underline-offset-4 hover:underline">
+    <Link href={path(`/item/${item.id}`)} className="inline-flex min-h-11 md:min-h-10 items-center font-black underline-offset-4 hover:underline">
       {item.title}
     </Link>
   );

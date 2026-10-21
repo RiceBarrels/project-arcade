@@ -12,9 +12,9 @@ Voice: game-style, friendly, direct. No hype, no promises the site can't keep (t
 
 **Pre-alpha notice (footer or small banner):** project-arcade is in pre-alpha. It's an early version, so features and data may change or be reset.
 **Short form (badge tooltip):** Early version. Things may change.
-**Longer form (about page or first visit):** You're early. project-arcade is a pre-alpha community project, so expect rough edges, changing features, and the odd reset. Tell us what's broken or confusing with the Report button or by email at [contact email].
+**Longer form (about page or first visit):** You're early. project-arcade is a pre-alpha community project, so expect rough edges, changing features, and the odd reset. Tell us what's broken or confusing with Send feedback (see section 19).
 
-Short meta description (~150 chars): A free community lending library for gear. Browse, queue up, borrow from people nearby, and pass it on. Non-profit, no ads, no fees.
+Short meta description (~150 chars): A non-profit community lending library for gear. Browse, queue up, borrow from people nearby, and pass it on. No ads, no site fees.
 
 ## 2. Homepage hero
 
@@ -57,7 +57,7 @@ Short meta description (~150 chars): A free community lending library for gear. 
 
 **Title:** Not for profit. Just for lending.
 
-This site is run as a non-profit community project. There are no ads, no platform fees, and no payments through the site. We don't take a cut of anything, and we don't sell your data.
+This site is run as a non-profit community project. There are no ads, no platform fees, and no payments through the site. We don't take a cut of anything, and we don't sell your data. Lenders can choose to charge a small fee for an item; that's agreed and paid directly between the two people, not through the site.
 
 The point is simple: lots of useful stuff sits unused, and lots of people need it for a weekend. We'd like to connect the two.
 
@@ -140,12 +140,12 @@ Nothing. The damage price is only owed if the lender marks the item as damaged o
 5. **Use at your own risk.** You are responsible for deciding whether to lend or borrow, for using items safely, and for following any rules that apply to you. Check items before use and don't lend or borrow anything unsafe or illegal.
 6. **Damage price is settled between you.** If an item comes back damaged or lost, the borrower and lender settle the damage price directly. The site doesn't collect it, enforce it or resolve disputes about it.
 7. **Be a decent human.** No fake listings, harassment, or anything illegal. We may remove listings or accounts that break these rules.
-8. **Reporting.** If something looks wrong, use the Report button. We'll review reports, but we can't promise to act on every one or to resolve disputes between users.
+8. **Reporting.** If a listing or a user looks abusive, unsafe or fake, use the Report button. We'll review reports, but we can't promise to act on every one or to resolve disputes between users. For bugs and ideas, use Send feedback instead.
 9. **Changes.** We may update these terms. Continuing to use the site means you accept the current version.
 10. **Not allowed in v1.** To keep things safe, these categories can't be listed for now: power tools, vehicles, climbing gear, and medical equipment. We may remove listings in these or other high-risk categories.
 11. **Lenders are responsible for item safety.** If you list something, you confirm it's safe to lend and accurately described. Borrowers are responsible for using it safely while they have it.
 12. **Privacy (one line, owner to confirm before launch).** We only collect what's needed to run the site, and we don't sell your data. [Link to privacy policy]
-13. **Non-profit.** The site is non-profit: no ads, no fees, no payments through the site.
+13. **Non-profit.** The site is non-profit. The site itself charges no fees, shows no ads, and takes no payments. Lenders may choose to charge a small fee for an item; any fee is agreed and paid directly between lender and borrower, not through the site. [NEEDS LAWYER CONFIRMATION: wording on fees.]
 
 **Contact:** [contact email]
 
@@ -178,11 +178,11 @@ Nothing. The damage price is only owed if the lender marks the item as damaged o
 
 **Confirm prompt before sending:** Send this report? We'll review it, but we may not be able to reply to you personally.
 
-**Fine print under the dialog:** We review reports as a small non-profit project, so replies may take a while. For emergencies, contact your local emergency services, not us.
+**Fine print under the dialog:** We review reports as a small non-profit project, so replies may take a while. For emergencies, contact your local emergency services, not us. Found a bug or have an idea instead? Use Send feedback.
 
 ## 10. Queue response window (48h)
 
-**Lender-side notice (when an item becomes available for next in queue):**
+**Notice to the next borrower in the queue (when an item becomes available):**
 You're up next! Reply within 48 hours to claim this item. If we don't hear from you, it moves to the next person in the queue.
 
 **Banner in the queue list (for the person whose turn it is):**
@@ -283,6 +283,7 @@ Style: flat, thick dark outlines, hard offset shadows, bold flat colours, matchi
 - **Listings:** titles, descriptions, categories, condition, pickup area, prices you set (fee and damage price) and the photos you upload.
 - **Borrowing records:** requests, queue entries, approvals, handoff and return markings (OK or damaged), and related notes.
 - **Reports:** reports you send, and reports made about you or your listings.
+- **Feedback:** if you use Send feedback, we store your message, the type you chose (bug, idea or other), the page you were on, and a short note about your browser. If you're signed in, it's linked to your account. If you add a reply contact, we store that too. [TO CONFIRM: exact fields, based on supabase/08-feedback.sql, which did not exist yet when this was written.]
 - **Basic technical data:** [TO CONFIRM: e.g. server logs, IP address, cookies needed for sign-in. Fill in once the real setup is checked.]
 
 ### Where it is stored
@@ -303,6 +304,8 @@ To run the site: show listings, manage queues and requests, let lenders and borr
 We share data with service providers needed to run the site (such as the database and hosting providers). We may disclose information if required by law. [TO CONFIRM / lawyer: full list of processors.]
 
 ### Keeping and deleting data
+_Feedback:_ if you delete your account, your feedback is kept but no longer linked to you. [TO CONFIRM: matches `user_id ON DELETE SET NULL` in supabase/08-feedback.sql; retention period and whether a reply contact is also removed.]
+
 You can delete your account yourself in your account settings. When you do, your profile, your items and their photos, and your place in queues are deleted. Your pending and approved requests are closed, and the text of messages you sent is replaced with "[message removed]". Borrowing records (item name, dates, damage price, damage notes and status), messages the other person sent in your conversations, and reports are kept but no longer linked to you. You can't delete your account while you have items currently handed off. [TO CONFIRM: how long logs and kept records are retained. Lawyer to check any legal retention needs. Based on supabase/05-messages-and-deletion.sql, which has not been run yet.]
 
 ### Your choices
@@ -382,7 +385,7 @@ No emoji; use Lucide icons.
 
 **Sign up**
 - **Title:** Join the arcade
-- **Subtitle:** Free, non-profit, no ads.
+- **Subtitle:** Non-profit, no ads, no site fees.
 - **Fields:** Display name / Email / Password / City or area
 - **Password hint:** At least 8 characters.
 - **18+ checkbox:** I'm 18 or older.
@@ -417,7 +420,7 @@ Rule: the site never displays any user's email address, including the user's own
 ### 17.2 /signup
 
 **Title:** Join the arcade
-**Subtitle:** Free, non-profit, no ads.
+**Subtitle:** Non-profit, no ads, no site fees.
 **Labels:** Display name / City (optional) / Email / Password
 **Password hint:** At least 8 characters.
 **18+ checkbox:** I'm 18 or older. (reuse section 12)
@@ -568,7 +571,7 @@ No emoji. Illustrations follow the style in section 14.
 
 **Screen 1: Welcome**
 - **Title:** Welcome to project-arcade
-- **Text:** A free, non-profit library for gear, run by neighbours. It's pre-alpha, so things may change.
+- **Text:** A non-profit library for gear, run by neighbours. The site itself charges nothing. It's pre-alpha, so things may change.
 - **Button:** Next
 - **Illustration:** The arcade cabinet from the hero, with a small welcome flag on top and a tiny "pre-alpha" tag on its side.
 
@@ -608,3 +611,34 @@ Labels, in order: **Home** / **Browse** / **List** / **Queue** / **Me**
 **Description:** A short buzz when you tap buttons. Saved on this device only.
 **Unsupported browser message:** This browser can't vibrate. Some devices, including iPhones and iPads, don't support it.
 (The first three are kept as the builder wrote them. Only the unsupported message changed, to avoid a flat claim about iPhones and iPads that may stop being true.)
+
+## 19. Send feedback (bugs and ideas)
+
+Separate from Report. Report is only for abuse of items and users (section 9). Send feedback is for bugs, ideas and anything else about the site itself.
+
+**Entry label (footer, Me page, menu):** Send feedback
+**Entry subline (Me page):** Found a bug or have an idea?
+
+**Dialog title:** Send feedback
+**Intro:** project-arcade is pre-alpha, so your notes really help. Tell us what's broken, confusing, or missing.
+
+**Type (select one):** Bug / Idea / Other
+**Message label:** What's on your mind?
+**Message placeholder (Bug):** What happened, and what did you expect? Which page were you on?
+**Message placeholder (Idea):** What would make this better?
+**Message placeholder (Other):** Tell us anything.
+**Reply field label (optional):** How can we reply? (optional)
+**Reply field helper:** Only fill this in if you'd like an answer. We won't use it for anything else. Don't include passwords or payment details.
+**Note:** Your account email is never shown here. If you want a reply by email, type the address you'd like us to use.
+
+**Buttons:** Send feedback / Cancel
+**Success:** Thanks! Your feedback was sent.
+**Errors**
+- Empty message: Please write a message first.
+- Too long: Your message is too long. Please shorten it. [limit TBD by the builder]
+- Send failure: Couldn't send your feedback. Please try again.
+- Too many sends: Too many tries. Please wait a few minutes and try again.
+
+**Where it appears:** also add a line in the Report dialog fine print (section 9): Found a bug or have an idea instead? Use Send feedback.
+
+**Privacy note (add to section 15 once feedback storage is confirmed):** Feedback you send is stored with your account and any reply contact you enter. [TO CONFIRM by the builder and owner: what is stored and for how long.]

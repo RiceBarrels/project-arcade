@@ -58,7 +58,8 @@ function AlertDialogContent({
         data-slot="alert-dialog-content"
         data-size={size}
         className={cn(
-          "group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-4 max-w-[calc(100%-2rem)] max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-xl border-4 border-border bg-popover p-5 text-popover-foreground shadow duration-100 outline-none data-[size=default]:max-w-xs data-[size=sm]:max-w-xs data-[size=default]:sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          // Phones: a bottom sheet (see DialogContent). md and up: a centred dialog.
+          "group/alert-dialog-content fixed z-50 grid w-full gap-4 overflow-y-auto bg-popover text-popover-foreground shadow outline-none max-md:inset-x-0 max-md:bottom-0 max-md:max-h-[90dvh] max-md:rounded-t-xl max-md:border-t-4 max-md:border-border max-md:p-5 max-md:pb-[max(env(safe-area-inset-bottom),1.25rem)] max-md:duration-200 max-md:data-open:animate-in max-md:data-open:slide-in-from-bottom max-md:data-closed:animate-out max-md:data-closed:slide-out-to-bottom md:top-1/2 md:left-1/2 md:max-h-[calc(100dvh-2rem)] md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-xl md:border-4 md:border-border md:p-5 md:duration-100 md:data-open:animate-in md:data-open:fade-in-0 md:data-open:zoom-in-95 md:data-closed:animate-out md:data-closed:fade-out-0 md:data-closed:zoom-out-95 motion-reduce:animate-none md:max-w-sm md:data-[size=sm]:max-w-xs",
           className
         )}
         {...props}

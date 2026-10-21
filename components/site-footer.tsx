@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FeedbackEntry } from "@/components/feedback/feedback-entry";
 import { path } from "@/lib/paths";
 import { SITE_NAME } from "@/lib/site";
 
@@ -11,13 +12,14 @@ export function SiteFooter() {
           <strong>{SITE_NAME}</strong> is a non-profit community project. No ads, no platform fees, no payments
           through the site.
         </p>
-        <nav className="flex gap-2">
-          <Link href={path("/terms")} className="inline-flex min-h-10 items-center px-2 font-bold underline underline-offset-4">
+        <nav className="flex flex-wrap gap-2">
+          <Link href={path("/terms")} className="inline-flex min-h-11 md:min-h-10 items-center px-2 font-bold underline underline-offset-4">
             Terms of use
           </Link>
-          <Link href={path("/signup")} className="inline-flex min-h-10 items-center px-2 font-bold underline underline-offset-4">
+          <Link href={path("/signup")} className="inline-flex min-h-11 md:min-h-10 items-center px-2 font-bold underline underline-offset-4">
             Sign up
           </Link>
+          <FeedbackEntry variant="footer" />
         </nav>
       </div>
     </footer>

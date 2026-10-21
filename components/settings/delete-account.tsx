@@ -166,7 +166,7 @@ export function DeleteAccount({ loanInProgress }: { loanInProgress: boolean }) {
             </Button>
           </AlertDialogTrigger>
           <AlertDialogContent
-            className="data-[size=default]:sm:max-w-md"
+            className="md:data-[size=default]:max-w-md"
             onCloseAutoFocus={(e) => {
               // The trigger is about to be replaced by the preview notice, which takes focus itself.
               if (showPreviewAfterClose.current) {

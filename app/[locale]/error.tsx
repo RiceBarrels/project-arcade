@@ -13,7 +13,7 @@ export default function Error({ retry }: { error: unknown; retry: () => void }) 
       <p className="font-medium">We couldn&apos;t load this page right now. Please try again in a moment.</p>
       <div className="flex flex-wrap items-center gap-3">
         <Button onClick={() => retry()}>Try again</Button>
-        <Link href={path("/")} className="inline-flex min-h-10 items-center font-bold underline underline-offset-4">
+        <Link href={path("/")} className="inline-flex min-h-11 md:min-h-10 items-center font-bold underline underline-offset-4">
           Back to home
         </Link>
       </div>

@@ -1,14 +1,17 @@
 import { Suspense } from "react";
 import Link from "next/link";
+import { ChevronRight, LogOut, MessageSquare, Settings } from "lucide-react";
 import type { Metadata } from "next";
 import { Avatar } from "@/components/avatar";
 import { ItemCard } from "@/components/item-card";
 import { ProfileStatsGrid } from "@/components/profile-stats";
 import { ReturnCheck } from "@/components/return-check";
+import { FeedbackTrigger } from "@/components/feedback/feedback-trigger";
 import { getProfileStats, itemsByOwner } from "@/lib/data/catalogue";
 import { getLoansAwaitingReturn } from "@/lib/data/me";
 import { requireUser } from "@/lib/data/session";
 import { damageLabel, memberSince } from "@/lib/domain";
+import { signOut } from "@/lib/auth/actions";
 import { path } from "@/lib/paths";
 
 export const metadata: Metadata = { title: "Profile" };
@@ -49,14 +52,16 @@ async function MyProfile({ searchParams }: { searchParams: PageProps<"/[locale]/
           {me.bio && <p className="mt-1 text-sm">{me.bio}</p>}
         </div>
         <div className="flex flex-wrap gap-2 text-sm font-bold">
-          <Link href={path(`/profile/${me.id}`)} className="inline-flex min-h-10 items-center underline underline-offset-4">
+          <Link href={path(`/profile/${me.id}`)} className="inline-flex min-h-11 md:min-h-10 items-center underline underline-offset-4">
             See your public profile
           </Link>
-          <Link href={path("/settings")} className="inline-flex min-h-10 items-center underline underline-offset-4">
+          <Link href={path("/settings")} className="inline-flex min-h-11 md:min-h-10 items-center underline underline-offset-4">
             Settings
           </Link>
         </div>
       </section>
+
+      <MeLinks />
 
       <ProfileStatsGrid stats={stats} />
 
@@ -90,11 +95,44 @@ async function MyProfile({ searchParams }: { searchParams: PageProps<"/[locale]/
             <Link href={path("/list")} className="font-bold underline underline-offset-4">List your gear</Link>
           </p>
         ) : (
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4">
             {mine.map((item) => <li key={item.id}><ItemCard item={item} /></li>)}
           </ul>
         )}
       </section>
     </div>
+  );
+}
+
+// Phone-only entries (docs/copy-en.md 18.3): the bottom bar's "Me" tab is the way to messages and settings.
+function MeLinks() {
+  const row =
+    "flex min-h-14 w-full items-center gap-3 border-b-2 border-border px-4 py-2 text-left last:border-b-0 focus-visible:bg-muted outline-none";
+  return (
+    <nav aria-label="Your account" className="overflow-hidden rounded-lg border-4 border-border bg-card shadow md:hidden">
+      <Link href={path("/messages")} className={row}>
+        <MessageSquare aria-hidden className="size-5 shrink-0" />
+        <span className="min-w-0 flex-1">
+          <span className="block font-black">Messages</span>
+          <span className="block text-sm">Chat with lenders and borrowers</span>
+        </span>
+        <ChevronRight aria-hidden className="size-5 shrink-0" />
+      </Link>
+      <Link href={path("/settings")} className={row}>
+        <Settings aria-hidden className="size-5 shrink-0" />
+        <span className="min-w-0 flex-1">
+          <span className="block font-black">Settings</span>
+          <span className="block text-sm">Profile and account</span>
+        </span>
+        <ChevronRight aria-hidden className="size-5 shrink-0" />
+      </Link>
+      <FeedbackTrigger variant="me" signedIn />
+      <form action={signOut}>
+        <button type="submit" className={row}>
+          <LogOut aria-hidden className="size-5 shrink-0" />
+          <span className="flex-1 font-black">Sign out</span>
+        </button>
+      </form>
+    </nav>
   );
 }

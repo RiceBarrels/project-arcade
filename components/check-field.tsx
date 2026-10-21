@@ -31,7 +31,7 @@ export function CheckField({
           aria-describedby={describedBy}
           className="mt-2.5 size-5"
         />
-        <Label htmlFor={id} className="block min-h-10 flex-1 cursor-pointer py-2 leading-snug">
+        <Label htmlFor={id} className="block min-h-11 md:min-h-10 flex-1 cursor-pointer py-2 leading-snug">
           <span>{children}</span>
         </Label>
       </div>

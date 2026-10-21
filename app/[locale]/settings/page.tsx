@@ -2,10 +2,12 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { TriangleAlert, UserRound } from "lucide-react";
 import { DeleteAccount } from "@/components/settings/delete-account";
+import { DevicePrefs } from "@/components/settings/device-prefs";
 import { ProfileForm } from "@/components/settings/profile-form";
 import { hasLoanInProgress } from "@/lib/data/account";
 import { requireUser } from "@/lib/data/session";
 import { path } from "@/lib/paths";
+import { BackBar } from "@/components/mobile/back-bar";
 
 export const metadata: Metadata = { title: "Settings" };
 
@@ -13,6 +15,7 @@ export const metadata: Metadata = { title: "Settings" };
 export default function SettingsPage() {
   return (
     <div className="mx-auto max-w-2xl space-y-8">
+      <BackBar title="Settings" fallback="/profile" />
       <h1 className="text-4xl font-black uppercase">Settings</h1>
       <Suspense fallback={<SettingsFallback />}>
         <SettingsBody />
@@ -35,6 +38,8 @@ async function SettingsBody() {
           initial={{ display_name: user.display_name, city: user.city ?? "", bio: user.bio ?? "" }}
         />
       </section>
+
+      <DevicePrefs />
 
       <section aria-labelledby="settings-delete" className="overflow-hidden rounded-lg border-4 border-border bg-card text-card-foreground shadow">
         <h2

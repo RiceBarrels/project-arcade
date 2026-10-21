@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BackBar } from "@/components/mobile/back-bar";
 
 export const metadata: Metadata = { title: "Privacy policy" };
 
@@ -14,6 +15,7 @@ const sections: { title: string; body: React.ReactNode }[] = [
         <li><strong>Listings:</strong> titles, descriptions, categories, condition, pickup area, prices you set (fee and damage price) and the photos you upload.</li>
         <li><strong>Borrowing records:</strong> requests, queue entries, approvals, handoff and return markings (OK or damaged), and related notes.</li>
         <li><strong>Reports:</strong> reports you send, and reports made about you or your listings.</li>
+        <li><strong>Feedback:</strong> if you use Send feedback, we store your message, the type you chose (bug, idea or other), the page you were on, and a short note about your browser. If you&apos;re signed in, it&apos;s linked to your account. If you add a reply contact, we store that too. [TO CONFIRM: exact fields, based on supabase/08-feedback.sql, which did not exist yet when this was written.]</li>
         <li><strong>Basic technical data:</strong> [TO CONFIRM: e.g. server logs, IP address, cookies needed for sign-in. Fill in once the real setup is checked.]</li>
       </ul>
     ),
@@ -46,7 +48,24 @@ const sections: { title: string; body: React.ReactNode }[] = [
   },
   {
     title: "Keeping and deleting data",
-    body: <p>You can delete your account yourself in your account settings. When you do, your profile and photos are deleted. Borrowing records are kept but made anonymous, so they are no longer linked to you. [TO CONFIRM: how long other data, such as logs and reports, is kept. Lawyer to check any legal retention needs.]</p>,
+    body: (
+      <>
+        <p>
+          <em>Feedback:</em> if you delete your account, your feedback is kept but no longer linked to you. [TO CONFIRM:
+          matches <code>user_id ON DELETE SET NULL</code> in supabase/08-feedback.sql; retention period and whether a
+          reply contact is also removed.]
+        </p>
+        <p>
+          You can delete your account yourself in your account settings. When you do, your profile, your items and their
+          photos, and your place in queues are deleted. Your pending and approved requests are closed, and the text of
+          messages you sent is replaced with &quot;[message removed]&quot;. Borrowing records (item name, dates, damage
+          price, damage notes and status), messages the other person sent in your conversations, and reports are kept
+          but no longer linked to you. You can&apos;t delete your account while you have items currently handed off. [TO
+          CONFIRM: how long logs and kept records are retained. Lawyer to check any legal retention needs. Based on
+          supabase/05-messages-and-deletion.sql, which has not been run yet.]
+        </p>
+      </>
+    ),
   },
   {
     title: "Your choices",
@@ -60,12 +79,13 @@ const sections: { title: string; body: React.ReactNode }[] = [
 export default function PrivacyPage() {
   return (
     <article className="mx-auto max-w-3xl space-y-6">
+      <BackBar title="Privacy policy" />
       <p role="note" className="rounded-lg border-4 border-border bg-destructive p-4 font-bold text-white">
         DRAFT: needs lawyer review. Items marked [TO CONFIRM] have not been confirmed by the owner. Do not publish until confirmed and reviewed.
       </p>
       <header className="space-y-2">
         <h1 className="text-4xl font-black uppercase">Privacy policy</h1>
-        <p className="text-sm font-medium">Last updated: Oct 19, 2025</p>
+        <p className="text-sm font-medium">Last updated: Oct 19, 2026</p>
       </header>
       <p className="rounded-lg border-2 border-border bg-accent p-4 font-medium text-accent-foreground shadow-xs">
         <strong>The short version:</strong> We collect what we need to run the lending library, store it with our

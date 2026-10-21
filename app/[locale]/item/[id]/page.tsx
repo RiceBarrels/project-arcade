@@ -14,6 +14,7 @@ import { getCurrentUser } from "@/lib/data/session";
 import { CONDITION_LABEL, damageLabel, feeLabel, getCategory, type ItemWithQueue } from "@/lib/domain";
 import { path } from "@/lib/paths";
 import { createClient } from "@/lib/supabase/server";
+import { BackBar } from "@/components/mobile/back-bar";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/item/[id]">): Promise<Metadata> {
   const { id } = await params;
@@ -27,7 +28,14 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/item/[id
 // behind their own boundaries because they read the session.
 export default function ItemPage({ params }: PageProps<"/[locale]/item/[id]">) {
   return (
-    <Suspense fallback={<p className="font-bold">Loading…</p>}>
+    <Suspense
+      fallback={
+        <>
+          <BackBar title="" fallback="/browse" />
+          <p className="font-bold">Loading…</p>
+        </>
+      }
+    >
       <ItemContent params={params} />
     </Suspense>
   );
@@ -60,6 +68,7 @@ async function ItemContent({ params }: { params: PageProps<"/[locale]/item/[id]"
 
   return (
     <div>
+      <BackBar title={item.title} fallback="/browse" />
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:gap-8">
         <div className="space-y-5">
           <div className="space-y-3">
@@ -105,7 +114,7 @@ async function ItemContent({ params }: { params: PageProps<"/[locale]/item/[id]"
             <section className="flex flex-wrap items-center justify-between gap-3 rounded-lg border-2 border-border bg-card p-4 shadow-xs">
               <div>
                 <p className="text-xs font-bold uppercase">Lender</p>
-                <Link className="inline-flex min-h-10 items-center font-black underline underline-offset-4" href={path(`/profile/${lender.id}`)}>
+                <Link className="inline-flex min-h-11 md:min-h-10 items-center font-black underline underline-offset-4" href={path(`/profile/${lender.id}`)}>
                   {lender.display_name}
                 </Link>
                 <p className="text-sm">
@@ -185,6 +194,7 @@ async function RequestArea({ item }: { item: ItemWithQueue }) {
 }
 
 // Phone-only bar: price + call to action in reach while scrolling the item.
+// On phones the scrolling content area ends above the bottom bar, so bottom-0 sits right on top of it.
 // Sticky (not fixed) as the page's last child, so it stops at the end of the
 // content and never covers the footer. -mx-4/-mb-8 cancel <main>'s padding.
 // Hidden once a request is sent ([data-request-sent] on the form's success state).

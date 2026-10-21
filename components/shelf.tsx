@@ -28,14 +28,14 @@ export function Shelf({
           {title}
         </h2>
         {href && (
-          <Link href={href} className="inline-flex min-h-10 items-center px-1 text-sm font-bold underline underline-offset-4">
+          <Link href={href} className="inline-flex min-h-11 md:min-h-10 items-center px-1 text-sm font-bold underline underline-offset-4">
             See all
           </Link>
         )}
       </div>
       <ul className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-5 pt-1">
         {items.map((item) => (
-          <li key={item.id} className="w-60 shrink-0 snap-start">
+          <li key={item.id} className="w-44 shrink-0 snap-start sm:w-60">
             <ItemCard item={item} />
           </li>
         ))}

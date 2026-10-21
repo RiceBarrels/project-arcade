@@ -9,6 +9,7 @@ import { getMyConversations, type LoanWithParties } from "@/lib/data/me";
 import { getLoanItemTitles } from "@/lib/data/messages";
 import { requireUser } from "@/lib/data/session";
 import { path } from "@/lib/paths";
+import { BackBar } from "@/components/mobile/back-bar";
 
 export const metadata: Metadata = { title: "Messages" };
 
@@ -84,6 +85,7 @@ function ListFallback() {
 export default function MessagesPage() {
   return (
     <div className="space-y-6">
+      <BackBar title="Messages" fallback="/profile" />
       <div className="space-y-2">
         <h1 className="text-4xl font-black uppercase">Messages</h1>
         <p>One conversation per loan. Use it to agree a time and place for the handoff.</p>
@@ -105,7 +107,7 @@ export default function MessagesPage() {
         </p>
         <Link
           href={path("/messages/preview")}
-          className="inline-flex min-h-10 items-center gap-1 font-bold underline underline-offset-4"
+          className="inline-flex min-h-11 md:min-h-10 items-center gap-1 font-bold underline underline-offset-4"
         >
           Open the sample conversation <ChevronRight aria-hidden className="size-4" />
         </Link>

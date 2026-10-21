@@ -8,6 +8,7 @@ import { ReportButton } from "@/components/report-button";
 import { getProfile, getProfileStats, itemsByOwner } from "@/lib/data/catalogue";
 import { getCurrentUser } from "@/lib/data/session";
 import { memberSince } from "@/lib/domain";
+import { BackBar } from "@/components/mobile/back-bar";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/profile/[id]">): Promise<Metadata> {
   const { id } = await params;
@@ -18,7 +19,14 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/profile/
 
 export default function PublicProfilePage({ params }: PageProps<"/[locale]/profile/[id]">) {
   return (
-    <Suspense fallback={<p className="font-bold">Loading…</p>}>
+    <Suspense
+      fallback={
+        <>
+          <BackBar title="" fallback="/browse" />
+          <p className="font-bold">Loading…</p>
+        </>
+      }
+    >
       <ProfileContent params={params} />
     </Suspense>
   );
@@ -32,6 +40,7 @@ async function ProfileContent({ params }: { params: PageProps<"/[locale]/profile
 
   return (
     <div className="space-y-8">
+      <BackBar title={person.display_name} fallback="/browse" />
       <section className="flex flex-wrap items-center gap-5 rounded-lg border-4 border-border bg-card p-5 shadow sm:p-6">
         <Avatar className="bg-secondary" />
         <div className="min-w-0 flex-1">
@@ -51,7 +60,7 @@ async function ProfileContent({ params }: { params: PageProps<"/[locale]/profile
         {listings.length === 0 ? (
           <p className="font-medium">No listings yet.</p>
         ) : (
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4">
             {listings.map((item) => <li key={item.id}><ItemCard item={item} /></li>)}
           </ul>
         )}

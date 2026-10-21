@@ -196,3 +196,106 @@
     @apply font-sans;
   }
 }
+/* ---- Phone layout (below md) ---------------------------------------------
+   --bottom-nav-h: height of the fixed bottom bar (h-16 + 2px border + home
+   indicator). The scrolling content area stops this far above the bottom of
+   the screen, so nothing (bottom-sticky bars included) ever sits under the bar. */
+:root {
+  --bottom-nav-h: 0px;
+}
+@media (width < 48rem) {
+  :root {
+    --bottom-nav-h: calc(4rem + 2px + env(safe-area-inset-bottom, 0px));
+  }
+  /* No rubber-band on the page itself: only the content area scrolls (layout.tsx),
+     so the bars never get dragged along. */
+  html,
+  body {
+    overscroll-behavior: none;
+  }
+  /* Keyboard open: the bar is hidden (nav-effects.tsx), so drop its space too. */
+  :root[data-keyboard="open"] {
+    --bottom-nav-h: 0px;
+  }
+}
+/* Pages with a back bar replace the phone top bar. Next keeps recently visited
+   pages mounted but hidden (display: none), so ignore back bars inside those. */
+body:has([data-back-bar]:not([style*="display: none"] *)) [data-mobile-top] {
+  display: none;
+}
+/* Landscape phones with viewport-fit=cover: keep content clear of the notch. */
+[data-app-scroll] > main {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* ---- Page transitions (React <ViewTransition> in app/[locale]/template.tsx)
+   Phones only. Slides only when nav-effects.tsx marked a direction; tab to tab,
+   refreshes and swipe-backs the browser already animated stay instant. */
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-old(root),
+::view-transition-new(root),
+::view-transition-old(.page),
+::view-transition-new(.page) {
+  animation: none;
+}
+::view-transition-group(bottom-nav),
+::view-transition-group(back-bar) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(bottom-nav),
+::view-transition-old(back-bar) {
+  display: none;
+}
+::view-transition-new(bottom-nav),
+::view-transition-new(back-bar) {
+  animation: none;
+}
+@media (width < 48rem) and (prefers-reduced-motion: no-preference) {
+  html[data-nav="forward"]::view-transition-old(.page) {
+    --pa-slide: -48px;
+    animation: 140ms ease-in both pa-fade reverse, 300ms ease-in-out both pa-slide reverse;
+  }
+  html[data-nav="forward"]::view-transition-new(.page) {
+    --pa-slide: 48px;
+    animation: 200ms ease-out 120ms both pa-fade, 300ms ease-in-out both pa-slide;
+  }
+  html[data-nav="back"]::view-transition-old(.page) {
+    --pa-slide: 48px;
+    animation: 140ms ease-in both pa-fade reverse, 300ms ease-in-out both pa-slide reverse;
+  }
+  html[data-nav="back"]::view-transition-new(.page) {
+    --pa-slide: -48px;
+    animation: 200ms ease-out 120ms both pa-fade, 300ms ease-in-out both pa-slide;
+  }
+  /* Back button (BackBar): a document-level transition around history.back(),
+     because Next restores cached pages outside React's view transitions. The
+     bars are named groups (above), so only the page underneath slides. */
+  html[data-nav="back-root"]::view-transition-old(root) {
+    --pa-slide: 48px;
+    animation: 140ms ease-in both pa-fade reverse, 300ms ease-in-out both pa-slide reverse;
+  }
+  html[data-nav="back-root"]::view-transition-new(root) {
+    --pa-slide: -48px;
+    animation: 200ms ease-out 120ms both pa-fade, 300ms ease-in-out both pa-slide;
+  }
+}
+@keyframes pa-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pa-slide {
+  from {
+    translate: var(--pa-slide);
+  }
+  to {
+    translate: 0;
+  }
+}

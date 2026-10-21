@@ -10,6 +10,7 @@ import { requireUser } from "@/lib/data/session";
 import { isUuid } from "@/lib/domain";
 import { PREVIEW_LOAN_ID, previewThread } from "@/lib/mock-messages";
 import { path } from "@/lib/paths";
+import { BackBar } from "@/components/mobile/back-bar";
 
 export const metadata: Metadata = { title: "Messages" };
 
@@ -54,9 +55,10 @@ function ThreadFallback() {
 export default function ThreadPage({ params }: { params: ThreadParams }) {
   return (
     <div className="space-y-6">
+      <BackBar title="Messages" fallback="/messages" />
       <Link
         href={path("/messages")}
-        className="inline-flex min-h-10 items-center gap-1 text-sm font-bold underline underline-offset-4"
+        className="hidden min-h-10 items-center md:inline-flex gap-1 text-sm font-bold underline underline-offset-4"
       >
         <ChevronLeft aria-hidden className="size-4" /> All messages
       </Link>

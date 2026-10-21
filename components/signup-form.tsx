@@ -46,7 +46,7 @@ export function SignupForm() {
         {pending ? "Creating account…" : "Create account"}
       </Button>
       <p className="text-sm font-bold">
-        <Link href={path("/login")} className="inline-flex min-h-10 items-center underline underline-offset-4">
+        <Link href={path("/login")} className="inline-flex min-h-11 md:min-h-10 items-center underline underline-offset-4">
           Already have an account? Sign in
         </Link>
       </p>

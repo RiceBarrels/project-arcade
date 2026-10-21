@@ -59,7 +59,7 @@ async function Results({ searchParams }: { searchParams: PageProps<"/[locale]/br
           </p>
         </div>
       ) : (
-        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4">
           {list.map((item) => (
             <li key={item.id}><ItemCard item={item} /></li>
           ))}
@@ -74,7 +74,7 @@ function Chip({ href, active, children }: { href: string; active: boolean; child
     <Link
       href={href}
       aria-current={active ? "page" : undefined}
-      className={`inline-flex min-h-10 items-center gap-1.5 rounded-lg border-2 border-border px-3 text-sm font-bold shadow-xs ${active ? "bg-primary text-primary-foreground" : "bg-card"}`}
+      className={`inline-flex min-h-11 md:min-h-10 items-center gap-1.5 rounded-lg border-2 border-border px-3 text-sm font-bold shadow-xs ${active ? "bg-primary text-primary-foreground" : "bg-card"}`}
     >
       {children}
     </Link>

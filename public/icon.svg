@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- project-arcade app icon (original, see docs/svg-sources.md): a shipping
+       carton with a label on its front and a round-trip badge (lent out, comes
+       back), thick black outlines and hard shadows on the theme red. Everything
+       stays inside the central 60% so the maskable crop never cuts it. -->
+  <rect width="512" height="512" fill="#ff3333"/>
+  <g stroke="#000" stroke-width="14" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M162 252 L202 212 L382 212 L382 362 L342 402 L162 402 Z" fill="#000" stroke="none"/>
+    <rect x="146" y="236" width="180" height="150" fill="#ffff00"/>
+    <path d="M146 236 L186 196 L366 196 L326 236 Z" fill="#ffff00"/>
+    <path d="M326 236 L366 196 L366 346 L326 386 Z" fill="#ffff00"/>
+    <path d="M206 236 L246 196" stroke-width="10"/>
+    <rect x="168" y="282" width="92" height="62" rx="6" fill="#fff" stroke-width="10"/>
+    <path d="M186 302 H242 M186 324 H226" stroke-width="10"/>
+  </g>
+  <g stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <circle cx="358" cy="170" r="50" fill="#000" stroke="none" transform="translate(10 10)"/>
+    <circle cx="358" cy="170" r="50" fill="#0066ff"/>
+    <path d="M330 162 A30 30 0 0 1 384 152" stroke="#fff"/>
+    <path d="M372 140 L386 152 L370 162" stroke="#fff"/>
+    <path d="M386 178 A30 30 0 0 1 332 188" stroke="#fff"/>
+    <path d="M344 200 L330 188 L346 178" stroke="#fff"/>
+  </g>
+</svg>

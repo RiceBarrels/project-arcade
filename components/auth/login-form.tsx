@@ -17,7 +17,7 @@ export function LoginForm({ next }: { next?: string }) {
       <FormError message={state.error} />
       {state.fields?.unverified && (
         <p className="text-sm">
-          <Link href={path("/check-email")} className="inline-flex min-h-10 items-center font-bold underline underline-offset-4">
+          <Link href={path("/check-email")} className="inline-flex min-h-11 md:min-h-10 items-center font-bold underline underline-offset-4">
             Resend verification email
           </Link>
         </p>
@@ -26,10 +26,10 @@ export function LoginForm({ next }: { next?: string }) {
         {pending ? "Signing in…" : "Sign in"}
       </Button>
       <div className="flex flex-wrap justify-between gap-2 text-sm font-bold">
-        <Link href={path("/forgot-password")} className="inline-flex min-h-10 items-center underline underline-offset-4">
+        <Link href={path("/forgot-password")} className="inline-flex min-h-11 md:min-h-10 items-center underline underline-offset-4">
           Forgot your password?
         </Link>
-        <Link href={path("/signup")} className="inline-flex min-h-10 items-center underline underline-offset-4">
+        <Link href={path("/signup")} className="inline-flex min-h-11 md:min-h-10 items-center underline underline-offset-4">
           New here? Create an account
         </Link>
       </div>

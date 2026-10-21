@@ -101,12 +101,12 @@ export function ListForm() {
       <div className="grid gap-6 sm:grid-cols-2">
         <FieldBox label="Category" htmlFor="category" field="category" error={errors.category}>
           <Select value={category} onValueChange={setCategory}>
-            <SelectTrigger id="category" className="min-h-10 w-full" {...invalid("category")}>
+            <SelectTrigger id="category" className="min-h-11 md:min-h-10 w-full" {...invalid("category")}>
               <SelectValue placeholder="Pick one" />
             </SelectTrigger>
             <SelectContent>
               {categories.map((c) => (
-                <SelectItem key={c.slug} value={c.slug} className="min-h-10">
+                <SelectItem key={c.slug} value={c.slug} className="min-h-11 md:min-h-10">
                   <CategoryIcon slug={c.slug} /> {c.name}
                 </SelectItem>
               ))}
@@ -116,12 +116,12 @@ export function ListForm() {
         </FieldBox>
         <FieldBox label="Condition" htmlFor="condition" field="condition" error={errors.condition}>
           <Select value={condition} onValueChange={setCondition}>
-            <SelectTrigger id="condition" className="min-h-10 w-full" {...invalid("condition")}>
+            <SelectTrigger id="condition" className="min-h-11 md:min-h-10 w-full" {...invalid("condition")}>
               <SelectValue placeholder="Pick one" />
             </SelectTrigger>
             <SelectContent>
               {Object.entries(CONDITION_LABEL).map(([k, v]) => (
-                <SelectItem key={k} value={k} className="min-h-10">{v}</SelectItem>
+                <SelectItem key={k} value={k} className="min-h-11 md:min-h-10">{v}</SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -129,7 +129,7 @@ export function ListForm() {
       </div>
 
       <FieldBox label="Photos" htmlFor="photos">
-        <Input id="photos" name="photos" type="file" accept="image/*" multiple className="min-h-10" />
+        <Input id="photos" name="photos" type="file" accept="image/*" multiple className="min-h-11 md:min-h-10" />
         <p className="text-xs">A few clear photos help borrowers say yes. Up to 8.</p>
       </FieldBox>
 
@@ -139,19 +139,19 @@ export function ListForm() {
 
       <FieldBox label="Free or fee" field="fee" error={errors.fee}>
         <RadioGroup value={pricing} onValueChange={(v) => setPricing(v as "free" | "fee")} className="flex flex-wrap gap-x-6" aria-label="Free or fee">
-          <label className="flex min-h-10 cursor-pointer items-center gap-2 font-bold"><RadioGroupItem value="free" /> Free</label>
-          <label className="flex min-h-10 cursor-pointer items-center gap-2 font-bold"><RadioGroupItem value="fee" /> Small fee</label>
+          <label className="flex min-h-11 md:min-h-10 cursor-pointer items-center gap-2 font-bold"><RadioGroupItem value="free" /> Free</label>
+          <label className="flex min-h-11 md:min-h-10 cursor-pointer items-center gap-2 font-bold"><RadioGroupItem value="fee" /> Small fee</label>
         </RadioGroup>
         {pricing === "fee" && (
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-black" aria-hidden>$</span>
-            <Input id="fee_amount" name="fee_amount" type="number" min="0" step="0.01" inputMode="decimal" placeholder="Fee" aria-label="Fee in USD" className="min-h-10 max-w-32" {...invalid("fee")} />
+            <Input id="fee_amount" name="fee_amount" type="number" min="0" step="0.01" inputMode="decimal" placeholder="Fee" aria-label="Fee in USD" className="min-h-11 md:min-h-10 max-w-32" {...invalid("fee")} />
             <Select value={feePeriod} onValueChange={(v) => setFeePeriod(v as "day" | "week" | "loan")}>
-              <SelectTrigger className="min-h-10 w-36" aria-label="Fee period"><SelectValue /></SelectTrigger>
+              <SelectTrigger className="min-h-11 md:min-h-10 w-36" aria-label="Fee period"><SelectValue /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="loan" className="min-h-10">per loan</SelectItem>
-                <SelectItem value="day" className="min-h-10">per day</SelectItem>
-                <SelectItem value="week" className="min-h-10">per week</SelectItem>
+                <SelectItem value="loan" className="min-h-11 md:min-h-10">per loan</SelectItem>
+                <SelectItem value="day" className="min-h-11 md:min-h-10">per day</SelectItem>
+                <SelectItem value="week" className="min-h-11 md:min-h-10">per week</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -184,14 +184,14 @@ export function ListForm() {
             required={!damageWaived}
             disabled={damageWaived}
             placeholder={damageWaived ? "No charge" : "e.g. 60"}
-            className="min-h-10 max-w-40 bg-background text-foreground"
+            className="min-h-11 md:min-h-10 max-w-40 bg-background text-foreground"
             {...invalid("damage")}
           />
         </div>
         <p className="text-sm font-medium">
           Enter an amount. This is what the borrower agrees to owe you if the item comes back damaged or lost.
         </p>
-        <label className="flex min-h-10 cursor-pointer items-center gap-3 text-sm font-bold">
+        <label className="flex min-h-11 md:min-h-10 cursor-pointer items-center gap-3 text-sm font-bold">
           <Checkbox
             checked={damageWaived}
             onCheckedChange={(v) => setDamageWaived(v === true)}
@@ -211,7 +211,7 @@ export function ListForm() {
       </section>
 
       <FieldBox label="Pickup area" htmlFor="city" field="city" error={errors.city}>
-        <Input id="city" name="city" maxLength={80} placeholder="e.g. Portland, OR" className="min-h-10" {...invalid("city")} />
+        <Input id="city" name="city" maxLength={80} placeholder="e.g. Portland, OR" className="min-h-11 md:min-h-10" {...invalid("city")} />
         <p className="text-xs">Pick a city or general area. Don&apos;t put your exact address in the listing.</p>
       </FieldBox>
 

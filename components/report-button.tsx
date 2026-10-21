@@ -50,7 +50,7 @@ export function ReportButton({ target, targetId }: { target: "listing" | "user";
         <Button
           variant="outline"
           size="sm"
-          className="min-h-10"
+          className="min-h-11 md:min-h-10"
           title="Something wrong with this listing or user? Let us know."
           data-report-target={`${target}:${targetId}`}
         >
@@ -108,7 +108,7 @@ export function ReportButton({ target, targetId }: { target: "listing" | "user";
               className="gap-1"
             >
               {REASONS.map((r) => (
-                <label key={r} className="flex min-h-10 cursor-pointer items-center gap-3 font-medium">
+                <label key={r} className="flex min-h-11 md:min-h-10 cursor-pointer items-center gap-3 font-medium">
                   <RadioGroupItem value={r} /> {r}
                 </label>
               ))}
@@ -126,7 +126,7 @@ export function ReportButton({ target, targetId }: { target: "listing" | "user";
             </div>
             <p className="text-xs">
               We review reports as a small non-profit project, so replies may take a while. For emergencies, contact
-              your local emergency services, not us.
+              your local emergency services, not us. Found a bug or have an idea instead? Use Send feedback.
             </p>
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>

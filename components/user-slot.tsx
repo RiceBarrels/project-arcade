@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { LogOut, Settings, User } from "lucide-react";
+import { FeedbackTrigger } from "@/components/feedback/feedback-trigger";
 import { Button } from "@/components/ui/button";
 import { signOut } from "@/lib/auth/actions";
 import { getCurrentUser } from "@/lib/data/session";
 import { path } from "@/lib/paths";
 
 const chip =
-  "inline-flex min-h-10 items-center gap-1.5 rounded-lg border-2 border-border bg-background px-3 text-foreground shadow-xs transition-transform hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none";
+  "inline-flex min-h-11 md:min-h-10 items-center gap-1.5 rounded-lg border-2 border-border bg-background px-3 text-foreground shadow-xs transition-transform hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none";
 
 // Reads the session: render inside <Suspense> (see SiteHeader).
 export async function UserSlot() {
@@ -24,11 +25,12 @@ export async function UserSlot() {
         <User aria-hidden className="size-4" />
         <span className="max-w-32 truncate">{user.display_name}</span>
       </Link>
+      <FeedbackTrigger variant="header" signedIn />
       <Link href={path("/settings")} className={chip} aria-label="Settings">
         <Settings aria-hidden className="size-4" />
       </Link>
       <form action={signOut}>
-        <Button type="submit" variant="outline" className="min-h-10 normal-case tracking-normal" aria-label="Sign out">
+        <Button type="submit" variant="outline" className="min-h-11 md:min-h-10 normal-case tracking-normal" aria-label="Sign out">
           <LogOut aria-hidden /> <span className="hidden sm:inline">Sign out</span>
         </Button>
       </form>
