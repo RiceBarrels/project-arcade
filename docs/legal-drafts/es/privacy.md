@@ -45,7 +45,7 @@ Cookies: el sitio establece dos tipos de cookies, y ambos son necesarios para qu
 - Una cookie de inicio de sesión, establecida por nuestro proveedor de inicio de sesión (Supabase), mantiene su sesión iniciada. Puede dividirse en varias partes.
 - Una cookie de idioma recuerda el idioma que usted eligió. Dura 1 año.
 
-El sitio también guarda su configuración de «Vibrar al tocar» y su avance en las pantallas de introducción en el almacenamiento local de su navegador, en su propio dispositivo. Esto no es una cookie y no se nos envía.
+El sitio también guarda su configuración de «Vibrar al tocar», su elección de tema (Claro u Oscuro; si lo deja en Sistema, no se guarda nada) y su avance en las pantallas de introducción en el almacenamiento local de su navegador, en su propio dispositivo. Esto no es una cookie y no se nos envía.
 
 No establecemos cookies publicitarias ni cookies de seguimiento entre sitios. [NEEDS REVIEW: basado en la revisión del código que hizo el desarrollador el 2026-10-20; hay que volver a verificarlo cuando se agregue algo.]
 
@@ -64,6 +64,8 @@ Para operar el sitio: mostrar publicaciones, gestionar filas y solicitudes, perm
 ## Compartir datos
 
 Compartimos datos con los proveedores de servicios necesarios para operar el sitio (como los proveedores de base de datos y de alojamiento). Podemos divulgar información si la ley lo exige. [TO CONFIRM / abogado: lista completa de encargados del tratamiento de datos.]
+
+**Envío de correos electrónicos (Resend) (BORRADOR, necesita revisión).** Usamos Resend para enviar los correos electrónicos relacionados con su cuenta: la verificación de su correo electrónico, el restablecimiento de su contraseña y los avisos de seguridad. Estos correos provienen de no-reply@project-arcade.ricebarrel.com. Para enviarlos, Resend recibe su dirección de correo electrónico y el contenido del mensaje. Usamos Resend solo para enviar correos electrónicos relacionados con su cuenta, y Resend recibe su dirección de correo electrónico únicamente con ese fin. No enviamos correos de marketing. La política de privacidad de Resend indica que transfiere datos a los Estados Unidos y los procesa allí. [TO CONFIRM: con Resend: (1) si Resend actúa como nuestro encargado del tratamiento de datos y si existe un acuerdo de tratamiento de datos; (2) cuánto tiempo conserva Resend el contenido y los registros de los correos enviados (su política de privacidad no indica ningún plazo); (3) los subencargados del tratamiento de Resend (los enumera en resend.com/legal/subprocessors). El abogado debe revisar la redacción sobre transferencias internacionales.]
 
 ## Conservación y eliminación de datos
 

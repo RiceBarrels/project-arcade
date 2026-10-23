@@ -327,7 +327,7 @@ Cookies: el sitio establece dos tipos de cookies, y ambos son necesarios para qu
 - Una cookie de inicio de sesión, establecida por nuestro proveedor de inicio de sesión (Supabase), mantiene su sesión iniciada. Puede dividirse en varias partes.
 - Una cookie de idioma recuerda el idioma que usted eligió. Dura 1 año.
 
-El sitio también guarda su configuración de «Vibrar al tocar» y su avance en las pantallas de introducción en el almacenamiento local de su navegador, en su propio dispositivo. Esto no es una cookie y no se nos envía.
+El sitio también guarda su configuración de «Vibrar al tocar», su elección de tema (Claro u Oscuro; si lo deja en Sistema, no se guarda nada) y su avance en las pantallas de introducción en el almacenamiento local de su navegador, en su propio dispositivo. Esto no es una cookie y no se nos envía.
 
 No establecemos cookies publicitarias ni cookies de seguimiento entre sitios. [NEEDS REVIEW: basado en la revisión del código que hizo el desarrollador el 2026-10-20; hay que volver a verificarlo cuando se agregue algo.]
 
@@ -343,6 +343,8 @@ Para operar el sitio: mostrar publicaciones, gestionar filas y solicitudes, perm
 
 ### Compartir datos
 Compartimos datos con los proveedores de servicios necesarios para operar el sitio (como los proveedores de base de datos y de alojamiento). Podemos divulgar información si la ley lo exige. [TO CONFIRM / lawyer: lista completa de encargados del tratamiento de datos.]
+
+**Envío de correos electrónicos (Resend) (DRAFT, needs review) (BORRADOR, necesita revisión).** Usamos Resend para enviar los correos electrónicos relacionados con su cuenta: la verificación de su correo electrónico, el restablecimiento de su contraseña y los avisos de seguridad. Estos correos provienen de no-reply@project-arcade.ricebarrel.com. Para enviarlos, Resend recibe su dirección de correo electrónico y el contenido del mensaje. Usamos Resend solo para enviar correos electrónicos relacionados con su cuenta, y Resend recibe su dirección de correo electrónico únicamente con ese fin. No enviamos correos de marketing. La política de privacidad de Resend indica que transfiere datos a los Estados Unidos y los procesa allí. [TO CONFIRM from Resend: (1) si Resend actúa como nuestro encargado del tratamiento de datos y si existe un acuerdo de tratamiento de datos; (2) cuánto tiempo conserva Resend el contenido y los registros de los correos enviados (su política de privacidad no indica ningún plazo); (3) los subencargados del tratamiento de Resend (los enumera en resend.com/legal/subprocessors). El abogado debe revisar la redacción sobre transferencias internacionales.]
 
 ### Conservación y eliminación de datos
 _Comentarios:_ si elimina su cuenta, sus comentarios se conservan, pero ya no están vinculados a usted. [TO CONFIRM: coincide con `user_id ON DELETE SET NULL` en supabase/08-feedback.sql; falta definir el plazo de conservación y si también se elimina el contacto para respuesta.]
@@ -439,7 +441,7 @@ Sin emoji; usa íconos de Lucide.
 - **Título:** Restablece tu contraseña
 - **Cuerpo:** Escribe tu correo y te enviaremos un enlace para crear una nueva.
 - **Botón:** Enviar enlace para restablecer
-- **Confirmación:** Si existe una cuenta con ese correo, el enlace para restablecer ya va en camino.
+- **Confirmación:** Si existe una cuenta con ese correo, el enlace para restablecer ya va en camino. Llega desde no-reply@project-arcade.ricebarrel.com, así que revisa también tu carpeta de spam o de correo no deseado. [NEEDS REVIEW]
 
 ## 17. Textos de la interfaz, ronda 3 (inicio de sesión, registro, verificación, mensajes, configuración, vista previa)
 
@@ -480,7 +482,7 @@ Regla: el sitio nunca muestra la dirección de correo de ningún usuario, ni siq
 
 **Título:** Revisa tu correo
 **Cuerpo:** Enviamos un enlace de verificación a la dirección con la que te registraste. Haz clic en él para activar tu cuenta.
-**Consejo:** ¿No lo encuentras? Revisa tu carpeta de spam o de correo no deseado.
+**Consejo:** ¿No lo encuentras? Revisa tu carpeta de spam o de correo no deseado. Nuestros correos llegan desde no-reply@project-arcade.ricebarrel.com. [NEEDS REVIEW]
 **Título del formulario de reenvío:** ¿No te llegó?
 **Etiqueta del campo de reenvío:** Correo electrónico
 **Ayuda del reenvío:** Escribe el correo con el que te registraste y te volveremos a enviar el enlace.
@@ -678,7 +680,7 @@ Separado de Reportar. Reportar es solo para abusos relacionados con artículos y
 - Mensaje vacío: Primero escribe un mensaje.
 - Demasiado largo: Tu mensaje es demasiado largo. Acórtalo, por favor. [limit TBD by the builder: el desarrollador define el límite]
 - Falla al enviar: No se pudieron enviar tus comentarios. Inténtalo de nuevo.
-- Demasiados envíos: Demasiados intentos. Espera unos minutos e inténtalo de nuevo.
+- Demasiados envíos: Demasiados envíos. Espera unos minutos e inténtalo de nuevo.
 
 **Dónde aparece:** agregar también una línea en la letra pequeña del cuadro de diálogo de Reportar (sección 9): ¿Más bien encontraste un error o tienes una idea? Usa Enviar comentarios.
 
@@ -738,6 +740,29 @@ Reemplaza el control propio del navegador («Choose files» / «Elegir archivos�
 - Demasiadas fotos: Puedes agregar hasta 8 fotos. Elige menos.
 - No es una imagen: Elige solo archivos de imagen.
 
+## 24. Apariencia / modo oscuro
+
+Se muestra en la página «Perfil», en Configuración, y como botón en el encabezado de la página en computadoras de escritorio. Etiquetas cortas; las tres opciones son de una sola elección (grupo de opciones, radio group).
+
+**Título de la sección:** Apariencia
+**Explicación corta debajo del título:** Elige cómo se ve el sitio en este dispositivo.
+(Se guarda solo en este dispositivo, igual que la configuración de vibración, así que la línea dice «en este dispositivo».)
+
+**Opciones (etiqueta visible y descripción de una línea):**
+- Sistema: «Sistema sigue la configuración de tu dispositivo.»
+- Claro: «Claro siempre usa el tema claro.»
+- Oscuro: «Oscuro siempre usa el tema oscuro.»
+(El nombre accesible de cada opción es su etiqueta visible: exactamente «Sistema», «Claro» y «Oscuro». La descripción se asocia con aria-describedby. Se eliminaron las etiquetas aparte para lectores de pantalla que empezaban con «Usar ...»: «Usar el tema de tu dispositivo» no contenía la palabra visible «Sistema», lo que no cumple el criterio WCAG 2.5.3 (etiqueta en el nombre) para el control por voz. El propio grupo de opciones anuncia cuál está seleccionada.)
+
+**Etiqueta del grupo para lectores de pantalla (grupo de opciones):** Tema
+
+**Botón del encabezado en computadoras de escritorio:**
+- Visible: solo un ícono (sol / luna / monitor de Lucide, decorativo, aria-hidden)
+- Etiqueta para lectores de pantalla (botón): Cambiar tema
+- Estado actual, que se lee junto con el botón o se muestra como su texto emergente (tooltip) (una sola cadena, {theme} = Sistema / Claro / Oscuro): Tema: {theme}
+  - Ejemplos: Tema: Sistema, Tema: Claro, Tema: Oscuro
+(Se mantiene «Cambiar tema» como nombre del botón y «Tema: Oscuro» como texto emergente o descripción, para que tanto la acción como el estado actual estén disponibles. {theme} se traduce con las mismas palabras de las tres opciones de arriba.)
+
 ---
 
 ## Términos por confirmar (nota de traducción, no es texto de la página)
@@ -771,6 +796,10 @@ Estos términos son provisionales y necesitan la confirmación del usuario. Una 
 | analytics / Web Analytics | analítica (el nombre del producto, Vercel Web Analytics, no se traduce) | analíticas, analítica web, estadísticas del sitio, métricas | «Analítica» es el término habitual en textos técnicos y de privacidad en español. «Estadísticas del sitio» es más sencillo, pero se reservó «estadísticas» para traducir «statistics» en la misma sección. |
 | cookies | cookies (sin traducir, en cursiva opcional) | galletas, galletas informáticas, archivos de cookies | «Cookies» es lo que se usa en avisos de privacidad y en navegadores en español en toda Latinoamérica. «Galletas» se entiende como calco y suena raro. |
 | hash | hash (sin traducir: «un hash») | valor hash, resumen criptográfico, huella digital | En los textos técnicos en español se suele dejar «hash». «Resumen criptográfico» es correcto pero poco conocido; «huella digital» se confunde con la huella dactilar. |
+| Appearance | Apariencia | Aspecto, Visualización | Término habitual en la configuración de sistemas operativos y apps en español (sección 24). |
+| System / Light / Dark | Sistema / Claro / Oscuro | Automático / Claro / Oscuro; Usar el del sistema | Cortos y habituales en apps. «Claro» y «Oscuro» en masculino concuerdan con «tema» en «Tema: {theme}». «Automático» (como en iOS y macOS) es otra opción para «System». |
+| theme | tema | modo, estilo | «Tema claro / tema oscuro» es lo habitual en navegadores y apps. |
+| dark mode | modo oscuro | tema oscuro | Nombre común de la función; en las etiquetas de la interfaz se usa «tema oscuro» para coincidir con «Tema: {theme}». |
 
 ## Preguntas que requieren coordinación o soporte en el código (nota de traducción)
 

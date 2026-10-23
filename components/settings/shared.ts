@@ -36,6 +36,8 @@ export const OPEN_LOANS_WARNING = msg(
 );
 // The word people type; not translated (the confirm label and hint name it literally).
 export const DELETE_CONFIRM_WORD = "DELETE";
+/** True when the typed word is DELETE. NFKC first, so full-width ＤＥＬＥＴＥ from a Japanese or Chinese keyboard counts. */
+export const isDeleteWord = (typed: unknown) => typeof typed === "string" && typed.normalize("NFKC") === DELETE_CONFIRM_WORD;
 export const DELETE_MISMATCH = msg("Type DELETE exactly as shown to continue.");
 export const DELETE_ERROR = msg("Couldn't delete your account. Please try again.");
 

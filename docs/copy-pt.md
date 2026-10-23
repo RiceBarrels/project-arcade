@@ -327,7 +327,7 @@ Cookies: o site define dois tipos de cookies, ambos necessários para que ele fu
 - Um cookie de login, definido pelo nosso provedor de login (Supabase), mantém o usuário conectado. Ele pode ser dividido em várias partes.
 - Um cookie de idioma guarda o idioma escolhido pelo usuário. Ele dura 1 ano.
 
-O site também armazena a configuração de vibração (Vibrar ao tocar) e o progresso do usuário nas telas de introdução no armazenamento local (local storage) do navegador, no próprio dispositivo do usuário. Isso não é um cookie e não é enviado para nós.
+O site também armazena a configuração de vibração (Vibrar ao tocar), a escolha de tema do usuário (Claro ou Escuro; nada é armazenado se o usuário mantiver a opção Sistema) e o progresso do usuário nas telas de introdução no armazenamento local (local storage) do navegador, no próprio dispositivo do usuário. Isso não é um cookie e não é enviado para nós.
 
 Não definimos cookies de publicidade nem de rastreamento entre sites. [NEEDS REVIEW: com base na verificação do código feita pelo desenvolvedor em 2026-10-20; verificar de novo quando algo for adicionado.]
 
@@ -343,6 +343,8 @@ Para operar o site: mostrar publicações, gerenciar filas e pedidos, permitir q
 
 ### Compartilhamento
 Compartilhamos dados com os prestadores de serviço necessários para operar o site (como os provedores de banco de dados e de hospedagem). Podemos divulgar informações se a lei exigir. [TO CONFIRM / lawyer: lista completa de operadores de dados.]
+
+**Envio de e-mails (Resend) (DRAFT, needs review) (RASCUNHO, precisa de revisão).** Usamos a Resend para enviar os e-mails relacionados à conta do usuário: verificação do endereço de e-mail, redefinição de senha e avisos de segurança. Esses e-mails vêm de no-reply@project-arcade.ricebarrel.com. Para enviá-los, a Resend recebe o endereço de e-mail do usuário e o conteúdo da mensagem. Usamos a Resend somente para enviar e-mails relacionados à conta do usuário, e a Resend recebe o endereço de e-mail do usuário somente para essa finalidade. Não enviamos e-mails de marketing. A política de privacidade da Resend informa que ela transfere dados para os Estados Unidos e os processa lá. [TO CONFIRM from Resend: (1) se a Resend atua como nossa operadora de dados e se existe um contrato de tratamento de dados em vigor; (2) por quanto tempo a Resend mantém o conteúdo dos e-mails enviados e os logs (a política de privacidade dela não indica um prazo); (3) os suboperadores da Resend (ela os lista em resend.com/legal/subprocessors). O advogado deve verificar a redação sobre transferência internacional.]
 
 ### Retenção e exclusão de dados
 _Feedback:_ se o usuário excluir a conta, o feedback dele é mantido, mas deixa de estar vinculado a ele. [TO CONFIRM: corresponde a `user_id ON DELETE SET NULL` em supabase/08-feedback.sql; falta definir o prazo de retenção e se um contato para resposta também é removido.]
@@ -439,7 +441,7 @@ Sem emoji; use ícones do Lucide.
 - **Título:** Redefina sua senha
 - **Corpo:** Digite seu e-mail e enviaremos um link para você criar uma nova.
 - **Botão:** Enviar link de redefinição
-- **Confirmação:** Se existir uma conta com esse e-mail, um link de redefinição já está a caminho.
+- **Confirmação:** Se existir uma conta com esse e-mail, um link de redefinição já está a caminho. Ele vem de no-reply@project-arcade.ricebarrel.com, então confira também sua pasta de spam ou de lixo eletrônico. [NEEDS REVIEW]
 
 ## 17. Textos da interface, rodada 3 (login, cadastro, verificação, mensagens, configurações, pré-visualização)
 
@@ -480,7 +482,7 @@ Regra: o site nunca mostra o endereço de e-mail de nenhum usuário, nem mesmo o
 
 **Título:** Confira seu e-mail
 **Corpo:** Enviamos um link de verificação para o endereço que você usou no cadastro. Clique nele para ativar sua conta.
-**Dica:** Não encontrou? Confira sua pasta de spam ou de lixo eletrônico.
+**Dica:** Não encontrou? Confira sua pasta de spam ou de lixo eletrônico. Nossos e-mails vêm de no-reply@project-arcade.ricebarrel.com. [NEEDS REVIEW]
 **Título do formulário de reenvio:** Não recebeu?
 **Rótulo do campo de reenvio:** E-mail
 **Ajuda do reenvio:** Digite o e-mail que você usou no cadastro e enviaremos o link de novo.
@@ -678,7 +680,7 @@ Separado de Denunciar. Denunciar é só para abusos envolvendo itens e usuários
 - Mensagem vazia: Escreva uma mensagem primeiro.
 - Longa demais: Sua mensagem está longa demais. Encurte um pouco. [limit TBD by the builder] (limite a ser definido pelo desenvolvedor)
 - Falha no envio: Não foi possível enviar seu feedback. Tente de novo.
-- Envios demais: Tentativas demais. Espere alguns minutos e tente de novo.
+- Envios demais: Envios demais. Espere alguns minutos e tente de novo.
 
 **Onde aparece:** adicionar também uma linha nas letras miúdas da caixa de diálogo de Denunciar (seção 9): Achou um bug ou tem uma ideia? Nesse caso, use Enviar feedback.
 
@@ -737,6 +739,29 @@ Substitui o controle "Escolher arquivos" do próprio navegador por um botão no 
 - Fotos demais: Você pode adicionar até 8 fotos. Escolha menos.
 - Não é imagem: Escolha apenas arquivos de imagem.
 
+## 24. Aparência / modo escuro
+
+Aparece na página de configurações / Perfil e como um botão no cabeçalho da página no computador. Rótulos curtos; as três opções são uma escolha única (grupo de opções).
+
+**Título da seção:** Aparência
+**Explicação curta abaixo do título:** Escolha como o site aparece neste dispositivo.
+(A escolha fica salva só neste dispositivo, como a configuração de vibração, por isso a frase diz "neste dispositivo".)
+
+**Opções (rótulo visível e descrição de uma linha):**
+- Sistema: "Sistema segue a configuração do seu dispositivo."
+- Claro: "Claro sempre usa o tema claro."
+- Escuro: "Escuro sempre usa o tema escuro."
+(O nome acessível de cada opção é o seu rótulo visível: exatamente "Sistema", "Claro", "Escuro". A descrição é associada com aria-describedby. Os rótulos separados para leitores de tela do tipo "Usar ..." foram removidos: "Usar o tema do seu dispositivo" não continha a palavra visível "Sistema", o que não atende ao critério WCAG 2.5.3 (rótulo no nome) para quem usa controle por voz. A opção selecionada é anunciada pelo próprio grupo de opções.)
+
+**Rótulo do grupo para leitores de tela (grupo de opções):** Tema
+
+**Botão do cabeçalho no computador:**
+- Visível: só o ícone (sun / moon / monitor do Lucide, decorativo, aria-hidden)
+- Rótulo para leitores de tela (botão): Mudar tema
+- Estado atual, lido junto com o botão ou mostrado como dica (tooltip) dele (uma única string, {theme} = Sistema / Claro / Escuro): Tema: {theme}
+  - Exemplos: Tema: Sistema, Tema: Claro, Tema: Escuro
+(Manter "Mudar tema" como nome do botão e "Tema: Escuro" como dica/descrição, para que a ação e o estado atual fiquem disponíveis. Traduzir {theme} com as mesmas palavras das três opções acima.)
+
 ---
 
 ## Termos a confirmar (nota de tradução, não é texto da página)
@@ -772,6 +797,9 @@ Estes termos são provisórios e precisam da confirmação do usuário. Depois d
 | phone (celular) | celular | telemóvel (pt-PT) | Diferença pt-BR / pt-PT (seções 10 e 18). |
 | sign up / sign in | criar conta, cadastro / entrar, login | registar-se, registo / iniciar sessão (pt-PT) | No Brasil "cadastro" e "login" são os termos comuns; em pt-PT, "registo" e "iniciar sessão". |
 | settings | Configurações | Definições (pt-PT) | Diferença pt-BR / pt-PT. |
+| Appearance | Aparência | Tema, Visual | Rótulo usado no macOS e em muitos apps no Brasil. Igual em pt-PT. |
+| System / Light / Dark | Sistema / Claro / Escuro | Automático, Dispositivo / Modo claro / Modo escuro | Palavras curtas e habituais em sistemas operacionais. "Claro" e "Escuro" são masculinos e concordam com "tema" em "Tema: {theme}". Iguais em pt-PT. |
+| theme / dark mode | tema / modo escuro | aparência, tema escuro | Padrão em interfaces. Igual em pt-PT. |
 | user | usuário | utilizador (pt-PT) | Diferença pt-BR / pt-PT. |
 | delete (account) | excluir | apagar, eliminar (pt-PT), deletar (coloquial) | "Excluir" é o padrão de interfaces no Brasil. |
 | password | senha | palavra-passe (pt-PT) | Diferença pt-BR / pt-PT. |

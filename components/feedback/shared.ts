@@ -22,7 +22,7 @@ export const FEEDBACK_ERRORS = {
   empty: msg("Please write a message first."),
   tooLong: msg("Your message is too long. Please shorten it."),
   failed: msg("Couldn't send your feedback. Please try again."),
-  tooMany: msg("Too many tries. Please wait a few minutes and try again."),
+  tooMany: msg("You've sent feedback too many times. Please wait a few minutes and try again."),
 } as const;
 
 export const FEEDBACK_SENT = msg("Thanks! Your feedback was sent.");

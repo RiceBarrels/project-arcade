@@ -74,18 +74,21 @@ export function ReturnCheck({
       <div>
         <h3 className="text-lg font-black">{t("How did it come back?")}</h3>
         <p className="text-sm">
-          {t.rich("{item}, borrowed by {name}. Check the item and tell us. This closes the loan.", {
-            item: itemTitle,
-            name: borrowerId ? (
-              <Link href={`/profile/${borrowerId}`} className="font-bold underline underline-offset-4">
-                <bdi>{borrowerName}</bdi>
-              </Link>
-            ) : (
-              <strong>
-                <bdi>{borrowerName}</bdi>
-              </strong>
-            ),
-          })}
+          {/* No borrower id: the account was deleted, which has its own sentence
+              (some languages attach words to a name that don't fit "Deleted account"). */}
+          {borrowerId
+            ? t.rich("{item}, borrowed by {name}. Check the item and tell us. This closes the loan.", {
+                item: itemTitle,
+                name: (
+                  <Link href={`/profile/${borrowerId}`} className="font-bold underline underline-offset-4">
+                    <bdi>{borrowerName}</bdi>
+                  </Link>
+                ),
+              })
+            : t.rich("{item}, borrowed by <b>Deleted account</b>. Check the item and tell us. This closes the loan.", {
+                item: itemTitle,
+                b: (c) => <strong>{c}</strong>,
+              })}
         </p>
       </div>
       <RadioGroup

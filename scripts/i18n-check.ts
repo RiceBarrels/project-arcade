@@ -3,8 +3,9 @@
 // missing keys, extra keys, placeholders ({name}) and tags (<link>) that
 // differ from the English, plural forms per Intl.PluralRules, wrong types.
 // Also fails when en.json or client-keys.json is older than the code
-// (run `bun run i18n:extract`), and checks the legal pages in
-// content/legal/<locale>/ against the English ones. Exit code 1 on any problem.
+// (run `bun run i18n:extract`), checks the legal pages in
+// content/legal/<locale>/ against the English ones, and fails when a page
+// differs from its copy in docs/legal-drafts/. Exit code 1 on any problem.
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { LOCALE_INFO } from "../i18n/config";
@@ -154,6 +155,25 @@ for (const name of ["terms", "privacy"]) {
     if (tr.boxes.join() !== en.boxes.join()) diffs.push(`boxes ${tr.boxes.join("/")} vs ${en.boxes.join("/")}`);
     if (diffs.length) warn(`${label}: differs from the English: ${diffs.join(", ")}`);
     else if (tr.head.updated === en.head.updated) console.log(`  ok    ${label}`);
+  }
+}
+
+// The published pages are copies of docs/legal-drafts/<locale>/ (see its
+// README): a page that differs from its draft missed a sync.
+const DRAFTS_DIR = join(ROOT, "docs", "legal-drafts");
+for (const name of ["terms", "privacy"]) {
+  for (const locale of LOCALES) {
+    if (only.length && !only.includes(locale)) continue;
+    const draft = join(DRAFTS_DIR, locale, `${name}.md`);
+    const page = join(LEGAL_DIR, locale, `${name}.md`);
+    if (!existsSync(draft) || !existsSync(page)) continue;
+    const a = readFileSync(draft, "utf8").replace(/\r\n/g, "\n").split("\n");
+    const b = readFileSync(page, "utf8").replace(/\r\n/g, "\n").split("\n");
+    let i = 0;
+    while (i < Math.max(a.length, b.length) && a[i] === b[i]) i++;
+    if (i < Math.max(a.length, b.length)) {
+      fail(`${locale}/${name}.md: differs from docs/legal-drafts/${locale}/${name}.md from line ${i + 1} (copy the draft over)`);
+    }
   }
 }
 

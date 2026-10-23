@@ -45,7 +45,7 @@ Cookies: the site sets two kinds of cookies, both needed for it to work.
 - A sign-in cookie, set by our sign-in provider (Supabase), keeps you signed in. It can be split into several parts.
 - A language cookie remembers the language you chose. It lasts 1 year.
 
-The site also stores your vibration setting and your progress through the welcome screens in your browser's local storage on your own device. This is not a cookie and is not sent to us.
+The site also stores your vibration setting, your theme choice (Light or Dark; nothing is stored if you leave it on System) and your progress through the welcome screens in your browser's local storage on your own device. This is not a cookie and is not sent to us.
 
 We don't set advertising or cross-site tracking cookies. [NEEDS REVIEW: based on the builder's check of the code on 2026-10-20; recheck when anything is added.]
 
@@ -64,6 +64,8 @@ To run the site: show listings, manage queues and requests, let lenders and borr
 ## Sharing
 
 We share data with service providers needed to run the site (such as the database and hosting providers). We may disclose information if required by law. [TO CONFIRM / lawyer: full list of processors.]
+
+**Email delivery (Resend) (DRAFT, needs review).** We use Resend to send emails for your account: verifying your email, resetting your password, and security notices. These emails come from no-reply@project-arcade.ricebarrel.com. To send them, Resend receives your email address and the content of the message. We use Resend only to send emails that relate to your account, and it receives your email address only for that purpose. We do not send marketing emails. Resend's privacy policy says it transfers data to the United States and processes it there. [TO CONFIRM from Resend: (1) whether Resend acts as our processor and a data processing agreement is in place; (2) how long Resend keeps sent-email content and logs (its privacy policy gives no period); (3) Resend's sub-processors (it lists them at resend.com/legal/subprocessors). Lawyer to check international transfer wording.]
 
 ## Keeping and deleting data
 

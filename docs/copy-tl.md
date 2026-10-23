@@ -327,7 +327,7 @@ Cookies: dalawang uri ng cookies ang itinatakda ng site, at parehong kailangan a
 - Pinapanatili kayong naka-sign in ng isang cookie para sa pag-sign in, na itinatakda ng aming provider ng pag-sign in (Supabase). Puwede itong hatiin sa ilang bahagi.
 - Tinatandaan ng isang cookie para sa wika ang wikang pinili ninyo. Tumatagal ito nang 1 taon.
 
-Iniimbak din ng site ang inyong setting na "Mag-vibrate kapag nag-tap" at ang progreso ninyo sa mga screen ng onboarding sa local storage ng inyong browser, sa sarili ninyong device. Hindi ito cookie at hindi ito ipinapadala sa amin.
+Iniimbak din ng site ang inyong setting na "Mag-vibrate kapag nag-tap", ang napili ninyong tema (Maliwanag o Madilim; walang iniimbak kung iiwan ninyo ito sa System) at ang progreso ninyo sa mga screen ng onboarding sa local storage ng inyong browser, sa sarili ninyong device. Hindi ito cookie at hindi ito ipinapadala sa amin.
 
 Hindi kami nagtatakda ng cookies para sa advertising o para sa cross-site tracking (pagsubaybay sa iba't ibang site). [NEEDS REVIEW: batay sa pagsusuri ng builder sa code noong 2026-10-20; suriin ulit kapag may idinagdag.]
 
@@ -343,6 +343,8 @@ Para patakbuhin ang site: ipakita ang mga listing, pamahalaan ang mga pila at re
 
 ### Pagbabahagi
 Ibinabahagi namin ang data sa mga service provider na kailangan para patakbuhin ang site (gaya ng mga provider ng database at hosting). Puwede kaming magbunyag ng impormasyon kung hinihingi ng batas. [TO CONFIRM / lawyer: kumpletong listahan ng mga processor.]
+
+**Paghahatid ng email (Resend) (DRAFT, needs review) (BORADOR, kailangang suriin).** Ginagamit namin ang Resend para magpadala ng mga email para sa inyong account: pag-verify ng inyong email, pag-reset ng inyong password, at mga abiso tungkol sa seguridad. Nanggagaling ang mga email na ito sa no-reply@project-arcade.ricebarrel.com. Para maipadala ang mga ito, natatanggap ng Resend ang inyong email address at ang nilalaman ng mensahe. Ginagamit lang namin ang Resend para magpadala ng mga email na may kaugnayan sa inyong account, at natatanggap lang ng Resend ang inyong email address para sa layuning iyon. Hindi kami nagpapadala ng mga email para sa marketing. Ayon sa patakaran sa privacy ng Resend, inililipat nito ang data sa United States at doon ito pinoproseso. [TO CONFIRM from Resend: (1) kung kumikilos ang Resend bilang aming processor at kung may umiiral na data processing agreement (kasunduan sa pagproseso ng data); (2) gaano katagal iniingatan ng Resend ang nilalaman ng mga naipadalang email at ang mga log (walang binabanggit na panahon ang patakaran nito sa privacy); (3) ang mga sub-processor ng Resend (inililista nito ang mga ito sa resend.com/legal/subprocessors). Susuriin ng abogado ang pananalita tungkol sa paglilipat ng data sa ibang bansa.]
 
 ### Pag-iingat at pagbura ng data
 _Feedback:_ kung buburahin ninyo ang inyong account, pinapanatili ang feedback ninyo pero hindi na ito naka-link sa inyo. [TO CONFIRM: tugma sa `user_id ON DELETE SET NULL` sa supabase/08-feedback.sql; ang panahon ng pag-iingat, at kung binubura rin ang contact para sa pagsagot.]
@@ -439,7 +441,7 @@ Walang emoji; gumamit ng mga icon ng Lucide.
 - **Pamagat:** I-reset ang password mo
 - **Body:** Ilagay ang email mo at padadalhan ka namin ng link para magtakda ng bago.
 - **Button:** Ipadala ang reset link
-- **Kumpirmasyon:** Kung may account para sa email na iyan, papunta na ang reset link.
+- **Kumpirmasyon:** Kung may account para sa email na iyan, papunta na ang reset link. Galing ito sa no-reply@project-arcade.ricebarrel.com, kaya tingnan mo rin ang spam o junk folder mo. [NEEDS REVIEW]
 
 ## 17. UI copy, round 3 (login, signup, pag-verify, mga mensahe, settings, preview)
 
@@ -480,7 +482,7 @@ Patakaran: hindi kailanman ipinapakita ng site ang email address ng sinumang use
 
 **Pamagat:** Tingnan ang email mo
 **Body:** Nagpadala kami ng verification link sa address na ginamit mo sa pag-sign up. I-click ito para i-activate ang account mo.
-**Tip:** Hindi mo makita? Tingnan ang spam o junk folder mo.
+**Tip:** Hindi mo makita? Tingnan ang spam o junk folder mo. Galing ang mga email namin sa no-reply@project-arcade.ricebarrel.com. [NEEDS REVIEW]
 **Pamagat ng resend form:** Hindi mo natanggap?
 **Label ng resend field:** Email
 **Helper ng resend:** Ilagay ang email na ginamit mo sa pag-sign up at ipapadala namin ulit ang link.
@@ -678,7 +680,7 @@ Hiwalay sa I-report. Para lang sa pang-aabuso sa mga item at user ang I-report (
 - Walang laman ang mensahe: Pakisulat muna ang mensahe mo.
 - Masyadong mahaba: Masyadong mahaba ang mensahe mo. Pakiikli ito. [limit TBD by the builder] (ang builder ang magtatakda ng limitasyon)
 - Hindi naipadala: Hindi naipadala ang feedback mo. Pakisubukan ulit.
-- Sobrang daming pagpapadala: Sobrang dami nang subok. Maghintay ng ilang minuto at subukan ulit.
+- Sobrang daming pagpapadala: Sobrang daming pagpapadala. Maghintay ng ilang minuto at subukan ulit.
 
 **Kung saan ito lumalabas:** magdagdag din ng linya sa fine print ng dialog ng I-report (seksyon 9): May nakita ka bang bug o may ideya ka? Gamitin na lang ang "Magpadala ng feedback".
 
@@ -741,6 +743,29 @@ Pinapalitan nito ang sariling "Choose files" na kontrol ng browser ng isang butt
 - Sobra sa bilang: Hanggang 8 litrato lang ang puwede mong idagdag. Pumili ng mas kaunti.
 - Hindi image file: Pumili lang ng mga image file.
 
+## 24. Hitsura / madilim na tema
+
+Lumalabas sa page na Ako / Settings, at bilang button sa header ng page sa desktop. Maiikling label; iisa lang ang puwedeng piliin sa tatlong opsyon (radio group).
+
+**Pamagat ng seksyon:** Hitsura
+**Maikling paliwanag sa ilalim ng pamagat:** Piliin kung ano ang hitsura ng site sa device na ito.
+(Naka-save lang ito sa device na ito, gaya ng setting na "Mag-vibrate kapag nag-tap" sa seksyon 18.4, kaya "sa device na ito" ang nasa linya.)
+
+**Mga opsyon (nakikitang label at isang linyang paglalarawan):**
+- System: "System: sumusunod sa setting ng device mo."
+- Maliwanag: "Maliwanag: laging ginagamit ang maliwanag na tema."
+- Madilim: "Madilim: laging ginagamit ang madilim na tema."
+(Ang accessible name ng bawat radio ay ang nakikitang label nito: eksaktong "System", "Maliwanag", "Madilim". Ikinakabit ang paglalarawan gamit ang aria-describedby. Inalis na ang hiwalay na mga label para sa screen reader na nagsisimula sa "Gamitin ...": hindi naglalaman ang dating label na "Gamitin ang tema ng device mo" ng nakikitang salitang "System", kaya hindi ito pumapasa sa WCAG 2.5.3 (label in name) para sa voice control. Ang radio group mismo ang nagsasabi kung alin ang napili. Pinanatili ang "System" bilang loanword, gaya ng "settings" at "device" sa UI. Karaniwang nauuna ang pandiwa sa pangungusap na Filipino, kaya ginamit ang anyong "Label: ..." sa mga paglalarawan para mauna pa rin ang label, gaya ng sa English.)
+
+**Label ng grupo para sa screen reader (radio group):** Tema
+
+**Button sa header (desktop):**
+- Nakikita: icon lang (sun / moon / monitor mula sa Lucide, dekorasyon lang, aria-hidden)
+- Label para sa screen reader (button): Palitan ang tema
+- Kasalukuyang estado, binabasa kasama ng button o ipinapakita bilang tooltip nito (iisang string, {theme} = System / Maliwanag / Madilim): Tema: {theme}
+  - Mga halimbawa: Tema: System, Tema: Maliwanag, Tema: Madilim
+(Panatilihin ang "Palitan ang tema" bilang pangalan ng button at ang "Tema: Madilim" bilang tooltip o paglalarawan, para parehong available ang aksyon at ang kasalukuyang estado. Gamitin para sa {theme} ang parehong salita ng tatlong opsyon sa itaas. Walang kasarian o pagbabago ng anyo ang mga ito sa Filipino, kaya bagay ang tatlo pagkatapos ng tutuldok.)
+
 ---
 
 ## Mga terminong kukumpirmahin pa (tala ng tagasalin, hindi page copy)
@@ -775,6 +800,9 @@ Pansamantala ang mga terminong ito at kailangang kumpirmahin ng user. Kapag naku
 | analytics / Web Analytics (seksyon 15) | analytics (hal. "mga provider ng hosting at analytics", "data ng analytics"); "Vercel Web Analytics" ay pangalan ng produkto at hindi isinasalin | pagsusuri ng trapiko, estadistika ng pagbisita, analitika | Karaniwang loanword sa tech na pagsusulat sa Pilipinas, at tugma sa pangalan ng produkto. Ang "estadistika" ay ginamit lang para sa "statistics" ("pinagsama-samang estadistika"). Ang "analitika" ay bihirang makita. |
 | cookies (seksyon 15) | cookies (hindi isinasalin; "third-party cookies", "cross-site tracking" na may paliwanag sa panaklong) | mga cookie, cookie file | Ginamit na ang "cookies" sa naunang bersyon ng seksyon 15 at sa tala ng abogado ("cookie notice"). Walang karaniwang salin sa Filipino. |
 | hash (seksyon 15) | hash (hindi isinasalin) | kodigong hash, pinaghalong code, hash value | Pinananatili ng tech na pagsusulat sa Filipino ang "hash"; ang anumang salin ay hindi kilala at puwedeng makalito sa legal na teksto. |
+| Appearance (seksyon 24) | Hitsura | Itsura, Anyo, Display, Tema | Karaniwang salin sa mga setting ng phone at tugma sa paliwanag na "kung ano ang hitsura ng site". Ang "Display" ay mas para sa screen mismo (liwanag, laki ng teksto). |
+| theme / dark mode (seksyon 24) | tema / madilim na tema | dark mode, madilim na mode | "Tema" ang karaniwang salita; "madilim na tema" ang natural na anyo sa Filipino. Ginagamit pa rin ng marami ang "dark mode" sa usapan. |
+| System / Light / Dark (seksyon 24) | System / Maliwanag / Madilim | Sistema, Ayon sa device, Default ng system / Light / Dark | Maiikling salita na kasya sa radio group at sa "Tema: {theme}". Pinanatili ang "System" bilang loanword; bihirang gamitin ang "Sistema" sa mga setting ng app. |
 
 ## Mga tanong na kailangan ng koordinasyon o suporta sa code (tala ng tagasalin)
 

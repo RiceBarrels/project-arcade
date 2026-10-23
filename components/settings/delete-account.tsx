@@ -22,6 +22,7 @@ import { deleteMyAccount, type DeleteResult } from "@/components/settings/action
 import {
   DELETE_CONFIRM_LABEL,
   DELETE_CONFIRM_WORD,
+  isDeleteWord,
   DELETE_DIALOG_BODY,
   DELETE_ERROR,
   DELETED_HEADING,
@@ -110,7 +111,7 @@ export function DeleteAccount({ loanInProgress }: { loanInProgress: boolean }) {
   const mismatchId = `${uid}-mismatch`;
   const errorId = `${uid}-error`;
 
-  const matches = confirm === DELETE_CONFIRM_WORD;
+  const matches = isDeleteWord(confirm);
   const mismatch = confirm.length > 0 && !matches;
 
   function onOpenChange(next: boolean) {

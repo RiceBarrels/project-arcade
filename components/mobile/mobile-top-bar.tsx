@@ -9,7 +9,7 @@ export function MobileTopBar() {
   return (
     <div
       data-mobile-top=""
-      className="shrink-0 border-b-4 border-border bg-primary pt-[env(safe-area-inset-top,0px)] pr-[env(safe-area-inset-right)] pl-[env(safe-area-inset-left)] text-primary-foreground md:hidden"
+      className="shrink-0 border-b-4 border-border bg-primary [--ring:var(--primary-foreground)] pt-[env(safe-area-inset-top,0px)] pr-[env(safe-area-inset-right)] pl-[env(safe-area-inset-left)] text-primary-foreground md:hidden"
     >
       <div className="flex min-h-14 items-center px-4 py-1.5">
         <Link href="/" className="flex min-h-11 items-center">

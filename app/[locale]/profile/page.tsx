@@ -7,6 +7,7 @@ import { ProfileStatsGrid } from "@/components/profile-stats";
 import { ReturnCheck } from "@/components/return-check";
 import { FeedbackTrigger } from "@/components/feedback/feedback-trigger";
 import { LocaleSwitcher } from "@/components/locale-switcher";
+import { AppearanceSettings } from "@/components/theme";
 import { localePath } from "@/i18n/config";
 import { Link } from "@/i18n/link";
 import { alternates, getLocale, getT } from "@/i18n/server";
@@ -71,6 +72,8 @@ async function MyProfile({ searchParams }: { searchParams: PageProps<"/[locale]/
       </section>
 
       <MeLinks />
+      {/* Phones: the "Me" tab stands in for the header's theme button. */}
+      <AppearanceSettings className="md:hidden" />
 
       <ProfileStatsGrid stats={stats} />
 

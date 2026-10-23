@@ -64,7 +64,9 @@ async function Conversations() {
               )}
               <span className="min-w-0 flex-1 space-y-1">
                 <span className="block font-black break-words">
-                  {t.rich("{name} about {item}", { name: <bdi>{name}</bdi>, item: title })}
+                  {other
+                    ? t.rich("{name} about {item}", { name: <bdi>{name}</bdi>, item: title })
+                    : t("Deleted account about {item}", { item: title })}
                 </span>
                 <span dir="auto" className="block text-sm font-medium break-words ltr:text-left rtl:text-right">
                   {title}

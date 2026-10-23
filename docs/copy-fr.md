@@ -327,7 +327,7 @@ Cookies : le site définit deux types de cookies, tous deux nécessaires à son 
 - Un cookie de connexion, défini par notre fournisseur de connexion (Supabase), maintient votre session ouverte. Il peut être divisé en plusieurs parties.
 - Un cookie de langue mémorise la langue que vous avez choisie. Il dure 1 an.
 
-Le site enregistre aussi votre réglage « Vibrer au toucher » et votre progression dans les écrans de prise en main dans le stockage local de votre navigateur, sur votre propre appareil. Il ne s'agit pas d'un cookie, et ces données ne nous sont pas envoyées.
+Le site enregistre aussi votre réglage « Vibrer au toucher », votre choix de thème (Clair ou Sombre ; rien n'est enregistré si vous le laissez sur Système) et votre progression dans les écrans de prise en main dans le stockage local de votre navigateur, sur votre propre appareil. Il ne s'agit pas d'un cookie, et ces données ne nous sont pas envoyées.
 
 Nous ne définissons pas de cookies publicitaires ni de cookies de suivi intersites. [NEEDS REVIEW: d'après la vérification du code faite par le développeur le 2026-10-20 ; à revérifier à chaque ajout.]
 
@@ -343,6 +343,8 @@ Pour faire fonctionner le site : afficher les annonces, gérer les files et les 
 
 ### Partage
 Nous partageons des données avec les fournisseurs de services nécessaires au fonctionnement du site (comme les fournisseurs de base de données et d'hébergement). Nous pouvons divulguer des informations si la loi l'exige. [TO CONFIRM / lawyer: liste complète des sous-traitants.]
+
+**Envoi des e-mails (Resend) (DRAFT, needs review) (BROUILLON, à revoir).** Nous utilisons Resend pour envoyer les e-mails liés à votre compte : vérification de votre adresse e-mail, réinitialisation de votre mot de passe et avis de sécurité. Ces e-mails proviennent de no-reply@project-arcade.ricebarrel.com. Pour les envoyer, Resend reçoit votre adresse e-mail et le contenu du message. Nous utilisons Resend uniquement pour envoyer les e-mails qui concernent votre compte, et Resend ne reçoit votre adresse e-mail qu'à cette fin. Nous n'envoyons pas d'e-mails promotionnels. La politique de confidentialité de Resend indique que Resend transfère des données vers les États-Unis et les y traite. [TO CONFIRM from Resend: (1) si Resend agit en tant que sous-traitant pour notre compte et si un accord de traitement des données est en place ; (2) combien de temps Resend conserve le contenu des e-mails envoyés et les journaux (sa politique de confidentialité n'indique aucune durée) ; (3) les sous-traitants ultérieurs de Resend (Resend en publie la liste sur resend.com/legal/subprocessors). L'avocat doit vérifier la formulation relative aux transferts internationaux.]
 
 ### Conservation et suppression des données
 _Commentaires :_ si vous supprimez votre compte, vos commentaires sont conservés, mais ne vous sont plus liés. [TO CONFIRM: correspond à `user_id ON DELETE SET NULL` dans supabase/08-feedback.sql ; reste à préciser la durée de conservation et si les coordonnées de réponse sont elles aussi supprimées.]
@@ -439,7 +441,7 @@ Pas d'emoji ; utiliser les icônes Lucide.
 - **Titre :** Réinitialise ton mot de passe
 - **Corps :** Saisis ton adresse e-mail et nous t'enverrons un lien pour en définir un nouveau.
 - **Bouton :** Envoyer le lien de réinitialisation
-- **Confirmation :** Si un compte existe pour cette adresse, un lien de réinitialisation est en route.
+- **Confirmation :** Si un compte existe pour cette adresse, un lien de réinitialisation est en route. Il provient de no-reply@project-arcade.ricebarrel.com, alors vérifie aussi ton dossier spam ou courrier indésirable. [NEEDS REVIEW]
 
 ## 17. Textes d'interface, 3e série (connexion, inscription, vérification, messages, paramètres, aperçu)
 
@@ -480,7 +482,7 @@ Règle : le site n'affiche jamais l'adresse e-mail d'un utilisateur, y compris l
 
 **Titre :** Consulte tes e-mails
 **Corps :** Nous avons envoyé un lien de vérification à l'adresse utilisée pour ton inscription. Clique dessus pour activer ton compte.
-**Astuce :** Tu ne le trouves pas ? Vérifie ton dossier spam ou courrier indésirable.
+**Astuce :** Tu ne le trouves pas ? Vérifie ton dossier spam ou courrier indésirable. Nos e-mails proviennent de no-reply@project-arcade.ricebarrel.com. [NEEDS REVIEW]
 **Titre du formulaire de renvoi :** Rien reçu ?
 **Libellé du champ de renvoi :** E-mail
 **Aide pour le renvoi :** Saisis l'adresse e-mail utilisée pour ton inscription et nous t'enverrons le lien de nouveau.
@@ -678,7 +680,7 @@ Distinct de Signaler. Signaler sert uniquement aux abus concernant les objets et
 - Message vide : Écris d'abord un message.
 - Trop long : Ton message est trop long. Raccourcis-le. [limit TBD by the builder] (limite à définir par le développeur)
 - Échec de l'envoi : Impossible d'envoyer tes commentaires. Réessaie.
-- Trop d'envois : Trop d'essais. Attends quelques minutes, puis réessaie.
+- Trop d'envois : Trop d'envois. Attends quelques minutes, puis réessaie.
 
 **Où ça apparaît :** ajouter aussi une ligne dans les petits caractères de la boîte de dialogue Signaler (section 9) : Plutôt un bug ou une idée ? Utilise « Envoyer des commentaires ».
 
@@ -737,6 +739,30 @@ Remplace le contrôle « Choisir des fichiers » du navigateur par un bouton dan
 - Trop de photos : Tu peux ajouter jusqu'à 8 photos. Choisis-en moins.
 - Pas une image : Choisis uniquement des fichiers image.
 
+## 24. Apparence / mode sombre
+
+Affiché sur la page Paramètres / Moi, et sous forme de bouton dans l'en-tête de la page sur ordinateur. Libellés courts ; les trois options forment un choix unique (groupe de boutons radio).
+
+**Titre de la section :** Apparence
+**Courte explication sous le titre :** Choisis l'apparence du site sur cet appareil.
+(Le réglage est enregistré sur cet appareil uniquement, comme celui de la vibration ; la ligne dit donc « sur cet appareil ».)
+
+**Options (libellé visible et description d'une ligne) :**
+- Système : « Système suit le réglage de ton appareil. »
+- Clair : « Clair utilise toujours le thème clair. »
+- Sombre : « Sombre utilise toujours le thème sombre. »
+(Le nom accessible de chaque bouton radio est son libellé visible : exactement « Système », « Clair », « Sombre ». La description y est rattachée avec aria-describedby. Les libellés distincts « Utiliser ... » pour lecteur d'écran ont été abandonnés : « Utiliser le thème de ton appareil » ne contenait pas le mot visible « Système », ce qui ne respecte pas le critère WCAG 2.5.3 (Étiquette dans le nom) pour le contrôle vocal. L'option sélectionnée est annoncée par le groupe de boutons radio lui-même.)
+(Note du traducteur, absente de l'anglais : « Clair » et « Sombre » sont au masculin et s'accordent avec « thème », ce qui convient à la fois aux libellés seuls et à « Thème : {theme} ».)
+
+**Libellé du groupe pour lecteur d'écran (groupe de boutons radio) :** Thème
+
+**Bouton de l'en-tête sur ordinateur :**
+- Visible : icône seule (soleil / lune / écran de Lucide, décorative, aria-hidden)
+- Libellé pour lecteur d'écran (bouton) : Changer de thème
+- État actuel, lu avec le bouton ou affiché en infobulle (une seule chaîne, {theme} = Système / Clair / Sombre) : Thème : {theme}
+  - Exemples : « Thème : Système », « Thème : Clair », « Thème : Sombre »
+(Garder « Changer de thème » comme nom du bouton et « Thème : Sombre » comme infobulle ou description, pour que l'action et l'état actuel soient tous deux disponibles. {theme} est remplacé par les mêmes mots que les trois options ci-dessus.)
+
 ---
 
 ## Termes à confirmer (note du traducteur, ne fait pas partie du texte des pages)
@@ -779,6 +805,10 @@ Les termes ci-dessous sont des choix provisoires de cette traduction et doivent 
 | non-profit | sans but lucratif | à but non lucratif (plus fréquent en France), OBNL (Québec) | Compris dans les deux pays et usuel au Canada. |
 | ads | pub (interface) / publicité (textes juridiques) | réclame | « Pub » est courant en France et au Québec. |
 | buttons | infinitif pour les actions (« Envoyer », « Se connecter »), impératif « tu » pour les appels à l'action (« Parcours le catalogue », « Propose ton matériel ») | tout à l'infinitif | Convention française courante ; à confirmer pour la cohérence du code. |
+| Appearance (section 24) | Apparence | Affichage, Thème | Terme usuel des systèmes (macOS, iOS) et des sites pour ce réglage. |
+| System / Light / Dark (section 24) | Système / Clair / Sombre | Automatique (macOS, iOS), Selon l'appareil ; Mode clair / Mode sombre | Courts et usuels ; au masculin, ils s'accordent avec « thème » dans « Thème : {theme} ». |
+| theme | thème | apparence, mode | Terme courant, masculin. |
+| dark mode | mode sombre | thème sombre, mode nuit | Forme usuelle en France et au Québec (Android, Windows, iOS). |
 
 ## Questions nécessitant coordination ou prise en charge par le code (note du traducteur)
 

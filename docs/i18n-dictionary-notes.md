@@ -375,3 +375,38 @@ Edited by one agent per language and checked by a second; `bun run i18n:check` p
 - `{date}` is now Intl month and year (for example 2026年3月, mars 2026, март 2026 г.). ru changed from "на сайте с {date}" because "с" needs the genitive and Intl gives the nominative.
 - "=0" forms were added to the five browse and queue count keys in every language (for example "Aucun objet", "Ningún artículo en {category}", "Твоя очередь пуста").
 - Step titles now match each language's other step titles (es and pt imperative, ru imperative Ищи).
+
+## ja (added 2026-10-21)
+
+Built by one agent and reviewed key by key by a second, independent agent. `bun run i18n:check ja`: ok 432 keys. Register: sentences in です・ます; buttons, labels, tabs and badges in noun or dictionary form. Every character checked to encode in cp932 (no Simplified Chinese glyph forms). Machine-assisted; no native-speaker review.
+
+**Reviewer fixes:**
+- "{count} items" =0: changed 該当するアイテムはありません to アイテムはありません. This count line also shows when the browse page has no search or category filter, and 該当する ('matching') is wrong there (browse/page.tsx:64).
+- "{count} items in your queue": removed the =0 branch (順番待ちリストは空です). The heading (queue-list.tsx:53) sits right above the empty state 順番待ちリストは空です。<link>..., so the same sentence appeared twice. Zero now falls into other: 順番待ちリスト：0件.
+- "Community so far": changed これまでのコミュニティ to コミュニティのこれまで. The old wording can read as 'the community as it used to be'. This is the hidden heading over the home-page stats.
+- "On loan. You're in line for when it comes back.": changed 返ってきたときのために、順番待ちに並んでいます to 返ってきたら借りられるよう、順番待ちに並んでいます. The old wording was a literal translation.
+- "per loan": changed 貸し出し1回あたり to 1回あたり. It is a menu option in a w-36 (144px) select trigger (list-form.tsx:159), and at the 16px mobile font 9 characters plus padding and the icon do not fit, so the text gets cut off. The item card text "{amount} per loan" keeps 貸し出し1回あたり{amount}.
+- "Returned damaged": changed 破損して返却 to 破損して返した. It is used only in profile-stats.tsx:14 with the hint 借り手として, so it now pairs with 破損して返ってきた (as lender) and with 貸した回数 / 借りた回数.
+
+**Decided by the translator or reviewer:**
+- I removed the =0 branch for the queue count instead of rewording it. The code shows its own empty-state sentence right below the heading, and =0 is optional (docs/i18n.md).
+- I kept the =0 branches on the search and category counts ({q}, {category}). They match the pattern in zh, zh-hant and ko and read as normal Japanese status lines.
+- I shortened the "per loan" menu option to 1回あたり to fit the 144px trigger. Next to the 1日あたり and 1週間あたり options and the fee field, its meaning stays clear.
+- I left "Damage: {damage}" and "Damage price: {price}" as 弁償額：{...}. When the lender sets no charge, they show 弁償額：破損時の請求なし. That is a bit repetitive, but the English repeats in the same way.
+- I left "Screen {step} of {total}" as {total}画面中{step}画面目 (adding 全 would also be fine) and "Fee period" as 利用料の単位.
+
+**For native review or code follow-up:**
+- Code decision: 削除済みアカウントさん. When the other person's account is deleted, the code puts t("Deleted account") into {name}, so the screen shows 削除済みアカウントさん. Affected: thread-view.tsx:46 ("{item} with {name}"), messages/page.tsx:67 ("{name} about {item}") and return-check.tsx:77 via profile/page.tsx:88. The decided register puts さん in the string, so I did not drop it. The fix is a code branch: a separate key for the deleted-account case, or don't use {name} there.
+- Ellipsis on loading buttons: ja uses three plain dots (削除中..., 保存中...) as ja-terms.json and copy-ja 17.10 decide. Copy-ja makes that rule conditional on the codebase avoiding the ellipsis character, but en.json uses "…" (U+2026), and that character encodes in cp932 and is the normal mark in Japanese typography. Please confirm whether ja should switch to …
+- Shared key "Too many tries. Please wait a few minutes and try again." uses 試行回数が多すぎます (copy 17.1, the login case). The same key also appears in the feedback form, where copy 19 has 送信回数が多すぎます. It needs a separate key in code, or a neutral wording a reviewer is happy with.
+- "Declined" is お断り as the decided lender-side term, but the loan status badge (loan-status-badge.tsx) is also seen by the borrower. Please check that it sounds right from the borrower's side.
+- The onboarding body uses 本サイト (from copy-ja 18.1) while the other UI strings say このサイト / サイト. This このサイト vs 本サイト question is still open from the copy reviews.
+- The separator ・ replaces the English ' · ' in four strings, as the builder reported. I agree with the change; a reviewer can confirm it.
+
+
+## Update 2026-10-21: Appearance / dark mode (11 keys, section 24)
+
+- Values copied from section 24 of each `docs/copy-<code>.md` (translated and checked independently per language). `bun run i18n:check` passes with 447 keys.
+- Punctuation follows each dictionary's existing convention, so two values differ slightly from the copy doc: zh uses a full-width colon (主题：{theme}, as in 最后更新：{date}) while `docs/copy-zh.md` uses half-width punctuation throughout; fr uses a no-break space before the colon (Thème\u00a0: {theme}), as in "Dernière mise à jour".
+- The option descriptions are shown directly under the label (components/theme.tsx), so a description that starts with the label ("System follows ...") repeats it. ar, vi and tl use "Label: ..." for this; the other languages mirror the English. Native reviewers may prefer dropping the repeated label.
+- The privacy local-storage sentence now mentions the theme choice (5号, 2026-10-21; stored only in localStorage, no cookie): Light or Dark is stored, and nothing is stored if the setting is left on System. It uses the section 24 labels. Updated in all 12 `docs/legal-drafts/<code>/privacy.md` and in section 15 of each copy doc. Still needs lawyer review.

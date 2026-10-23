@@ -328,7 +328,7 @@ Cookie: trang thiết lập hai loại cookie, cả hai đều cần thiết đ�
 - Cookie đăng nhập, do nhà cung cấp dịch vụ đăng nhập của chúng tôi (Supabase) thiết lập, giữ cho Quý vị ở trạng thái đăng nhập. Cookie này có thể được chia thành nhiều phần.
 - Cookie ngôn ngữ ghi nhớ ngôn ngữ mà Quý vị đã chọn. Cookie này được lưu trong 1 năm.
 
-Trang cũng lưu cài đặt rung khi chạm của Quý vị và tiến độ của Quý vị trong các màn hình hướng dẫn ban đầu vào bộ nhớ cục bộ (local storage) của trình duyệt, ngay trên thiết bị của chính Quý vị. Đây không phải là cookie và không được gửi cho chúng tôi.
+Trang cũng lưu cài đặt rung khi chạm của Quý vị, lựa chọn giao diện của Quý vị (Sáng hoặc Tối; nếu Quý vị để ở Tự động thì không có thông tin nào được lưu) và tiến độ của Quý vị trong các màn hình hướng dẫn ban đầu vào bộ nhớ cục bộ (local storage) của trình duyệt, ngay trên thiết bị của chính Quý vị. Đây không phải là cookie và không được gửi cho chúng tôi.
 
 Chúng tôi không thiết lập cookie quảng cáo hay cookie theo dõi trên nhiều trang web. [NEEDS REVIEW: dựa trên việc người lập trình kiểm tra mã nguồn vào ngày 2026-10-20; cần kiểm tra lại khi có bất kỳ thứ gì được thêm vào.]
 
@@ -344,6 +344,8 @@ Chúng tôi không thiết lập cookie quảng cáo hay cookie theo dõi trên 
 
 ### Chia sẻ
 Chúng tôi chia sẻ dữ liệu với các nhà cung cấp dịch vụ cần thiết để vận hành trang (như nhà cung cấp cơ sở dữ liệu và dịch vụ lưu trữ web). Chúng tôi có thể tiết lộ thông tin nếu pháp luật yêu cầu. [TO CONFIRM / lawyer: danh sách đầy đủ các bên xử lý dữ liệu.]
+
+**Gửi email (Resend) (DRAFT, needs review) (BẢN NHÁP, cần xem xét).** Chúng tôi dùng Resend để gửi các email cho tài khoản của Quý vị: xác minh email của Quý vị, đặt lại mật khẩu của Quý vị và các thông báo bảo mật. Các email này được gửi từ no-reply@project-arcade.ricebarrel.com. Để gửi các email này, Resend nhận địa chỉ email của Quý vị và nội dung của thư. Chúng tôi chỉ dùng Resend để gửi các email liên quan đến tài khoản của Quý vị, và Resend chỉ nhận địa chỉ email của Quý vị cho mục đích đó. Chúng tôi không gửi email tiếp thị. Theo chính sách quyền riêng tư của Resend, Resend chuyển dữ liệu sang Hoa Kỳ và xử lý dữ liệu tại đó. [TO CONFIRM from Resend: (1) liệu Resend có đóng vai trò là bên xử lý dữ liệu cho chúng tôi hay không và đã có thỏa thuận xử lý dữ liệu hay chưa; (2) Resend lưu giữ nội dung email đã gửi và nhật ký trong bao lâu (chính sách quyền riêng tư của Resend không nêu thời hạn); (3) các bên xử lý phụ của Resend (Resend liệt kê các bên này tại resend.com/legal/subprocessors). Luật sư cần kiểm tra câu chữ về việc chuyển dữ liệu ra nước ngoài.]
 
 ### Lưu giữ và xóa dữ liệu
 _Góp ý:_ nếu Quý vị xóa tài khoản, góp ý của Quý vị vẫn được giữ lại nhưng không còn liên kết với Quý vị. [TO CONFIRM: khớp với `user_id ON DELETE SET NULL` trong supabase/08-feedback.sql; thời hạn lưu giữ, và liệu thông tin liên hệ để trả lời có bị xóa theo hay không.]
@@ -440,7 +442,7 @@ Không dùng emoji; dùng biểu tượng Lucide.
 - **Tiêu đề:** Đặt lại mật khẩu
 - **Nội dung:** Nhập email của bạn, chúng tôi sẽ gửi một liên kết để bạn đặt mật khẩu mới.
 - **Nút:** Gửi liên kết đặt lại
-- **Xác nhận:** Nếu có tài khoản dùng email đó, liên kết đặt lại đang trên đường tới.
+- **Xác nhận:** Nếu có tài khoản dùng email đó, liên kết đặt lại đang trên đường tới. Email được gửi từ no-reply@project-arcade.ricebarrel.com, nên hãy xem cả thư mục spam hoặc thư rác. [NEEDS REVIEW]
 
 ## 17. Nội dung giao diện vòng 3 (đăng nhập, đăng ký, xác minh, tin nhắn, cài đặt, xem trước)
 
@@ -481,7 +483,7 @@ Quy tắc: trang không bao giờ hiển thị địa chỉ email của bất k�
 
 **Tiêu đề:** Kiểm tra email của bạn
 **Nội dung:** Chúng tôi đã gửi liên kết xác minh tới địa chỉ bạn dùng để đăng ký. Nhấn vào liên kết để kích hoạt tài khoản.
-**Mẹo:** Không thấy? Hãy xem trong thư mục spam hoặc thư rác.
+**Mẹo:** Không thấy? Hãy xem trong thư mục spam hoặc thư rác. Email của chúng tôi được gửi từ no-reply@project-arcade.ricebarrel.com. [NEEDS REVIEW]
 **Tiêu đề form gửi lại:** Chưa nhận được?
 **Nhãn ô gửi lại:** Email
 **Hướng dẫn gửi lại:** Nhập email bạn đã dùng để đăng ký, chúng tôi sẽ gửi lại liên kết.
@@ -679,7 +681,7 @@ Tách riêng với Báo cáo. Báo cáo chỉ dùng cho hành vi lạm dụng li
 - Chưa viết nội dung: Vui lòng viết nội dung trước đã.
 - Quá dài: Nội dung của bạn quá dài. Vui lòng rút ngắn lại. [limit TBD by the builder] (ghi chú: giới hạn ký tự do người lập trình quyết định)
 - Gửi thất bại: Không gửi được góp ý của bạn. Vui lòng thử lại.
-- Gửi quá nhiều lần: Bạn đã thử quá nhiều lần. Vui lòng đợi vài phút rồi thử lại.
+- Gửi quá nhiều lần: Bạn đã gửi quá nhiều lần. Vui lòng đợi vài phút rồi thử lại.
 
 **Vị trí hiển thị:** thêm một dòng vào chữ nhỏ dưới hộp thoại Báo cáo (mục 9): Gặp lỗi hoặc có ý tưởng? Hãy dùng Gửi góp ý thay vì báo cáo.
 
@@ -737,6 +739,29 @@ Thay nút “Choose files” mặc định của trình duyệt bằng một nú
 - Quá nhiều ảnh: Bạn có thể thêm tối đa 8 ảnh. Vui lòng chọn ít ảnh hơn.
 - Không phải tệp ảnh: Vui lòng chỉ chọn tệp ảnh.
 
+## 24. Giao diện / chế độ tối
+
+Hiển thị trong trang cài đặt / trang Tôi, và dưới dạng một nút trên thanh đầu trang khi xem trên máy tính. Nhãn ngắn; chỉ chọn được một trong ba lựa chọn (nhóm nút chọn, radio group).
+
+**Tiêu đề mục:** Giao diện
+**Câu giải thích ngắn dưới tiêu đề:** Chọn cách trang hiển thị trên thiết bị này.
+(Lựa chọn chỉ được lưu trên thiết bị này, giống như cài đặt rung, nên câu này nói “trên thiết bị này”.)
+
+**Các lựa chọn (nhãn hiển thị và mô tả một dòng):**
+- Tự động: “Tự động: làm theo cài đặt trên thiết bị của bạn.”
+- Sáng: “Sáng: luôn dùng giao diện sáng.”
+- Tối: “Tối: luôn dùng giao diện tối.”
+(Tên dành cho công nghệ hỗ trợ (accessible name) của mỗi nút chọn chính là nhãn hiển thị của nó: chính xác là “Tự động”, “Sáng”, “Tối”. Phần mô tả được gắn bằng aria-describedby. Các nhãn riêng cho trình đọc màn hình dạng “Dùng ...” đã được bỏ: “Dùng giao diện theo thiết bị của bạn” không chứa chữ hiển thị “Tự động”, nên không đạt tiêu chí WCAG 2.5.3 (nhãn nằm trong tên) khi người dùng điều khiển bằng giọng nói. Lựa chọn đang được chọn do chính nhóm nút chọn thông báo. Mỗi mô tả bắt đầu bằng đúng nhãn của lựa chọn, theo sau là dấu hai chấm, vì trong tiếng Việt “Sáng luôn dùng…” không tự nhiên.)
+
+**Nhãn nhóm cho trình đọc màn hình (nhóm nút chọn):** Giao diện
+
+**Nút trên thanh đầu trang (máy tính):**
+- Hiển thị: chỉ có biểu tượng (mặt trời / mặt trăng / màn hình máy tính từ Lucide, chỉ để trang trí, aria-hidden)
+- Nhãn cho trình đọc màn hình (nút): Đổi giao diện
+- Trạng thái hiện tại, được đọc cùng nút hoặc hiển thị làm chú thích khi rê chuột (tooltip) (một chuỗi, {theme} = Tự động / Sáng / Tối): Giao diện: {theme}
+  - Ví dụ: Giao diện: Tự động, Giao diện: Sáng, Giao diện: Tối
+(Giữ “Đổi giao diện” làm tên của nút và “Giao diện: Tối” làm chú thích / mô tả, để cả hành động lẫn trạng thái hiện tại đều có. {theme} được thay bằng đúng ba nhãn lựa chọn ở trên.)
+
 ---
 
 ## Thuật ngữ chờ xác nhận (ghi chú của người dịch, không phải nội dung trang)
@@ -771,6 +796,9 @@ Các từ dưới đây là cách dùng tạm thời trong bản dịch này và
 | thank you | cảm ơn | cám ơn | “Cảm ơn” là chính tả chuẩn; “cám ơn” phổ biến ở miền Nam, cả hai đều đúng. |
 | analytics / Web Analytics | phân tích truy cập (dịch vụ phân tích truy cập, dữ liệu phân tích); tên sản phẩm Vercel Web Analytics giữ nguyên | phân tích web, thống kê truy cập, phân tích lưu lượng | “Phân tích truy cập” cho người đọc thấy rõ thứ được phân tích là các lượt truy cập trang, không phải dữ liệu tài khoản. “Phân tích web” cũng phổ biến nhưng mơ hồ hơn với người không rành công nghệ. Khi đã rõ ngữ cảnh thì rút gọn thành “dữ liệu phân tích”. Dùng ở mục 15. |
 | cookie / cookies | cookie (không dịch, không thêm “s”) | tệp cookie, tệp lưu trữ tạm, bánh quy | Trang web và văn bản quyền riêng tư ở Việt Nam thường giữ nguyên từ “cookie”; tiếng Việt không chia số nhiều nên dùng “các cookie”. File đã dùng “cookie” ở mục 15 trước đây. “Bánh quy” là dịch nghĩa đen, không dùng. |
+| Appearance / theme | Giao diện (cả tiêu đề mục, nhãn nhóm và “Theme: {theme}”) | Chủ đề, Hình thức, Chế độ hiển thị | “Giao diện” là chữ iPhone, máy Mac và YouTube tiếng Việt dùng cho việc chọn sáng / tối. “Chủ đề” cũng có trong một số ứng dụng Google nhưng dễ hiểu nhầm là đề tài. Tiếng Anh tách Appearance và Theme; tiếng Việt dùng một từ cho cả hai là bình thường. |
+| System / Light / Dark | Tự động / Sáng / Tối | Hệ thống, Theo hệ thống, Theo thiết bị / Chế độ sáng / Chế độ tối | “Tự động” theo cách gọi của Apple, đọc tự nhiên trong câu mô tả. “Hệ thống” sát nghĩa tiếng Anh (Google dùng “Mặc định hệ thống”) nhưng khi đứng một mình hơi khó hiểu với người không rành công nghệ. |
+| dark mode | chế độ tối | giao diện tối, chế độ ban đêm | Cách gọi phổ biến trên điện thoại và ứng dụng ở Việt Nam. |
 | hash | giá trị băm (hash) | mã băm, hàm băm, hash (không dịch) | “Băm” là thuật ngữ tin học tiếng Việt chuẩn; “giá trị băm” chỉ đúng kết quả được tạo ra (không phải hàm). Giữ “(hash)” trong ngoặc ở lần đầu cho người quen thuật ngữ tiếng Anh. |
 
 ## Câu hỏi cần phối hợp hoặc cần code hỗ trợ (ghi chú của người dịch)

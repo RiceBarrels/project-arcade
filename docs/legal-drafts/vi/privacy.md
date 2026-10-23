@@ -45,7 +45,7 @@ Cookie: trang thiết lập hai loại cookie, cả hai đều cần thiết đ�
 - Cookie đăng nhập, do nhà cung cấp dịch vụ đăng nhập của chúng tôi (Supabase) thiết lập, giữ cho Quý vị ở trạng thái đăng nhập. Cookie này có thể được chia thành nhiều phần.
 - Cookie ngôn ngữ ghi nhớ ngôn ngữ mà Quý vị đã chọn. Cookie này được lưu trong 1 năm.
 
-Trang cũng lưu cài đặt rung khi chạm của Quý vị và tiến độ của Quý vị trong các màn hình hướng dẫn ban đầu vào bộ nhớ cục bộ (local storage) của trình duyệt, ngay trên thiết bị của chính Quý vị. Đây không phải là cookie và không được gửi cho chúng tôi.
+Trang cũng lưu cài đặt rung khi chạm của Quý vị, lựa chọn giao diện của Quý vị (Sáng hoặc Tối; nếu Quý vị để ở Tự động thì không có thông tin nào được lưu) và tiến độ của Quý vị trong các màn hình hướng dẫn ban đầu vào bộ nhớ cục bộ (local storage) của trình duyệt, ngay trên thiết bị của chính Quý vị. Đây không phải là cookie và không được gửi cho chúng tôi.
 
 Chúng tôi không thiết lập cookie quảng cáo hay cookie theo dõi trên nhiều trang web. [NEEDS REVIEW: dựa trên việc người lập trình kiểm tra mã nguồn vào ngày 2026-10-20; cần kiểm tra lại khi có bất kỳ thứ gì được thêm vào.]
 
@@ -64,6 +64,8 @@ Chúng tôi không thiết lập cookie quảng cáo hay cookie theo dõi trên 
 ## Chia sẻ
 
 Chúng tôi chia sẻ dữ liệu với các nhà cung cấp dịch vụ cần thiết để vận hành trang (như nhà cung cấp cơ sở dữ liệu và dịch vụ lưu trữ web). Chúng tôi có thể tiết lộ thông tin nếu pháp luật yêu cầu. [TO CONFIRM / luật sư: danh sách đầy đủ các bên xử lý dữ liệu.]
+
+**Gửi email (Resend) (BẢN NHÁP, cần xem xét).** Chúng tôi dùng Resend để gửi các email cho tài khoản của Quý vị: xác minh email của Quý vị, đặt lại mật khẩu của Quý vị và các thông báo bảo mật. Các email này được gửi từ no-reply@project-arcade.ricebarrel.com. Để gửi các email này, Resend nhận địa chỉ email của Quý vị và nội dung của thư. Chúng tôi chỉ dùng Resend để gửi các email liên quan đến tài khoản của Quý vị, và Resend chỉ nhận địa chỉ email của Quý vị cho mục đích đó. Chúng tôi không gửi email tiếp thị. Theo chính sách quyền riêng tư của Resend, Resend chuyển dữ liệu sang Hoa Kỳ và xử lý dữ liệu tại đó. [TO CONFIRM: kiểm tra với Resend: (1) liệu Resend có đóng vai trò là bên xử lý dữ liệu cho chúng tôi hay không và đã có thỏa thuận xử lý dữ liệu hay chưa; (2) Resend lưu giữ nội dung email đã gửi và nhật ký trong bao lâu (chính sách quyền riêng tư của Resend không nêu thời hạn); (3) các bên xử lý phụ của Resend (Resend liệt kê các bên này tại resend.com/legal/subprocessors). Luật sư cần kiểm tra câu chữ về việc chuyển dữ liệu ra nước ngoài.]
 
 ## Lưu giữ và xóa dữ liệu
 

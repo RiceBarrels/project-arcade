@@ -199,7 +199,7 @@ function OfferCard({ row, onClaim, onPass }: { row: QueueRow; onClaim: () => voi
   const prefix = `ack-${row.entryId}`;
 
   return (
-    <div className={`space-y-3 rounded-lg border-4 border-border p-4 shadow ${lastCall ? "bg-destructive text-white" : "bg-accent text-accent-foreground"}`}>
+    <div className={`space-y-3 rounded-lg border-4 border-border p-4 shadow ${lastCall ? "bg-destructive text-destructive-foreground" : "bg-accent text-accent-foreground"}`}>
       <p className="flex items-center gap-2 text-sm font-black uppercase">
         <Clock className="size-4" aria-hidden /> {t("You're up next! #1 of {total}", { total: row.lineLength })}
       </p>
@@ -265,7 +265,7 @@ function OfferCard({ row, onClaim, onPass }: { row: QueueRow; onClaim: () => voi
         <div className="flex flex-wrap gap-2">
           <Button onClick={() => setConfirming(true)} className="bg-background text-foreground">{t("Claim it")}</Button>
           <Button variant="outline" onClick={onPass}>{t("Pass for now")}</Button>
-          <Button asChild variant="link" className={lastCall ? "text-white" : "text-accent-foreground"}>
+          <Button asChild variant="link" className={lastCall ? "text-destructive-foreground" : "text-accent-foreground"}>
             <Link href={`/item/${row.item.id}`}>{t("View item")}</Link>
           </Button>
         </div>

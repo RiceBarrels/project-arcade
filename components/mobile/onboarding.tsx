@@ -88,7 +88,7 @@ export function Onboarding({ userId }: { userId: string }) {
   return (
     <DialogPrimitive.Root open={open} onOpenChange={(o) => (o ? setOpen(true) : close())}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/40" />
+        <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/40 dark:bg-black/70" />
         <DialogPrimitive.Content
           aria-describedby="onboarding-text"
           className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-background pt-[env(safe-area-inset-top,0px)] pr-[env(safe-area-inset-right)] pb-[max(env(safe-area-inset-bottom),1rem)] pl-[env(safe-area-inset-left)] outline-none md:inset-auto md:top-1/2 md:left-1/2 md:max-h-[calc(100dvh-2rem)] md:w-full md:max-w-md md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-xl md:border-4 md:border-border md:pb-5 md:shadow"

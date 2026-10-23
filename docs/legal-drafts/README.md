@@ -1,4 +1,4 @@
-# Legal page drafts (terms and privacy, 11 languages)
+# Legal page drafts (terms and privacy, 12 languages)
 
 - **Date:** 2026-10-20
 - **Status:** machine-assisted draft — needs native-speaker review. Every file also needs lawyer review (see the DRAFT note at the top of each file). Nothing here has been reviewed by a native speaker or a lawyer.
@@ -11,6 +11,7 @@
 | en | English (source) | `en/terms.md`, `en/privacy.md` |
 | zh | Simplified Chinese | `zh/terms.md`, `zh/privacy.md` |
 | zh-hant | Traditional Chinese (Taiwan base) | `zh-hant/terms.md`, `zh-hant/privacy.md` |
+| ja | Japanese (added 2026-10-21) | `ja/terms.md`, `ja/privacy.md` |
 | es | Spanish (neutral Latin American) | `es/terms.md`, `es/privacy.md` |
 | fr | French | `fr/terms.md`, `fr/privacy.md` |
 | ar | Arabic (MSA, RTL) | `ar/terms.md`, `ar/privacy.md` |
@@ -24,6 +25,7 @@
 
 - `en/*` is `docs/copy-en.md` section 8 (terms) and section 15 (privacy), laid out to match the live `/terms` and `/privacy` pages.
 - `<code>/*` is section 8 and section 15 of `docs/copy-<code>.md`, copied verbatim (no new translation in these files). If a translation changes, change `docs/copy-<code>.md` and the page file together.
+- `bun run i18n:check` fails when a `content/legal/<code>/*.md` page differs from its file here (since 2026-10-21). After changing a draft, tell 1号 to copy it to `content/legal`.
 - Register: these pages use the formal form in every language (glossary section 4). Do not mix in UI strings, which are informal.
 
 ## Layout (same in every language)

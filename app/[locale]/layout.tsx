@@ -6,6 +6,7 @@ import { fontVariables } from "../fonts";
 import { SiteAnalytics } from "@/components/analytics";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ThemeSync } from "@/components/theme";
 import { BottomNav, BottomNavBar } from "@/components/mobile/bottom-nav";
 import { MobileTopBar } from "@/components/mobile/mobile-top-bar";
 import { NavEffects } from "@/components/mobile/nav-effects";
@@ -14,7 +15,8 @@ import { getCurrentUser } from "@/lib/data/session";
 import { I18nProvider } from "@/i18n/client";
 import { LOCALE_INFO } from "@/i18n/config";
 import { alternates, getClientMessages, getT } from "@/i18n/server";
-import { isLocale, LOCALES, SITE_DESCRIPTION, SITE_NAME, SITE_STAGE, SITE_TAGLINE, SITE_URL } from "@/lib/site";
+import { ALLOW_SEARCH_INDEXING, isLocale, LOCALES, SITE_DESCRIPTION, SITE_NAME, SITE_STAGE, SITE_TAGLINE, SITE_URL } from "@/lib/site";
+import { THEME_COLOR, THEME_SCRIPT } from "@/lib/theme";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getT();
@@ -24,6 +26,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description: t(SITE_DESCRIPTION),
     // Pages set their own; this covers the home page.
     alternates: await alternates("/"),
+    // Pre-alpha: no indexing (lib/site.ts). Pages don't set robots, so this applies everywhere.
+    robots: { index: ALLOW_SEARCH_INDEXING, follow: ALLOW_SEARCH_INDEXING },
     // Home-screen install (app/manifest.ts is linked automatically). "default"
     // status bar: iOS keeps its own bar above the page, so the clock stays readable
     // over both the red top bar and the white back bar.
@@ -41,8 +45,12 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  // Browser / installed-app status bar colour: the top bar's red.
-  themeColor: "#ff3333",
+  // Browser / installed-app status bar colour: the top bar's red in each theme.
+  // These follow the device setting; THEME_SCRIPT adds one for a manual choice.
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: THEME_COLOR.light },
+    { media: "(prefers-color-scheme: dark)", color: THEME_COLOR.dark },
+  ],
 };
 
 export function generateStaticParams() {
@@ -58,7 +66,12 @@ export default async function RootLayout({
   if (!isLocale(locale)) notFound();
   const info = LOCALE_INFO[locale];
   return (
-    <html lang={info.htmlLang} dir={info.dir} className={`${fontVariables} h-full antialiased`}>
+    // suppressHydrationWarning: THEME_SCRIPT adds class="dark" and data-theme-pref
+    // before hydration (lib/theme.ts); React keeps them.
+    <html lang={info.htmlLang} dir={info.dir} className={`${fontVariables} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       {/* Phones: app layout. The body is exactly one screen tall and never
           scrolls; the top bar and the fixed bottom bar stay put and only the
           content area in between scrolls (relative, so absolutely positioned
@@ -82,6 +95,7 @@ export default async function RootLayout({
             <OnboardingGate />
           </Suspense>
         </I18nProvider>
+        <ThemeSync />
         <SiteAnalytics />
       </body>
     </html>

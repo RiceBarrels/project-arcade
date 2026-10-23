@@ -4,17 +4,27 @@ import "./globals.css";
 import { fontVariables } from "./fonts";
 import { BottomNavBar } from "@/components/mobile/bottom-nav";
 import { MobileTopBar } from "@/components/mobile/mobile-top-bar";
+import { ThemeSync } from "@/components/theme";
 import { I18nProvider } from "@/i18n/client";
 import { LOCALE_INFO, localePath } from "@/i18n/config";
 import { getClientMessages, getTFor } from "@/i18n/server";
-import { DEFAULT_LOCALE, isLocale, SITE_NAME } from "@/lib/site";
+import { ALLOW_SEARCH_INDEXING, DEFAULT_LOCALE, isLocale, SITE_NAME } from "@/lib/site";
+import { THEME_COLOR, THEME_SCRIPT } from "@/lib/theme";
 
 // Renders per request (it reads the x-pa-locale header), so no static shell.
 // It's a small page with no data fetching, so blocking on it costs nothing.
 export const instant = false;
 
 // Same as app/[locale]/layout.tsx: bars reach under the notch, pinch zoom stays allowed.
-export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover", themeColor: "#ff3333" };
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: THEME_COLOR.light },
+    { media: "(prefers-color-scheme: dark)", color: THEME_COLOR.dark },
+  ],
+};
 
 /** Language of the dead link: proxy.ts passes it in x-pa-locale; English otherwise. */
 async function notFoundLocale() {
@@ -27,6 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${t("Page not found")} | ${SITE_NAME}`,
     description: t("The page or item you were looking for doesn't exist, or it's been taken down."),
+    robots: { index: ALLOW_SEARCH_INDEXING, follow: ALLOW_SEARCH_INDEXING },
     icons: { icon: [{ url: "/icon.svg", type: "image/svg+xml" }], apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }] },
   };
 }
@@ -38,7 +49,11 @@ export default async function GlobalNotFound() {
   const t = getTFor(locale);
   const info = LOCALE_INFO[locale];
   return (
-    <html lang={info.htmlLang} dir={info.dir} className={`${fontVariables} h-full antialiased`}>
+    // Same theme script as app/[locale]/layout.tsx.
+    <html lang={info.htmlLang} dir={info.dir} className={`${fontVariables} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       <body className="flex min-h-full flex-col bg-background text-foreground max-md:h-dvh max-md:overflow-hidden">
         <I18nProvider locale={locale} messages={getClientMessages(locale)}>
           <MobileTopBar />
@@ -62,6 +77,7 @@ export default async function GlobalNotFound() {
           </div>
           <BottomNavBar active={null} />
         </I18nProvider>
+        <ThemeSync />
       </body>
     </html>
   );

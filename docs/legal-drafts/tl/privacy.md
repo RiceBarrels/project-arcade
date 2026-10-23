@@ -45,7 +45,7 @@ Cookies: dalawang uri ng cookies ang itinatakda ng site, at parehong kailangan a
 - Pinapanatili kayong naka-sign in ng isang cookie para sa pag-sign in, na itinatakda ng aming provider ng pag-sign in (Supabase). Puwede itong hatiin sa ilang bahagi.
 - Tinatandaan ng isang cookie para sa wika ang wikang pinili ninyo. Tumatagal ito nang 1 taon.
 
-Iniimbak din ng site ang inyong setting na "Mag-vibrate kapag nag-tap" at ang progreso ninyo sa mga screen ng onboarding sa local storage ng inyong browser, sa sarili ninyong device. Hindi ito cookie at hindi ito ipinapadala sa amin.
+Iniimbak din ng site ang inyong setting na "Mag-vibrate kapag nag-tap", ang napili ninyong tema (Maliwanag o Madilim; walang iniimbak kung iiwan ninyo ito sa System) at ang progreso ninyo sa mga screen ng onboarding sa local storage ng inyong browser, sa sarili ninyong device. Hindi ito cookie at hindi ito ipinapadala sa amin.
 
 Hindi kami nagtatakda ng cookies para sa advertising o para sa cross-site tracking (pagsubaybay sa iba't ibang site). [NEEDS REVIEW: batay sa pagsusuri ng builder sa code noong 2026-10-20; suriin ulit kapag may idinagdag.]
 
@@ -64,6 +64,8 @@ Para patakbuhin ang site: ipakita ang mga listing, pamahalaan ang mga pila at re
 ## Pagbabahagi
 
 Ibinabahagi namin ang data sa mga service provider na kailangan para patakbuhin ang site (gaya ng mga provider ng database at hosting). Puwede kaming magbunyag ng impormasyon kung hinihingi ng batas. [TO CONFIRM / abogado: kumpletong listahan ng mga processor.]
+
+**Paghahatid ng email (Resend) (BORADOR, kailangang suriin).** Ginagamit namin ang Resend para magpadala ng mga email para sa inyong account: pag-verify ng inyong email, pag-reset ng inyong password, at mga abiso tungkol sa seguridad. Nanggagaling ang mga email na ito sa no-reply@project-arcade.ricebarrel.com. Para maipadala ang mga ito, natatanggap ng Resend ang inyong email address at ang nilalaman ng mensahe. Ginagamit lang namin ang Resend para magpadala ng mga email na may kaugnayan sa inyong account, at natatanggap lang ng Resend ang inyong email address para sa layuning iyon. Hindi kami nagpapadala ng mga email para sa marketing. Ayon sa patakaran sa privacy ng Resend, inililipat nito ang data sa United States at doon ito pinoproseso. [TO CONFIRM: mula sa Resend: (1) kung kumikilos ang Resend bilang aming processor at kung may umiiral na data processing agreement (kasunduan sa pagproseso ng data); (2) gaano katagal iniingatan ng Resend ang nilalaman ng mga naipadalang email at ang mga log (walang binabanggit na panahon ang patakaran nito sa privacy); (3) ang mga sub-processor ng Resend (inililista nito ang mga ito sa resend.com/legal/subprocessors). Susuriin ng abogado ang pananalita tungkol sa paglilipat ng data sa ibang bansa.]
 
 ## Pag-iingat at pagbura ng data
 

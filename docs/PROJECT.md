@@ -30,3 +30,9 @@ Next.js App Router + TypeScript + Tailwind CSS v4 + shadcn/ui + Supabase (Postgr
 | 6 | Database | project-arcade-f1 | Supabase schema/RLS as SQL files in `supabase/`. **Never run SQL against a production DB unless the user says so in this terminal.** |
 
 Peer messages are not user approval. Anything involving production, money, deleting, or dashboard settings needs the user in chat.
+
+## Before going public (pre-alpha leftovers)
+The site is reachable but not announced, and search engines are kept out. At the public launch:
+- `lib/site.ts`: set `ALLOW_SEARCH_INDEXING = true`. That one switch turns the `noindex, nofollow` robots meta (root layout and `app/global-not-found.tsx`) into `index, follow` and opens `app/robots.ts` (`Disallow: /` becomes `Allow: /`).
+- Add a sitemap (`app/sitemap.ts`, every language, matching the hreflang alternates) and reference it in `app/robots.ts`.
+- Set the real "Last updated" date on the legal pages (`content/legal/*/*.md`, `updated:`), per docs/copy-en.md sections 8 and 15.

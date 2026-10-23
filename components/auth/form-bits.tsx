@@ -4,6 +4,7 @@ import { startTransition, type FormEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useT } from "@/i18n/client";
+import { EMAIL_SENDER } from "@/lib/site";
 
 // Small shared pieces for the auth forms. `label` and `hint` arrive translated;
 // `error` and `message` are msg() keys from lib/auth/actions.ts, translated here.
@@ -57,7 +58,7 @@ export function FormError({ message }: { message?: string }) {
   if (!message) return null;
   return (
     <p role="alert" className="rounded-lg border-2 border-border bg-background p-3 text-sm font-bold text-destructive">
-      {t(message)}
+      {t(message, { sender: EMAIL_SENDER })}
     </p>
   );
 }

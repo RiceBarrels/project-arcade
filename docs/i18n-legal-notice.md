@@ -1,6 +1,6 @@
 # Legal notice for translated terms and privacy pages
 
-- **Date:** 2026-10-20
+- **Date:** 2026-10-20. Japanese (ja) added 2026-10-21, checked by the same process as the other languages.
 - **Status:** machine-assisted draft — needs native-speaker review. Not reviewed by a native speaker or a lawyer.
 - **Decision (user, relayed by the coordinator):** the site launches in all 10 languages at once. The translated /terms and /privacy pages show the translation, with a notice that it is unofficial and that the English version prevails.
 - **Used with:** `docs/legal-drafts/<code>/terms.md` and `privacy.md`. The notice is not inside those files; the page component renders it above the content, so the wording lives in one place and the link can point to the English page for the current route.
@@ -33,8 +33,9 @@ The page component already renders the notice as one string with a link tag, so 
 | ko | 이 문서는 비공식 번역본입니다. <link>영어판</link>과 다른 경우에는 영어판이 적용됩니다. |
 | pt | Esta é uma tradução não oficial. Em caso de divergência entre esta tradução e a <link>versão em inglês</link>, prevalece a versão em inglês. |
 | ru | Это неофициальный перевод. Если он расходится с <link>английской версией</link>, применяется английская версия. |
+| ja | これは非公式の翻訳です。<link>英語版</link>と内容が異なる場合は、英語版が適用されます。 |
 
-Note for 1号: the link element has `lang="en"`, but its text is in the page language (英文版, versión en inglés...). Use `hreflang="en"` on the link instead, so screen readers do not read translated words with English pronunciation. In ko the particle 과 after `</link>` is right for 영어판 (ends in a consonant).
+Note for 1号: the link element has `lang="en"`, but its text is in the page language (英文版, versión en inglés...). Use `hreflang="en"` on the link instead, so screen readers do not read translated words with English pronunciation. In ko the particle 과 after `</link>` is right for 영어판 (ends in a consonant). In ja the particle と follows `</link>` directly; Japanese particles do not change with the preceding word, so this is safe.
 
 ## All languages at a glance (recommended wording)
 
@@ -50,10 +51,11 @@ Note for 1号: the link element has `lang="en"`, but its text is in the page lan
 | ko | 이 문서는 비공식 번역본입니다. 영어판과 다른 경우에는 영어판이 적용됩니다. | 영어판 보기 | 비공식 번역 |
 | pt | Esta é uma tradução não oficial. Em caso de divergência entre esta tradução e a versão em inglês, prevalece a versão em inglês. | Ler a versão em inglês | Tradução não oficial |
 | ru | Это неофициальный перевод. Если он расходится с английской версией, применяется английская версия. | Читать английскую версию | Неофициальный перевод |
+| ja | これは非公式の翻訳です。英語版と内容が異なる場合は、英語版が適用されます。 | 英語版を読む | 非公式翻訳 |
 
-Register: every N1 avoids direct address, so it fits both the formal legal pages and the informal UI. Where a language needs a verb form for N2, it uses a neutral or formal form (es "Lea" is the usted form; fr, pt, ru and ar use an infinitive or verbal noun; tl "Basahin" is a neutral imperative; ko and zh use a noun phrase).
+Register: every N1 avoids direct address, so it fits both the formal legal pages and the informal UI. Where a language needs a verb form for N2, it uses a neutral or formal form (es "Lea" is the usted form; fr, pt, ru and ar use an infinitive or verbal noun; tl "Basahin" is a neutral imperative; ko and zh use a noun phrase; ja uses the dictionary-form verb 英語版を読む, the normal Japanese link label, and N1 is impersonal です・ます with no pronoun).
 
-Verb strength: English says "applies". Most languages use the plain equivalent. zh and zh-hant use the set phrase 以英文版为准 / 以英文版為準, which is the normal Chinese way to say this. pt uses "prevalece" (the usual Brazilian wording for which text governs); a closer "applies" option is listed below. A lawyer may prefer the stronger "prevails" wording everywhere; the alternatives below include it for each language.
+Verb strength: English says "applies". Most languages use the plain equivalent. zh and zh-hant use the set phrase 以英文版为准 / 以英文版為準, which is the normal Chinese way to say this. pt uses "prevalece" (the usual Brazilian wording for which text governs); a closer "applies" option is listed below. ja uses the plain 適用されます ("applies"). A lawyer may prefer the stronger "prevails" wording everywhere; the alternatives below include it for each language.
 
 ## Per language: back-translation, alternatives, notes
 
@@ -194,11 +196,29 @@ Verb strength: English says "applies". Most languages use the plain equivalent. 
   - Это неофициальный перевод. При расхождении с английской версией преимущество имеет английская версия. (Back: "...the English version has precedence.") It says more than the English "applies", so a lawyer should choose it, not the translator.
 - **Notes:** I kept the builder's wording because it is accurate. N1 matches the English sentence by sentence ("differs" is расходится, "applies" is применяется), adds no claims, and has no direct address, so it fits the formal neutral register of sections 8 and 15. The comma before применяется is required, and английской is lowercase as it should be. N2 uses the infinitive, which is standard for Russian links. Do not use the ты form Прочитай on legal pages. If someone wants an explicit formal form, use Прочитайте английскую версию. N3: sentence case, no full stop when used as a label. No native-speaker or lawyer review has taken place.
 
+### Japanese (ja)
+
+- **N1:** これは非公式の翻訳です。英語版と内容が異なる場合は、英語版が適用されます。  
+  Back-translation: This is an unofficial translation. If the content differs from the English version, the English version applies.
+- **N1 with link (dictionary key):** これは非公式の翻訳です。<link>英語版</link>と内容が異なる場合は、英語版が適用されます。  
+  Back-translation: the same sentence; the tag wraps 英語版 ("English version") at its first mention.
+- **N2:** 英語版を読む  
+  Back-translation: Read the English version (dictionary-form verb, the normal Japanese link label, neutral in register)
+- **N3:** 非公式翻訳  
+  Back-translation: Unofficial translation (compact noun label)
+- **N1 alternatives:**
+  - これは非公式の翻訳です。英語版と内容が異なる場合は、英語版が優先されます。 (Back: '...the English version takes precedence.') The "prevails" option: the usual Japanese bilingual-contract wording and stronger than "applies". Use it only if a lawyer changes the English to "prevails".
+  - これは非公式の翻訳です。英語版と内容が異なる場合は、英語版を正とします。 (Back: '...the English version is treated as the authoritative text.') Stronger contract formula that adds meaning; for a lawyer to choose, not the translator.
+  - これは非公式の翻訳です。英語版と異なる場合は、英語版が適用されます。 (Without 内容が; closest word for word. Faithful, but slightly ambiguous, because a Japanese text is always "different from" the English.)
+  - 本ページは非公式の翻訳です。英語版と内容が異なる場合は、英語版が適用されます。 (Says "this page". Use it only if the notice always appears as a page banner.)
+- **N2 / N3 alternatives:** 英語版を見る (more common link verb, equally fine); 英語版はこちら (natural, but drops "read"). N3: 非公式の翻訳 (slightly softer, longer).
+- **Notes:** 内容が ("in content") is added for the same reason as zh-hant 不一致 and vi có điểm khác: a translation always differs in wording, so "differs" must refer to content. It adds no claim. The register is impersonal です・ます with no pronoun (no あなた), so it fits both the legal pages (です・ます, reader 利用者) and the UI. Rejected: 参考訳 / 参考翻訳 and any 参考のためのもの wording (adds a "for reference only" claim), 法的効力 wording (adds a legal claim), 正式な翻訳ではありません (meaning shift). Punctuation is full-width (、。) with no spaces; N2 and N3 have no final 。. In a language switcher, use full-width brackets: 日本語（非公式翻訳）. The link element should use `hreflang="en"`, not `lang="en"`, because its text is Japanese. Open for a lawyer, as a question only: whether an English-applies notice has the intended effect for users in Japan (for example under consumer contract rules); this draft makes no claim either way. These strings match `docs/copy-ja.md` section 21. Machine-assisted draft; no native-speaker or lawyer review has taken place.
+
 ## Open points
 
 1. **English source.** Resolved: N1, N1 with link, N2 and N3 are in `docs/copy-en.md` section 21 and match this file exactly.
-2. **Legal effect is a lawyer question.** Whether an "English version applies" notice has the intended effect is not something this translation can decide. Reviewers flagged places to ask about, as questions only: Quebec (Charter of the French language, as amended by Bill 96) for French-speaking users in Canada; Brazilian consumer law (CDC) for pt-BR; consumer rules in Korea, Vietnam, the Philippines, Taiwan/Hong Kong and Arabic-speaking countries. The site data is stored in Canada (ca-central-1).
-3. **Stronger wording.** "prevails" (es prevalece, fr prévaut / fait foi, ar المعتمدة, tl mananaig, vi ưu tiên áp dụng, ko 우선합니다, ru имеет преимущество) is listed as an alternative only. If the lawyer wants "prevails", change the English N1 first, then switch every language to its listed alternative.
+2. **Legal effect is a lawyer question.** Whether an "English version applies" notice has the intended effect is not something this translation can decide. Reviewers flagged places to ask about, as questions only: Quebec (Charter of the French language, as amended by Bill 96) for French-speaking users in Canada; Brazilian consumer law (CDC) for pt-BR; consumer rules in Korea, Vietnam, the Philippines, Taiwan/Hong Kong, Japan and Arabic-speaking countries. The site data is stored in Canada (ca-central-1).
+3. **Stronger wording.** "prevails" (es prevalece, fr prévaut / fait foi, ar المعتمدة, tl mananaig, vi ưu tiên áp dụng, ko 우선합니다, ru имеет преимущество, ja 優先されます) is listed as an alternative only. If the lawyer wants "prevails", change the English N1 first, then switch every language to its listed alternative.
 4. **Translator notes updated.** Note 6 ("which language version prevails is the lawyer's decision") in each `docs/copy-<code>.md` now has a dated line pointing here; the old text is kept.
 5. **Order on the page.** Suggested: N1 banner (with N2 link) first, then the DRAFT note from the page file, then the title. 1号 decides the layout.
 6. **Arabic.** Wrap any Latin word or link text next to Arabic in `<bdi>`; the banner itself has no Latin text.

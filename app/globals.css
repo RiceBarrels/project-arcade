@@ -166,7 +166,8 @@
   --font-sans: DM Sans, sans-serif;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: Space Mono, monospace;
-  --shadow-color: hsl(0 0% 0%);
+  /* Hard shadows in the border colour: black ones would vanish on the dark page. */
+  --shadow-color: hsl(0 0% 100%);
   --shadow-opacity: 1;
   --shadow-blur: 0px;
   --shadow-spread: 0px;
@@ -174,14 +175,23 @@
   --shadow-offset-y: 4px;
   --letter-spacing: 0em;
   --spacing: 0.25rem;
-  --shadow-2xs: 4px 4px 0px 0px hsl(0 0% 0% / 0.50);
-  --shadow-xs: 4px 4px 0px 0px hsl(0 0% 0% / 0.50);
-  --shadow-sm: 4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 1px 2px -1px hsl(0 0% 0% / 1.00);
-  --shadow: 4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 1px 2px -1px hsl(0 0% 0% / 1.00);
-  --shadow-md: 4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 2px 4px -1px hsl(0 0% 0% / 1.00);
-  --shadow-lg: 4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 4px 6px -1px hsl(0 0% 0% / 1.00);
-  --shadow-xl: 4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 8px 10px -1px hsl(0 0% 0% / 1.00);
-  --shadow-2xl: 4px 4px 0px 0px hsl(0 0% 0% / 2.50);
+  --shadow-2xs: 4px 4px 0px 0px hsl(0 0% 100% / 0.50);
+  --shadow-xs: 4px 4px 0px 0px hsl(0 0% 100% / 0.50);
+  --shadow-sm: 4px 4px 0px 0px hsl(0 0% 100% / 1.00);
+  --shadow: 4px 4px 0px 0px hsl(0 0% 100% / 1.00);
+  --shadow-md: 4px 4px 0px 0px hsl(0 0% 100% / 1.00);
+  --shadow-lg: 4px 4px 0px 0px hsl(0 0% 100% / 1.00);
+  --shadow-xl: 4px 4px 0px 0px hsl(0 0% 100% / 1.00);
+  --shadow-2xl: 4px 4px 0px 0px hsl(0 0% 100% / 1.00);
+}
+
+/* Dark theme: class="dark" on <html>, set before the first paint (lib/theme.ts).
+   color-scheme gives native controls, scrollbars and the canvas the same theme. */
+:root {
+  color-scheme: light;
+}
+:root.dark {
+  color-scheme: dark;
 }
 
 @layer base {
@@ -230,6 +240,23 @@ html[lang="ko"] {
 html[lang="zh-Hans"] {
   --font-stack-sans: var(--font-dm-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif;
   --font-stack-mono: var(--font-space-mono), "PingFang SC", "Microsoft YaHei", "Noto Sans SC", monospace;
+}
+html[lang="ja"] {
+  --font-stack-sans: var(--font-dm-sans), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, Meiryo, "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
+  --font-stack-mono: var(--font-space-mono), "Hiragino Sans", "Yu Gothic", YuGothic, Meiryo, "Noto Sans JP", monospace;
+  /* Japanese has no spaces: keep the normal break rules (not Korean's keep-all),
+     strict kinsoku (no line starting with small kana or closing punctuation),
+     and phrase-aware breaks where the browser supports them. */
+  word-break: normal;
+  line-break: strict;
+  /* Safety net: a phrase the browser can't split (or a long Latin word) may
+     still break rather than widen the layout. */
+  overflow-wrap: anywhere;
+}
+@supports (word-break: auto-phrase) {
+  html[lang="ja"] {
+    word-break: auto-phrase;
+  }
 }
 html[lang="zh-Hant"] {
   --font-stack-sans: var(--font-dm-sans), "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", "Noto Sans CJK TC", sans-serif;

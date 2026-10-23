@@ -8,6 +8,7 @@ import clientKeys from "./client-keys.json";
 import ar from "./messages/ar.json";
 import es from "./messages/es.json";
 import fr from "./messages/fr.json";
+import ja from "./messages/ja.json";
 import ko from "./messages/ko.json";
 import pt from "./messages/pt.json";
 import ru from "./messages/ru.json";
@@ -24,6 +25,7 @@ const MESSAGES: Record<Locale, Messages> = {
   en: {},
   zh,
   "zh-hant": zhHant,
+  ja,
   es,
   fr,
   ar,

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AuthShell } from "@/components/auth/auth-shell";
 import { EmailOnlyForm } from "@/components/auth/email-only-form";
 import { alternates, getT } from "@/i18n/server";
+import { EMAIL_SENDER } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getT();
@@ -18,7 +19,7 @@ export default async function CheckEmailPage() {
       intro={
         <>
           <p>{t("Almost there. If this address can be used to sign up, you'll get an email from us shortly. Follow the link inside to finish.")}</p>
-          <p className="mt-2 text-sm">{t("Can't find it? Check your spam or junk folder.")}</p>
+          <p className="mt-2 text-sm">{t("Can't find it? Check your spam or junk folder. Our emails come from {sender}.", { sender: EMAIL_SENDER })}</p>
         </>
       }
     >

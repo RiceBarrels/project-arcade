@@ -8,7 +8,7 @@ import { hasLoanInProgress } from "@/lib/data/account";
 import { getCurrentUser } from "@/lib/data/session";
 import { createClient } from "@/lib/supabase/server";
 import {
-  DELETE_CONFIRM_WORD,
+  isDeleteWord,
   DELETE_ERROR,
   OPEN_LOANS_WARNING,
   PROFILE_ERROR,
@@ -103,7 +103,7 @@ async function removeAllPhotos(supabase: Supabase, uid: string): Promise<boolean
 /** Deletes the signed-in user's account. On success it signs out and redirects, so it only ever returns an error. */
 export async function deleteMyAccount(confirm: unknown, locale?: unknown): Promise<DeleteResult> {
   if (!WRITES_ENABLED) return { ok: false, error: DELETE_ERROR };
-  if (confirm !== DELETE_CONFIRM_WORD) return { ok: false, error: DELETE_ERROR };
+  if (!isDeleteWord(confirm)) return { ok: false, error: DELETE_ERROR };
 
   const l = toLocale(locale);
   const user = await getCurrentUser();

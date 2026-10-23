@@ -94,7 +94,9 @@ export async function signUp(_prev: FormState, fd: FormData): Promise<FormState>
       emailRedirectTo: `${await siteOrigin()}/auth/confirm?next=${localePath("/welcome", locale)}`,
       // Read by the on_auth_user_created trigger. over_18_confirmed is the
       // user's own attestation at sign-up (see report: trigger must copy it).
-      data: { display_name: displayName, city: city || null, over_18_confirmed: true },
+      // language: the site language they signed up in (a LOCALES code;
+      // localeFromForm falls back to "en"). Kept in user_metadata only.
+      data: { display_name: displayName, city: city || null, over_18_confirmed: true, language: locale },
     },
   });
   if (error) {
@@ -136,7 +138,8 @@ export async function requestPasswordReset(_prev: FormState, fd: FormData): Prom
   });
   if (error && isPerIpLimit(error.code)) return { error: WAIT };
   // Same message whether or not the address exists.
-  return { ok: msg("If an account exists for that email, a reset link is on its way.") };
+  // {sender} is filled in by FormOk (EMAIL_SENDER).
+  return { ok: msg("If an account exists for that email, a reset link is on its way. It comes from {sender}, so check your spam or junk folder too.") };
 }
 
 export async function updatePassword(_prev: FormState, fd: FormData): Promise<FormState> {

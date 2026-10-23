@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { LocaleSwitcher } from "@/components/locale-switcher";
+import { ThemeToggle } from "@/components/theme";
 import { UserSlot, UserSlotFallback } from "@/components/user-slot";
 import { Link } from "@/i18n/link";
 import { msg } from "@/i18n/msg";
@@ -18,7 +19,7 @@ const links = [
 export async function SiteHeader() {
   const t = await getT();
   return (
-    <header className="hidden border-b-4 border-border bg-primary text-primary-foreground md:block">
+    <header className="hidden border-b-4 border-border bg-primary text-primary-foreground [--ring:var(--primary-foreground)] md:block">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
         <Link href="/" className="flex min-h-11 shrink-0 items-center">
           <span className="flex flex-col items-start text-start leading-none">
@@ -37,6 +38,7 @@ export async function SiteHeader() {
             </Link>
           ))}
           <LocaleSwitcher variant="header" />
+          <ThemeToggle variant="header" />
           <Suspense fallback={<UserSlotFallback />}>
             <UserSlot />
           </Suspense>

@@ -43,7 +43,11 @@ export async function ThreadView({ thread, preview = false }: { thread: ThreadDa
         )}
         <div className="min-w-0 flex-1 space-y-2">
           <h1 className="text-3xl font-black break-words uppercase sm:text-4xl">
-            {t.rich("{item} with {name}", { item: thread.itemTitle, name: <bdi>{otherName}</bdi> })}
+            {/* A deleted account gets its own sentence: some languages attach words to a name
+                (Japanese さん) that don't fit "Deleted account". */}
+            {thread.other
+              ? t.rich("{item} with {name}", { item: thread.itemTitle, name: <bdi>{otherName}</bdi> })
+              : t("{item} with Deleted account", { item: thread.itemTitle })}
           </h1>
           <LoanStatusBadge status={status} />
         </div>

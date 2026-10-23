@@ -18,6 +18,7 @@ export const LOCALE_INFO: Record<Locale, LocaleInfo> = {
   en: { htmlLang: "en", intl: "en", dir: "ltr", nativeName: "English", short: "EN" },
   zh: { htmlLang: "zh-Hans", intl: "zh-Hans", dir: "ltr", nativeName: "简体中文", short: "简" },
   "zh-hant": { htmlLang: "zh-Hant", intl: "zh-Hant", dir: "ltr", nativeName: "繁體中文", short: "繁" },
+  ja: { htmlLang: "ja", intl: "ja-JP", dir: "ltr", nativeName: "日本語", short: "日" },
   es: { htmlLang: "es", intl: "es", dir: "ltr", nativeName: "Español", short: "ES" },
   fr: { htmlLang: "fr", intl: "fr", dir: "ltr", nativeName: "Français", short: "FR" },
   ar: { htmlLang: "ar", intl: "ar-u-ca-gregory-nu-latn", dir: "rtl", nativeName: "العربية", short: "ع" },

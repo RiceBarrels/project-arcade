@@ -311,7 +311,7 @@ Cookies: the site sets two kinds of cookies, both needed for it to work.
 - A sign-in cookie, set by our sign-in provider (Supabase), keeps you signed in. It can be split into several parts.
 - A language cookie remembers the language you chose. It lasts 1 year.
 
-The site also stores your vibration setting and your progress through the welcome screens in your browser's local storage on your own device. This is not a cookie and is not sent to us.
+The site also stores your vibration setting, your theme choice (Light or Dark; nothing is stored if you leave it on System) and your progress through the welcome screens in your browser's local storage on your own device. This is not a cookie and is not sent to us.
 
 We don't set advertising or cross-site tracking cookies. [NEEDS REVIEW: based on the builder's check of the code on 2026-10-20; recheck when anything is added.]
 
@@ -327,6 +327,8 @@ To run the site: show listings, manage queues and requests, let lenders and borr
 
 ### Sharing
 We share data with service providers needed to run the site (such as the database and hosting providers). We may disclose information if required by law. [TO CONFIRM / lawyer: full list of processors.]
+
+**Email delivery (Resend) (DRAFT, needs review).** We use Resend to send emails for your account: verifying your email, resetting your password, and security notices. These emails come from no-reply@project-arcade.ricebarrel.com. To send them, Resend receives your email address and the content of the message. We use Resend only to send emails that relate to your account, and it receives your email address only for that purpose. We do not send marketing emails. Resend's privacy policy says it transfers data to the United States and processes it there. [TO CONFIRM from Resend: (1) whether Resend acts as our processor and a data processing agreement is in place; (2) how long Resend keeps sent-email content and logs (its privacy policy gives no period); (3) Resend's sub-processors (it lists them at resend.com/legal/subprocessors). Lawyer to check international transfer wording.]
 
 ### Keeping and deleting data
 _Feedback:_ if you delete your account, your feedback is kept but no longer linked to you. [TO CONFIRM: matches `user_id ON DELETE SET NULL` in supabase/08-feedback.sql; retention period and whether a reply contact is also removed.]
@@ -423,7 +425,7 @@ No emoji; use Lucide icons.
 - **Title:** Reset your password
 - **Body:** Enter your email and we'll send you a link to set a new one.
 - **Button:** Send reset link
-- **Confirmation:** If an account exists for that email, a reset link is on its way.
+- **Confirmation:** If an account exists for that email, a reset link is on its way. It comes from no-reply@project-arcade.ricebarrel.com, so check your spam or junk folder too. [NEEDS REVIEW]
 
 ## 17. Round 3 UI copy (login, signup, verify, messages, settings, preview)
 
@@ -464,7 +466,7 @@ Rule: the site never displays any user's email address, including the user's own
 
 **Title:** Check your email
 **Body:** We've sent a verification link to the address you signed up with. Click it to activate your account.
-**Tip:** Can't find it? Check your spam or junk folder.
+**Tip:** Can't find it? Check your spam or junk folder. Our emails come from no-reply@project-arcade.ricebarrel.com. [NEEDS REVIEW]
 **Resend form title:** Didn't get it?
 **Resend field label:** Email
 **Resend helper:** Enter the email you signed up with and we'll send the link again.
@@ -662,7 +664,7 @@ Separate from Report. Report is only for abuse of items and users (section 9). S
 - Empty message: Please write a message first.
 - Too long: Your message is too long. Please shorten it. [limit TBD by the builder]
 - Send failure: Couldn't send your feedback. Please try again.
-- Too many sends: Too many tries. Please wait a few minutes and try again.
+- Too many sends: You've sent feedback too many times. Please wait a few minutes and try again.
 
 **Where it appears:** also add a line in the Report dialog fine print (section 9): Found a bug or have an idea instead? Use Send feedback.
 
@@ -888,3 +890,26 @@ Replaces the browser's own "Choose files" control with a button in the site's la
 **Error lines (confirmed in use by 1号):**
 - Too many: You can add up to 8 photos. Please choose fewer.
 - Not an image: Please choose image files only.
+
+## 24. Appearance / dark mode
+
+Shown on the settings / Me page, and as a button in the desktop page header. Short labels; the three options are a single choice (radio group).
+
+**Section heading:** Appearance
+**Short explanation under the heading:** Choose how the site looks on this device.
+(It is saved on this device only, like the vibration setting, so the line says "on this device".)
+
+**Options (visible label and one-line description):**
+- System: "System follows your device setting."
+- Light: "Light always uses the light theme."
+- Dark: "Dark always uses the dark theme."
+(Each radio's accessible name is its visible label: exactly "System", "Light", "Dark". The description is attached with aria-describedby. Separate "Use ..." screen reader labels were dropped: "Use your device's theme" did not contain the visible word "System", which fails WCAG 2.5.3 (label in name) for voice control. The selected option is announced by the radio group itself.)
+
+**Group label for screen readers (radio group):** Theme
+
+**Desktop header button:**
+- Visible: icon only (sun / moon / monitor from Lucide, decorative, aria-hidden)
+- Screen reader label (button): Change theme
+- Current state, read with the button or shown as its tooltip (one string, {theme} = System / Light / Dark): Theme: {theme}
+  - Examples: Theme: System, Theme: Light, Theme: Dark
+(Keep "Change theme" as the button's name and "Theme: Dark" as the tooltip/description, so the action and the current state are both available. Translate {theme} using the same words as the three options above.)

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { TriangleAlert, UserRound } from "lucide-react";
 import { DeleteAccount } from "@/components/settings/delete-account";
 import { DevicePrefs } from "@/components/settings/device-prefs";
+import { AppearanceSettings } from "@/components/theme";
 import { ProfileForm } from "@/components/settings/profile-form";
 import { localePath } from "@/i18n/config";
 import { alternates, getT } from "@/i18n/server";
@@ -44,6 +45,8 @@ async function SettingsBody() {
           initial={{ display_name: user.display_name, city: user.city ?? "", bio: user.bio ?? "" }}
         />
       </section>
+
+      <AppearanceSettings />
 
       <DevicePrefs />
 

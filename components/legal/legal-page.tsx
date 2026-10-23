@@ -84,7 +84,7 @@ function inline(text: string): ReactNode {
 }
 
 const BOX: Record<string, string> = {
-  draft: "rounded-lg border-4 border-border bg-destructive p-4 font-bold text-white",
+  draft: "rounded-lg border-4 border-border bg-destructive p-4 font-bold text-destructive-foreground",
   summary: "rounded-lg border-2 border-border bg-accent p-4 font-medium text-accent-foreground shadow-xs",
   note: "rounded-lg border-2 border-border bg-card p-4 font-medium shadow-xs",
 };
