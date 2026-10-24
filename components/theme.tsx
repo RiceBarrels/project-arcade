@@ -2,6 +2,14 @@
 
 import { useId, useLayoutEffect, useSyncExternalStore } from "react";
 import { Monitor, Moon, Sun, SunMoon } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useT } from "@/i18n/client";
@@ -17,7 +25,7 @@ const HINT: Record<ThemePref, string> = {
   dark: msg("Dark always uses the dark theme."),
 };
 const ICON = { system: Monitor, light: Sun, dark: Moon };
-/** Header button order. */
+/** Footer button order. */
 const NEXT: Record<ThemePref, ThemePref> = { system: "light", light: "dark", dark: "system" };
 
 /** The stored choice. Renders as "system" until hydrated (the server can't know it). */
@@ -58,16 +66,75 @@ function CurrentIcon({ className }: { className: string }) {
   );
 }
 
-/** Icon button that steps System → Light → Dark. Desktop header and the footer. */
-export function ThemeToggle({ variant }: { variant: "header" | "footer" }) {
+const HEADER_FACE =
+  "inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border-2 border-border bg-background px-2.5 text-foreground shadow-xs transition-transform outline-none hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none focus-visible:ring-3 focus-visible:ring-ring/60 aria-expanded:translate-x-0.5 aria-expanded:translate-y-0.5 aria-expanded:shadow-none md:min-h-10 md:min-w-10";
+
+/**
+ * Desktop header: the button opens a small menu with the three choices
+ * (docs/copy-en.md section 27). Picking one applies it and closes the menu;
+ * Escape and clicking outside close it too.
+ */
+export function ThemeMenu() {
+  const t = useT();
+  const pref = useThemePref();
+  const id = useId();
+  const state = t("Theme: {theme}", { theme: t(LABEL[pref]) });
+  return (
+    <DropdownMenu modal={false}>
+      <TooltipProvider delayDuration={300}>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <DropdownMenuTrigger asChild>
+              <button type="button" aria-label={t("Change theme")} aria-describedby={`${id}-state`} className={HEADER_FACE}>
+                <CurrentIcon className="size-4" />
+              </button>
+            </DropdownMenuTrigger>
+          </TooltipTrigger>
+          <TooltipContent side="bottom" sideOffset={6} className="border-2 border-border text-sm font-bold">
+            {state}
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+      <span id={`${id}-state`} hidden>
+        {state}
+      </span>
+      <DropdownMenuContent align="end" sideOffset={8} aria-labelledby={`${id}-h`} className="w-72">
+        <DropdownMenuLabel id={`${id}-h`}>{t("Theme")}</DropdownMenuLabel>
+        <DropdownMenuRadioGroup value={pref} onValueChange={(v) => setThemePref(v as ThemePref)}>
+          {THEME_PREFS.map((p) => {
+            const Icon = ICON[p];
+            return (
+              <DropdownMenuRadioItem
+                key={p}
+                value={p}
+                aria-labelledby={`${id}-${p}-l`}
+                aria-describedby={`${id}-${p}-d`}
+                className="items-start py-2"
+              >
+                <Icon aria-hidden className="mt-0.5 size-4" />
+                <span className="min-w-0">
+                  <span id={`${id}-${p}-l`} className="block font-black">
+                    {t(LABEL[p])}
+                  </span>
+                  <span id={`${id}-${p}-d`} className="mt-0.5 block font-medium">
+                    {t(HINT[p])}
+                  </span>
+                </span>
+              </DropdownMenuRadioItem>
+            );
+          })}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
+/** Footer icon button that steps System → Light → Dark. */
+export function ThemeToggle() {
   const t = useT();
   const pref = useThemePref();
   const stateId = useId();
   const state = t("Theme: {theme}", { theme: t(LABEL[pref]) });
-  const face =
-    variant === "header"
-      ? "inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border-2 border-border bg-background px-2.5 text-foreground shadow-xs transition-transform outline-none hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none focus-visible:ring-3 focus-visible:ring-ring/60 md:min-h-10 md:min-w-10"
-      : "inline-flex min-h-11 min-w-11 items-center justify-center px-2 outline-none focus-visible:ring-3 focus-visible:ring-ring/60 md:min-h-10 md:min-w-10";
   return (
     <TooltipProvider delayDuration={300}>
       <Tooltip>
@@ -77,7 +144,7 @@ export function ThemeToggle({ variant }: { variant: "header" | "footer" }) {
             aria-label={t("Change theme")}
             aria-describedby={stateId}
             onClick={() => setThemePref(NEXT[pref])}
-            className={face}
+            className="inline-flex min-h-11 min-w-11 items-center justify-center px-2 outline-none focus-visible:ring-3 focus-visible:ring-ring/60 md:min-h-10 md:min-w-10"
           >
             <CurrentIcon className="size-4" />
           </button>

@@ -30,7 +30,7 @@ export async function SiteFooter() {
           <FeedbackEntry variant="footer" />
           <LocaleSwitcher variant="footer" />
           {/* Also here so signed-out phones (no settings page) can pick a theme. */}
-          <ThemeToggle variant="footer" />
+          <ThemeToggle />
         </nav>
       </div>
     </footer>

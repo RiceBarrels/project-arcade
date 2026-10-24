@@ -6,12 +6,10 @@ import { useT } from "@/i18n/client";
 import { Link } from "@/i18n/link";
 import { FeedbackDialog } from "./feedback-dialog";
 
-export type FeedbackVariant = "footer" | "header" | "me";
+export type FeedbackVariant = "footer" | "me";
 
 const STYLE: Record<FeedbackVariant, string> = {
   footer: "inline-flex min-h-11 items-center px-2 font-bold underline underline-offset-4 md:min-h-10",
-  header:
-    "inline-flex min-h-11 items-center gap-1.5 rounded-lg border-2 border-border bg-background px-3 text-foreground shadow-xs transition-transform hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none md:min-h-10",
   me: "flex min-h-14 w-full items-center gap-3 border-b-2 border-border px-4 py-2 text-start outline-none last:border-b-0 focus-visible:bg-muted",
 };
 

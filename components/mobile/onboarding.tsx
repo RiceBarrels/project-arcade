@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Dialog as DialogPrimitive } from "radix-ui";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import {
   HeroIllustration,
   OnboardingDamageIllustration,
@@ -86,59 +86,59 @@ export function Onboarding({ userId }: { userId: string }) {
   const { Art, title, text } = SCREENS[step];
 
   return (
-    <DialogPrimitive.Root open={open} onOpenChange={(o) => (o ? setOpen(true) : close())}>
-      <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/40 dark:bg-black/70" />
-        <DialogPrimitive.Content
-          aria-describedby="onboarding-text"
-          className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-background pt-[env(safe-area-inset-top,0px)] pr-[env(safe-area-inset-right)] pb-[max(env(safe-area-inset-bottom),1rem)] pl-[env(safe-area-inset-left)] outline-none md:inset-auto md:top-1/2 md:left-1/2 md:max-h-[calc(100dvh-2rem)] md:w-full md:max-w-md md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-xl md:border-4 md:border-border md:pb-5 md:shadow"
-        >
-          <div className="flex items-center justify-between px-4 pt-2">
-            <ol aria-label={t("Screen {step} of {total}", { step: step + 1, total: SCREENS.length })} className="flex gap-2">
-              {SCREENS.map((s, i) => (
-                <li
-                  key={s.title}
-                  aria-hidden
-                  className={`size-3 rounded-full border-2 border-border ${i === step ? "bg-foreground" : "bg-background"}`}
-                />
-              ))}
-            </ol>
-            <DialogPrimitive.Close asChild>
-              <button type="button" className="inline-flex min-h-11 items-center px-2 font-bold underline underline-offset-4">
-                {t("Skip")}
-              </button>
-            </DialogPrimitive.Close>
-          </div>
+    <Dialog open={open} onOpenChange={(o) => (o ? setOpen(true) : close())}>
+      {/* Not the usual phone bottom sheet: full screen on phones (clear of the
+          notch and home indicator), a centred card from md up. */}
+      <DialogContent
+        showCloseButton={false}
+        aria-describedby="onboarding-text"
+        className="flex flex-col gap-0 bg-background text-base text-foreground max-md:inset-0 max-md:max-h-none max-md:rounded-none max-md:border-t-0 max-md:p-0 max-md:pt-[env(safe-area-inset-top,0px)] max-md:pr-[env(safe-area-inset-right)] max-md:pb-[max(env(safe-area-inset-bottom),1rem)] max-md:pl-[env(safe-area-inset-left)] max-md:data-open:animate-none max-md:data-closed:animate-none md:max-w-md md:p-0 md:pt-[env(safe-area-inset-top,0px)] md:pr-[env(safe-area-inset-right)] md:pb-5 md:pl-[env(safe-area-inset-left)]"
+      >
+        <div className="flex items-center justify-between px-4 pt-2">
+          <ol aria-label={t("Screen {step} of {total}", { step: step + 1, total: SCREENS.length })} className="flex gap-2">
+            {SCREENS.map((s, i) => (
+              <li
+                key={s.title}
+                aria-hidden
+                className={`size-3 rounded-full border-2 border-border ${i === step ? "bg-foreground" : "bg-background"}`}
+              />
+            ))}
+          </ol>
+          <DialogClose asChild>
+            <button type="button" className="inline-flex min-h-11 items-center px-2 font-bold underline underline-offset-4">
+              {t("Skip")}
+            </button>
+          </DialogClose>
+        </div>
 
-          <div className="flex flex-1 flex-col justify-center gap-6 px-6 py-6">
-            <div className="mx-auto w-full max-w-72 rounded-lg border-4 border-border bg-muted p-3 shadow">
-              <Art className="h-auto w-full" />
-            </div>
-            <div className="space-y-3 text-center">
-              <DialogPrimitive.Title className="text-3xl font-black">
-                {t.rich(title, { site: <bdi>{SITE_NAME}</bdi> })}
-              </DialogPrimitive.Title>
-              <DialogPrimitive.Description id="onboarding-text" className="text-lg font-medium">
-                {t(text)}
-              </DialogPrimitive.Description>
-            </div>
+        <div className="flex flex-1 flex-col justify-center gap-6 px-6 py-6">
+          <div className="mx-auto w-full max-w-72 rounded-lg border-4 border-border bg-muted p-3 shadow">
+            <Art className="h-auto w-full" />
           </div>
+          <div className="space-y-3 text-center">
+            <DialogTitle className="text-3xl font-black">
+              {t.rich(title, { site: <bdi>{SITE_NAME}</bdi> })}
+            </DialogTitle>
+            <DialogDescription id="onboarding-text" className="text-lg font-medium text-foreground">
+              {t(text)}
+            </DialogDescription>
+          </div>
+        </div>
 
-          <div className="px-6">
-            <Button
-              size="lg"
-              className="w-full"
-              onClick={() => {
-                if (!last) return setStep(step + 1);
-                close();
-                router.push("/browse");
-              }}
-            >
-              {last ? t("Start browsing") : t("Next")}
-            </Button>
-          </div>
-        </DialogPrimitive.Content>
-      </DialogPrimitive.Portal>
-    </DialogPrimitive.Root>
+        <div className="px-6">
+          <Button
+            size="lg"
+            className="w-full"
+            onClick={() => {
+              if (!last) return setStep(step + 1);
+              close();
+              router.push("/browse");
+            }}
+          >
+            {last ? t("Start browsing") : t("Next")}
+          </Button>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }

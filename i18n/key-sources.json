@@ -17,19 +17,19 @@
     "app/[locale]/profile/page.tsx:59"
   ],
   "{count} items": [
-    "app/[locale]/browse/page.tsx:64"
+    "app/[locale]/browse/page.tsx:65"
   ],
   "{count} items in {category}": [
-    "app/[locale]/browse/page.tsx:63"
+    "app/[locale]/browse/page.tsx:64"
   ],
   "{count} items in your queue": [
     "components/queue-list.tsx:53"
   ],
   "{count} items matching “{q}”": [
-    "app/[locale]/browse/page.tsx:61"
+    "app/[locale]/browse/page.tsx:62"
   ],
   "{count} items matching “{q}” in {category}": [
-    "app/[locale]/browse/page.tsx:59"
+    "app/[locale]/browse/page.tsx:60"
   ],
   "{count} listed": [
     "components/profile-stats.tsx:11"
@@ -75,7 +75,7 @@
     "app/[locale]/access/page.tsx:38"
   ],
   "{site} is pre-alpha, so your notes really help. Tell us what's broken, confusing, or missing.": [
-    "components/feedback/feedback-dialog.tsx:103"
+    "components/feedback/feedback-dialog.tsx:128"
   ],
   "<b>{site}</b> is a non-profit community project. No ads, no platform fees, no payments through the site.": [
     "components/site-footer.tsx:15"
@@ -123,7 +123,8 @@
     "components/request-form.tsx:53"
   ],
   "All": [
-    "app/[locale]/browse/page.tsx:50"
+    "app/[locale]/browse/page.tsx:51",
+    "components/header/category-nav.tsx:97"
   ],
   "All messages": [
     "app/[locale]/messages/[loanId]/page.tsx:68"
@@ -141,7 +142,7 @@
     "components/report-button.tsx:121"
   ],
   "Appearance": [
-    "components/theme.tsx:104"
+    "components/theme.tsx:171"
   ],
   "Approved": [
     "components/messages/loan-status-badge.tsx:8"
@@ -193,14 +194,13 @@
   ],
   "Browse": [
     "app/[locale]/browse/page.tsx:14",
-    "components/site-header.tsx:11",
     "lib/nav.ts:12"
   ],
   "Browse gear that people in your community are willing to lend.": [
     "content/changelog.ts:72"
   ],
   "Browse the catalogue": [
-    "app/[locale]/browse/page.tsx:102",
+    "app/[locale]/browse/page.tsx:103",
     "app/[locale]/page.tsx:53",
     "app/[locale]/welcome/page.tsx:17",
     "app/global-not-found.tsx:70"
@@ -221,7 +221,7 @@
     "app/[locale]/check-email/page.tsx:22"
   ],
   "Cancel": [
-    "components/feedback/feedback-dialog.tsx:167",
+    "components/feedback/feedback-dialog.tsx:192",
     "components/report-button.tsx:83",
     "components/report-button.tsx:136",
     "components/settings/delete-account.tsx:247"
@@ -230,7 +230,8 @@
     "components/messages/loan-status-badge.tsx:13"
   ],
   "Categories": [
-    "app/[locale]/browse/page.tsx:49"
+    "app/[locale]/browse/page.tsx:50",
+    "components/header/category-nav.tsx:24"
   ],
   "Category": [
     "components/list-form.tsx:105"
@@ -242,7 +243,8 @@
     "components/photo-picker.tsx:67"
   ],
   "Change theme": [
-    "components/theme.tsx:77"
+    "components/theme.tsx:88",
+    "components/theme.tsx:144"
   ],
   "Chat with lenders and borrowers": [
     "app/[locale]/profile/page.tsx:135"
@@ -258,7 +260,7 @@
     "content/changelog.ts:29"
   ],
   "Choose how the site looks on this device.": [
-    "components/theme.tsx:106"
+    "components/theme.tsx:173"
   ],
   "Choose photos": [
     "components/photo-picker.tsx:82"
@@ -289,7 +291,7 @@
     "lib/domain.ts:114"
   ],
   "Close": [
-    "components/feedback/feedback-dialog.tsx:95",
+    "components/feedback/feedback-dialog.tsx:120",
     "components/report-button.tsx:71",
     "components/ui/dialog.tsx:82",
     "components/ui/dialog.tsx:122"
@@ -342,10 +344,10 @@
     "components/return-check.tsx:113"
   ],
   "Dark": [
-    "components/theme.tsx:13"
+    "components/theme.tsx:21"
   ],
   "Dark always uses the dark theme.": [
-    "components/theme.tsx:17"
+    "components/theme.tsx:25"
   ],
   "Dark mode and Japanese": [
     "content/changelog.ts:27"
@@ -462,7 +464,7 @@
     "components/auth/login-form.tsx:32"
   ],
   "Found a bug or have an idea?": [
-    "components/feedback/feedback-trigger.tsx:26"
+    "components/feedback/feedback-trigger.tsx:24"
   ],
   "Free": [
     "components/list-form.tsx:149",
@@ -506,7 +508,7 @@
     "lib/nav.ts:11"
   ],
   "How can we reply? (optional)": [
-    "components/feedback/feedback-dialog.tsx:143"
+    "components/feedback/feedback-dialog.tsx:168"
   ],
   "How did it come back?": [
     "components/return-check.tsx:75"
@@ -615,10 +617,10 @@
     "components/profile-stats.tsx:11"
   ],
   "Light": [
-    "components/theme.tsx:13"
+    "components/theme.tsx:21"
   ],
   "Light always uses the light theme.": [
-    "components/theme.tsx:16"
+    "components/theme.tsx:24"
   ],
   "Like new": [
     "lib/domain.ts:94"
@@ -627,7 +629,7 @@
     "lib/nav.ts:13"
   ],
   "List gear": [
-    "components/site-header.tsx:13"
+    "components/site-header.tsx:40"
   ],
   "List your gear": [
     "app/[locale]/list/page.tsx:10",
@@ -648,7 +650,7 @@
     "app/[locale]/queue/page.tsx:22"
   ],
   "Loading…": [
-    "app/[locale]/browse/page.tsx:103",
+    "app/[locale]/browse/page.tsx:104",
     "app/[locale]/item/[id]/page.tsx:37",
     "app/[locale]/profile/[id]/page.tsx:28",
     "app/[locale]/profile/page.tsx:30"
@@ -658,7 +660,7 @@
   ],
   "Main": [
     "components/mobile/bottom-nav.tsx:33",
-    "components/site-header.tsx:30"
+    "components/site-header.tsx:34"
   ],
   "Mark as damaged": [
     "components/return-check.tsx:153"
@@ -702,7 +704,7 @@
     "app/[locale]/messages/page.tsx:101",
     "app/[locale]/profile/page.tsx:134",
     "components/messages/thread-view.tsx:72",
-    "components/site-header.tsx:14"
+    "components/site-header.tsx:44"
   ],
   "Messages between a borrower and a lender can now be sent.": [
     "content/changelog.ts:63"
@@ -722,7 +724,7 @@
   "My queue": [
     "app/[locale]/queue/page.tsx:11",
     "app/[locale]/queue/page.tsx:19",
-    "components/site-header.tsx:12"
+    "components/site-header.tsx:43"
   ],
   "New": [
     "lib/domain.ts:93"
@@ -737,7 +739,7 @@
     "components/auth/reset-password-form.tsx:17"
   ],
   "Next": [
-    "components/mobile/onboarding.tsx:137"
+    "components/mobile/onboarding.tsx:138"
   ],
   "No charge": [
     "components/list-form.tsx:195"
@@ -777,11 +779,11 @@
     "app/[locale]/page.tsx:121"
   ],
   "Nothing here yet. Be the first to <link>list something</link>.": [
-    "app/[locale]/browse/page.tsx:72",
+    "app/[locale]/browse/page.tsx:73",
     "app/[locale]/page.tsx:79"
   ],
   "Nothing matches that yet. Try another word, or <link>list something</link>.": [
-    "app/[locale]/browse/page.tsx:71"
+    "app/[locale]/browse/page.tsx:72"
   ],
   "Nothing of yours is out right now.": [
     "app/[locale]/profile/page.tsx:83"
@@ -826,7 +828,7 @@
     "app/[locale]/messages/page.tsx:102"
   ],
   "Only fill this in if you'd like an answer. We won't use it for anything else. Don't include passwords or payment details. Your account email is never shown here. If you want a reply by email, type the address you'd like us to use.": [
-    "components/feedback/feedback-dialog.tsx:153"
+    "components/feedback/feedback-dialog.tsx:178"
   ],
   "Open the sample conversation": [
     "app/[locale]/messages/page.tsx:123"
@@ -978,7 +980,8 @@
   "Profile": [
     "app/[locale]/profile/[id]/page.tsx:18",
     "app/[locale]/profile/page.tsx:22",
-    "app/[locale]/settings/page.tsx:42"
+    "app/[locale]/settings/page.tsx:42",
+    "components/header/account-menu.tsx:40"
   ],
   "Profile and account": [
     "app/[locale]/profile/page.tsx:143"
@@ -1095,16 +1098,19 @@
     "components/settings/profile-form.tsx:137"
   ],
   "Screen {step} of {total}": [
-    "components/mobile/onboarding.tsx:97"
+    "components/mobile/onboarding.tsx:98"
   ],
   "Search": [
+    "components/header/header-search.tsx:51",
     "components/search-form.tsx:22",
     "components/search-form.tsx:23"
   ],
   "Search gear": [
+    "components/header/header-search.tsx:39",
     "components/search-form.tsx:12"
   ],
   "Search tents, cameras, games…": [
+    "components/header/header-search.tsx:46",
     "components/search-form.tsx:18"
   ],
   "See all": [
@@ -1120,11 +1126,12 @@
     "app/[locale]/verify-failed/page.tsx:20"
   ],
   "Send feedback": [
-    "components/feedback/feedback-dialog.tsx:89",
-    "components/feedback/feedback-dialog.tsx:101",
-    "components/feedback/feedback-dialog.tsx:170",
-    "components/feedback/feedback-trigger.tsx:20",
-    "components/feedback/feedback-trigger.tsx:25"
+    "components/feedback/feedback-dialog.tsx:114",
+    "components/feedback/feedback-dialog.tsx:126",
+    "components/feedback/feedback-dialog.tsx:195",
+    "components/feedback/feedback-trigger.tsx:18",
+    "components/feedback/feedback-trigger.tsx:23",
+    "components/header/account-menu.tsx:49"
   ],
   "Send report": [
     "components/report-button.tsx:84",
@@ -1152,7 +1159,7 @@
     "app/[locale]/settings/page.tsx:16",
     "app/[locale]/settings/page.tsx:24",
     "app/[locale]/settings/page.tsx:25",
-    "components/user-slot.tsx:29"
+    "components/header/account-menu.tsx:45"
   ],
   "Short welcome screens explain how the site works the first time you sign in.": [
     "content/changelog.ts:54"
@@ -1162,7 +1169,7 @@
     "app/[locale]/item/[id]/page.tsx:224",
     "app/[locale]/login/page.tsx:11",
     "components/auth/login-form.tsx:28",
-    "components/user-slot.tsx:18"
+    "components/user-slot.tsx:14"
   ],
   "Sign in to join the queue.": [
     "app/[locale]/item/[id]/page.tsx:177"
@@ -1175,18 +1182,18 @@
   ],
   "Sign out": [
     "app/[locale]/profile/page.tsx:153",
-    "components/user-slot.tsx:34",
-    "components/user-slot.tsx:35"
+    "components/header/account-menu.tsx:53"
   ],
   "Sign up": [
     "app/[locale]/signup/page.tsx:8",
-    "components/site-footer.tsx:25"
+    "components/site-footer.tsx:25",
+    "components/user-slot.tsx:17"
   ],
   "Signing in…": [
     "components/auth/login-form.tsx:28"
   ],
   "Skip": [
-    "components/mobile/onboarding.tsx:108"
+    "components/mobile/onboarding.tsx:109"
   ],
   "Small fee": [
     "components/list-form.tsx:150"
@@ -1214,16 +1221,16 @@
     "lib/domain.ts:109"
   ],
   "Start browsing": [
-    "components/mobile/onboarding.tsx:137"
+    "components/mobile/onboarding.tsx:138"
   ],
   "Stay safe": [
     "components/mobile/onboarding.tsx:41"
   ],
   "System": [
-    "components/theme.tsx:13"
+    "components/theme.tsx:21"
   ],
   "System follows your device setting.": [
-    "components/theme.tsx:15"
+    "components/theme.tsx:23"
   ],
   "Tell us anything.": [
     "components/feedback/shared.ts:14"
@@ -1316,10 +1323,12 @@
     "app/[locale]/verify-failed/page.tsx:17"
   ],
   "Theme": [
-    "components/theme.tsx:108"
+    "components/theme.tsx:102",
+    "components/theme.tsx:175"
   ],
   "Theme: {theme}": [
-    "components/theme.tsx:66"
+    "components/theme.tsx:81",
+    "components/theme.tsx:137"
   ],
   "Think repair cost or replacement value, whichever is fair. Borrowers see this before they request, so a realistic number helps people say yes. The site doesn't collect this money. You and the borrower settle it directly.": [
     "components/list-form.tsx:212"
@@ -1370,7 +1379,7 @@
     "app/[locale]/error.tsx:16"
   ],
   "Type": [
-    "components/feedback/feedback-dialog.tsx:112"
+    "components/feedback/feedback-dialog.tsx:137"
   ],
   "Type DELETE exactly as shown to continue.": [
     "components/settings/shared.ts:41"
@@ -1453,7 +1462,7 @@
     "components/site-footer.tsx:28"
   ],
   "What's on your mind?": [
-    "components/feedback/feedback-dialog.tsx:123"
+    "components/feedback/feedback-dialog.tsx:148"
   ],
   "When it's your turn you have 48 hours to respond before it passes to the next person.": [
     "app/[locale]/item/[id]/page.tsx:116"

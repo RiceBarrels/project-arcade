@@ -46,7 +46,8 @@ async function Results({ searchParams }: { searchParams: PageProps<"/[locale]/br
   return (
     <>
       <SearchForm key={q} defaultValue={q} category={category} />
-      <nav aria-label={t("Categories")} className="flex flex-wrap gap-2">
+      {/* md and up: the header's category row does this (components/header/category-nav.tsx). */}
+      <nav aria-label={t("Categories")} className="flex flex-wrap gap-2 md:hidden">
         <Chip href={browseHref(undefined, q)} active={!category}>{t("All")}</Chip>
         {categories.map((c) => (
           <Chip key={c.slug} href={browseHref(c.slug, q)} active={category === c.slug}>

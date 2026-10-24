@@ -37,12 +37,26 @@ import {
 // /login instead of rendering this. Writes are off (WRITES_ENABLED), so a valid
 // submit shows the preview notice and nothing is stored. `error` and `done` hold
 // English source strings (msg) and are translated when shown.
-export function FeedbackDialog({ children }: { children: React.ReactElement }) {
+// `children` is the trigger. Without one (the desktop account menu opens it
+// from a menu item), pass `open`/`onOpenChange`, and `returnFocus` for where
+// focus goes when it closes.
+export function FeedbackDialog({
+  children,
+  open: openProp,
+  onOpenChange: onOpenChangeProp,
+  returnFocus,
+}: {
+  children?: React.ReactElement;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  returnFocus?: React.RefObject<HTMLElement | null>;
+}) {
   const id = useId();
   const t = useT();
   const router = useRouter();
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [ownOpen, setOwnOpen] = useState(false);
+  const open = openProp ?? ownOpen;
   const [type, setType] = useState<FeedbackType>("bug");
   const [message, setMessage] = useState("");
   const [reply, setReply] = useState("");
@@ -51,7 +65,8 @@ export function FeedbackDialog({ children }: { children: React.ReactElement }) {
   const [pending, startTransition] = useTransition();
 
   function onOpenChange(next: boolean) {
-    setOpen(next);
+    setOwnOpen(next);
+    onOpenChangeProp?.(next);
     if (!next) {
       setType("bug");
       setMessage("");
@@ -81,8 +96,18 @@ export function FeedbackDialog({ children }: { children: React.ReactElement }) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="md:max-w-md">
+      {children && <DialogTrigger asChild>{children}</DialogTrigger>}
+      <DialogContent
+        className="md:max-w-md"
+        onCloseAutoFocus={
+          returnFocus
+            ? (e) => {
+                e.preventDefault();
+                returnFocus.current?.focus();
+              }
+            : undefined
+        }
+      >
         {done ? (
           <>
             <DialogHeader>
