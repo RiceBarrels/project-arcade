@@ -323,9 +323,10 @@ Antes de enviar una vista de página, quitamos de la ruta de la página los ID d
 
 No usamos esto para mostrar anuncios y no lo vendemos.
 
-Cookies: el sitio establece dos tipos de cookies, y ambos son necesarios para que funcione.
+Cookies: el sitio establece solo las cookies que necesita para funcionar (dos tipos, más un tercero durante la beta privada).
 - Una cookie de inicio de sesión, establecida por nuestro proveedor de inicio de sesión (Supabase), mantiene su sesión iniciada. Puede dividirse en varias partes.
 - Una cookie de idioma recuerda el idioma que usted eligió. Dura 1 año.
+- Mientras la contraseña de la beta privada está activada, una cookie de acceso llamada pa_access recuerda que usted ingresó la contraseña. Dura 30 días y no contiene información personal. Dejamos de establecerla cuando la contraseña se desactiva. [NEEDS REVIEW: el nombre de la cookie, la duración de 30 días y lo de «solo mientras la contraseña está activada» provienen de las indicaciones del coordinador; todavía no se han verificado en el código.]
 
 El sitio también guarda su configuración de «Vibrar al tocar», su elección de tema (Claro u Oscuro; si lo deja en Sistema, no se guarda nada) y su avance en las pantallas de introducción en el almacenamiento local de su navegador, en su propio dispositivo. Esto no es una cookie y no se nos envía.
 
@@ -762,6 +763,97 @@ Se muestra en la página «Perfil», en Configuración, y como botón en el enca
 - Estado actual, que se lee junto con el botón o se muestra como su texto emergente (tooltip) (una sola cadena, {theme} = Sistema / Claro / Oscuro): Tema: {theme}
   - Ejemplos: Tema: Sistema, Tema: Claro, Tema: Oscuro
 (Se mantiene «Cambiar tema» como nombre del botón y «Tema: Oscuro» como texto emergente o descripción, para que tanto la acción como el estado actual estén disponibles. {theme} se traduce con las mismas palabras de las tres opciones de arriba.)
+
+## 25. Página de acceso a la beta
+
+Se muestra a cualquier persona que no tenga la cookie de acceso mientras la contraseña de la beta privada está activada. Breve y amable; sin emojis.
+
+**Título de la pestaña del navegador:** Beta privada
+**Título de la página:** Beta privada
+**Introducción:** project-arcade está en beta privada. Ingresa la contraseña de acceso para continuar.
+
+**Formulario**
+- Etiqueta del campo: Contraseña de acceso
+- Texto de ejemplo (placeholder): Ingresa la contraseña
+- Botón de envío: Continuar
+- Botón de envío mientras se comprueba: Comprobando...
+- Error (contraseña incorrecta): Esa contraseña no es correcta. Inténtalo de nuevo.
+- Error (algo falló): Algo salió mal. Inténtalo de nuevo.
+(La línea de contraseña incorrecta es la de las indicaciones, con «Inténtalo de nuevo.» agregado. Se eliminó el error de «demasiados intentos»: el código no tiene límite de intentos, solo una breve pausa fija después de una contraseña incorrecta, así que ese estado nunca ocurre.)
+
+**Lector de pantalla**
+- Campo de contraseña: la etiqueta visible «Contraseña de acceso» es su nombre accesible (el texto de ejemplo no es una etiqueta).
+- Error: se anuncia cuando aparece (role="alert") y se vincula al campo con aria-describedby.
+- Botón de envío: el texto visible es su nombre; no lleva una etiqueta aparte.
+- Página: se mantiene «Beta privada» como h1.
+
+**Línea para quien no tiene la contraseña (TODAVÍA NO está en la página; 1号 la retiene hasta que se decida el contacto):** ¿No tienes la contraseña? Escríbenos a [contact email] y veremos qué podemos hacer. [TO CONFIRM: dirección de contacto, el mismo marcador de posición que en las páginas de términos y de privacidad; todavía no se debe escribir una dirección real. También hay que confirmar quién puede dar acceso.]
+(Alternativa más corta: ¿No tienes la contraseña? Escríbenos a [contact email].)
+
+**Nota (para la página de privacidad):** la cookie de acceso se describe en la sección 15, Cookies.
+
+## 26. Novedades (página pública de cambios)
+
+Una página pública con lo que cambió en el sitio, de lo más reciente a lo más antiguo. Una oración por entrada, en palabras sencillas y sin detalles internos. Cada cadena es independiente, así que se traduce por separado. El código muestra las fechas en el idioma de quien visita (las fechas ISO de abajo son la fuente). Los datos salen del historial de git y de las secciones anteriores; se comprobaron con el contenido de los commits, no con el sitio en vivo.
+
+**Título de la página y h1:** Novedades
+**Título de la pestaña del navegador:** Novedades
+**Introducción (una línea):** project-arcade es un proyecto sin fines de lucro y todavía está en pre-alpha. Esto es lo que hemos cambiado hasta ahora.
+**Estado vacío (sin entradas):** Todavía no hay nada que mostrar. Vuelve pronto.
+**Etiqueta del enlace en el pie de página:** Novedades
+**Etiqueta de la fecha junto a cada grupo de cambios:** se usa la fecha con el formato del idioma de quien visita; sin ninguna palabra extra.
+**Etiqueta del grupo todavía no publicado:** Próximamente
+
+### Grupos de cambios (de lo más reciente a lo más antiguo)
+
+**Próximamente** (sin fecha; 3号 lo pasa a un grupo con fecha al desplegar)
+- Encabezado: Acceso a la beta privada
+- Durante la beta privada, quienes visitan el sitio ingresan una contraseña de acceso antes de poder verlo.
+- Solo tienes que ingresarla una vez en cada dispositivo, y sirve por un tiempo.
+(No se agrega la fecha de este grupo ni se mueve hasta que la página esté en vivo. «Por un tiempo» es a propósito: la cookie dura 30 días, pero la duración exacta no es una promesa a los usuarios.)
+
+**2026-10-22**
+- Encabezado: Modo oscuro y japonés
+- Elige el tema Sistema, Claro u Oscuro con el botón de tema o en tu configuración.
+- Ahora el sitio también está en japonés, así que está disponible en 12 idiomas.
+- Mientras estemos en pre-alpha, el sitio no aparece en los buscadores.
+- La página «Revisa tu correo» ahora te dice desde qué dirección llegan nuestros correos.
+- Al eliminar tu cuenta, escribir DELETE ahora también funciona con letras de ancho completo.
+
+**2026-10-20 (segundo lanzamiento)**
+- Encabezado: Más idiomas y páginas legales
+- Ahora el sitio está disponible en 11 idiomas, con un selector de idioma.
+- Las páginas de términos y de privacidad ahora están disponibles en todos los idiomas, como traducciones no oficiales del texto en inglés.
+- Para elegir las fotos de una publicación, ahora hay un botón en tu idioma.
+- Ahora contamos las visitas de forma básica y anónima, sin cookies publicitarias.
+
+**2026-10-20 (primer lanzamiento)**
+- Encabezado: Pensado para celulares
+- Una barra inferior y una barra para volver hacen que el sitio sea más fácil de usar en el celular.
+- Puedes agregar el sitio a tu pantalla de inicio como si fuera una aplicación.
+- Íconos nuevos y un ícono nuevo para la pestaña del navegador.
+- Un enlace «Enviar comentarios» te permite avisarnos de un error o compartir una idea.
+- Unas breves pantallas de introducción explican cómo funciona el sitio la primera vez que inicias sesión.
+- En tu configuración, puedes activar o desactivar la vibración al tocar.
+
+**2026-10-19 (segundo lanzamiento)**
+- Encabezado: Un nombre nuevo
+- Ahora el sitio se llama project-arcade y lleva una etiqueta de pre-alpha.
+- Ahora se pueden enviar mensajes entre un prestatario y un prestador.
+- Ahora las contraseñas necesitan al menos 8 caracteres.
+- Ilustraciones redibujadas en la página de inicio y en la página Explorar.
+
+**2026-10-19 (primer lanzamiento)**
+- Encabezado: La primera versión
+- Explora el equipo que la gente de tu comunidad está dispuesta a prestar.
+- Publica tu propio equipo gratis o por una tarifa pequeña, con un precio por daños.
+- Haz fila para un artículo que quieras pedir prestado.
+- Los prestadores aprueban las solicitudes y cada préstamo tiene su propia conversación.
+- Los perfiles muestran un nombre visible y una ciudad.
+- Puedes reportar un artículo o a una persona.
+
+(Reglas para los lanzamientos del mismo día: el código debe mostrar solo la fecha. Las etiquetas «(primer lanzamiento)» y «(segundo lanzamiento)» de arriba son para el coordinador y no forman parte del texto. El encabezado se muestra debajo de la fecha, para que los grupos del mismo día queden en el orden correcto: lo más reciente primero.)
+(Nota de traducción: «Enviar comentarios» se escribe entre comillas angulares porque es el nombre del enlace dentro de una oración; no se usa «reportar» para los errores, porque Reportar es solo para abusos (sección 19). «Letras de ancho completo» es el término habitual para los caracteres full-width; la palabra DELETE se mantiene en inglés porque el código la compara.)
 
 ---
 

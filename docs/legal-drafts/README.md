@@ -39,7 +39,7 @@ Frontmatter `title` (translated) and `updated: 2026-10-20` (date of the English 
 1. What we collect (7 bullets)
 2. Where it is stored
 3. What other users can see
-4. Analytics and cookies (DRAFT, needs review): 4 bullets, then a Cookies paragraph with 2 bullets; added and revised 2026-10-20, wording not final
+4. Analytics and cookies (DRAFT, needs review): 4 bullets, then a Cookies paragraph with 3 bullets (the third, the pa_access beta access cookie, added 2026-10-22); added and revised 2026-10-20, wording not final
 5. How we use it
 6. What we don't do (3 bullets)
 7. Sharing
@@ -80,6 +80,6 @@ The page files contain no English mixed into the running text: the DRAFT box sta
 | File | DRAFT note | [TO CONFIRM | [NEEDS LAWYER CONFIRMATION | Other |
 |---|---|---|---|---|
 | terms.md | 1 | 0 | 1 | 13 numbered items, 1 [contact email], 1 [Link to privacy policy] |
-| privacy.md | 1 (plus "DRAFT" in the Analytics heading) | 7 | 0 | 12 `##` headings, 16 bullets, 2 [contact email], 1 [message removed], 3 [NEEDS REVIEW (profile paragraph, analytics paragraph, cookies), 1 "NEEDS REVIEW." in "Basic technical data" |
+| privacy.md | 1 (plus "DRAFT" in the Analytics heading) | 8 | 0 | 12 `##` headings, 17 bullets, 2 [contact email], 1 [message removed], 4 [NEEDS REVIEW (profile paragraph, analytics paragraph, pa_access cookie, cookies), 1 "NEEDS REVIEW." in "Basic technical data" |
 
 `updated` is 2026-10-20 in all 11 files (the English "Last updated" date, still a draft date: set it to the real publish date before launch). When the English date changes, update all 11 files.

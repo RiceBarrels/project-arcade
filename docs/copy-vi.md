@@ -324,9 +324,10 @@ Trước khi một lượt xem trang được gửi đi, chúng tôi loại bỏ
 
 Chúng tôi không dùng dữ liệu này để hiển thị quảng cáo, và chúng tôi không bán dữ liệu này.
 
-Cookie: trang thiết lập hai loại cookie, cả hai đều cần thiết để trang hoạt động.
+Cookie: trang chỉ thiết lập những cookie cần thiết để trang hoạt động (hai loại, cộng thêm một loại thứ ba trong giai đoạn beta kín).
 - Cookie đăng nhập, do nhà cung cấp dịch vụ đăng nhập của chúng tôi (Supabase) thiết lập, giữ cho Quý vị ở trạng thái đăng nhập. Cookie này có thể được chia thành nhiều phần.
 - Cookie ngôn ngữ ghi nhớ ngôn ngữ mà Quý vị đã chọn. Cookie này được lưu trong 1 năm.
+- Trong thời gian mật khẩu beta kín được bật, một cookie truy cập có tên pa_access ghi nhớ rằng Quý vị đã nhập mật khẩu. Cookie này được lưu trong 30 ngày và không chứa thông tin cá nhân nào. Chúng tôi ngừng thiết lập cookie này khi mật khẩu được tắt. [NEEDS REVIEW: tên cookie, thời hạn 30 ngày và việc “chỉ khi mật khẩu được bật” lấy từ bản mô tả nhiệm vụ của người điều phối, chưa được kiểm tra trong mã nguồn.]
 
 Trang cũng lưu cài đặt rung khi chạm của Quý vị, lựa chọn giao diện của Quý vị (Sáng hoặc Tối; nếu Quý vị để ở Tự động thì không có thông tin nào được lưu) và tiến độ của Quý vị trong các màn hình hướng dẫn ban đầu vào bộ nhớ cục bộ (local storage) của trình duyệt, ngay trên thiết bị của chính Quý vị. Đây không phải là cookie và không được gửi cho chúng tôi.
 
@@ -761,6 +762,97 @@ Hiển thị trong trang cài đặt / trang Tôi, và dưới dạng một nút
 - Trạng thái hiện tại, được đọc cùng nút hoặc hiển thị làm chú thích khi rê chuột (tooltip) (một chuỗi, {theme} = Tự động / Sáng / Tối): Giao diện: {theme}
   - Ví dụ: Giao diện: Tự động, Giao diện: Sáng, Giao diện: Tối
 (Giữ “Đổi giao diện” làm tên của nút và “Giao diện: Tối” làm chú thích / mô tả, để cả hành động lẫn trạng thái hiện tại đều có. {theme} được thay bằng đúng ba nhãn lựa chọn ở trên.)
+
+## 25. Trang truy cập bản beta
+
+Hiển thị cho bất kỳ ai chưa có cookie truy cập trong thời gian mật khẩu beta kín được bật. Ngắn gọn và thân thiện; không dùng emoji.
+
+**Tiêu đề trên thẻ trình duyệt:** Beta kín
+**Tiêu đề trang:** Beta kín
+**Phần giới thiệu:** project-arcade đang trong giai đoạn beta kín. Hãy nhập mật khẩu truy cập để tiếp tục.
+
+**Biểu mẫu**
+- Nhãn của ô: Mật khẩu truy cập
+- Chữ gợi ý trong ô (placeholder): Nhập mật khẩu
+- Nút gửi: Tiếp tục
+- Nút gửi khi đang kiểm tra: Đang kiểm tra...
+- Lỗi (sai mật khẩu): Mật khẩu này chưa đúng. Vui lòng thử lại.
+- Lỗi (có sự cố): Đã có lỗi xảy ra. Vui lòng thử lại.
+(Dòng sai mật khẩu là dòng trong bản mô tả nhiệm vụ, có thêm “Vui lòng thử lại.”. Lỗi “thử quá nhiều lần” đã được bỏ: code không có giới hạn số lần thử, chỉ có một khoảng dừng ngắn cố định sau khi nhập sai mật khẩu, nên trạng thái đó không bao giờ xảy ra.)
+
+**Trình đọc màn hình**
+- Ô mật khẩu: nhãn hiển thị “Mật khẩu truy cập” chính là tên dành cho công nghệ hỗ trợ (accessible name) của ô (chữ gợi ý không phải là nhãn).
+- Lỗi: được đọc lên ngay khi xuất hiện (role="alert"), và được liên kết với ô bằng aria-describedby.
+- Nút gửi: chữ hiển thị chính là tên của nút; không có nhãn riêng.
+- Trang: giữ “Beta kín” làm h1.
+
+**Dòng khi không có mật khẩu (CHƯA có trên trang; 1号 giữ lại cho đến khi quyết định được địa chỉ liên hệ):** Bạn chưa có mật khẩu? Hãy liên hệ chúng tôi qua [contact email], chúng tôi sẽ xem có thể giúp gì. [TO CONFIRM: địa chỉ liên hệ, dùng cùng chỗ giữ như trên các trang điều khoản và quyền riêng tư; chưa ghi địa chỉ thật. Đồng thời xác nhận ai có thể cấp quyền truy cập.]
+(Phương án ngắn hơn: Bạn chưa có mật khẩu? Hãy liên hệ chúng tôi qua [contact email].)
+
+**Ghi chú (cho trang quyền riêng tư):** cookie truy cập được mô tả ở mục 15, phần Cookie.
+
+## 26. Có gì mới (trang nhật ký thay đổi công khai)
+
+Một trang công khai liệt kê những gì đã thay đổi trên trang, mới nhất ở trên cùng. Mỗi mục một câu, lời lẽ đơn giản, không có chi tiết nội bộ. Mỗi chuỗi đứng độc lập để có thể dịch riêng. Ngày do code hiển thị theo ngôn ngữ của người xem (các ngày ISO bên dưới là ngày gốc). Thông tin lấy từ lịch sử git và các mục ở trên; đã đối chiếu với nội dung các commit, không đối chiếu với trang đang chạy.
+
+**Tiêu đề trang và h1:** Có gì mới
+**Tiêu đề trên thẻ trình duyệt:** Có gì mới
+**Phần giới thiệu (một dòng):** project-arcade là dự án phi lợi nhuận và vẫn đang ở giai đoạn pre-alpha. Dưới đây là những gì chúng tôi đã thay đổi cho đến nay.
+**Khi chưa có mục nào:** Chưa có gì để hiển thị. Hãy quay lại sau nhé.
+**Nhãn liên kết ở chân trang:** Có gì mới
+**Nhãn cho ngày bên cạnh mỗi nhóm phát hành:** dùng ngày đã được định dạng theo ngôn ngữ của người xem; không thêm chữ nào.
+**Nhãn cho nhóm chưa phát hành:** Sắp ra mắt
+
+### Các nhóm phát hành (mới nhất ở trên cùng)
+
+**Sắp ra mắt** (không có ngày; 3号 chuyển nhóm này vào một nhóm có ngày khi triển khai)
+- Tiêu đề: Truy cập bản beta kín
+- Trong giai đoạn beta kín, khách truy cập cần nhập mật khẩu truy cập rồi mới xem được trang.
+- Trên mỗi thiết bị, bạn chỉ cần nhập một lần là dùng được trong một thời gian.
+(Không thêm ngày cho nhóm này và không di chuyển nó cho đến khi trang đã chạy thật. Chữ “trong một thời gian” là có chủ ý: cookie được lưu trong 30 ngày, nhưng thời hạn chính xác không phải là lời hứa với người dùng.)
+
+**2026-10-22**
+- Tiêu đề: Chế độ tối và tiếng Nhật
+- Chọn giao diện Tự động, Sáng hoặc Tối bằng nút giao diện hoặc trong phần cài đặt của bạn.
+- Trang giờ đã có thêm tiếng Nhật, nâng tổng số lên 12 ngôn ngữ.
+- Trang không xuất hiện trên các công cụ tìm kiếm trong thời gian còn ở giai đoạn pre-alpha.
+- Trang “Kiểm tra email của bạn” giờ cho bạn biết email của chúng tôi được gửi từ địa chỉ nào.
+- Khi bạn xóa tài khoản, giờ gõ DELETE bằng chữ toàn chiều rộng (full-width) cũng được.
+
+**2026-10-20 (lần phát hành thứ hai)**
+- Tiêu đề: Thêm ngôn ngữ và trang pháp lý
+- Trang giờ đã có 11 ngôn ngữ, kèm bộ chuyển ngôn ngữ.
+- Trang Điều khoản sử dụng và trang Chính sách quyền riêng tư giờ đã có ở mọi ngôn ngữ, dưới dạng bản dịch không chính thức từ bản tiếng Anh.
+- Nút chọn ảnh cho tin đăng giờ hiển thị bằng ngôn ngữ của bạn.
+- Giờ đây chúng tôi đếm lượt truy cập theo cách cơ bản và ẩn danh, không dùng cookie quảng cáo.
+
+**2026-10-20 (lần phát hành đầu tiên)**
+- Tiêu đề: Dành cho điện thoại
+- Thanh điều hướng dưới cùng và thanh quay lại giúp bạn dùng trang trên điện thoại dễ hơn.
+- Bạn có thể thêm trang vào màn hình chính như một ứng dụng.
+- Biểu tượng mới và biểu tượng mới trên thẻ trình duyệt.
+- Liên kết “Gửi góp ý” giúp bạn báo lỗi hoặc chia sẻ ý tưởng.
+- Vài màn hình chào mừng ngắn giải thích cách trang hoạt động khi bạn đăng nhập lần đầu.
+- Bạn có thể bật hoặc tắt rung khi chạm trong phần cài đặt của bạn.
+
+**2026-10-19 (lần phát hành thứ hai)**
+- Tiêu đề: Tên mới
+- Trang giờ mang tên project-arcade và có nhãn pre-alpha.
+- Giờ đây người mượn và người cho mượn đã có thể gửi tin nhắn cho nhau.
+- Mật khẩu giờ cần có ít nhất 8 ký tự.
+- Hình minh họa ở trang chủ và trang Khám phá được vẽ lại.
+
+**2026-10-19 (lần phát hành đầu tiên)**
+- Tiêu đề: Phiên bản đầu tiên
+- Khám phá đồ dùng mà mọi người trong cộng đồng của bạn sẵn lòng cho mượn.
+- Đăng đồ dùng của bạn để cho mượn miễn phí hoặc với một khoản phí nhỏ, kèm giá đền bù.
+- Xếp hàng chờ món đồ bạn muốn mượn.
+- Người cho mượn duyệt yêu cầu, và mỗi lượt mượn có cuộc trò chuyện riêng.
+- Hồ sơ hiện tên hiển thị và thành phố.
+- Bạn có thể báo cáo một món đồ hoặc một người.
+
+(Quy tắc cho các lần phát hành trong cùng một ngày: code chỉ hiển thị ngày. Các nhãn “(lần phát hành đầu tiên)” và “(lần phát hành thứ hai)” ở trên là để người điều phối theo dõi, không thuộc nội dung trang. Hiển thị tiêu đề bên dưới ngày, để các nhóm trong cùng một ngày vẫn đúng thứ tự: mới nhất ở trên cùng.)
+(Ghi chú của người dịch: “full-width” được giữ trong ngoặc vì người dùng tiếng Việt ít gặp khái niệm chữ toàn chiều rộng, thường xuất hiện khi gõ bằng bộ gõ tiếng Nhật, tiếng Trung hoặc tiếng Hàn. “Gửi góp ý” và “Kiểm tra email của bạn” được đặt trong ngoặc kép để người đọc nhận ra đó là tên liên kết và tên trang.)
 
 ---
 

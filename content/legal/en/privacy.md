@@ -41,9 +41,10 @@ Before a page view is sent, we remove item, loan and profile IDs from the page p
 
 We don't use this to show ads, and we don't sell it.
 
-Cookies: the site sets two kinds of cookies, both needed for it to work.
+Cookies: the site sets only cookies it needs to work (two kinds, plus a third during the private beta).
 - A sign-in cookie, set by our sign-in provider (Supabase), keeps you signed in. It can be split into several parts.
 - A language cookie remembers the language you chose. It lasts 1 year.
+- While the private beta password is switched on, an access cookie called pa_access remembers that you entered the password. It lasts 30 days and contains no personal information. We stop setting it when the password is switched off. [NEEDS REVIEW: cookie name, 30-day lifetime and "only while the password is on" are from the coordinator's brief, not yet checked in code.]
 
 The site also stores your vibration setting, your theme choice (Light or Dark; nothing is stored if you leave it on System) and your progress through the welcome screens in your browser's local storage on your own device. This is not a cookie and is not sent to us.
 

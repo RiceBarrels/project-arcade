@@ -68,6 +68,12 @@
   "{returned} returned OK · {damaged} came back damaged": [
     "app/[locale]/item/[id]/page.tsx:127"
   ],
+  "{site} is a non-profit and still in pre-alpha. Here is what we've changed so far.": [
+    "app/[locale]/changelog/page.tsx:23"
+  ],
+  "{site} is in private beta. Enter the access password to continue.": [
+    "app/[locale]/access/page.tsx:38"
+  ],
   "{site} is pre-alpha, so your notes really help. Tell us what's broken, confusing, or missing.": [
     "components/feedback/feedback-dialog.tsx:103"
   ],
@@ -76,6 +82,9 @@
   ],
   "<strong>Why 48 hours?</strong> So items don't sit idle while people are away from their phones. When it's your turn you have 48 hours to respond. Miss it and the item passes to the next person; you can always rejoin.": [
     "components/queue-list.tsx:139"
+  ],
+  "A bottom bar and a back bar make the site easier to use on a phone.": [
+    "content/changelog.ts:50"
   ],
   "A community lending library for gear. Browse what people near you are willing to lend, add it to your queue, and pick it up when it's your turn.": [
     "app/[locale]/page.tsx:49"
@@ -86,14 +95,23 @@
   "A line or two about you and the gear you like. Don't include contact details.": [
     "components/settings/shared.ts:13"
   ],
+  "A new name": [
+    "content/changelog.ts:60"
+  ],
   "A non-profit community lending library for gear. Browse, queue up, borrow from people nearby, and pass it on. No ads, no site fees.": [
     "lib/site.ts:17"
   ],
   "A non-profit library for gear, run by neighbours. The site itself charges nothing. It's pre-alpha, so things may change.": [
     "components/mobile/onboarding.tsx:27"
   ],
+  "A Send feedback link lets you report a bug or share an idea.": [
+    "content/changelog.ts:53"
+  ],
   "A short buzz when you tap buttons. Saved on this device only.": [
     "components/settings/device-prefs.tsx:45"
+  ],
+  "Access password": [
+    "components/auth/access-form.tsx:32"
   ],
   "Add what you want to your queue. If it's out on loan, you keep your place in line. When it's free, you're next.": [
     "app/[locale]/page.tsx:27"
@@ -178,6 +196,9 @@
     "components/site-header.tsx:11",
     "lib/nav.ts:12"
   ],
+  "Browse gear that people in your community are willing to lend.": [
+    "content/changelog.ts:72"
+  ],
   "Browse the catalogue": [
     "app/[locale]/browse/page.tsx:102",
     "app/[locale]/page.tsx:53",
@@ -230,6 +251,12 @@
     "app/[locale]/check-email/page.tsx:9",
     "app/[locale]/check-email/page.tsx:18"
   ],
+  "Checking…": [
+    "components/auth/access-form.tsx:52"
+  ],
+  "Choose a System, Light or Dark theme with the theme button or in your settings.": [
+    "content/changelog.ts:29"
+  ],
   "Choose how the site looks on this device.": [
     "components/theme.tsx:106"
   ],
@@ -238,6 +265,9 @@
   ],
   "Choose photos for your listing": [
     "components/photo-picker.tsx:67"
+  ],
+  "Choosing photos for a listing now uses a button in your own language.": [
+    "content/changelog.ts:42"
   ],
   "City": [
     "components/settings/profile-form.tsx:104"
@@ -264,11 +294,17 @@
     "components/ui/dialog.tsx:82",
     "components/ui/dialog.tsx:122"
   ],
+  "Coming soon": [
+    "app/[locale]/changelog/page.tsx:49"
+  ],
   "Community so far": [
     "app/[locale]/page.tsx:64"
   ],
   "Condition": [
     "components/list-form.tsx:124"
+  ],
+  "Continue": [
+    "components/auth/access-form.tsx:52"
   ],
   "Couldn't delete your account. Please try again.": [
     "components/settings/shared.ts:42"
@@ -310,6 +346,9 @@
   ],
   "Dark always uses the dark theme.": [
     "components/theme.tsx:17"
+  ],
+  "Dark mode and Japanese": [
+    "content/changelog.ts:27"
   ],
   "Declined": [
     "components/messages/loan-status-badge.tsx:12"
@@ -356,6 +395,9 @@
   "Don't share passwords, payment details, or ID numbers in messages.": [
     "components/messages/thread-view.tsx:65"
   ],
+  "During the private beta, visitors enter an access password before they can see the site.": [
+    "content/changelog.ts:21"
+  ],
   "e.g. 60": [
     "components/list-form.tsx:195"
   ],
@@ -382,6 +424,9 @@
   ],
   "Enter the email you signed up with and we'll send the link again.": [
     "app/[locale]/check-email/page.tsx:31"
+  ],
+  "Enter the password": [
+    "components/auth/access-form.tsx:39"
   ],
   "Enter your email and we'll send a fresh link.": [
     "app/[locale]/verify-failed/page.tsx:20"
@@ -531,6 +576,9 @@
   "items listed": [
     "app/[locale]/page.tsx:39"
   ],
+  "Join a queue for an item you would like to borrow.": [
+    "content/changelog.ts:74"
+  ],
   "Join the arcade": [
     "app/[locale]/signup/page.tsx:14"
   ],
@@ -556,6 +604,9 @@
   ],
   "Lender": [
     "app/[locale]/item/[id]/page.tsx:122"
+  ],
+  "Lenders approve requests, and each loan has its own conversation.": [
+    "content/changelog.ts:75"
   ],
   "Lending is free by default. If you'd like a small fee, you can set one. Any fee is agreed and paid directly between you and the borrower, not through this site.": [
     "components/list-form.tsx:167"
@@ -584,6 +635,9 @@
     "app/[locale]/page.tsx:54",
     "app/[locale]/welcome/page.tsx:18"
   ],
+  "List your own gear for free or for a small fee, with a damage price.": [
+    "content/changelog.ts:73"
+  ],
   "Listing published.": [
     "components/list-form.tsx:93"
   ],
@@ -598,6 +652,9 @@
     "app/[locale]/item/[id]/page.tsx:37",
     "app/[locale]/profile/[id]/page.tsx:28",
     "app/[locale]/profile/page.tsx:30"
+  ],
+  "Made for phones": [
+    "content/changelog.ts:48"
   ],
   "Main": [
     "components/mobile/bottom-nav.tsx:33",
@@ -647,6 +704,9 @@
     "components/messages/thread-view.tsx:72",
     "components/site-header.tsx:14"
   ],
+  "Messages between a borrower and a lender can now be sent.": [
+    "content/changelog.ts:63"
+  ],
   "Messages can be up to 2,000 characters.": [
     "components/messages/message-composer.tsx:56"
   ],
@@ -655,6 +715,9 @@
   ],
   "Messaging opens once the lender approves the request.": [
     "components/messages/thread-view.tsx:87"
+  ],
+  "More languages and legal pages": [
+    "content/changelog.ts:38"
   ],
   "My queue": [
     "app/[locale]/queue/page.tsx:11",
@@ -666,6 +729,9 @@
   ],
   "New here? Create an account": [
     "components/auth/login-form.tsx:35"
+  ],
+  "New icons and a new browser tab icon.": [
+    "content/changelog.ts:52"
   ],
   "New password": [
     "components/auth/reset-password-form.tsx:17"
@@ -722,6 +788,9 @@
   ],
   "Nothing on this shelf": [
     "app/global-not-found.tsx:63"
+  ],
+  "Nothing to show yet. Check back soon.": [
+    "app/[locale]/changelog/page.tsx:28"
   ],
   "Number {position} of {total} in line": [
     "components/queue-list.tsx:112"
@@ -784,6 +853,9 @@
   "Password": [
     "components/auth/login-form.tsx:18",
     "components/signup-form.tsx:28"
+  ],
+  "Passwords now need at least 8 characters.": [
+    "content/changelog.ts:64"
   ],
   "per day": [
     "components/list-form.tsx:160"
@@ -896,6 +968,13 @@
   "Preview: sample conversation": [
     "app/[locale]/messages/page.tsx:114"
   ],
+  "Private beta": [
+    "app/[locale]/access/page.tsx:20",
+    "app/[locale]/access/page.tsx:38"
+  ],
+  "Private beta access": [
+    "content/changelog.ts:19"
+  ],
   "Profile": [
     "app/[locale]/profile/[id]/page.tsx:18",
     "app/[locale]/profile/page.tsx:22",
@@ -906,6 +985,9 @@
   ],
   "Profile saved.": [
     "components/settings/shared.ts:11"
+  ],
+  "Profiles show a display name and city.": [
+    "content/changelog.ts:76"
   ],
   "Publish listing": [
     "components/list-form.tsx:240"
@@ -927,6 +1009,9 @@
   ],
   "Reason": [
     "components/report-button.tsx:109"
+  ],
+  "Redrawn home page and browse illustrations.": [
+    "content/changelog.ts:65"
   ],
   "Rejoin": [
     "components/queue-list.tsx:97"
@@ -1069,6 +1154,9 @@
     "app/[locale]/settings/page.tsx:25",
     "components/user-slot.tsx:29"
   ],
+  "Short welcome screens explain how the site works the first time you sign in.": [
+    "content/changelog.ts:54"
+  ],
   "Sign in": [
     "app/[locale]/item/[id]/page.tsx:179",
     "app/[locale]/item/[id]/page.tsx:224",
@@ -1110,6 +1198,7 @@
     "app/[locale]/error.tsx:13"
   ],
   "Something went wrong. Please try again.": [
+    "app/[locale]/access/page.tsx:15",
     "lib/auth/actions.ts:34"
   ],
   "Something wrong with this listing or user? Let us know.": [
@@ -1161,6 +1250,15 @@
   "That page or item doesn't exist, or it's been taken down.": [
     "app/global-not-found.tsx:64"
   ],
+  "That password isn't right. Please try again.": [
+    "app/[locale]/access/page.tsx:14"
+  ],
+  "The check-your-email page now tells you which address our emails come from.": [
+    "content/changelog.ts:32"
+  ],
+  "The first version": [
+    "content/changelog.ts:70"
+  ],
   "The item came back damaged, or didn't come back. The damage price of {amount} applies.": [
     "components/return-check.tsx:117"
   ],
@@ -1195,6 +1293,21 @@
   "The site doesn't take or hold any payment.": [
     "components/queue-list.tsx:234",
     "components/request-form.tsx:78"
+  ],
+  "The site is now also in Japanese, so it comes in 12 languages.": [
+    "content/changelog.ts:30"
+  ],
+  "The site is now called project-arcade and carries a pre-alpha tag.": [
+    "content/changelog.ts:62"
+  ],
+  "The site now comes in 11 languages, with a language switcher.": [
+    "content/changelog.ts:40"
+  ],
+  "The site stays out of search engines while we are in pre-alpha.": [
+    "content/changelog.ts:31"
+  ],
+  "The terms and privacy pages are now available in every language, as unofficial translations of the English text.": [
+    "content/changelog.ts:41"
   ],
   "The text of messages you sent (replaced with \"[message removed]\")": [
     "components/settings/shared.ts:26"
@@ -1292,6 +1405,9 @@
   "We couldn't load this page right now. Please try again in a moment.": [
     "app/[locale]/error.tsx:14"
   ],
+  "We now count visits in a basic, anonymous way, with no advertising cookies.": [
+    "content/changelog.ts:43"
+  ],
   "We review reports as a small non-profit project, so replies may take a while. For emergencies, contact your local emergency services, not us. Found a bug or have an idea instead? Use Send feedback.": [
     "components/report-button.tsx:131"
   ],
@@ -1331,11 +1447,19 @@
   "What's included, anything to know before borrowing.": [
     "components/list-form.tsx:144"
   ],
+  "What's new": [
+    "app/[locale]/changelog/page.tsx:13",
+    "app/[locale]/changelog/page.tsx:21",
+    "components/site-footer.tsx:28"
+  ],
   "What's on your mind?": [
     "components/feedback/feedback-dialog.tsx:123"
   ],
   "When it's your turn you have 48 hours to respond before it passes to the next person.": [
     "app/[locale]/item/[id]/page.tsx:116"
+  ],
+  "When you delete your account, typing DELETE now also works with full-width letters.": [
+    "content/changelog.ts:33"
   ],
   "Write a message": [
     "components/messages/message-composer.tsx:102"
@@ -1352,8 +1476,17 @@
   "You approve every request. You can say no, and you can take a listing down at any time.": [
     "app/[locale]/list/page.tsx:25"
   ],
+  "You can add the site to your home screen like an app.": [
+    "content/changelog.ts:51"
+  ],
   "You can add up to 8 photos. Please choose fewer.": [
     "components/photo-picker.tsx:28"
+  ],
+  "You can report an item or a person.": [
+    "content/changelog.ts:77"
+  ],
+  "You can turn tap vibration on or off in your settings.": [
+    "content/changelog.ts:55"
   ],
   "You have items that are currently handed off. Finish those loans before deleting your account.": [
     "components/settings/shared.ts:34"
@@ -1377,6 +1510,9 @@
   ],
   "You need to be 18 or older to join.": [
     "lib/auth/actions.ts:85"
+  ],
+  "You only need to enter it once on each device for a while.": [
+    "content/changelog.ts:22"
   ],
   "You passed on {title}. It moves to the next person in line.": [
     "components/queue-list.tsx:83"

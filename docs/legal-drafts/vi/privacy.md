@@ -41,9 +41,10 @@ Trước khi một lượt xem trang được gửi đi, chúng tôi loại bỏ
 
 Chúng tôi không dùng dữ liệu này để hiển thị quảng cáo, và chúng tôi không bán dữ liệu này.
 
-Cookie: trang thiết lập hai loại cookie, cả hai đều cần thiết để trang hoạt động.
+Cookie: trang chỉ thiết lập những cookie cần thiết để trang hoạt động (hai loại, cộng thêm một loại thứ ba trong giai đoạn beta kín).
 - Cookie đăng nhập, do nhà cung cấp dịch vụ đăng nhập của chúng tôi (Supabase) thiết lập, giữ cho Quý vị ở trạng thái đăng nhập. Cookie này có thể được chia thành nhiều phần.
 - Cookie ngôn ngữ ghi nhớ ngôn ngữ mà Quý vị đã chọn. Cookie này được lưu trong 1 năm.
+- Trong thời gian mật khẩu beta kín được bật, một cookie truy cập có tên pa_access ghi nhớ rằng Quý vị đã nhập mật khẩu. Cookie này được lưu trong 30 ngày và không chứa thông tin cá nhân nào. Chúng tôi ngừng thiết lập cookie này khi mật khẩu được tắt. [NEEDS REVIEW: tên cookie, thời hạn 30 ngày và việc “chỉ khi mật khẩu được bật” lấy từ bản mô tả nhiệm vụ của người điều phối, chưa được kiểm tra trong mã nguồn.]
 
 Trang cũng lưu cài đặt rung khi chạm của Quý vị, lựa chọn giao diện của Quý vị (Sáng hoặc Tối; nếu Quý vị để ở Tự động thì không có thông tin nào được lưu) và tiến độ của Quý vị trong các màn hình hướng dẫn ban đầu vào bộ nhớ cục bộ (local storage) của trình duyệt, ngay trên thiết bị của chính Quý vị. Đây không phải là cookie và không được gửi cho chúng tôi.
 

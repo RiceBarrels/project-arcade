@@ -24,6 +24,9 @@ export async function SiteFooter() {
           <Link href="/signup" className="inline-flex min-h-11 md:min-h-10 items-center px-2 font-bold underline underline-offset-4">
             {t("Sign up")}
           </Link>
+          <Link href="/changelog" className="inline-flex min-h-11 md:min-h-10 items-center px-2 font-bold underline underline-offset-4">
+            {t("What's new")}
+          </Link>
           <FeedbackEntry variant="footer" />
           <LocaleSwitcher variant="footer" />
           {/* Also here so signed-out phones (no settings page) can pick a theme. */}

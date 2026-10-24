@@ -8,7 +8,7 @@ import { join, relative } from "node:path";
 import ts from "typescript";
 
 export const ROOT = join(import.meta.dirname, "..");
-export const SCAN_DIRS = ["app", "components", "lib", "i18n"];
+export const SCAN_DIRS = ["app", "components", "lib", "i18n", "content"];
 export const MESSAGES_DIR = join(ROOT, "i18n", "messages");
 
 export type Entry = string | { one: string; other: string };

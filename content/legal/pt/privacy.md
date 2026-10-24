@@ -41,9 +41,10 @@ Antes de uma visualização de página ser enviada, removemos do caminho da pág
 
 Não usamos esses dados para mostrar anúncios e não os vendemos.
 
-Cookies: o site define dois tipos de cookies, ambos necessários para que ele funcione.
+Cookies: o site define somente os cookies necessários para que ele funcione (dois tipos, mais um terceiro durante o beta fechado).
 - Um cookie de login, definido pelo nosso provedor de login (Supabase), mantém o usuário conectado. Ele pode ser dividido em várias partes.
 - Um cookie de idioma guarda o idioma escolhido pelo usuário. Ele dura 1 ano.
+- Enquanto a senha do beta fechado estiver ativada, um cookie de acesso chamado pa_access guarda a informação de que o usuário digitou a senha. Ele dura 30 dias e não contém informações pessoais. Deixamos de definir esse cookie quando a senha é desativada. [NEEDS REVIEW: o nome do cookie, a duração de 30 dias e o "somente enquanto a senha estiver ativada" vêm das instruções da coordenação e ainda não foram verificados no código.]
 
 O site também armazena a configuração de vibração (Vibrar ao tocar), a escolha de tema do usuário (Claro ou Escuro; nada é armazenado se o usuário mantiver a opção Sistema) e o progresso do usuário nas telas de introdução no armazenamento local (local storage) do navegador, no próprio dispositivo do usuário. Isso não é um cookie e não é enviado para nós.
 

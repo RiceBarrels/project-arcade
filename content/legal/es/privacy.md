@@ -41,9 +41,10 @@ Antes de enviar una vista de página, quitamos de la ruta de la página los ID d
 
 No usamos esto para mostrar anuncios y no lo vendemos.
 
-Cookies: el sitio establece dos tipos de cookies, y ambos son necesarios para que funcione.
+Cookies: el sitio establece solo las cookies que necesita para funcionar (dos tipos, más un tercero durante la beta privada).
 - Una cookie de inicio de sesión, establecida por nuestro proveedor de inicio de sesión (Supabase), mantiene su sesión iniciada. Puede dividirse en varias partes.
 - Una cookie de idioma recuerda el idioma que usted eligió. Dura 1 año.
+- Mientras la contraseña de la beta privada está activada, una cookie de acceso llamada pa_access recuerda que usted ingresó la contraseña. Dura 30 días y no contiene información personal. Dejamos de establecerla cuando la contraseña se desactiva. [NEEDS REVIEW: el nombre de la cookie, la duración de 30 días y lo de «solo mientras la contraseña está activada» provienen de las indicaciones del coordinador; todavía no se han verificado en el código.]
 
 El sitio también guarda su configuración de «Vibrar al tocar», su elección de tema (Claro u Oscuro; si lo deja en Sistema, no se guarda nada) y su avance en las pantallas de introducción en el almacenamiento local de su navegador, en su propio dispositivo. Esto no es una cookie y no se nos envía.
 

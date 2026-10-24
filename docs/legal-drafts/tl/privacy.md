@@ -41,9 +41,10 @@ Bago ipadala ang isang page view, inaalis namin sa path ng page ang mga ID ng it
 
 Hindi namin ito ginagamit para magpakita ng ads, at hindi namin ito ibinebenta.
 
-Cookies: dalawang uri ng cookies ang itinatakda ng site, at parehong kailangan ang mga ito para gumana ang site.
+Cookies: ang itinatakda lang ng site ay ang mga cookies na kailangan nito para gumana (dalawang uri, at may ikatlo habang nasa pribadong beta).
 - Pinapanatili kayong naka-sign in ng isang cookie para sa pag-sign in, na itinatakda ng aming provider ng pag-sign in (Supabase). Puwede itong hatiin sa ilang bahagi.
 - Tinatandaan ng isang cookie para sa wika ang wikang pinili ninyo. Tumatagal ito nang 1 taon.
+- Habang naka-on ang password ng pribadong beta, tinatandaan ng isang access cookie na tinatawag na pa_access na nailagay na ninyo ang password. Tumatagal ito nang 30 araw at wala itong personal na impormasyon. Hindi na namin ito itinatakda kapag naka-off na ang password. [NEEDS REVIEW: ang pangalan ng cookie, ang 30 araw na itinatagal nito at ang "habang naka-on lang ang password" ay mula sa brief ng koordinador, at hindi pa nasusuri sa code.]
 
 Iniimbak din ng site ang inyong setting na "Mag-vibrate kapag nag-tap", ang napili ninyong tema (Maliwanag o Madilim; walang iniimbak kung iiwan ninyo ito sa System) at ang progreso ninyo sa mga screen ng onboarding sa local storage ng inyong browser, sa sarili ninyong device. Hindi ito cookie at hindi ito ipinapadala sa amin.
 

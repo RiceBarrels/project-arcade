@@ -410,3 +410,26 @@ Built by one agent and reviewed key by key by a second, independent agent. `bun 
 - Punctuation follows each dictionary's existing convention, so two values differ slightly from the copy doc: zh uses a full-width colon (主题：{theme}, as in 最后更新：{date}) while `docs/copy-zh.md` uses half-width punctuation throughout; fr uses a no-break space before the colon (Thème\u00a0: {theme}), as in "Dernière mise à jour".
 - The option descriptions are shown directly under the label (components/theme.tsx), so a description that starts with the label ("System follows ...") repeats it. ar, vi and tl use "Label: ..." for this; the other languages mirror the English. Native reviewers may prefer dropping the repeated label.
 - The privacy local-storage sentence now mentions the theme choice (5号, 2026-10-21; stored only in localStorage, no cookie): Light or Dark is stored, and nothing is stored if the setting is left on System. It uses the section 24 labels. Updated in all 12 `docs/legal-drafts/<code>/privacy.md` and in section 15 of each copy doc. Still needs lawyer review.
+
+## Update 2026-10-22: beta access page (7 keys, section 25)
+
+- Values copied from section 25 of each `docs/copy-<code>.md` (translated and checked independently per language). `bun run i18n:check` passes with 454 keys.
+- The intro key uses `{site}` where the copy docs write project-arcade. ko attaches 는 to `{site}` (project-arcade read as 프로젝트 아케이드, ending in a vowel); pt puts the article before it ("O {site}").
+- "Checking…" uses the single ellipsis character, like the other loading labels in the dictionaries; the copy docs write three dots.
+- Not in the dictionaries on purpose (1号, 2026-10-22): the "Don't have the password?" line (not on the page yet; contact address still a placeholder). Its translation stays in section 25 of the copy docs, marked "not on the page yet". The too-many-tries error was removed from section 25 in every language (no rate limit on this page, only a short fixed pause after a wrong password).
+- tl keeps "Access password" in English (translator choice; native reviewer to confirm).
+
+## Update 2026-10-23: What's new changelog (36 keys, section 26)
+
+- Values copied from section 26 of each `docs/copy-<code>.md` (translated and checked independently per locale; every value appears word for word in that section, with project-arcade in place of `{site}`). `bun run i18n:check` passes with 490 keys.
+- Kept as is in every locale: DELETE, project-arcade, pre-alpha (ja pre-alpha版), `{site}`. The System / Light / Dark labels and the Send feedback button name are the existing dictionary values.
+- "What's new": zh 更新日志, zh-hant 更新紀錄, ja 更新情報, es Novedades, fr Nouveautés, ar ما الجديد, tl Ano ang bago, vi Có gì mới, ko 새 소식, pt Novidades, ru Что нового. Translator choices; no glossary row yet.
+- New terms with no earlier use, for native review: full-width letters (zh 全角, zh-hant 全形, ko 전각 문자, ja, es letras de ancho completo, fr lettres pleine chasse, pt letras de largura total, ru полноширинными буквами, vi and ar with an English "(full-width)" gloss, tl full-width), home screen, back bar.
+- Checker confidence: es and fr medium-high or high; zh, ja, pt medium to medium-high; zh-hant, ar, tl, vi, ko, ru medium. Headings and short labels ("Coming soon", "Private beta access", "Made for phones") are the least certain.
+- fr: no-break spaces inside « » (fixed after the check, in both the dictionary and copy-fr.md).
+
+## Update 2026-10-23 (later): section 26 corrections (6 keys replaced by 7)
+
+- 5号 corrected six changelog lines in copy-en section 26 (theme button wording, the check-your-email page instead of account emails, DELETE with full-width letters, terms and privacy as unofficial translations, Send feedback is a link, welcome screens on first sign-in, tap vibration on its own line). The six old keys were removed from all 11 dictionaries and the seven new ones added; section 26 of each copy doc was updated to match. `bun run i18n:check` passes with 491 keys.
+- Reused exactly: System / Light / Dark labels, "Send feedback", "Vibrate on tap" (as "tap vibration"), the "Check your email" page title, "Settings", and the "unofficial translation" wording of the section 21 notice.
+- es uses "pantallas de introducción" for welcome screens (as in the privacy text and section 18.1); pt uses "faz login" for sign in, so the line cannot be read as "first visit".

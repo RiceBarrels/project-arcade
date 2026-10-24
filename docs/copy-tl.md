@@ -323,9 +323,10 @@ Bago ipadala ang isang page view, inaalis namin sa path ng page ang mga ID ng it
 
 Hindi namin ito ginagamit para magpakita ng ads, at hindi namin ito ibinebenta.
 
-Cookies: dalawang uri ng cookies ang itinatakda ng site, at parehong kailangan ang mga ito para gumana ang site.
+Cookies: ang itinatakda lang ng site ay ang mga cookies na kailangan nito para gumana (dalawang uri, at may ikatlo habang nasa pribadong beta).
 - Pinapanatili kayong naka-sign in ng isang cookie para sa pag-sign in, na itinatakda ng aming provider ng pag-sign in (Supabase). Puwede itong hatiin sa ilang bahagi.
 - Tinatandaan ng isang cookie para sa wika ang wikang pinili ninyo. Tumatagal ito nang 1 taon.
+- Habang naka-on ang password ng pribadong beta, tinatandaan ng isang access cookie na tinatawag na pa_access na nailagay na ninyo ang password. Tumatagal ito nang 30 araw at wala itong personal na impormasyon. Hindi na namin ito itinatakda kapag naka-off na ang password. [NEEDS REVIEW: ang pangalan ng cookie, ang 30 araw na itinatagal nito at ang "habang naka-on lang ang password" ay mula sa brief ng koordinador, at hindi pa nasusuri sa code.]
 
 Iniimbak din ng site ang inyong setting na "Mag-vibrate kapag nag-tap", ang napili ninyong tema (Maliwanag o Madilim; walang iniimbak kung iiwan ninyo ito sa System) at ang progreso ninyo sa mga screen ng onboarding sa local storage ng inyong browser, sa sarili ninyong device. Hindi ito cookie at hindi ito ipinapadala sa amin.
 
@@ -765,6 +766,97 @@ Lumalabas sa page na Ako / Settings, at bilang button sa header ng page sa deskt
 - Kasalukuyang estado, binabasa kasama ng button o ipinapakita bilang tooltip nito (iisang string, {theme} = System / Maliwanag / Madilim): Tema: {theme}
   - Mga halimbawa: Tema: System, Tema: Maliwanag, Tema: Madilim
 (Panatilihin ang "Palitan ang tema" bilang pangalan ng button at ang "Tema: Madilim" bilang tooltip o paglalarawan, para parehong available ang aksyon at ang kasalukuyang estado. Gamitin para sa {theme} ang parehong salita ng tatlong opsyon sa itaas. Walang kasarian o pagbabago ng anyo ang mga ito sa Filipino, kaya bagay ang tatlo pagkatapos ng tutuldok.)
+
+## 25. Page para sa access sa beta
+
+Ipinapakita sa sinumang walang access cookie habang naka-on ang password ng pribadong beta. Maikli at magiliw; walang emoji.
+
+**Pamagat sa tab ng browser:** Pribadong beta
+**Heading ng page:** Pribadong beta
+**Intro:** Nasa pribadong beta pa ang project-arcade. Ilagay ang access password para magpatuloy.
+
+**Form**
+- Label ng field: Access password
+- Placeholder: Ilagay ang password
+- Submit button: Magpatuloy
+- Submit button habang nagsusuri: Sinusuri...
+- Error (maling password): Hindi tama ang password na iyan. Pakisubukan ulit.
+- Error (may pumalya): May nangyaring mali. Pakisubukan ulit.
+(Ang linya para sa maling password ay ang nasa brief na dinagdagan ng "Please try again." (Pakisubukan ulit.). Inalis ang error na "sobrang daming subok": walang rate limit ang code, isang maikli at nakapirming paghinto lang pagkatapos ng maling password, kaya hindi kailanman nangyayari ang sitwasyong iyon.)
+
+**Screen reader**
+- Field ng password: ang nakikitang label na "Access password" ang accessible name nito (hindi label ang placeholder).
+- Error: binabasa kapag lumabas ito (role="alert"), at nakakabit sa field gamit ang aria-describedby.
+- Submit button: ang nakikitang teksto ang pangalan nito; walang hiwalay na label.
+- Page: panatilihin ang "Pribadong beta" bilang h1.
+
+**Linya kapag walang password (WALA PA sa page; hawak ni 1号 hanggang mapagpasyahan ang contact):** Wala kang password? Makipag-ugnayan sa amin sa [contact email] at titingnan namin kung ano ang magagawa namin. [TO CONFIRM: ang contact address, kaparehong placeholder ng mga page ng tuntunin at privacy; huwag munang maglagay ng totoong address. Kumpirmahin din kung sino ang puwedeng magbigay ng access.]
+(Mas maikling alternatibo: Wala kang password? Makipag-ugnayan sa amin sa [contact email].)
+
+**Tala (para sa page ng privacy):** inilalarawan ang access cookie sa seksyon 15, Cookies.
+
+## 26. Ano ang bago (pampublikong page ng changelog)
+
+Isang pampublikong page na naglilista ng mga binago sa site, pinakabago muna. Isang pangungusap bawat entry, simpleng pananalita, walang panloob na detalye. Hiwalay ang bawat string para maisalin ito nang mag-isa. Ang code ang nagpapakita ng mga petsa sa wika ng bisita (ang mga ISO na petsa sa ibaba ang pinagmulan). Galing ang mga detalye sa git history at sa mga seksyon sa itaas; sinuri batay sa laman ng mga commit, hindi batay sa live na site.
+
+**Pamagat ng page at h1:** Ano ang bago
+**Pamagat sa tab ng browser:** Ano ang bago
+**Intro (isang linya):** Non-profit ang project-arcade at nasa pre-alpha pa ito. Narito ang mga binago namin hanggang ngayon.
+**Kapag walang laman (walang entry):** Wala pang maipapakita. Bumalik ka ulit sa susunod.
+**Label ng link sa footer:** Ano ang bago
+**Label para sa petsa sa tabi ng bawat grupo ng release:** gamitin ang petsang naka-format para sa bisita; walang dagdag na salita.
+**Label para sa grupong hindi pa nailalabas:** Malapit na
+
+### Mga grupo ng release (pinakabago muna)
+
+**Malapit na** (walang petsa; ililipat ito ni 3号 sa isang grupong may petsa pagka-deploy)
+- Heading: Access sa pribadong beta
+- Habang nasa pribadong beta, naglalagay ang mga bisita ng access password bago nila makita ang site.
+- Isang beses mo lang itong kailangang ilagay sa bawat device, at hindi mo na ito kailangang ilagay ulit nang ilang panahon.
+(Huwag lagyan ng petsa ang grupong ito o ilipat ito hangga't hindi pa live ang page. Sinadya ang "for a while" (nang ilang panahon): 30 araw ang tagal ng cookie, pero hindi ipinapangako sa mga user ang eksaktong haba.)
+
+**2026-10-22**
+- Heading: Madilim na tema at wikang Hapones
+- Pumili ng temang System, Maliwanag o Madilim gamit ang button ng tema o sa settings mo.
+- Available na rin ang site sa wikang Hapones, kaya nasa 12 wika na ito.
+- Hindi lumalabas ang site sa mga search engine habang nasa pre-alpha pa kami.
+- Sinasabi na ngayon ng page na "Tingnan ang email mo" kung saang address galing ang mga email namin.
+- Kapag binubura mo ang account mo, gumagana na rin ngayon ang pag-type ng DELETE gamit ang full-width na mga titik.
+
+**2026-10-20 (ikalawang release)**
+- Heading: Mas maraming wika at legal na page
+- Nasa 11 wika na ngayon ang site, at may pampalit ng wika.
+- Available na ngayon sa lahat ng wika ang mga page ng tuntunin at privacy, bilang hindi opisyal na salin ng tekstong English.
+- Gumagamit na ngayon ng button sa sarili mong wika ang pagpili ng mga litrato para sa listing.
+- Binibilang na namin ngayon ang mga pagbisita sa simple at anonymous na paraan, nang walang cookies para sa ads.
+
+**2026-10-20 (unang release)**
+- Heading: Gawa para sa phone
+- Pinapadali ng bottom bar at back bar ang paggamit ng site sa phone.
+- Puwede mong idagdag sa home screen mo ang site, gaya ng isang app.
+- Mga bagong icon at bagong icon sa tab ng browser.
+- Gamit ang link na "Magpadala ng feedback", puwede mong ipaalam sa amin ang isang bug o ibahagi ang isang ideya.
+- Ipinapaliwanag ng maiikling welcome screen kung paano gumagana ang site sa una mong pag-sign in.
+- Puwede mong i-on o i-off sa settings mo ang pag-vibrate kapag nag-tap.
+
+**2026-10-19 (ikalawang release)**
+- Heading: Bagong pangalan
+- Tinatawag na ngayong project-arcade ang site, at may tag na itong pre-alpha.
+- Puwede nang magpadala ng mga mensahe sa pagitan ng nanghihiram at nagpapahiram.
+- Kailangan na ngayong may hindi bababa sa 8 character ang mga password.
+- Muling iginuhit ang mga ilustrasyon sa home page at sa page na Mag-browse.
+
+**2026-10-19 (unang release)**
+- Heading: Ang unang bersyon
+- Mag-browse ng gamit na handang ipahiram ng mga tao sa komunidad mo.
+- I-list ang sarili mong gamit nang libre o may maliit na bayad, kasama ang bayad-pinsala.
+- Pumila para sa item na gusto mong hiramin.
+- Inaaprubahan ng mga nagpapahiram ang mga request, at may sariling usapan ang bawat hiraman.
+- Ipinapakita ng mga profile ang display name at lungsod.
+- Puwede mong i-report ang isang item o isang tao.
+
+(Mga patakaran para sa mga release sa iisang araw: ang petsa lang ang dapat ipakita ng code. Para sa koordinador ang mga tag na "(unang release)" at "(ikalawang release)" sa itaas, at hindi bahagi ng copy. Ipakita ang heading sa ilalim ng petsa, para manatili sa tamang ayos ang mga grupo sa iisang araw: pinakabago muna.)
+(Tala ng tagasalin: "Gamit ang link na ..." ang ginamit para sa "report a bug" para hindi ito mapagkamalang I-report, na para lang sa pang-aabuso. Ang "Hapones" ang pangalan ng wika; ang "Hapon" ay ang bansa. Hindi pa kumpirmado ang "full-width na mga titik"; walang naunang termino para rito sa file na ito.)
 
 ---
 

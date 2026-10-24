@@ -307,9 +307,10 @@ Before a page view is sent, we remove item, loan and profile IDs from the page p
 
 We don't use this to show ads, and we don't sell it.
 
-Cookies: the site sets two kinds of cookies, both needed for it to work.
+Cookies: the site sets only cookies it needs to work (two kinds, plus a third during the private beta).
 - A sign-in cookie, set by our sign-in provider (Supabase), keeps you signed in. It can be split into several parts.
 - A language cookie remembers the language you chose. It lasts 1 year.
+- While the private beta password is switched on, an access cookie called pa_access remembers that you entered the password. It lasts 30 days and contains no personal information. We stop setting it when the password is switched off. [NEEDS REVIEW: cookie name, 30-day lifetime and "only while the password is on" are from the coordinator's brief, not yet checked in code.]
 
 The site also stores your vibration setting, your theme choice (Light or Dark; nothing is stored if you leave it on System) and your progress through the welcome screens in your browser's local storage on your own device. This is not a cookie and is not sent to us.
 
@@ -913,3 +914,113 @@ Shown on the settings / Me page, and as a button in the desktop page header. Sho
 - Current state, read with the button or shown as its tooltip (one string, {theme} = System / Light / Dark): Theme: {theme}
   - Examples: Theme: System, Theme: Light, Theme: Dark
 (Keep "Change theme" as the button's name and "Theme: Dark" as the tooltip/description, so the action and the current state are both available. Translate {theme} using the same words as the three options above.)
+
+## 25. Beta access page
+
+Shown to anyone without the access cookie while the private beta password is on. Short and friendly; no emoji.
+
+**Browser tab title:** Private beta
+**Page heading:** Private beta
+**Intro:** project-arcade is in private beta. Enter the access password to continue.
+
+**Form**
+- Field label: Access password
+- Placeholder: Enter the password
+- Submit button: Continue
+- Submit button while checking: Checking...
+- Error (wrong password): That password isn't right. Please try again.
+- Error (something failed): Something went wrong. Please try again.
+(The wrong-password line is the one in the brief with "Please try again." added. A "too many tries" error was dropped: the code has no rate limit, only a short fixed pause after a wrong password, so that state never happens.)
+
+**Screen reader**
+- Password field: the visible label "Access password" is its accessible name (the placeholder is not a label).
+- Error: announced when it appears (role="alert"), linked to the field with aria-describedby.
+- Submit button: the visible text is its name; no separate label.
+- Page: keep "Private beta" as the h1.
+
+**No password line (NOT on the page yet; held by 1号 until the contact is decided):** Don't have the password? Contact us at [contact email] and we'll see what we can do. [TO CONFIRM: contact address, same placeholder as the terms and privacy pages; do not write a real address yet. Also confirm who can grant access.]
+(Shorter alternative: Don't have the password? Contact us at [contact email].)
+
+**Note (for the privacy page):** the access cookie is described in section 15, Cookies.
+
+## 26. What's new (public changelog page)
+
+A public page listing what changed on the site, newest first. One sentence per entry, plain words, no internal details. Each string is standalone so it translates on its own. Dates are shown by the code in the visitor's language (ISO dates below are the source). Facts come from the git history and the sections above; checked against the commit contents, not against the live site.
+
+**Page title and h1:** What's new
+**Browser tab title:** What's new
+**Intro (one line):** project-arcade is a non-profit and still in pre-alpha. Here is what we've changed so far.
+**Empty state (no entries):** Nothing to show yet. Check back soon.
+**Footer link label:** What's new
+**Label for the date next to each release group:** use the visitor's formatted date; no extra word.
+**Label for the not-yet-released group:** Coming soon
+
+### Release groups (newest first)
+
+**Coming soon** (no date; 3号 moves it into a dated group on deploy)
+- Heading: Private beta access
+- During the private beta, visitors enter an access password before they can see the site.
+- You only need to enter it once on each device for a while.
+(Do not add this group's date or move it until the page is live. "For a while" is deliberate: the cookie lasts 30 days, but the exact length is not a promise to users.)
+
+**2026-10-22**
+- Heading: Dark mode and Japanese
+- Choose a System, Light or Dark theme with the theme button or in your settings.
+- The site is now also in Japanese, so it comes in 12 languages.
+- The site stays out of search engines while we are in pre-alpha.
+- The check-your-email page now tells you which address our emails come from.
+- When you delete your account, typing DELETE now also works with full-width letters.
+
+**2026-10-20 (second release)**
+- Heading: More languages and legal pages
+- The site now comes in 11 languages, with a language switcher.
+- The terms and privacy pages are now available in every language, as unofficial translations of the English text.
+- Choosing photos for a listing now uses a button in your own language.
+- We now count visits in a basic, anonymous way, with no advertising cookies.
+
+**2026-10-20 (first release)**
+- Heading: Made for phones
+- A bottom bar and a back bar make the site easier to use on a phone.
+- You can add the site to your home screen like an app.
+- New icons and a new browser tab icon.
+- A Send feedback link lets you report a bug or share an idea.
+- Short welcome screens explain how the site works the first time you sign in.
+- You can turn tap vibration on or off in your settings.
+
+**2026-10-19 (second release)**
+- Heading: A new name
+- The site is now called project-arcade and carries a pre-alpha tag.
+- Messages between a borrower and a lender can now be sent.
+- Passwords now need at least 8 characters.
+- Redrawn home page and browse illustrations.
+
+**2026-10-19 (first release)**
+- Heading: The first version
+- Browse gear that people in your community are willing to lend.
+- List your own gear for free or for a small fee, with a damage price.
+- Join a queue for an item you would like to borrow.
+- Lenders approve requests, and each loan has its own conversation.
+- Profiles show a display name and city.
+- You can report an item or a person.
+
+(Rules for same-day releases: the code should show only the date. The "(first release)" and "(second release)" tags above are for the coordinator and are not part of the copy. Show the heading under the date, so same-day groups stay in the right order: newest first.)
+
+## 27. Desktop header theme panel
+
+The desktop header theme button (section 24) opens a small panel with the same three choices as the Appearance section. No new wording is needed: every string below already exists in section 24, so the dictionaries only need the key reused.
+
+**Control (button) accessible name:** Change theme
+**Control tooltip / description (current state):** Theme: {theme}  ({theme} = System / Light / Dark)
+**Panel heading (visible, short):** Theme
+(Reuses the radio group label from section 24. A heading is kept so sighted users see what the choices are for; the panel itself is labelled by it. No intro sentence.)
+
+**Choices (visible label, then one-line description):**
+- System: System follows your device setting.
+- Light: Light always uses the light theme.
+- Dark: Dark always uses the dark theme.
+(Each choice's accessible name is its visible label; the description is attached with aria-describedby, exactly as in section 24.)
+
+**Selected state:** no text. The selected choice is shown by a check mark icon (decorative, aria-hidden) and announced by the radio role itself ("selected" / "checked" comes from the screen reader, so it is not translated by us).
+**Close:** Escape or clicking outside closes the panel; no visible Close button, so no string. (If a Close button is added on touch screens, use "Close".)
+
+**Reuse check:** section 24 strings can be reused as they are. Nothing in this section is new, except that the heading "Theme" is now also visible text (it was only a screen reader label before), so keep its dictionary entry shared with the radio group label.

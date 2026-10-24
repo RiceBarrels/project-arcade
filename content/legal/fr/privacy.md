@@ -41,9 +41,10 @@ Avant l'envoi d'une page vue, nous retirons du chemin de la page les identifiant
 
 Nous n'utilisons pas ces données pour afficher de la publicité, et nous ne les vendons pas.
 
-Cookies : le site définit deux types de cookies, tous deux nécessaires à son fonctionnement.
+Cookies : le site ne définit que les cookies nécessaires à son fonctionnement (deux types, plus un troisième pendant la bêta privée).
 - Un cookie de connexion, défini par notre fournisseur de connexion (Supabase), maintient votre session ouverte. Il peut être divisé en plusieurs parties.
 - Un cookie de langue mémorise la langue que vous avez choisie. Il dure 1 an.
+- Tant que le mot de passe de la bêta privée est activé, un cookie d'accès appelé pa_access mémorise que vous avez saisi le mot de passe. Il dure 30 jours et ne contient aucune information personnelle. Nous cessons de le définir lorsque le mot de passe est désactivé. [NEEDS REVIEW: le nom du cookie, la durée de 30 jours et la mention « uniquement tant que le mot de passe est activé » proviennent des consignes du coordinateur et n'ont pas encore été vérifiés dans le code.]
 
 Le site enregistre aussi votre réglage « Vibrer au toucher », votre choix de thème (Clair ou Sombre ; rien n'est enregistré si vous le laissez sur Système) et votre progression dans les écrans de prise en main dans le stockage local de votre navigateur, sur votre propre appareil. Il ne s'agit pas d'un cookie, et ces données ne nous sont pas envoyées.
 

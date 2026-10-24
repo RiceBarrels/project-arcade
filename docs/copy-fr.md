@@ -323,9 +323,10 @@ Avant l'envoi d'une page vue, nous retirons du chemin de la page les identifiant
 
 Nous n'utilisons pas ces données pour afficher de la publicité, et nous ne les vendons pas.
 
-Cookies : le site définit deux types de cookies, tous deux nécessaires à son fonctionnement.
+Cookies : le site ne définit que les cookies nécessaires à son fonctionnement (deux types, plus un troisième pendant la bêta privée).
 - Un cookie de connexion, défini par notre fournisseur de connexion (Supabase), maintient votre session ouverte. Il peut être divisé en plusieurs parties.
 - Un cookie de langue mémorise la langue que vous avez choisie. Il dure 1 an.
+- Tant que le mot de passe de la bêta privée est activé, un cookie d'accès appelé pa_access mémorise que vous avez saisi le mot de passe. Il dure 30 jours et ne contient aucune information personnelle. Nous cessons de le définir lorsque le mot de passe est désactivé. [NEEDS REVIEW: le nom du cookie, la durée de 30 jours et la mention « uniquement tant que le mot de passe est activé » proviennent des consignes du coordinateur et n'ont pas encore été vérifiés dans le code.]
 
 Le site enregistre aussi votre réglage « Vibrer au toucher », votre choix de thème (Clair ou Sombre ; rien n'est enregistré si vous le laissez sur Système) et votre progression dans les écrans de prise en main dans le stockage local de votre navigateur, sur votre propre appareil. Il ne s'agit pas d'un cookie, et ces données ne nous sont pas envoyées.
 
@@ -762,6 +763,97 @@ Affiché sur la page Paramètres / Moi, et sous forme de bouton dans l'en-tête 
 - État actuel, lu avec le bouton ou affiché en infobulle (une seule chaîne, {theme} = Système / Clair / Sombre) : Thème : {theme}
   - Exemples : « Thème : Système », « Thème : Clair », « Thème : Sombre »
 (Garder « Changer de thème » comme nom du bouton et « Thème : Sombre » comme infobulle ou description, pour que l'action et l'état actuel soient tous deux disponibles. {theme} est remplacé par les mêmes mots que les trois options ci-dessus.)
+
+## 25. Page d'accès à la bêta
+
+Affichée à toute personne qui n'a pas le cookie d'accès, tant que le mot de passe de la bêta privée est activé. Courte et amicale ; aucun emoji.
+
+**Titre de l'onglet du navigateur :** Bêta privée
+**Titre de la page :** Bêta privée
+**Introduction :** project-arcade est en bêta privée. Saisis le mot de passe d'accès pour continuer.
+
+**Formulaire**
+- Libellé du champ : Mot de passe d'accès
+- Texte indicatif (placeholder) : Saisis le mot de passe
+- Bouton d'envoi : Continuer
+- Bouton d'envoi pendant la vérification : Vérification...
+- Erreur (mot de passe incorrect) : Ce mot de passe n'est pas correct. Réessaie.
+- Erreur (autre problème) : Un problème est survenu. Réessaie.
+(La ligne du mot de passe incorrect est celle des consignes, complétée par « Réessaie. » ; l'erreur « trop d'essais » a été retirée, car le code n'a pas de limite de tentatives, seulement une courte pause fixe après un mauvais mot de passe : ce cas ne se produit donc jamais.)
+
+**Lecteur d'écran**
+- Champ du mot de passe : le libellé visible « Mot de passe d'accès » est son nom accessible (le texte indicatif n'est pas un libellé).
+- Erreur : annoncée dès qu'elle apparaît (role="alert"), et rattachée au champ avec aria-describedby.
+- Bouton d'envoi : son texte visible est son nom ; pas de libellé distinct.
+- Page : garder « Bêta privée » comme h1.
+
+**Ligne « pas de mot de passe » (PAS encore sur la page ; mise en attente par 1号 jusqu'à ce que le contact soit décidé) :** Tu n'as pas le mot de passe ? Contacte-nous à [contact email] et nous verrons ce que nous pouvons faire. [TO CONFIRM: adresse de contact, même élément provisoire que sur les pages des conditions d'utilisation et de confidentialité ; ne pas encore écrire de vraie adresse. Confirmer aussi qui peut accorder l'accès.]
+(Variante plus courte : Tu n'as pas le mot de passe ? Contacte-nous à [contact email].)
+
+**Note (pour la page de confidentialité) :** le cookie d'accès est décrit à la section 15, Cookies.
+
+## 26. Nouveautés (page publique du journal des modifications)
+
+Une page publique qui liste ce qui a changé sur le site, du plus récent au plus ancien. Une phrase par entrée, des mots simples, aucun détail interne. Chaque texte est autonome et se traduit donc seul. Les dates sont affichées par le code dans la langue du visiteur (les dates ISO ci-dessous sont la source). Les faits viennent de l'historique git et des sections ci-dessus ; ils ont été vérifiés par rapport au contenu des commits, pas par rapport au site en ligne.
+
+**Titre de la page et h1 :** Nouveautés
+**Titre de l'onglet du navigateur :** Nouveautés
+**Introduction (une ligne) :** project-arcade est un projet sans but lucratif, encore en pre-alpha. Voici ce que nous avons changé jusqu'à présent.
+**État vide (aucune entrée) :** Rien à afficher pour l'instant. Reviens bientôt.
+**Libellé du lien dans le pied de page :** Nouveautés
+**Libellé de la date à côté de chaque groupe de versions :** utiliser la date formatée pour le visiteur ; aucun mot en plus.
+**Libellé du groupe pas encore publié :** À venir
+
+### Groupes de versions (du plus récent au plus ancien)
+
+**À venir** (sans date ; 3号 le déplace dans un groupe daté au moment du déploiement)
+- Titre : Accès à la bêta privée
+- Pendant la bêta privée, les visiteurs saisissent un mot de passe d'accès avant de pouvoir voir le site.
+- Tu n'as besoin de le saisir qu'une fois par appareil, et ça reste valable un certain temps.
+(Ne pas ajouter de date à ce groupe ni le déplacer avant que la page soit en ligne. « Pour un certain temps » est voulu : le cookie dure 30 jours, mais la durée exacte n'est pas une promesse faite aux utilisateurs.)
+
+**2026-10-22**
+- Titre : Mode sombre et japonais
+- Choisis un thème Système, Clair ou Sombre avec le bouton de thème ou dans tes paramètres.
+- Le site existe maintenant aussi en japonais, il est donc disponible en 12 langues.
+- Le site n'apparaît pas dans les moteurs de recherche tant que nous sommes en pre-alpha.
+- La page « Consulte tes e-mails » indique maintenant l'adresse d'où proviennent nos e-mails.
+- Quand tu supprimes ton compte, la saisie de DELETE fonctionne maintenant aussi avec des lettres pleine chasse.
+
+**2026-10-20 (deuxième version)**
+- Titre : Plus de langues et des pages juridiques
+- Le site est maintenant disponible en 11 langues, avec un sélecteur de langue.
+- Les pages des conditions d'utilisation et de confidentialité sont maintenant disponibles dans toutes les langues, sous forme de traductions non officielles du texte anglais.
+- Le choix des photos d'une annonce se fait maintenant avec un bouton dans ta langue.
+- Nous comptons maintenant les visites de façon simple et anonyme, sans cookies publicitaires.
+
+**2026-10-20 (première version)**
+- Titre : Pensé pour les téléphones
+- Une barre inférieure et une barre de retour rendent le site plus facile à utiliser sur un téléphone.
+- Tu peux ajouter le site à ton écran d'accueil, comme une application.
+- Nouvelles icônes et nouvelle icône pour l'onglet du navigateur.
+- Un lien « Envoyer des commentaires » te permet de nous indiquer un bug ou de partager une idée.
+- De courts écrans de bienvenue expliquent le fonctionnement du site lors de ta première connexion.
+- Tu peux activer ou désactiver la vibration au toucher dans tes paramètres.
+
+**2026-10-19 (deuxième version)**
+- Titre : Un nouveau nom
+- Le site s'appelle maintenant project-arcade et porte l'étiquette pre-alpha.
+- Un emprunteur et un prêteur peuvent maintenant s'envoyer des messages.
+- Les mots de passe doivent maintenant contenir au moins 8 caractères.
+- Illustrations redessinées pour la page d'accueil et la page Parcourir.
+
+**2026-10-19 (première version)**
+- Titre : La première version
+- Parcours le matériel que les membres de ta communauté veulent bien prêter.
+- Propose ton propre matériel gratuitement ou contre une petite somme, avec un montant de dédommagement.
+- Rejoins la file d'un objet que tu aimerais emprunter.
+- Les prêteurs approuvent les demandes, et chaque prêt a sa propre conversation.
+- Les profils montrent un nom affiché et une ville.
+- Tu peux signaler un objet ou une personne.
+
+(Règles pour les versions publiées le même jour : le code doit afficher uniquement la date. Les mentions « (première version) » et « (deuxième version) » ci-dessus sont destinées au coordinateur et ne font pas partie du texte. Afficher le titre sous la date, pour que les groupes du même jour restent dans le bon ordre : du plus récent au plus ancien.)
+(Note du traducteur, absente de l'anglais : dans le dictionnaire, les guillemets « » sont suivis et précédés d'une espace insécable, comme dans le reste de fr.json ; ce fichier utilise des espaces ordinaires. « Pleine chasse » est le terme typographique français pour les caractères « full-width ». Le titre de la page reste « Nouveautés » sans ponctuation, pour tenir dans le pied de page.)
 
 ---
 

@@ -323,9 +323,10 @@ Antes de uma visualização de página ser enviada, removemos do caminho da pág
 
 Não usamos esses dados para mostrar anúncios e não os vendemos.
 
-Cookies: o site define dois tipos de cookies, ambos necessários para que ele funcione.
+Cookies: o site define somente os cookies necessários para que ele funcione (dois tipos, mais um terceiro durante o beta fechado).
 - Um cookie de login, definido pelo nosso provedor de login (Supabase), mantém o usuário conectado. Ele pode ser dividido em várias partes.
 - Um cookie de idioma guarda o idioma escolhido pelo usuário. Ele dura 1 ano.
+- Enquanto a senha do beta fechado estiver ativada, um cookie de acesso chamado pa_access guarda a informação de que o usuário digitou a senha. Ele dura 30 dias e não contém informações pessoais. Deixamos de definir esse cookie quando a senha é desativada. [NEEDS REVIEW: o nome do cookie, a duração de 30 dias e o "somente enquanto a senha estiver ativada" vêm das instruções da coordenação e ainda não foram verificados no código.]
 
 O site também armazena a configuração de vibração (Vibrar ao tocar), a escolha de tema do usuário (Claro ou Escuro; nada é armazenado se o usuário mantiver a opção Sistema) e o progresso do usuário nas telas de introdução no armazenamento local (local storage) do navegador, no próprio dispositivo do usuário. Isso não é um cookie e não é enviado para nós.
 
@@ -761,6 +762,97 @@ Aparece na página de configurações / Perfil e como um botão no cabeçalho da
 - Estado atual, lido junto com o botão ou mostrado como dica (tooltip) dele (uma única string, {theme} = Sistema / Claro / Escuro): Tema: {theme}
   - Exemplos: Tema: Sistema, Tema: Claro, Tema: Escuro
 (Manter "Mudar tema" como nome do botão e "Tema: Escuro" como dica/descrição, para que a ação e o estado atual fiquem disponíveis. Traduzir {theme} com as mesmas palavras das três opções acima.)
+
+## 25. Página de acesso ao beta
+
+Exibida para quem não tem o cookie de acesso enquanto a senha do beta fechado estiver ativada. Curta e amigável; sem emoji.
+
+**Título da aba do navegador:** Beta fechado
+**Título da página:** Beta fechado
+**Introdução:** O project-arcade está em beta fechado. Digite a senha de acesso para continuar.
+
+**Formulário**
+- Rótulo do campo: Senha de acesso
+- Texto de exemplo do campo: Digite a senha
+- Botão de envio: Continuar
+- Botão de envio durante a verificação: Verificando...
+- Erro (senha errada): Essa senha não está certa. Tente de novo.
+- Erro (algo deu errado): Algo deu errado. Tente de novo.
+(A linha de senha errada é a das instruções da coordenação, com "Tente de novo." acrescentado. O erro de "tentativas demais" foi retirado: o código não tem limite de tentativas, só uma pausa curta e fixa depois de uma senha errada, então essa situação nunca acontece.)
+
+**Leitores de tela**
+- Campo de senha: o rótulo visível "Senha de acesso" é o nome acessível dele (o texto de exemplo não é um rótulo).
+- Erro: anunciado quando aparece (role="alert"), associado ao campo com aria-describedby.
+- Botão de envio: o texto visível é o nome dele; sem rótulo separado.
+- Página: manter "Beta fechado" como h1.
+
+**Linha para quem não tem a senha (AINDA NÃO está na página; 1号 a mantém em espera até o contato ser definido):** Não tem a senha? Fale com a gente em [contact email] e vamos ver o que podemos fazer. [TO CONFIRM: endereço de contato, o mesmo marcador das páginas de termos e de privacidade; não escrever um endereço real ainda. Confirmar também quem pode liberar o acesso.]
+(Alternativa mais curta: Não tem a senha? Fale com a gente em [contact email].)
+
+**Nota (para a página de privacidade):** o cookie de acesso é descrito na seção 15, Cookies.
+
+## 26. Novidades (página pública de mudanças)
+
+Uma página pública que lista o que mudou no site, do mais recente para o mais antigo. Uma frase por item, palavras simples, sem detalhes internos. Cada string é independente, para poder ser traduzida sozinha. As datas são mostradas pelo código no idioma de quem visita (as datas ISO abaixo são a fonte). Os fatos vêm do histórico do git e das seções acima; foram conferidos com o conteúdo dos commits, não com o site no ar.
+
+**Título da página e h1:** Novidades
+**Título da aba do navegador:** Novidades
+**Introdução (uma linha):** O project-arcade é um projeto sem fins lucrativos e ainda está em pre-alpha. Veja o que mudamos até agora.
+**Estado vazio (nenhum item):** Ainda não há nada para mostrar. Volte em breve.
+**Rótulo do link no rodapé:** Novidades
+**Rótulo da data ao lado de cada grupo de mudanças:** usar a data formatada no idioma de quem visita; sem palavra extra.
+**Rótulo do grupo ainda não publicado:** Em breve
+
+### Grupos de mudanças (do mais recente para o mais antigo)
+
+**Em breve** (sem data; 3号 o move para um grupo com data na publicação)
+- Título: Acesso ao beta fechado
+- Durante o beta fechado, quem visita o site precisa digitar uma senha de acesso antes de vê-lo.
+- Basta digitá-la uma vez em cada dispositivo, e ela fica valendo por um tempo.
+(Não colocar a data deste grupo nem movê-lo até a página estar no ar. "Por um tempo" é proposital: o cookie dura 30 dias, mas a duração exata não é uma promessa aos usuários.)
+
+**2026-10-22**
+- Título: Modo escuro e japonês
+- Escolha o tema Sistema, Claro ou Escuro pelo botão de tema ou nas configurações.
+- O site agora também está em japonês, então está disponível em 12 idiomas.
+- O site fica fora dos mecanismos de busca enquanto estivermos em pre-alpha.
+- A página Confira seu e-mail agora mostra de qual endereço vêm os nossos e-mails.
+- Ao excluir sua conta, digitar DELETE agora também funciona com letras de largura total.
+
+**2026-10-20 (segunda publicação)**
+- Título: Mais idiomas e páginas jurídicas
+- O site agora está disponível em 11 idiomas, com um seletor de idioma.
+- As páginas de termos de uso e de privacidade agora estão disponíveis em todos os idiomas, como traduções não oficiais do texto em inglês.
+- Para escolher as fotos de uma publicação, agora há um botão no seu idioma.
+- Agora contamos as visitas de forma básica e anônima, sem cookies de publicidade.
+
+**2026-10-20 (primeira publicação)**
+- Título: Feito para o celular
+- Uma barra inferior e uma barra com o botão Voltar deixam o site mais fácil de usar no celular.
+- Você pode adicionar o site à tela inicial como um app.
+- Novos ícones e um novo ícone na aba do navegador.
+- Com o link Enviar feedback, você pode avisar sobre um bug ou compartilhar uma ideia.
+- Telas curtas de introdução explicam como o site funciona quando você faz login pela primeira vez.
+- Nas configurações, você pode ligar ou desligar a vibração ao tocar.
+
+**2026-10-19 (segunda publicação)**
+- Título: Um nome novo
+- O site agora se chama project-arcade e tem o selo pre-alpha.
+- Agora é possível trocar mensagens entre um tomador e um emprestador.
+- As senhas agora precisam ter pelo menos 8 caracteres.
+- Ilustrações redesenhadas na página inicial e na página Explorar.
+
+**2026-10-19 (primeira publicação)**
+- Título: A primeira versão
+- Explore os equipamentos que as pessoas da sua comunidade estão dispostas a emprestar.
+- Publique seus próprios equipamentos de graça ou por uma taxa pequena, com um valor por danos.
+- Entre na fila de um item que você gostaria de pegar emprestado.
+- Os emprestadores aprovam os pedidos, e cada empréstimo tem sua própria conversa.
+- Os perfis mostram nome de exibição e cidade.
+- Você pode denunciar um item ou uma pessoa.
+
+(Regras para publicações no mesmo dia: o código deve mostrar só a data. As marcas "(primeira publicação)" e "(segunda publicação)" acima são para a coordenação e não fazem parte do texto. Mostrar o título abaixo da data, para que os grupos do mesmo dia fiquem na ordem certa: do mais recente para o mais antigo.)
+(Nota de tradução: "letras de largura total" corresponde a "full-width letters", os caracteres de largura total usados em teclados japoneses, chineses e coreanos; DELETE fica em inglês porque o código compara essa palavra. "Enviar feedback" é o rótulo do link, sem aspas, como na seção 19. "Confira seu e-mail" é o nome da página, sem aspas, como em "na página Explorar". "Vibração ao tocar" segue o rótulo "Vibrar ao tocar" da seção 18; a frase começa com "Nas configurações" para que "ao tocar nas configurações" não seja lido como "tocar nas configurações". "Telas de introdução" segue a seção 18.1 e a política de privacidade. "Faz login" segue "Faça login para entrar na fila." e evita que "entra" seja lido como uma simples visita ao site. "Tela inicial" é o termo do Android; no iPhone a tela se chama "Tela de Início", e as duas formas são entendidas.)
 
 ---
 
